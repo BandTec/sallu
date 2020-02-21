@@ -23,45 +23,49 @@ const theme = createMuiTheme({
     fontFamily: 'Roboto',
   },
   palette: {
-    primary: {
-      main: '',
-      contrastText: '',
-      dark: '',
-      light: '',
-    },
-    secondary: {
-      main: '',
-      contrastText: '',
-      dark: '',
-      light: '',
-    },
-    action: {
-      active: '',
-      disabled: '',
-      hover: '',
-      selected: '',
-      focus: ''
-    },
+    // primary: {
+    //   main: '',
+    //   contrastText: '',
+    //   dark: '',
+    //   light: '',
+    // },
+    // secondary: {
+    //   main: '',
+    //   contrastText: '',
+    //   dark: '',
+    //   light: '',
+    // },
+    // action: {
+    //   active: '',
+    //   disabled: '',
+    //   hover: '',
+    //   selected: '',
+    //   focus: ''
+    // },
     background: {
         default: '#F5F5F5',
         paper: '#FFF',
     },
-    text: {
-      disabled: '',
-      hint: '',
-      primary: '',
-      secondary: '',
-    },
-    divider: '',
-    getContrastText: '',
-    type: '',
+    // text: {
+    //   disabled: '',
+    //   hint: '',
+    //   primary: '',
+    //   secondary: '',
+    // },
+    // divider: '',
+    // getContrastText: '',
+    // type: '',
   },
 });
 
-const ThemeProviderApp = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    {children}
-  </ThemeProvider>
-);
+const ThemeProviderApp = ({ children }) => {
+
+
+  return (
+    <ThemeProvider theme={theme}>
+      {children}
+    </ThemeProvider>
+  );
+}
 
 export default ThemeProviderApp;
