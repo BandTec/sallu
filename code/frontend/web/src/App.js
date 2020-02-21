@@ -1,9 +1,14 @@
 import React from 'react';
 
-function App() {
-  return (
-    <h1>Hello World</h1>
-  );
-}
+import ThemeProvider from './providers/themeProvider';
+import GlobalStyles from './styles/global';
+import { Routes } from './configs/routes';
+
+const App = () => (
+  <ThemeProvider>
+    <GlobalStyles />
+    <Routes />
+  </ThemeProvider>
+);
 
 export default App;
