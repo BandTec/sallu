@@ -12,7 +12,7 @@ const reducer = (state, { type, value: { prop, value } }) => {
           [prop]: value
         }
       }
-  
+
     default:
       return state;
   }

@@ -5,7 +5,7 @@ const reducer = (state, { type, value: { prop, value } }) => {
         ...state,
         login: {
           ...state.login,
-          [prop]: value 
+          [prop]: value
         }
       }
 

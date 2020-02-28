@@ -16,14 +16,14 @@ const AppContext = createContext();
 // Component
 // =============================================================================
 
-const ContextProvider = ({children}) => {
+const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const actions = actionsCreator(dispatch);
 
   const { Provider } = AppContext;
 
   return (
-    <Provider value={{state, dispatch, actions}}>
+    <Provider value={{ state, dispatch, actions }}>
       {children}
     </Provider>
   );

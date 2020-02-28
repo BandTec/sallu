@@ -3,7 +3,7 @@
 // =============================================================================
 
 const preferencesState = JSON.parse(
-  localStorage.getItem('preferences') 
+  localStorage.getItem('preferences')
 ) || {
   theme: 'light'
 }

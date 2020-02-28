@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 // import { makeStyles } from '@material-ui/core/styles'
 
 // const global = makeStyles(theme => ({
-  
+
 // }))
 
 const GlobalStyles = createGlobalStyle`

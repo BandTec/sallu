@@ -16,12 +16,12 @@ const PrivateRoute = ({ children, ...rest }) => (
       isAuthenticated() ? (
         children
       ) : (
-        <Redirect to={{
+          <Redirect to={{
             pathname: '/',
             state: { from: location }
           }}
-        />
-      )
+          />
+        )
     }
   />
 );
@@ -33,7 +33,7 @@ const Routes = () => (
       <Route path={ROUTE_PATH.SIGNUP} component={SignUp} />
       <PrivateRoute path={ROUTE_PATH.DASHBOARD} component={Dashboard} />
       <Route path="*" component={NotFound} />
-      <Redirect to={ROUTE_PATH.SIGNIN } />
+      <Redirect to={ROUTE_PATH.SIGNIN} />
     </Switch>
   </BrowserRouter>
 );
