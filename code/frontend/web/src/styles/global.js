@@ -1,4 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
+// import { makeStyles } from '@material-ui/core/styles'
+
+// const global = makeStyles(theme => ({
+  
+// }))
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -6,10 +11,11 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     outline: 0;
     padding: 0;
+    transition: '0.4s'
   }
 
   body, html {
-    background: '#FAFAFA';
+    background: '#333333';
     font-family: 'Roboto', Arial, sans-serif;
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialised !important;
