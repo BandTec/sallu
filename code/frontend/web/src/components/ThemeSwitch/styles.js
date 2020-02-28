@@ -7,20 +7,12 @@ export default makeStyles(theme => ({
     padding: 0,
     margin: theme.spacing(1)
   },
-  light: {
-    background: '#E5E5E5',
-    color: '#000',
+  button: {
+    background: theme.palette.switcher.default(),
+    color: theme.typography.switcher(),
     transition: '0.4s',
     '&:hover': {
-      background: '#D2D2D2',
-    },
-  },
-  dark: {
-    background: '#212121',
-    color: '#FFF',
-    transition: '0.4s',
-    '&:hover': {
-      background: '#383838',
+      background: theme.palette.switcher.hover(),
     },
   },
 }));

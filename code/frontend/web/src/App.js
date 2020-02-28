@@ -6,12 +6,12 @@ import GlobalStyles from './styles/global';
 import { Routes } from './configs/routes';
 
 const App = () => (
-  <ThemeProvider>
-    <ContextProvider>
+  <ContextProvider>
+    <ThemeProvider>
       <GlobalStyles />
       <Routes />
-    </ContextProvider>
-  </ThemeProvider>
+    </ThemeProvider>
+  </ContextProvider>
 );
 
 export default App;

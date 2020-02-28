@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { AppContext } from './contextProvider'
 
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 
-const theme = createMuiTheme({
+const defDarkColor = '#212121'
+const defDarkColorHover = '#313131'
+
+const defLightColor = '#F1F1F1'
+const defLightColorHover = '#D1D1D1'
+
+const defTheme = (theme) => createMuiTheme({
   spacing: 15,
   shape: {
     borderRadius: 10,
@@ -21,6 +29,8 @@ const theme = createMuiTheme({
   },
   typography: {
     fontFamily: 'Roboto',
+    fontColor: () => theme === 'light' ? '#000' : '#FFF',
+    switcher: () => theme === 'light' ? '#FFF' : '#000'
   },
   palette: {
     // primary: {
@@ -43,9 +53,14 @@ const theme = createMuiTheme({
     //   focus: ''
     // },
     background: {
-        default: '#F5F5F5',
-        paper: '#FFF',
+      default: () => theme === 'light' ? defLightColor : defDarkColor,
+      paper: () => theme === 'light' ? '#FFF' : '#222',
+      hover: () => theme === 'light' ? defLightColorHover : defDarkColorHover,
     },
+    switcher: {
+      default: () => theme === 'light' ? defDarkColor : defLightColor,
+      hover: () => theme === 'light' ? defDarkColorHover : defLightColorHover,
+    }
     // text: {
     //   disabled: '',
     //   hint: '',
@@ -59,10 +74,10 @@ const theme = createMuiTheme({
 });
 
 const ThemeProviderApp = ({ children }) => {
-
+  const { state: { preferences: { theme } } } = useContext(AppContext)
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={defTheme(theme)}>
       {children}
     </ThemeProvider>
   );

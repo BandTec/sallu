@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
+
 import {
   InputAdornment,
   IconButton
 } from '@material-ui/core';
+
 import {
   Brightness2Outlined,
   Brightness5Outlined
@@ -18,18 +20,18 @@ const ThemeSwitch = () => {
   const { theme } = state.preferences;
   const { setPreferences } = actions.preferences;
 
-  const handleChangeTheme = () => theme == 'light'
-  ? setPreferences('theme', 'dark')
-  : setPreferences('theme', 'light');
+  const handleChangeTheme = () => theme === 'light'
+    ? setPreferences('theme', 'dark')
+    : setPreferences('theme', 'light');
 
   return (
     <InputAdornment className={classes.root}>
-    <IconButton
-      className={theme === 'light' ? classes.light : classes.dark}
-      onClick={handleChangeTheme}
-    >
-      {theme === 'light' ? <Brightness5Outlined /> : <Brightness2Outlined />}
-    </IconButton>
+      <IconButton
+        className={classes.button}
+        onClick={handleChangeTheme}
+      >
+        {theme === 'light' ? <Brightness2Outlined /> : <Brightness5Outlined />}
+      </IconButton>
     </InputAdornment>
   );
 }
