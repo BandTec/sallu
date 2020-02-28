@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext } from 'react'
 
 import { AppContext } from './contextProvider'
 
-import { createMuiTheme } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
+import { createMuiTheme } from '@material-ui/core/styles'
+import { ThemeProvider } from '@material-ui/styles'
 
 const defDarkColor = '#212121'
 const defDarkColorHover = '#313131'
@@ -14,7 +14,7 @@ const defLightColorHover = '#D1D1D1'
 const defTheme = (theme) => createMuiTheme({
   spacing: 15,
   shape: {
-    borderRadius: 10,
+    borderRadius: 10
   },
   transitions: {
     duration: {
@@ -24,8 +24,8 @@ const defTheme = (theme) => createMuiTheme({
       short: '0.4s',
       shorter: '0.2s',
       shortest: '0.1s',
-      standard: '0.5s',
-    },
+      standard: '0.5s'
+    }
   },
   typography: {
     fontFamily: 'Roboto',
@@ -55,11 +55,11 @@ const defTheme = (theme) => createMuiTheme({
     background: {
       default: () => theme === 'light' ? defLightColor : defDarkColor,
       paper: () => theme === 'light' ? '#FFF' : '#222',
-      hover: () => theme === 'light' ? defLightColorHover : defDarkColorHover,
+      hover: () => theme === 'light' ? defLightColorHover : defDarkColorHover
     },
     switcher: {
       default: () => theme === 'light' ? defDarkColor : defLightColor,
-      hover: () => theme === 'light' ? defDarkColorHover : defLightColorHover,
+      hover: () => theme === 'light' ? defDarkColorHover : defLightColorHover
     }
     // text: {
     //   disabled: '',
@@ -70,8 +70,8 @@ const defTheme = (theme) => createMuiTheme({
     // divider: '',
     // getContrastText: '',
     // type: '',
-  },
-});
+  }
+})
 
 const ThemeProviderApp = ({ children }) => {
   const { state: { preferences: { theme } } } = useContext(AppContext)
@@ -80,7 +80,7 @@ const ThemeProviderApp = ({ children }) => {
     <ThemeProvider theme={defTheme(theme)}>
       {children}
     </ThemeProvider>
-  );
+  )
 }
 
-export default ThemeProviderApp;
+export default ThemeProviderApp

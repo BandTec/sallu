@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 // import { makeStyles } from '@material-ui/core/styles'
 
 // const global = makeStyles(theme => ({
@@ -22,6 +22,6 @@ const GlobalStyles = createGlobalStyle`
     width: 100%;
     height: 100%;
   }
-`;
+`
 
-export default GlobalStyles;
+export default GlobalStyles

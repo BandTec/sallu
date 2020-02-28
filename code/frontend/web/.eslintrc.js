@@ -23,6 +23,5 @@ module.exports = {
     'react'
   ],
   rules: {
-    'pretier/prettier': 'error'
   }
 }

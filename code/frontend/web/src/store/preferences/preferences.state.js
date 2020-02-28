@@ -12,4 +12,4 @@ const preferencesState = JSON.parse(
 //   theme: 'light',
 // }
 
-export default preferencesState;
+export default preferencesState

@@ -10,8 +10,8 @@ const reducer = (state, { type, value: { prop, value } }) => {
       }
 
     default:
-      return state;
+      return state
   }
 }
 
-export default reducer;
+export default reducer

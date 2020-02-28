@@ -2,15 +2,14 @@
 // Base Routes
 // =============================================================================
 
-const BASE = '/';
-const SIGNIN = '/signin';
-const SIGNUP = '/signup';
-const DASHBOARD = '/dashboard';
+const BASE = '/'
+const SIGNIN = '/signin'
+const SIGNUP = '/signup'
+const DASHBOARD = '/dashboard'
 
 // =============================================================================
 // Sub Routes
 // =============================================================================
-
 
 // =============================================================================
 // Exports
@@ -21,6 +20,6 @@ const ROUTES_PATCH = {
   SIGNIN,
   SIGNUP,
   DASHBOARD
-};
+}
 
-export default ROUTES_PATCH;
+export default ROUTES_PATCH

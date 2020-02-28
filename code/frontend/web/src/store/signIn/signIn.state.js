@@ -13,4 +13,4 @@ const signInState = {
   connectionError: false
 }
 
-export default signInState;
+export default signInState

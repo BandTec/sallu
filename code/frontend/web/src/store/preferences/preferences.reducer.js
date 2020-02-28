@@ -4,7 +4,7 @@ const reducer = (state, { type, value: { prop, value } }) => {
       localStorage.setItem('preferences', JSON.stringify({
         ...state.preferences,
         [prop]: value
-      }));
+      }))
       return {
         ...state,
         preferences: {
@@ -14,8 +14,8 @@ const reducer = (state, { type, value: { prop, value } }) => {
       }
 
     default:
-      return state;
+      return state
   }
 }
 
-export default reducer;
+export default reducer

@@ -1,13 +1,13 @@
-import preferencesReducer from './preferences/preferences.reducer';
-import signInReducer from './signIn/signIn.reducer';
+import preferencesReducer from './preferences/preferences.reducer'
+import signInReducer from './signIn/signIn.reducer'
 
 const reducer = (state, action) => {
-  let newState = state;
+  let newState = state
 
-  newState = preferencesReducer(newState, action);
-  newState = signInReducer(newState, action);
+  newState = preferencesReducer(newState, action)
+  newState = signInReducer(newState, action)
 
-  return newState;
+  return newState
 }
 
-export default reducer;
+export default reducer

@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles'
 
 export default makeStyles(theme => ({
   root: {
@@ -12,7 +12,7 @@ export default makeStyles(theme => ({
     color: theme.typography.switcher(),
     transition: '0.4s',
     '&:hover': {
-      background: theme.palette.switcher.hover(),
-    },
-  },
-}));
+      background: theme.palette.switcher.hover()
+    }
+  }
+}))

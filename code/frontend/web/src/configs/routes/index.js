@@ -1,4 +1,4 @@
-import Routes from './routes';
-import routePatch from './patch';
+import Routes from './routes'
+import routePatch from './patch'
 
-export { Routes, routePatch };
+export { Routes, routePatch }

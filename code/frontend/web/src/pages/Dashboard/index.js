@@ -8,7 +8,7 @@ const Dashboard = () => {
       <h1>Dashboard Page!</h1>
       <ThemeSwitch />
     </>
-  );
+  )
 }
 
-export default Dashboard;
+export default Dashboard

@@ -1,30 +1,25 @@
-import React from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import React from 'react'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
-import { isAuthenticated } from '../../services/auth';
-import ROUTE_PATH from './patch';
+import { isAuthenticated } from '../../services/auth'
+import ROUTE_PATH from './patch'
 
-import Dashboard from '../../pages/Dashboard';
-import NotFound from '../../pages/NotFound';
-import SignIn from '../../pages/SignIn';
-import SignUp from '../../pages/SignUp';
+import Dashboard from '../../pages/Dashboard'
+import NotFound from '../../pages/NotFound'
+import SignIn from '../../pages/SignIn'
+import SignUp from '../../pages/SignUp'
 
 const PrivateRoute = ({ children, ...rest }) => (
   <Route
     {...rest}
     render={({ location }) =>
-      isAuthenticated() ? (
-        children
-      ) : (
-          <Redirect to={{
-            pathname: '/',
-            state: { from: location }
-          }}
-          />
+      isAuthenticated() ? (children)
+        : (
+          <Redirect to={{ pathname: '/', state: { from: location } }} />
         )
     }
   />
-);
+)
 
 const Routes = () => (
   <BrowserRouter>
@@ -36,6 +31,6 @@ const Routes = () => (
       <Redirect to={ROUTE_PATH.SIGNIN} />
     </Switch>
   </BrowserRouter>
-);
+)
 
-export default Routes;
+export default Routes
