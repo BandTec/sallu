@@ -1,18 +1,33 @@
+import React from 'react'
 import styled from 'styled-components'
 import { useTheme } from '@material-ui/core/styles'
 
-const theme = useTheme()
+// =============================================================================
+// Button
+// =============================================================================
 
-const Button = styled.button``
-
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+const StyledButton = styled.button`
+  text-decoration: none;
+  height: 48;
 `
 
-const Form = styled.form`
+export const Button = ({ children }) => {
+  const theme = useTheme()
+
+  return <StyledButton theme={theme}>{children}</StyledButton>
+}
+
+// =============================================================================
+// Form (Default)
+// =============================================================================
+
+const StyledForm = styled.form`
   width: 400;
-  background: ${theme.palette.background.default}
+  background: ${({ theme }) => theme.palette.primary.main};
 `
+
+export const Form = ({ children }) => {
+  const theme = useTheme()
+
+  return <StyledForm theme={theme}>{children}</StyledForm>
+}

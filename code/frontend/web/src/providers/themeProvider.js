@@ -17,6 +17,7 @@ const defTheme = (theme) => createMuiTheme({
     borderRadius: 10
   },
   transitions: {
+    default: '0.4s',
     duration: {
       complex: '0.2s',
       enteringScreen: '0.2s',

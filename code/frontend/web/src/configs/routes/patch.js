@@ -3,9 +3,10 @@
 // =============================================================================
 
 const BASE = '/'
+const HOME = '/home'
+const DASHBOARD = '/dashboard'
 const SIGNIN = '/signin'
 const SIGNUP = '/signup'
-const DASHBOARD = '/dashboard'
 
 // =============================================================================
 // Sub Routes
@@ -17,9 +18,10 @@ const DASHBOARD = '/dashboard'
 
 const ROUTES_PATCH = {
   BASE,
+  DASHBOARD,
+  HOME,
   SIGNIN,
-  SIGNUP,
-  DASHBOARD
+  SIGNUP
 }
 
 export default ROUTES_PATCH

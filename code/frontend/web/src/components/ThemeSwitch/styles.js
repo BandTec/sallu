@@ -10,7 +10,7 @@ export default makeStyles(theme => ({
   button: {
     background: theme.palette.switcher.default(),
     color: theme.typography.switcher(),
-    transition: '0.4s',
+    transition: theme.transitions.default,
     '&:hover': {
       background: theme.palette.switcher.hover()
     }
