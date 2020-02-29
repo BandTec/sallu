@@ -122,7 +122,7 @@ button:focus {
 .main_title h2 {
   font-family: "Oswald", sans-serif;
   font-size: 36px;
-  color: #222222;
+  color: #ff5050;
   margin-bottom: 12px;
 }
 
@@ -174,7 +174,7 @@ button:focus {
 }
 
 .header_area .navbar .nav .nav-item:hover .nav-link, .header_area .navbar .nav .nav-item.active .nav-link {
-  color: #fab700;
+  color: #ff5050;
 }
 
 .header_area .navbar .nav .nav-item.submenu {
@@ -338,7 +338,7 @@ button:focus {
 }
 
 .top_menu .header_social li:hover a {
-  color: #fab700;
+  color: #ff5050;
 }
 
 .top_menu .ac_btn {
@@ -359,16 +359,16 @@ button:focus {
 }
 
 .top_menu .ac_btn:hover {
-  background: #fab700;
+  background: #ff5050;
   color: #fff;
-  border-color: #fab700;
+  border-color: #ff5050;
 }
 
 .top_menu .dn_btn {
   line-height: 28px;
-  border: 1px solid #fab700;
+  border: 1px solid #ff5050;
   display: inline-block;
-  background: #fab700;
+  background: #ff5050;
   padding: 0px 19px;
   font-size: 12px;
   font-family: "Roboto", sans-serif;
@@ -384,7 +384,7 @@ button:focus {
 .top_menu .dn_btn:hover {
   background: transparent;
   color: #222222;
-  border-color: #fab700;
+  border-color: #ff5050;
 }
 
 .top_menu .lan_pack {
@@ -467,7 +467,7 @@ button:focus {
 }
 
 .home_banner_area .banner_inner .banner_content h3 span {
-  background: #fab700;
+  background: #ff5050;
   border-radius: 4px;
   line-height: 60px;
   color: #222222;
