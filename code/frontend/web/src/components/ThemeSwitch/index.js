@@ -1,17 +1,11 @@
 import React, { useContext } from 'react'
 
-import {
-  InputAdornment,
-  IconButton
-} from '@material-ui/core'
+import { InputAdornment, IconButton } from '@material-ui/core'
+import { Brightness2Outlined, WbSunny } from '@material-ui/icons'
 
-import {
-  Brightness2Outlined,
-  Brightness5Outlined
-} from '@material-ui/icons'
+import useStyles from './styles'
 
 import { AppContext } from '../../providers/contextProvider'
-import useStyles from './styles'
 
 const ThemeSwitch = () => {
   const classes = useStyles()
@@ -30,7 +24,7 @@ const ThemeSwitch = () => {
         className={classes.button}
         onClick={handleChangeTheme}
       >
-        {theme === 'light' ? <Brightness2Outlined /> : <Brightness5Outlined />}
+        {theme === 'light' ? <Brightness2Outlined /> : <WbSunny />}
       </IconButton>
     </InputAdornment>
   )

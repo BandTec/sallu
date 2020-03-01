@@ -12,7 +12,7 @@ const defLightColor = '#F1F1F1'
 const defLightColorHover = '#D1D1D1'
 
 const defTheme = (theme) => createMuiTheme({
-  spacing: 15,
+  spacing: 16,
   shape: {
     borderRadius: 10
   },
@@ -34,18 +34,18 @@ const defTheme = (theme) => createMuiTheme({
     switcher: () => theme === 'light' ? '#FFF' : '#000'
   },
   palette: {
-    // primary: {
-    //   main: '',
-    //   contrastText: '',
-    //   dark: '',
-    //   light: '',
-    // },
-    // secondary: {
-    //   main: '',
-    //   contrastText: '',
-    //   dark: '',
-    //   light: '',
-    // },
+    primary: {
+      main: '#FF5050',
+      //   contrastText: '',
+      dark: '#BF3B3B'
+      //   light: '',
+    },
+    secondary: {
+      main: '#F1F1F1',
+      //   contrastText: '',
+      dark: '#D9D9D9',
+      light: '#FFFFFF'
+    },
     // action: {
     //   active: '',
     //   disabled: '',
@@ -55,7 +55,7 @@ const defTheme = (theme) => createMuiTheme({
     // },
     background: {
       default: () => theme === 'light' ? defLightColor : defDarkColor,
-      paper: () => theme === 'light' ? '#FFF' : '#222',
+      paper: () => theme === 'light' ? '#FFF' : '#191919',
       hover: () => theme === 'light' ? defLightColorHover : defDarkColorHover
     },
     switcher: {

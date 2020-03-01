@@ -1,12 +1,13 @@
 import React from 'react'
 
-import ThemeSwitch from '../../components/ThemeSwitch'
+import useStyles from './styles'
 
 const Dashboard = () => {
+  const classes = useStyles()
+
   return (
     <>
-      <h1>Dashboard Page!</h1>
-      <ThemeSwitch />
+      <h1 className={classes}>Dashboard Page!</h1>
     </>
   )
 }

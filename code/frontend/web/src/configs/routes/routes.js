@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import { isAuthenticated } from '../../services/auth'
 import ROUTE_PATH from './patch'
 
-import Home from '../../pages/Home'
+import LandingPage from '../../pages/LandingPage'
 import Dashboard from '../../pages/Dashboard'
 import NotFound from '../../pages/NotFound'
 import SignIn from '../../pages/SignIn'
@@ -22,15 +22,25 @@ const PrivateRoute = ({ children, ...rest }) => (
   />
 )
 
+const Private = () => (
+  <LandingPage>
+    <BrowserRouter>
+      <Switch>
+        <PrivateRoute exact path={ROUTE_PATH.DASHBOARD} component={Dashboard} />
+        <Redirect to={ROUTE_PATH.NOT_FOUND} />
+      </Switch>
+    </BrowserRouter>
+  </LandingPage>
+)
+
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route path={ROUTE_PATH.HOME} component={Home} />
       <Route exact path={ROUTE_PATH.SIGNIN} component={SignIn} />
-      <Route path={ROUTE_PATH.SIGNUP} component={SignUp} />
-      <PrivateRoute path={ROUTE_PATH.DASHBOARD} component={Dashboard} />
-      <Route path="*" component={NotFound} />
-      <Redirect to={ROUTE_PATH.SIGNIN} />
+      <Route exact path={ROUTE_PATH.SIGNUP} component={SignUp} />
+      <Route path={ROUTE_PATH.BASE} component={Private} />
+      <Route exact path={ROUTE_PATH.NOT_FOUND} component={NotFound} />
+      <Route exact path="*" component={NotFound} />
     </Switch>
   </BrowserRouter>
 )
