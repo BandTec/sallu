@@ -9,10 +9,7 @@ const UserActions = () => {
 
   return (
     <Button variant="outlined" className={classes.root}>
-      {0 > 1
-        ? ''
-        : <AccountCircleRounded className={classes.userAvatar} />
-      }
+      <AccountCircleRounded className={classes.userAvatar} />
       {/* <Typography className={classes.userName}>
         Login
       </Typography> */}

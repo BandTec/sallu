@@ -1,11 +1,4 @@
-import Header from './Header'
-import PageContainer from './PageContainer'
-import ThemeSwitch from './ThemeSwitch'
-import SectionContainer from './SectionContainer'
-
-export {
-  Header,
-  PageContainer,
-  ThemeSwitch,
-  SectionContainer
-}
+export { default as Header } from './Header'
+export { default as PageContainer } from './PageContainer'
+export { default as ThemeSwitch } from './ThemeSwitch'
+export { default as SectionContainer } from './SectionContainer'

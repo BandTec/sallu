@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles'
 export default makeStyles(theme => ({
   root: {
     border: 0,
-    background: theme.palette.primary.main,
     fontColor: theme.typography.fontColor,
     color: theme.typography.fontColor,
     padding: 0,
@@ -14,7 +13,7 @@ export default makeStyles(theme => ({
     height: theme.spacing(2.5),
     transition: theme.transitions.default,
     '&:hover': {
-      color: theme.typography.default
+      color: theme.palette.primary.main
     }
   },
   userAvatar: {

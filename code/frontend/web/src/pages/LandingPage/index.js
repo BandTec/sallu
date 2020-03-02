@@ -15,9 +15,6 @@ const LandingPage = ({ children }) => {
         <ThemeSwitch />
         {children}
       </SectionContainer>
-      <SectionContainer>
-        A
-      </SectionContainer>
     </PageContainer>
   )
 }
