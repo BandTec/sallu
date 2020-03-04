@@ -29,22 +29,20 @@ const defTheme = (theme) => createMuiTheme({
     }
   },
   typography: {
+    black: defDarkColor,
+    light: defLightColor,
     fontFamily: 'Roboto',
     fontColor: () => theme === 'light' ? '#000' : '#FFF',
     switcher: () => theme === 'light' ? '#FFF' : '#000'
   },
   palette: {
     primary: {
-      main: '#FF5050',
-      //   contrastText: '',
-      dark: '#BF3B3B'
-      //   light: '',
+      main: '#4FBBFF',
+      dark: '#3B8DBF'
     },
     secondary: {
-      main: '#F1F1F1',
-      //   contrastText: '',
-      dark: '#D9D9D9',
-      light: '#FFFFFF'
+      main: '#FF5050',
+      dark: '#BF3B3B'
     },
     // action: {
     //   active: '',

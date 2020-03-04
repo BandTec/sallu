@@ -22,15 +22,12 @@ const PrivateRoute = ({ children, ...rest }) => (
   />
 )
 
-const Private = () => (
-  <LandingPage>
-    <BrowserRouter>
-      <Switch>
-        <PrivateRoute exact path={ROUTE_PATH.DASHBOARD} component={Dashboard} />
-        <Redirect to={ROUTE_PATH.NOT_FOUND} />
-      </Switch>
-    </BrowserRouter>
-  </LandingPage>
+const HeaderRoute = ({ children, ...rest }) => (
+  <Route {...rest} >
+    <LandingPage>
+      {children || <Dashboard />}
+    </LandingPage>
+  </Route>
 )
 
 const Routes = () => (
@@ -38,7 +35,7 @@ const Routes = () => (
     <Switch>
       <Route exact path={ROUTE_PATH.SIGNIN} component={SignIn} />
       <Route exact path={ROUTE_PATH.SIGNUP} component={SignUp} />
-      <Route path={ROUTE_PATH.BASE} component={Private} />
+      <HeaderRoute exact path={ROUTE_PATH.BASE} />
       <Route exact path={ROUTE_PATH.NOT_FOUND} component={NotFound} />
       <Route exact path="*" component={NotFound} />
     </Switch>

@@ -2,24 +2,27 @@ import { makeStyles } from '@material-ui/core/styles'
 
 export default makeStyles(theme => ({
   root: {
-    border: 0,
-    fontColor: theme.typography.fontColor,
-    color: theme.typography.fontColor,
-    padding: 0,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  user: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    width: 120,
+    padding: 0,
+    width: theme.spacing(2.5),
     height: theme.spacing(2.5),
+    color: theme.typography.fontColor,
     transition: theme.transitions.default,
     '&:hover': {
-      color: theme.palette.primary.main
+      color: theme.typography.switcher,
+      background: theme.palette.primary.main
     }
   },
   userAvatar: {
-    fontSize: 40,
-    width: 40,
-    height: 40
+    width: '100%',
+    height: '100%'
   },
   userName: {
     fontFamily: theme.typography.fontFamily

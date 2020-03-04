@@ -12,14 +12,15 @@ export default makeStyles(theme => ({
     margin: `0px ${theme.spacing(0.5)}px`,
     borderRadius: theme.shape.borderRadius,
     width: '100%',
-    height: '100%',
+    height: theme.spacing(2.5),
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     transition: theme.transitions.default,
-    color: theme.typography.fontColor,
+    color: theme.typography.black,
+    background: theme.palette.primary.main,
     '&:hover': {
-      background: theme.palette.primary.main
+      background: theme.palette.primary.dark
     }
   }
 }))

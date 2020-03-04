@@ -1,6 +1,8 @@
 import React from 'react'
-import { Button, Typography } from '@material-ui/core'
+import { IconButton } from '@material-ui/core'
 import { AccountCircleRounded } from '@material-ui/icons'
+
+import ThemeSwitch from '../../ThemeSwitch'
 
 import useStyles from './styles'
 
@@ -8,12 +10,12 @@ const UserActions = () => {
   const classes = useStyles()
 
   return (
-    <Button variant="outlined" className={classes.root}>
-      <AccountCircleRounded className={classes.userAvatar} />
-      {/* <Typography className={classes.userName}>
-        Login
-      </Typography> */}
-    </Button>
+    <div className={classes.root}>
+      <ThemeSwitch />
+      <IconButton variant="outlined" className={classes.user}>
+        <AccountCircleRounded className={classes.userAvatar} />
+      </ IconButton>
+    </ div>
   )
 }
 

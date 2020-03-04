@@ -1,4 +1,2 @@
-import Routes from './routes'
-import routePatch from './patch'
-
-export { Routes, routePatch }
+export { default as Routes } from './routes'
+export { default as routePatch } from './patch'

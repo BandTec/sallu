@@ -3,7 +3,6 @@ import React from 'react'
 import {
   Header,
   PageContainer,
-  ThemeSwitch,
   SectionContainer
 } from '../../components'
 
@@ -12,7 +11,6 @@ const LandingPage = ({ children }) => {
     <PageContainer>
       <Header />
       <SectionContainer>
-        <ThemeSwitch />
         {children}
       </SectionContainer>
     </PageContainer>
