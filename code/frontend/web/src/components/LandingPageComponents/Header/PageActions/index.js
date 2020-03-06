@@ -1,17 +1,37 @@
 import React from 'react'
+import styled from 'styled-components'
 
-import useStyles from './styles'
+const ActContainer = styled.div`
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+`
+
+const ActBtn = styled.a`
+  margin: ${({ theme }) => `0px ${theme.margin(0.5)}`};
+  border: ${({ theme }) => theme.borderRadius(5)};
+  border-radius: ${({ theme }) => theme.borderRadius(1)};
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: ${({ theme }) => theme.primary.main};
+  &:hover {
+    background: ${({ theme }) => theme.primary.hover};
+  }
+`
 
 const PageActions = () => {
-  const classes = useStyles()
-
   return (
-    <div className={classes.root}>
-      <div className={classes.item}>Home</div>
-      <div className={classes.item}>Sobre Nós</div>
-      <div className={classes.item}>Serviço</div>
-      <div className={classes.item}>Contato</div>
-    </div>
+    <ActContainer>
+      <ActBtn>Home</ActBtn>
+      <ActBtn>Sobre Nós</ActBtn>
+      <ActBtn>Serviço</ActBtn>
+      <ActBtn>Contato</ActBtn>
+    </ActContainer>
   )
 }
 

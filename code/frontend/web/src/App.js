@@ -4,7 +4,7 @@ import ThemeProvider from './providers/themeProvider'
 import { ContextProvider } from './providers/contextProvider'
 import { Routes } from './configs/routes'
 
-import './global.css'
+// import './global.css'
 
 const App = () => (
   <ContextProvider>

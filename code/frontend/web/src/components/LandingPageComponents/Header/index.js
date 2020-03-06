@@ -6,13 +6,12 @@ import PageActions from './PageActions'
 import UserActions from './UserActions'
 
 const HeaderDiv = styled.header`
-  /* overflow: hidden; */
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  align-content: center;
   justify-content: space-between;
-  height: ${({ theme }) => theme.margin(3)};
   padding: ${({ theme }) => theme.padding(1)};
+  width: 100%;
+  height: ${({ theme }) => theme.margin(4)};
   background: ${({ theme }) => theme.main.hv};
 `
 

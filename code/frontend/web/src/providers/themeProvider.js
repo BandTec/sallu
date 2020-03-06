@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 
 import { AppContext } from './contextProvider'
 
@@ -11,6 +11,21 @@ const dark = '#212121'
 const darkHover = '#313131'
 const light = '#F1F1F1'
 const lightHover = '#D1D1D1'
+
+const primary = {
+  main: '#2251BF',
+  hover: '#2A63E6',
+  light: '#2E6DFF',
+  dark: '#173680'
+}
+const secondary = {
+  main: '#BF241F',
+  hover: '#E62C24',
+  light: '#FF3029',
+  dark: '#801814'
+}
+
+const palette = { primary, secondary }
 
 const lightTheme = {
   main: {
@@ -29,9 +44,9 @@ const darkTheme = {
 }
 
 const themeDefaults = {
-  primary: { main: '#00AAFF' },
-  margin: (x = 1) => 16 * x,
-  padding: (x = 1) => 10 * x
+  margin: (x = 1, format = 'px') => `${16 * x}${format}`,
+  padding: (x = 1, format = 'px') => `${10 * x}${format}`,
+  borderRadius: (x = 1, format = 'px') => `${4 * x}${format}`
 }
 
 const GlobalStyles = createGlobalStyle`
@@ -64,7 +79,8 @@ const GlobalStyles = createGlobalStyle`
 GlobalStyles.defaultProps = {
   theme: {
     ...lightTheme,
-    ...themeDefaults
+    ...themeDefaults,
+    ...palette
   }
 }
 
@@ -77,8 +93,8 @@ const ThemeProvider = ({ children }) => {
       <GlobalStyles theme={theme === 'light' ? lightTheme : darkTheme} />
       <Theme theme={
         () => theme === 'light'
-          ? { ...lightTheme, ...themeDefaults }
-          : { ...darkTheme, ...themeDefaults }
+          ? { ...lightTheme, ...themeDefaults, ...palette }
+          : { ...darkTheme, ...themeDefaults, ...palette }
       }>
         {children}
       </Theme>

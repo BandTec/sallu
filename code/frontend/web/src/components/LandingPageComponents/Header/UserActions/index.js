@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 import ThemeSwitch from '../../../ThemeSwitch'
 
-const ActionsContainer = styled.div`
+const ActContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,12 +32,12 @@ const UserAvatar = styled(AccountCircleRounded)`
 
 const UserActions = () => {
   return (
-    <ActionsContainer>
+    <ActContainer>
       <ThemeSwitch />
       <UserProfile variant="outlined">
         <UserAvatar />
       </UserProfile>
-    </ ActionsContainer>
+    </ ActContainer>
   )
 }
 

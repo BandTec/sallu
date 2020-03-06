@@ -1,12 +1,13 @@
 import React from 'react'
 
-import { Header } from '../../components'
+import { Header, SectionContainer } from '../../components'
 
 const LandingPage = ({ children }) => {
   return (
     <>
       <Header />
-      <h1>Landing Page!</h1>
+      <SectionContainer />
+      <SectionContainer />
     </>
   )
 }

@@ -1,14 +1,17 @@
 import React from 'react'
+import styled from 'styled-components'
 
-import useStyles from './styles'
+const Page = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`
 
 const PageContainer = ({ children }) => {
-  const classes = useStyles()
-
   return (
-    <div className={classes.root}>
+    <Page>
       {children}
-    </div>
+    </Page>
   )
 }
 
