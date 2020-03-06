@@ -1,85 +1,89 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 
 import { AppContext } from './contextProvider'
 
-import { createMuiTheme } from '@material-ui/core/styles'
-import { ThemeProvider } from '@material-ui/styles'
+import { createGlobalStyle, ThemeProvider as Theme } from 'styled-components'
 
-const defDarkColor = '#212121'
-const defDarkColorHover = '#313131'
+// import { createMuiTheme } from '@material-ui/core/styles'
+// import { ThemeProvider } from '@material-ui/styles'
 
-const defLightColor = '#F1F1F1'
-const defLightColorHover = '#D1D1D1'
+const dark = '#212121'
+const darkHover = '#313131'
+const light = '#F1F1F1'
+const lightHover = '#D1D1D1'
 
-const defTheme = (theme) => createMuiTheme({
-  spacing: 16,
-  shape: {
-    borderRadius: 10
-  },
-  transitions: {
-    default: '0.4s',
-    duration: {
-      complex: '0.2s',
-      enteringScreen: '0.2s',
-      leavingScreen: '0.4s',
-      short: '0.4s',
-      shorter: '0.2s',
-      shortest: '0.1s',
-      standard: '0.5s'
-    }
-  },
-  typography: {
-    black: defDarkColor,
-    light: defLightColor,
-    fontFamily: 'Roboto',
-    fontColor: () => theme === 'light' ? '#000' : '#FFF',
-    switcher: () => theme === 'light' ? '#FFF' : '#000'
-  },
-  palette: {
-    primary: {
-      main: '#4FBBFF',
-      dark: '#3B8DBF'
-    },
-    secondary: {
-      main: '#FF5050',
-      dark: '#BF3B3B'
-    },
-    // action: {
-    //   active: '',
-    //   disabled: '',
-    //   hover: '',
-    //   selected: '',
-    //   focus: ''
-    // },
-    background: {
-      default: () => theme === 'light' ? defLightColor : defDarkColor,
-      paper: () => theme === 'light' ? '#FFF' : '#191919',
-      hover: () => theme === 'light' ? defLightColorHover : defDarkColorHover
-    },
-    switcher: {
-      default: () => theme === 'light' ? defDarkColor : defLightColor,
-      hover: () => theme === 'light' ? defDarkColorHover : defLightColorHover
-    }
-    // text: {
-    //   disabled: '',
-    //   hint: '',
-    //   primary: '',
-    //   secondary: '',
-    // },
-    // divider: '',
-    // getContrastText: '',
-    // type: '',
+const lightTheme = {
+  main: {
+    bg: light,
+    hv: lightHover,
+    ft: dark
   }
-})
+}
 
-const ThemeProviderApp = ({ children }) => {
-  const { state: { preferences: { theme } } } = useContext(AppContext)
+const darkTheme = {
+  main: {
+    bg: dark,
+    hv: darkHover,
+    ft: light
+  }
+}
+
+const themeDefaults = {
+  primary: { main: '#00AAFF' },
+  margin: (x = 1) => 16 * x,
+  padding: (x = 1) => 10 * x
+}
+
+const GlobalStyles = createGlobalStyle`
+
+  @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    color: ${({ theme }) => theme.main.ft};
+    transition: 0.4s
+  }
+
+  body, html, #root {
+    height: 100%;
+    background: ${({ theme }) => theme.main.bg}
+  }
+
+  body {
+    -webkit-font-smoothing: antialised !important;
+    text-rendering: optimizeLegibility !important;
+  }
+
+  body, input, button {
+    font-family: Roboto, Arial, sans-serif;
+  }
+`
+GlobalStyles.defaultProps = {
+  theme: {
+    ...lightTheme,
+    ...themeDefaults
+  }
+}
+
+const ThemeProvider = ({ children }) => {
+  const { state } = useContext(AppContext)
+  const { theme } = state.preferences
 
   return (
-    <ThemeProvider theme={defTheme(theme)}>
-      {children}
-    </ThemeProvider>
+    <>
+      <GlobalStyles theme={theme === 'light' ? lightTheme : darkTheme} />
+      <Theme theme={
+        () => theme === 'light'
+          ? { ...lightTheme, ...themeDefaults }
+          : { ...darkTheme, ...themeDefaults }
+      }>
+        {children}
+      </Theme>
+    </>
   )
 }
 
-export default ThemeProviderApp
+export default ThemeProvider
