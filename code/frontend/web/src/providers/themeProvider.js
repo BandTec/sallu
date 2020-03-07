@@ -8,9 +8,9 @@ import { createGlobalStyle, ThemeProvider as Theme } from 'styled-components'
 // import { ThemeProvider } from '@material-ui/styles'
 
 const dark = '#212121'
-const darkHover = '#313131'
+const darkHover = '#303030'
 const light = '#F1F1F1'
-const lightHover = '#D1D1D1'
+const lightHover = '#E0E0E0'
 
 const primary = {
   main: '#2251BF',
