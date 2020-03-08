@@ -10,7 +10,7 @@ import { createGlobalStyle, ThemeProvider as Theme } from 'styled-components'
 const dark = '#212121'
 const darkHover = '#303030'
 const light = '#F1F1F1'
-const lightHover = '#E0E0E0'
+const lightHover = '#ECECEC'
 
 const primary = {
   main: '#2251BF',

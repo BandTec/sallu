@@ -19,7 +19,6 @@ const UserAvatar = styled(AccountCircleRounded)`
 const UserActions = () => {
   return (
     <ActContainer>
-      <ThemeSwitch />
       <IconBtn variant="outlined">
         <UserAvatar />
       </IconBtn>
