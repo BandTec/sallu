@@ -12,40 +12,56 @@ import java.util.stream.Stream;
 @RequestMapping("/user")
 public class UserController
 {
-    private List<User> UserList = new ArrayList<User>();
+    private List<User> userList = new ArrayList<User>();
+    protected User userLogged;
+
+    @GetMapping
+    public User getUser() {
+        return userLogged;
+    }
 
     @PostMapping("/{nome}/{email}/{password}")
-    public void registerUser(@PathVariable("nome")String nome, @PathVariable("email") String email, @PathVariable("password")String password)
-    {
-        if(nome.equals(null) || email.equals(null) || password.equals(null))
-        {
-            System.out.println("Preencha todos os campos");
-            User newUser = new User(nome, email, password);
-
-            UserList.add(newUser);
+    public String registerUser(
+            @PathVariable("nome")String nome,
+            @PathVariable("email") String email,
+            @PathVariable("password")String password
+    ) {
+        if (nome == null || email == null || password == null) {
+            return "Preencha todos os campos";
         }
+        User newUser = new User(nome, email, password);
+
+        for (User user : userList) {
+            if (newUser.getEmail().equals(user.getEmail())) {
+                return "Usuário já cadastrado";
+            }
+        }
+
+        userList.add(newUser);
+        return "Usuário cadastrado";
 
     }
 
     @PostMapping("/login/{email}/{password}")
-    public String loginUser(@PathVariable("email") String email, @PathVariable("password")String password)
-    {
-        Stream<User> matchUser = UserList.stream().filter(user -> user.getEmail().equals(email));
+    public String loginUser(
+            @PathVariable("email") String email,
+            @PathVariable("password") String password
+    ) {
 
-        if (matchUser.count() < 1) {
-            return "Usuário ou senha incorretos 1";
+        if (userLogged == null) {
+            return "Usuário já logado";
+        }
+        for (User user: userList) {
+            if (user.getEmail().equals(email)) {
+                if (user.getPassword().equals(password)) {
+                    userLogged = user;
+                    return "Usuário logado com sucesso!";
+                }
+                return "Senha inválida";
+            }
         }
 
-        matchUser.limit(1).map(user -> {
-
-            if (!user.getPassword().equals(password)) {
-                return "Usuário ou senha incorretos 2";
-            }
-
-            return user;
-        });
-
-        return "Usuário logado";
+        return "Usuário não registrado";
     }
 
 }
