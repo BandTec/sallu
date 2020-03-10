@@ -3,10 +3,11 @@ import React from 'react'
 import styled from 'styled-components'
 
 import PageActions from './PageActions'
-import UserActions from './UserActions'
+import Navbar from './Navbar'
 
-const HeaderDiv = styled.header`
+const HeaderContainer = styled.header`
   display: flex;
+  flex-direction: column;
   align-content: center;
   justify-content: space-between;
   padding: ${({ theme }) => theme.padding(1)};
@@ -17,10 +18,11 @@ const HeaderDiv = styled.header`
 
 const Header = () => {
   return (
-    <HeaderDiv>
-      <PageActions />
-      <UserActions />
-    </HeaderDiv>
+    <HeaderContainer>
+      <Navbar>
+        <PageActions />
+      </Navbar>
+    </HeaderContainer>
   )
 }
 

@@ -5,22 +5,19 @@ const ActContainer = styled.div`
   width: 50%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 `
 
 const ActBtn = styled.a`
   margin: ${({ theme }) => `0px ${theme.margin(0.5)}`};
-  border: ${({ theme }) => theme.borderRadius(5)};
-  border-radius: ${({ theme }) => theme.borderRadius(1)};
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  background: ${({ theme }) => theme.primary.main};
+  font-weight: bold;
   &:hover {
-    background: ${({ theme }) => theme.primary.hover};
+    color: ${({ theme }) => theme.primary.light};
   }
 `
 
