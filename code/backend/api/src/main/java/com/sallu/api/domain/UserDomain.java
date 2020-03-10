@@ -1,23 +1,55 @@
 package com.sallu.api.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 import java.util.Date;
 
-public class User
-{
+
+@Entity
+@Table(name = "paciente")
+public class UserDomain implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @NotBlank
+    @JsonProperty
     private String name;
+
+    @JsonProperty
     private Date dataNascimento;
 
+    @Email
+    @NotBlank
+    @JsonProperty
+    @Column(unique = true)
     private String email;
+
+    @NotBlank
+    @JsonProperty
     private String password;
 
+    @JsonProperty
     private Integer consultas;
 
-    public User(String name, String email, String password) {
+    public UserDomain() {
+    }
+
+    public UserDomain(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.consultas = 0;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getName() {

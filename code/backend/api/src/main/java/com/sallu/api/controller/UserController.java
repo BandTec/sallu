@@ -1,67 +1,49 @@
 package com.sallu.api.controller;
 
-import com.sallu.api.domain.User;
-
+import com.sallu.api.domain.UserDomain;
+import com.sallu.api.services.PacienteService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 @RestController
 @RequestMapping("/user")
-public class UserController
-{
-    private List<User> userList = new ArrayList<User>();
-    protected User userLogged;
+public final class UserController {
+
+    @Autowired
+    private PacienteService service;
+
+
+    private List<UserDomain> userDomainList = new ArrayList<UserDomain>();
+    private UserDomain userDomainLogged;
 
     @GetMapping
-    public User getUser() {
-        return userLogged;
+    public ResponseEntity<List<UserDomain>> usuarios(){
+        return ResponseEntity.ok(this.service.selectAll());
     }
 
-    @PostMapping("/{nome}/{email}/{password}")
-    public String registerUser(
-            @PathVariable("nome")String nome,
-            @PathVariable("email") String email,
-            @PathVariable("password")String password
-    ) {
-        if (nome == null || email == null || password == null) {
-            return "Preencha todos os campos";
-        }
-        User newUser = new User(nome, email, password);
+    @PostMapping
+    public ResponseEntity<String> registerUser(@RequestBody UserDomain userDomain) {
 
-        for (User user : userList) {
-            if (newUser.getEmail().equals(user.getEmail())) {
-                return "Usuário já cadastrado";
-            }
+        if (userDomain.getName() == null || userDomain.getEmail() == null || userDomain.getPassword() == null) {
+            return ResponseEntity.badRequest().body("Preencha todos os campos");
         }
 
-        userList.add(newUser);
-        return "Usuário cadastrado";
+        this.service.insert(userDomain);
+        return ResponseEntity.ok("Usuário cadastrado");
 
-    }
+//        for (UserDomain userDomain : userDomainList) {
+//            if (newUserDomain.getEmail().equals(userDomain.getEmail())) {
+//                return "Usuário já cadastrado";
+//            }
+//        }
+//
+//        userDomainList.add(newUserDomain);
+//        return "Usuário cadastrado";
 
-    @PostMapping("/login/{email}/{password}")
-    public String loginUser(
-            @PathVariable("email") String email,
-            @PathVariable("password") String password
-    ) {
-
-        if (userLogged == null) {
-            return "Usuário já logado";
-        }
-        for (User user: userList) {
-            if (user.getEmail().equals(email)) {
-                if (user.getPassword().equals(password)) {
-                    userLogged = user;
-                    return "Usuário logado com sucesso!";
-                }
-                return "Senha inválida";
-            }
-        }
-
-        return "Usuário não registrado";
     }
 
 }
