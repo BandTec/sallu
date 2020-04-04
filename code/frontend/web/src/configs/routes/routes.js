@@ -33,7 +33,7 @@ const HeaderRoute = ({ children, ...rest }) => (
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path={ROUTE_PATH.SIGNIN} component={SignIn} />
+      <Route exact path={'/singIn'} component={SignIn} />
       <Route exact path={ROUTE_PATH.SIGNUP} component={SignUp} />
       <HeaderRoute exact path={ROUTE_PATH.BASE} />
       <Route exact path={ROUTE_PATH.NOT_FOUND} component={NotFound} />
