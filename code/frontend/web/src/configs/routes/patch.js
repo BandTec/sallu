@@ -6,8 +6,8 @@ const NOT_FOUND = '/page-not-found'
 const BASE = '/'
 const HOME = '/home'
 const DASHBOARD = '/dashboard'
-const SIGNIN = '/login'
-const SIGNUP = '/register'
+const LOGIN = '/login'
+const REGISTER = '/register'
 
 // =============================================================================
 // Sub Routes
@@ -22,8 +22,8 @@ const ROUTES_PATCH = {
   DASHBOARD,
   HOME,
   NOT_FOUND,
-  SIGNIN,
-  SIGNUP
+  LOGIN,
+  REGISTER
 }
 
 export default ROUTES_PATCH

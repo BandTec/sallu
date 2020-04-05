@@ -1,11 +1,11 @@
 import preferencesReducer from './preferences/preferences.reducer'
-import signInReducer from './signIn/signIn.reducer'
+import loginReducer from './login/login.reducer'
 
 const reducer = (state, action) => {
   let newState = state
 
   newState = preferencesReducer(newState, action)
-  newState = signInReducer(newState, action)
+  newState = loginReducer(newState, action)
 
   return newState
 }

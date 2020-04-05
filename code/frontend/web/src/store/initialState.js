@@ -1,9 +1,9 @@
 import preferencesState from './preferences/preferences.state'
-import signInState from './signIn/signIn.state'
+import loginState from './login/login.state'
 
 const initialState = {
   preferences: preferencesState,
-  signIn: signInState
+  login: loginState
 }
 
 export default initialState

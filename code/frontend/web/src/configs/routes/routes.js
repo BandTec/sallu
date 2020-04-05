@@ -2,12 +2,12 @@ import React from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
 import { isAuthenticated } from '../../services/auth'
-import ROUTE_PATH from './patch'
+import ROUTES from './patch'
 
 import LandingPage from '../../pages/LandingPage'
 import Dashboard from '../../pages/Dashboard'
 import NotFound from '../../pages/NotFound'
-import SignIn from '../../pages/SignIn'
+import Login from '../../pages/Login'
 import SignUp from '../../pages/SignUp'
 
 const PrivateRoute = ({ children, ...rest }) => (
@@ -33,10 +33,10 @@ const HeaderRoute = ({ children, ...rest }) => (
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path={'/singIn'} component={SignIn} />
-      <Route exact path={ROUTE_PATH.SIGNUP} component={SignUp} />
-      <HeaderRoute exact path={ROUTE_PATH.BASE} />
-      <Route exact path={ROUTE_PATH.NOT_FOUND} component={NotFound} />
+      <Route exact path={ROUTES.LOGIN} component={Login} />
+      <Route exact path={ROUTES.REGISTER} component={SignUp} />
+      <HeaderRoute exact path={ROUTES.BASE} />
+      <Route exact path={ROUTES.NOT_FOUND} component={NotFound} />
       <Route exact path="*" component={NotFound} />
     </Switch>
   </BrowserRouter>

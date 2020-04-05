@@ -1,9 +1,9 @@
 import preferences from './preferences/preferences.action'
-import signIn from './signIn/signIn.action'
+import login from './login/login.action'
 
 const actionsCreator = dispatch => ({
   preferences: preferences(dispatch),
-  signIn: signIn(dispatch)
+  login: login(dispatch)
 })
 
 export default actionsCreator
