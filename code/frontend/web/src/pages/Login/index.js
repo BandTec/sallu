@@ -1,16 +1,19 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 /**
  * Contexto da Aplicação
  */
 import { AppContext } from '../../providers/contextProvider'
 
-import { Container, Form } from './components'
-import { ROUTES } from '../../configs/routes'
+// import { Container, Form, LoginContent, Imagem } from './style'
+// import { ROUTES } from '../../configs/routes'
 
-// import Medicine from '../../assets/medicine.png';
-import Sallut from '../../assets/sallut.svg'
+import './style.css' 
+
+import Medicine from '../../assets/medicine.png'
+import Avatar from '../../assets/avatar.png'
+// import Fundo from '../../assets/wave.png'
 
 const Login = () => {
   /**
@@ -18,7 +21,7 @@ const Login = () => {
    * Sempre usa-se o AppContext com o Hook useContext do React
    */
   const {
-    state: { login: { email, password, errorMessage } },
+    state: { login: { email, password, errorMessage} },
     actions: { login: { setLogin } }
   } = useContext(AppContext)
 
@@ -33,34 +36,53 @@ const Login = () => {
   }
 
   return (
-    <Container>
-      <Form onSubmit={handleSignIn}>
-        <img src={Sallut} />
-        {errorMessage && <p>{errorMessage}</p>}
-        <input
-          id={'email'}
-          name={'email'}
-          type={'text'}
-          placeholder={'Email'}
-          value={email}
-          onChange={handleChange}
-        />
-
-        <input
-          id={'senha'}
-          name={'password'}
-          type={'password'}
-          placeholder={'Senha'}
-          value={password}
-          onChange={handleChange}
-        />
-
-        <button type='submit'>Entrar</button>
-        <hr />
-
-        <Link to={ROUTES.REGISTER}>Cadastrar</Link>
-      </Form>
-    </Container>
+    <>
+    <div className="container">
+    {/* <img className="wave" src={Fundo}/> */}
+      <div className="img">
+        <img src={Medicine}/>
+      </div>
+      <div className="login-content">
+        <form onSubmit={handleSignIn}>
+          <img src={Avatar}/>
+          {errorMessage && <p>{errorMessage}</p>}
+          <h2 className="title">Welcome</h2>
+                <div className="input-div one">
+                  <div className="i">
+                      <i className="fas fa-user"></i>
+                  </div>
+                  <div class="div">
+                      <h5>Username</h5>
+                      <input 
+                      id={'email'}
+                      name={'email'}
+                      type={'text'}
+                      value={email}
+                      onChange={handleChange}
+                      className="input"/>
+                  </div>
+                </div>
+                <div className="input-div pass">
+                  <div className="i"> 
+                      <i className="fas fa-lock"></i>
+                  </div>
+                  <div classNames="div">
+                      <h5>Password</h5>
+                      <input 
+                      id={'senha'}
+                      name={password}
+                      type={'senha'}
+                      value={password} 
+                      onChange={handleChange}
+                      className="input"/>
+                  </div>
+                </div>
+                <a href="#">Forgot Password?</a>
+                <input type="submit" className="btn" value="Login"/>
+              </form>
+          </div>
+      </div>
+    </>
   )
 }
 
