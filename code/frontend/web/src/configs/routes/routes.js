@@ -8,7 +8,7 @@ import LandingPage from '../../pages/LandingPage'
 import Dashboard from '../../pages/Dashboard'
 import NotFound from '../../pages/NotFound'
 import Login from '../../pages/Login'
-import SignUp from '../../pages/SignUp'
+import Register from '../../pages/Register'
 
 const PrivateRoute = ({ children, ...rest }) => (
   <Route
@@ -34,7 +34,7 @@ const Routes = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path={ROUTES.LOGIN} component={Login} />
-      <Route exact path={ROUTES.REGISTER} component={SignUp} />
+      <Route exact path={ROUTES.REGISTER} component={Register} />
       <HeaderRoute exact path={ROUTES.BASE} />
       <Route exact path={ROUTES.NOT_FOUND} component={NotFound} />
       <Route exact path="*" component={NotFound} />
