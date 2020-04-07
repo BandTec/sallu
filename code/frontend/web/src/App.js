@@ -4,13 +4,13 @@ import ThemeProvider from './providers/themeProvider'
 import { ContextProvider } from './providers/contextProvider'
 import { Routes } from './configs/routes'
 
-import GlobalStyle from './style/GlobalStyle';
+import GlobalStyle from './style/GlobalStyle'
 
 const App = () => (
   <ContextProvider>
     <ThemeProvider>
-        <GlobalStyle/> 
-        <Routes /> 
+      <GlobalStyle />
+      <Routes />
     </ThemeProvider>
   </ContextProvider>
 )
