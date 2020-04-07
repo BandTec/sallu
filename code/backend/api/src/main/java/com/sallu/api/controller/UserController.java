@@ -1,49 +1,45 @@
 package com.sallu.api.controller;
 
-import com.sallu.api.domain.UserDomain;
-import com.sallu.api.services.PacienteService;
+import com.sallu.api.models.UserModel;
+import com.sallu.api.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user")
-public final class UserController {
+@RequestMapping("user")
+public class UserController {
 
     @Autowired
-    private PacienteService service;
-
-
-    private List<UserDomain> userDomainList = new ArrayList<UserDomain>();
-    private UserDomain userDomainLogged;
+    private UserService service;
 
     @GetMapping
-    public ResponseEntity<List<UserDomain>> usuarios(){
-        return ResponseEntity.ok(this.service.selectAll());
+    public ResponseEntity<List<UserModel>> getUsers() {
+        List<UserModel> users = service.selectAll();
+
+        return users.isEmpty()
+                ? ResponseEntity.noContent().build()
+                : ResponseEntity.ok(service.selectAll());
     }
 
     @PostMapping
-    public ResponseEntity<String> registerUser(@RequestBody UserDomain userDomain) {
-
-        if (userDomain.getName() == null || userDomain.getEmail() == null || userDomain.getPassword() == null) {
-            return ResponseEntity.badRequest().body("Preencha todos os campos");
-        }
-
-        this.service.insert(userDomain);
-        return ResponseEntity.ok("Usuário cadastrado");
-
-//        for (UserDomain userDomain : userDomainList) {
-//            if (newUserDomain.getEmail().equals(userDomain.getEmail())) {
-//                return "Usuário já cadastrado";
-//            }
-//        }
-//
-//        userDomainList.add(newUserDomain);
-//        return "Usuário cadastrado";
-
+    public ResponseEntity<Void> createUser(@RequestBody @Valid UserModel user) {
+        service.insert(user);
+        return ResponseEntity.status(201).build();
     }
 
+    @PutMapping
+    public ResponseEntity<Void> updateUser(@RequestBody @Valid UserModel user) {
+        service.update(user);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable("id") Integer id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }
