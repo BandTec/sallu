@@ -3,7 +3,10 @@ package com.sallu.api.models.dto;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name ="tb_Cadastro")
 public class CadastroDTO {
@@ -16,10 +19,9 @@ public class CadastroDTO {
     private Date dtNascimento;
     private Integer identificacao;
     private String crm;
-
-//    Chave estrangeira TbLogin e TbEnfermeiro
-//    OneToOne(mappedBy = "fkLogin")
-//    private Set<> fkLogin = new HashSet<>();
+    @OneToOne(mappedBy = "fkLogin")
+    private Set<LoginDTO> fkLogin = new HashSet<>();
+    //    Chave estrangeira TbLogin e TbEnfermeiro
 //    OneToOne(mappedBy = "fkEnferemeiro")
 //    private Set<> fkEnfermeiro = new HashSet<>();
 
