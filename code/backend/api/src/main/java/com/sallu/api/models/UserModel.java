@@ -14,31 +14,39 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tb_user", uniqueConstraints = @UniqueConstraint(columnNames = "nm_email", name = "email"))
+@Table(name = "tb_user")
 public class UserModel implements Serializable {
 
+    // ID
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pk_user")
     private Integer id;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<MedicalRecordModel> medicalRecords;
+
+    // Nome
     @NotBlank(message = "{user.nm_user}")
     @JsonProperty
     @Column(name = "nm_user", length = 128, nullable = false)
     private String name;
 
+    // Data de Nascimento
     @NotNull(message = "{user.dt_birthday}")
     @JsonProperty
     @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "dt_birthday", nullable = false)
     private LocalDate birthdayDate;
 
+    // Sexo
     @NotBlank(message = "{user.user_sex}")
     @JsonProperty
     @Column(name = "user_sex", length = 1, nullable = false)
