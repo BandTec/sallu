@@ -18,7 +18,7 @@ public class UserService {
 
     @Autowired
     private UserRepository repository;
-
+//criptografia de senha,
     @Autowired
     private PasswordEncoder encoder;
 

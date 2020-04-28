@@ -1,15 +1,12 @@
 package com.sallu.api.models.dto;
-
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.io.Serializable;
-
 public class LoginDTO implements Serializable {
 
     private String email;
-
     private String password;
-
-//    public LoginDTO() {
-//    }
 
     public LoginDTO(String email, String password) {
         this.email = email;
