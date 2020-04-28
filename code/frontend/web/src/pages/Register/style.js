@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Container = styled.div`
     width: 100vw;
@@ -16,8 +16,7 @@ export const Container = styled.div`
       left: 20%;
 
     }
-`;
-
+`
 
 export const LoginContent = styled.div`
     display: flex;
@@ -54,7 +53,7 @@ export const LoginContent = styled.div`
 
     .input-div > div {
       position: relative;
-	    height: 45px
+      height: 45px;
     }
 
     .input-div > h5 > div {
@@ -86,19 +85,19 @@ export const LoginContent = styled.div`
     }
 
     .input-div.focus:before, .input-div.focus:after {
-	  width: 50%;
+      width: 50%;
     }
 
     .input-div.focus > div > h5 {
       top: -5px;
-	    font-size: 15px;
+      font-size: 15px;
     }
 
     .input-div > div > input {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
+      /* position: absolute; */
+      /* left: 0; */
+      /* top: 0; */
+      width: calc(360px - 1.4rem);
       height: 100%;
       border: none;
       outline: none;
@@ -110,7 +109,7 @@ export const LoginContent = styled.div`
     }
 
     .input-div.pass {
-	    margin-bottom: 4px;
+      margin-bottom: 4px;
     }
 
     a {
@@ -123,7 +122,7 @@ export const LoginContent = styled.div`
     }
 
     a:hover {
-	    color: #38d39f;
+      color: #38d39f;
     }
 
     button {
@@ -148,13 +147,11 @@ export const LoginContent = styled.div`
       background-position: right;
     }
 
-`;
-
+`
 
 export const Form = styled.form`
     width: 360px;
-`;
-
+`
 
 // export const Button = styled.button`
 

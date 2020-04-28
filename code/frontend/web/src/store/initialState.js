@@ -1,9 +1,11 @@
-import preferencesState from './preferences/preferences.state'
-import loginState from './login/login.state'
+import login from './login/login.state'
+import preferences from './preferences/preferences.state'
+import register from './register/register.state'
 
 const initialState = {
-  preferences: preferencesState,
-  login: loginState
+  login,
+  preferences,
+  register
 }
 
 export default initialState

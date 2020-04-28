@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
-import { isAuthenticated } from '../../services/auth'
+import { useTokenService } from '../../services'
 import ROUTES from './patch'
 
 import LandingPage from '../../pages/LandingPage'
@@ -10,13 +10,15 @@ import NotFound from '../../pages/NotFound'
 import Login from '../../pages/Login'
 import Register from '../../pages/Register'
 
+const { getToken } = useTokenService()
+
 const PrivateRoute = ({ children, ...rest }) => (
   <Route
     {...rest}
     render={({ location }) =>
-      isAuthenticated() ? (children)
+      getToken() ? (children)
         : (
-          <Redirect to={{ pathname: '/', state: { from: location } }} />
+          <Redirect to={{ pathname: ROUTES.BASE, state: { from: location } }} />
         )
     }
   />
@@ -25,7 +27,11 @@ const PrivateRoute = ({ children, ...rest }) => (
 const HeaderRoute = ({ children, ...rest }) => (
   <Route {...rest} >
     <LandingPage>
-      {children || <Dashboard />}
+      <BrowserRouter>
+        {children ||
+          ''
+        }
+      </BrowserRouter>
     </LandingPage>
   </Route>
 )
@@ -36,7 +42,12 @@ const Routes = () => (
       <Route exact path={ROUTES.LOGIN} component={Login} />
       <Route exact path={ROUTES.REGISTER} component={Register} />
       <HeaderRoute exact path={ROUTES.BASE} />
-      <Route exact path={ROUTES.NOT_FOUND} component={NotFound} />
+      <PrivateRoute
+        exact
+        path={ROUTES.DASHBOARD}
+      >
+        <Dashboard />
+      </PrivateRoute>
       <Route exact path="*" component={NotFound} />
     </Switch>
   </BrowserRouter>

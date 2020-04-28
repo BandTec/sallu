@@ -1,11 +1,11 @@
-const setLogin = dispatch => (prop, value) =>
+const setRegister = dispatch => (prop, value) =>
   dispatch({
-    type: 'SET_LOGIN',
+    type: 'SET_REGISTER',
     value: { prop, value }
   })
 
 const createActions = dispatch => ({
-  setLogin: setLogin(dispatch)
+  setRegister: setRegister(dispatch)
 })
 
 export default createActions

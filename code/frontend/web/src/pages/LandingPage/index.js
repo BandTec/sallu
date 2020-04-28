@@ -10,8 +10,9 @@ const LandingPage = ({ children }) => {
     <>
       <Header />
       <LandingThemeSwitch />
-      <SectionContainer />
-      <SectionContainer />
+      <SectionContainer>
+        {children}
+      </SectionContainer>
     </>
   )
 }

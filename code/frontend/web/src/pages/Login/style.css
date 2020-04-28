@@ -27,9 +27,9 @@ body{
 }
 
 .img{
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
+	/* display: flex;
+	top: 0;
+	left: 0; */
 }
 
 .login-content{
