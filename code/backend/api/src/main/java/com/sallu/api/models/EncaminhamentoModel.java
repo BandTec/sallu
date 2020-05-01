@@ -12,16 +12,12 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name= "tb_especialista")
-public class EspecialistaModel implements Serializable {
+@Table(name= "tb_encaminhamento")
+public class EncaminhamentoModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pk_especialista")
-    private Integer idTbEspecialista;
-
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "fk_dados", referencedColumnName = "pk_dados")
-//    private MedicalRecordModel medicalRecord;
+    @Column(name = "pk_encaminhamento")
+    private Integer idEncaminhamento;
 
     @JsonProperty
     @Column(name = "tipo_especialista", length = 128, nullable = false)
@@ -31,7 +27,8 @@ public class EspecialistaModel implements Serializable {
     @Column(name = "cor_classificacao", length = 40, nullable = false)
     private String corClassificada;
 
-//    Chave estrangeira tbHospital
-//    @ManyToOne
-//    private  fkHospital;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_ficha_medica", referencedColumnName = "pk_dados")
+    private MedicalRecordModel fkFichaMedica;
+
 }
