@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 /**
  * Contexto da Aplicação
@@ -26,24 +26,24 @@ const Login = () => {
     actions: { login: { setLogin } }
   } = useContext(AppContext)
 
-  const {
-    apis: { api },
-    handlers: { handleSetAllAuthorization }
-  } = useApiService()
+  const [api, handleSetAuthorization] = useApiService('api')
 
   const { setToken } = useTokenService()
 
   const handleSignIn = async e => {
-    e.preventDefault()
-    setLogin('errorMessage', null)
-
     try {
+      e.preventDefault()
+      setLogin('errorMessage', null)
+      // const { data } = await api.post('login', { email, password })
+      console.log('Tentativa Login')
       const { data } = await api.post('auth', { email, password })
 
       setToken(data.token)
-      handleSetAllAuthorization()
+      handleSetAuthorization()
+      return
     } catch (error) {
-      setLogin('errorMessage', 'Erro ao logar-se')
+      console.log(error)
+      setLogin('errorMessage', 'Erro ao fazer login')
       console.log(errorMessage)
     }
   }
@@ -58,11 +58,11 @@ const Login = () => {
       <div className="container">
         {/* <img className="wave" src={Fundo}/> */}
         <div className="img">
-          <img src={Medicine} />
+          <img src={Medicine} alt="Medicine" />
         </div>
         <div className="login-content">
           <form onSubmit={handleSignIn}>
-            <img src={Avatar} />
+            <img src={Avatar} alt="Avatar" />
             {errorMessage && <p style={{ background: '#FFF', color: '#F00', borderRadius: '10px' }}>{errorMessage}</p>}
             <h2 className="title">Welcome</h2>
             <div className="input-div one">
@@ -95,7 +95,7 @@ const Login = () => {
                   className="input" />
               </div>
             </div>
-            <a href="#">Forgot Password?</a>
+            <Link>Esqueceu a Senha?</Link>
             <input type="submit" className="btn" value="Login" />
           </form>
         </div>

@@ -8,43 +8,35 @@ import tokenService from './token'
 
 const { getToken } = tokenService()
 
-const ApiService = () => ({
-  apis: {
+const ApiService = (apiName = 'api') => {
+  const apis = {
     api: axios.create({
       baseURL: 'http://localhost:8080'
     })
-  },
-
-  handlers: {
-
-    /**
-     * Set Authorization of given API
-     * @param {AxiosInstance} api
-     * @returns {Void}
-     */
-    handleSetAuthorization: (api, token) =>
-      api.interceptors.request.use(async config => {
-        const token = getToken()
-        if (token) config.headers.Authorization = `Bearer ${token}`
-
-        return config
-      }),
-
-    /**
-     * Set Authorization of All APIs
-     */
-    handleSetAllAuthorization: () => {
-      apis.map(api => api.interceptors.request.use(async config => {
-        const token = getToken()
-        if (token) config.headers.Authorization = `Bearer ${token}`
-
-        return config
-      }))
-    }
   }
-})
 
-/** @type {AxiosInstance[]} */
-const apis = ApiService().apis
+  if (!apis[apiName]) {
+    throw new TypeError('Please, chosse a valid API Name')
+  }
+
+  /**
+   * Set Authorization of given API
+   * @returns {Void}
+   */
+  const handleSetAuthorization = () =>
+    apis[apiName].interceptors.request.use(async config => {
+      const token = getToken()
+      if (token) config.headers.Authorization = `Bearer ${token}`
+
+      return config
+    })
+
+  return [
+    /** @type {AxiosInstance} */
+    apis[apiName],
+    /** @type {() => void} */
+    handleSetAuthorization
+  ]
+}
 
 export default ApiService

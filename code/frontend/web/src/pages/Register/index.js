@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Container, LoginContent, Form } from './style'
@@ -10,6 +10,9 @@ import Medicine from '../../assets/medicine.png'
 import Avatar from '../../assets/avatar.png'
 
 const Register = () => {
+  const [error, setError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+
   const {
     state: {
       register: {
@@ -25,21 +28,31 @@ const Register = () => {
     actions: { register: { setRegister } }
   } = useContext(AppContext)
 
-  const { apis: { api } } = useApiService()
+  const [api] = useApiService()
 
   const handleRegister = e => {
-    e.preventDefault()
-    api.post('user', {
-      // Personal Data
-      name,
-      birthdayDate,
-      sex,
-      // User Data
-      admin,
-      email,
-      password
-    })
-    console.log({ email, password, name })
+    try {
+      e.preventDefault()
+      setError(false)
+
+      if (password !== passwordConfirm) {
+        setErrorMessage('Senhas não coecidem')
+        setError(true)
+        return
+      }
+
+      api.post('user', {
+        name,
+        birthdayDate,
+        sex,
+        admin,
+        email,
+        password
+      })
+    } catch (error) {
+      setErrorMessage('Erro ao tentar registrar usuário, Tente novamente mais tarde')
+      setError(true)
+    }
   }
 
   const handleChange = e => {
@@ -48,10 +61,14 @@ const Register = () => {
 
   return (
     <Container>
-      <img src={Medicine} alt="Medics" />
+      <div>
+        <img src={Medicine} alt="Medics" />
+      </div>
       <LoginContent>
         <Form onSubmit={handleRegister}>
-          <img src={Avatar} alt="Generic Avatar" />
+          <div className="avatar">
+            <img src={Avatar} alt="Generic Avatar" />
+          </div>
           <h2>BEM VINDO</h2>
           <div className='input-div one'>
             {/* <div className='divName'> */}
@@ -117,7 +134,9 @@ const Register = () => {
             </div>
           </div>
 
-          <Link>Esqueceu a Senha?</Link>
+          <div className="link">
+            <Link to={'/register'}>Esqueceu a Senha?</Link>
+          </div>
           <button type='submit'>Registrar</button>
         </Form>
       </LoginContent>

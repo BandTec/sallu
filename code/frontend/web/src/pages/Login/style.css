@@ -26,21 +26,21 @@ body{
     padding: 0 2rem;
 }
 
-.img{
-	/* display: flex;
-	top: 0;
-	left: 0; */
+.img {
+	display: flex;
+	justify-content: center;
 }
 
-.login-content{
+.login-content {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 	text-align: center;
 }
 
-.img img{
-	width: 500px;
+.img img {
+	width: 100%;
+	object-fit: contain;
 }
 
 form{

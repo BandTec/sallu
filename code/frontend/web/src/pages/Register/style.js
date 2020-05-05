@@ -8,13 +8,16 @@ export const Container = styled.div`
     grid-gap :7rem;
     padding: 0 2rem;
 
-    img {
-      width: 500px;
-      position: relative;
-      align-items: center;
-      top: 25%;
-      left: 20%;
+    div {
+      width: 100%;
 
+      display: flex;
+      justify-self: center;
+     
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
     }
 `
 
@@ -38,6 +41,7 @@ export const LoginContent = styled.div`
     }
 
     .input-div {
+      max-width: 360px;
       position: relative;
       display: grid;
       grid-template-columns: 7% 93%;
@@ -140,7 +144,8 @@ export const LoginContent = styled.div`
       text-transform: uppercase;
       margin: 1rem 0;
       cursor: pointer;
-      transition: .5s;
+      transition: 0.5s;
+      max-width: 360px;
     }
 
     button:hover {
@@ -150,7 +155,23 @@ export const LoginContent = styled.div`
 `
 
 export const Form = styled.form`
-    width: 360px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .link {
+      width: 100%;
+      max-width: 360px;
+      display: flex;
+
+      a {
+        width: 100%;
+        align-self: flex-end;
+      }
+    }
 `
 
 // export const Button = styled.button`
