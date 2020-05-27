@@ -201,6 +201,15 @@ p {
   color: #888888;
 }
 
+#copy {
+	color: #666666;
+  font-family: "Playfair Display", sans-serif;
+  line-height: 1.929;
+  font-size: 16px;
+  margin-bottom: 0px;
+  color: #ffff;
+}
+
 /* line 100, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_common.scss */
 h2 {
   font-size: 44px;
@@ -2689,6 +2698,16 @@ ul {
   .banner_part .banner_img {
     display: none;
   }
+}
+
+.contato_img{
+	width:100%;
+}
+
+.img_contato{
+	display: block;
+    margin-left: auto;
+    margin-right: auto
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
@@ -6278,7 +6297,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* line 158, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_footer.scss */
 .footer-area .copyright_part {
-  background-color: #0d1820;
+  background-color: #0065E1;
   padding: 26px 0px;
 }
 

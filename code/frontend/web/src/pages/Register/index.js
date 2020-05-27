@@ -69,7 +69,7 @@ const Register = () => {
           <div className="avatar">
             <img src={Avatar} alt="Generic Avatar" />
           </div>
-          <h2>BEM VINDO</h2>
+          <h2>CADASTRE-SE</h2>
           <div className='input-div one'>
             {/* <div className='divName'> */}
             <div>
@@ -85,6 +85,8 @@ const Register = () => {
               />
             </div>
           </div>
+
+          
 
           <div className='input-div pass'>
             {/* <div className='divEmail'> */}
@@ -134,9 +136,6 @@ const Register = () => {
             </div>
           </div>
 
-          <div className="link">
-            <Link to={'/register'}>Esqueceu a Senha?</Link>
-          </div>
           <button type='submit'>Registrar</button>
         </Form>
       </LoginContent>
