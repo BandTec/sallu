@@ -22,13 +22,25 @@ public class HospitalModel implements Serializable {
     private Integer idHospital;
 
     @JsonProperty
-    @Column(name = "hosp_nome")
-    private String nome;
+    @Column(name = "hospital_nome")
+    private String nomeHospital;
+
     @JsonProperty
-    @Column(name = "hosp_local")
-    private String local;
+    @Column(name = "hospital_local")
+    private String localHospital;
+
+    @JsonProperty
+    @Column(name="hospital_cnpj")
+    private String cnpjHospital;
+
+    @JsonProperty
+    @Column(name = "hospital_telefone")
+    private String telefoneHospital;
 
     //Relacionamento
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkHospital")
     private List<EnfermeiroModel>  enfermeiro;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkHospital")
+    private List<PacienteModel>  paciente;
 }

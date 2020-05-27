@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Container = styled.div`
     width: 100vw;
@@ -8,16 +8,18 @@ export const Container = styled.div`
     grid-gap :7rem;
     padding: 0 2rem;
 
-    img {
-      width: 500px;
-      position: relative;
-      align-items: center;
-      top: 25%;
-      left: 20%;
+    div {
+      width: 100%;
 
+      display: flex;
+      justify-self: center;
+     
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
     }
-`;
-
+`
 
 export const LoginContent = styled.div`
     display: flex;
@@ -39,6 +41,7 @@ export const LoginContent = styled.div`
     }
 
     .input-div {
+      max-width: 360px;
       position: relative;
       display: grid;
       grid-template-columns: 7% 93%;
@@ -54,7 +57,7 @@ export const LoginContent = styled.div`
 
     .input-div > div {
       position: relative;
-	    height: 45px
+      height: 45px;
     }
 
     .input-div > h5 > div {
@@ -86,19 +89,19 @@ export const LoginContent = styled.div`
     }
 
     .input-div.focus:before, .input-div.focus:after {
-	  width: 50%;
+      width: 50%;
     }
 
     .input-div.focus > div > h5 {
       top: -5px;
-	    font-size: 15px;
+      font-size: 15px;
     }
 
     .input-div > div > input {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
+      /* position: absolute; */
+      /* left: 0; */
+      /* top: 0; */
+      width: calc(360px - 1.4rem);
       height: 100%;
       border: none;
       outline: none;
@@ -110,7 +113,7 @@ export const LoginContent = styled.div`
     }
 
     .input-div.pass {
-	    margin-bottom: 4px;
+      margin-bottom: 4px;
     }
 
     a {
@@ -123,7 +126,7 @@ export const LoginContent = styled.div`
     }
 
     a:hover {
-	    color: #38d39f;
+      color: #38d39f;
     }
 
     button {
@@ -141,20 +144,35 @@ export const LoginContent = styled.div`
       text-transform: uppercase;
       margin: 1rem 0;
       cursor: pointer;
-      transition: .5s;
+      transition: 0.5s;
+      max-width: 360px;
     }
 
     button:hover {
       background-position: right;
     }
 
-`;
-
+`
 
 export const Form = styled.form`
-    width: 360px;
-`;
+    width: 100%;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .link {
+      width: 100%;
+      max-width: 360px;
+      display: flex;
+
+      a {
+        width: 100%;
+        align-self: flex-end;
+      }
+    }
+`
 
 // export const Button = styled.button`
 

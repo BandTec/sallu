@@ -27,9 +27,6 @@ public class MedicalRecordModel implements Serializable {
     @JoinColumn(name = "fk_user", referencedColumnName = "pk_user")
     private UserModel user;
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-//    private List<EspecialistaModel> especialista;
-
     // Peso
     @JsonProperty
     @Column(name = "fl_weight")
@@ -64,6 +61,14 @@ public class MedicalRecordModel implements Serializable {
     @JsonProperty
     @Column(name = "dt_last_cycle", nullable = false)
     private String dateLastCycle;
+
+    // Data da ficha
+    @JsonProperty
+    @Column(name = "dt_record", nullable = false)
+    private String dateRecord;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkFichaMedica")
+    private List<EncaminhamentoModel> encaminhamento;
 
 }
 

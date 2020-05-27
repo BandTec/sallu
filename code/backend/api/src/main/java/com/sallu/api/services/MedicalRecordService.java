@@ -29,6 +29,7 @@ public class MedicalRecordService {
                 .sex(medicalRecord.getSex())
                 .allergy(medicalRecord.getAllergy())
                 .dateLastCycle(medicalRecord.getDateLastCycle())
+                .dateRecord(medicalRecord.getDateRecord())
                 .build();
 
         this.repository.save(newMedicalRecord);
@@ -44,6 +45,7 @@ public class MedicalRecordService {
                     selectedMedicalRecord.setSex(medicalRecord.getSex());
                     selectedMedicalRecord.setAllergy(medicalRecord.getAllergy());
                     selectedMedicalRecord.setDateLastCycle(medicalRecord.getDateLastCycle());
+                    selectedMedicalRecord.setDateRecord(medicalRecord.getDateRecord());
                     return this.repository.save(selectedMedicalRecord);
                 })
                 .orElseThrow(

@@ -1,16 +1,42 @@
 import axios from 'axios'
 
-import { getToken } from './auth'
+import tokenService from './token'
 
-const api = axios.create({
-  baseURL: 'http://localhost:3333'
-})
+/**
+ * @typedef {import('axios').AxiosInstance} AxiosInstance
+ */
 
-api.interceptors.request.use(async config => {
-  const token = getToken()
-  if (token) config.headers.Authorization = `Bearer ${token}`
+const { getToken } = tokenService()
 
-  return config
-})
+const ApiService = (apiName = 'api') => {
+  const apis = {
+    api: axios.create({
+      baseURL: 'http://localhost:8080'
+    })
+  }
 
-export default api
+  if (!apis[apiName]) {
+    throw new TypeError('Please, chosse a valid API Name')
+  }
+
+  /**
+   * Set Authorization of given API
+   * @returns {Void}
+   */
+  const handleSetAuthorization = () =>
+    apis[apiName].interceptors.request.use(async config => {
+      const token = getToken()
+      if (token) config.headers.Authorization = `Bearer ${token}`
+
+      return config
+    })
+
+  return [
+    /** @type {AxiosInstance} */
+    apis[apiName],
+    /** @type {() => void} */
+    handleSetAuthorization
+  ]
+}
+
+export default ApiService

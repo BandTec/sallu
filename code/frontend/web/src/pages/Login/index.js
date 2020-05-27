@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 /**
  * Contexto da Aplicação
  */
 import { AppContext } from '../../providers/contextProvider'
+import { useApiService, useTokenService } from '../../services'
 
 // import { Container, Form, LoginContent, Imagem } from './style'
 // import { ROUTES } from '../../configs/routes'
@@ -25,9 +26,26 @@ const Login = () => {
     actions: { login: { setLogin } }
   } = useContext(AppContext)
 
-  const handleSignIn = e => {
-    e.preventDefault()
-    alert('Você está na Aplicação')
+  const [api, handleSetAuthorization] = useApiService('api')
+
+  const { setToken } = useTokenService()
+
+  const handleSignIn = async e => {
+    try {
+      e.preventDefault()
+      setLogin('errorMessage', null)
+      // const { data } = await api.post('login', { email, password })
+      console.log('Tentativa Login')
+      const { data } = await api.post('auth', { email, password })
+
+      setToken(data.token)
+      handleSetAuthorization()
+      return
+    } catch (error) {
+      console.log(error)
+      setLogin('errorMessage', 'Erro ao fazer login')
+      console.log(errorMessage)
+    }
   }
 
   const handleChange = e => {
@@ -40,19 +58,19 @@ const Login = () => {
       <div className="container">
         {/* <img className="wave" src={Fundo}/> */}
         <div className="img">
-          <img src={Medicine} />
+          <img src={Medicine} alt="Medicine" />
         </div>
         <div className="login-content">
           <form onSubmit={handleSignIn}>
-            <img src={Avatar} />
-            {errorMessage && <p>{errorMessage}</p>}
+            <img src={Avatar} alt="Avatar" />
+            {errorMessage && <p style={{ background: '#FFF', color: '#F00', borderRadius: '10px' }}>{errorMessage}</p>}
             <h2 className="title">Welcome</h2>
             <div className="input-div one">
               <div className="i">
                 <i className="fas fa-user"></i>
               </div>
               <div className="div">
-                <h5>Username</h5>
+                {email.length < 1 && <h5>Username</h5>}
                 <input
                   id={'email'}
                   name={'email'}
@@ -67,7 +85,7 @@ const Login = () => {
                 <i className="fas fa-lock"></i>
               </div>
               <div classNames="div">
-                <h5>Password</h5>
+                {password.length < 1 && <h5>Password</h5>}
                 <input
                   id={'password'}
                   name={'password'}
@@ -77,7 +95,7 @@ const Login = () => {
                   className="input" />
               </div>
             </div>
-            <a href="#">Forgot Password?</a>
+            <Link>Esqueceu a Senha?</Link>
             <input type="submit" className="btn" value="Login" />
           </form>
         </div>

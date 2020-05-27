@@ -1,11 +1,11 @@
-import styled, { GlobalStyleComponent } from 'styled-components';
+import styled, { GlobalStyleComponent } from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-`;
+`
 
 export const Form = styled.form`
   width: 400px;
@@ -65,4 +65,4 @@ export const Form = styled.form`
     color: #999;
     text-decoration: none;
   }
-`;
+`

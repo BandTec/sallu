@@ -2,9 +2,6 @@
 // Base Routes
 // =============================================================================
 
-const NOT_FOUND = '/page-not-found'
-const BASE = '/'
-const HOME = '/home'
 const DASHBOARD = '/dashboard'
 const LOGIN = '/login'
 const REGISTER = '/register'
@@ -18,10 +15,7 @@ const REGISTER = '/register'
 // =============================================================================
 
 const ROUTES_PATCH = {
-  BASE,
   DASHBOARD,
-  HOME,
-  NOT_FOUND,
   LOGIN,
   REGISTER
 }
