@@ -1,7 +1,4 @@
-package com.sallu.api.models.dto;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+package com.sallu.api.entities.dto;
 import java.io.Serializable;
 public class LoginDTO implements Serializable {
 

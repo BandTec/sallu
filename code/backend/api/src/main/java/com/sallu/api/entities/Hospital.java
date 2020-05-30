@@ -1,4 +1,4 @@
-package com.sallu.api.models;
+package com.sallu.api.entities;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,14 +7,14 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
+
 @Data
 @Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tb_hospital")
-public class HospitalModel implements Serializable {
+public class Hospital implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,8 +34,13 @@ public class HospitalModel implements Serializable {
     private String telefoneHospital;
 
     @JsonProperty
-    @Column(name = "hospital_email")
+    @Column(name = "email_hospital")
     private String emailHospital;
+
+    //Relacionamento
+    @OneToOne(cascade = CascadeType.ALL)
+    private Endereco endereco;
+
 
     //Relacionamento
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkHospital")
@@ -43,4 +48,5 @@ public class HospitalModel implements Serializable {
 //
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkHospital")
 //    private List<PacienteModel>  paciente;
+
 }

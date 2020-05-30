@@ -1,6 +1,6 @@
 package com.sallu.api.controller;
 
-import com.sallu.api.models.MedicalRecordModel;
+import com.sallu.api.entities.FichaMedica;
 import com.sallu.api.services.MedicalRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,14 +11,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("medical_records")
-public class MedicalRecordController {
+public class FichaMedicaController {
 
     @Autowired
     private MedicalRecordService service;
 
     @GetMapping
-    public ResponseEntity<List<MedicalRecordModel>> getMedicalRecords() {
-        List<MedicalRecordModel> medicalRecords = service.selectAll();
+    public ResponseEntity<List<FichaMedica>> getMedicalRecords() {
+        List<FichaMedica> medicalRecords = service.selectAll();
 
         return medicalRecords.isEmpty()
                 ? ResponseEntity.noContent().build()
@@ -26,20 +26,20 @@ public class MedicalRecordController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createMedicalRecord(@RequestBody @Valid MedicalRecordModel medicalRecord) {
-        service.insert(medicalRecord);
+    public ResponseEntity<Void> createMedicalRecord(@RequestBody @Valid FichaMedica fichaMedica) {
+        service.insert(fichaMedica);
         return ResponseEntity.created(null).build();
     }
 
     @PutMapping
-    public ResponseEntity<Void> updateMedicalRecord(@RequestBody @Valid MedicalRecordModel medicalRecord) {
-        service.update(medicalRecord);
+    public ResponseEntity<Void> updateMedicalRecord(@RequestBody @Valid FichaMedica fichaMedica) {
+        service.update(fichaMedica);
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> deleteMedicalRecord(@PathVariable("id") Integer id) {
-        service.delete(id);
+    public ResponseEntity<Void> deleteMedicalRecord(@PathVariable("id") Integer idFichaMedica) {
+        service.delete(idFichaMedica);
         return ResponseEntity.noContent().build();
     }
 }

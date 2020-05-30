@@ -1,4 +1,4 @@
-package com.sallu.api.models.dto;
+package com.sallu.api.entities.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

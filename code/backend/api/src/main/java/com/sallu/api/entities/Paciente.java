@@ -1,4 +1,4 @@
-package com.sallu.api.models;
+package com.sallu.api.entities;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,7 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tb_paciente")
-public class PacienteModel implements Serializable {
+public class Paciente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pk_paciente")
@@ -27,12 +27,16 @@ public class PacienteModel implements Serializable {
     private String telefonePaciente;
 
     @JsonProperty
-    @Column(name = "data_nascimento")
-    private Date dtNascimento;
+    @Column(name = "email_paciente", length = 45, nullable = false)
+    private Date emailPaciente;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_hospital", referencedColumnName = "pk_hospital")
-    private HospitalModel fkHospital;
+    @JsonProperty
+    @Column(name = "senha_paciente", length = 45, nullable = false)
+    private Date senhaPaciente;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_classificacoes")
+    private Classificacao fkClassificacoes;
 
 //    @OneToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "fk_login", referencedColumnName = "pk_login")

@@ -1,4 +1,4 @@
-package com.sallu.api.models;
+package com.sallu.api.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,7 +22,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tb_user")
-public class UserModel implements Serializable {
+public class User implements Serializable {
 
     // ID
     @Id
@@ -31,7 +31,7 @@ public class UserModel implements Serializable {
     private Integer id;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<MedicalRecordModel> medicalRecords;
+    private List<FichaMedica> medicalRecords;
 
     // Nome
     @NotBlank(message = "{user.nm_user}")

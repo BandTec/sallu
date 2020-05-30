@@ -1,8 +1,7 @@
 package com.sallu.api.controller;
 
-import com.sallu.api.models.UserModel;
-import com.sallu.api.models.dto.LoginDTO;
-import com.sallu.api.models.dto.TokenDTO;
+import com.sallu.api.entities.dto.LoginDTO;
+import com.sallu.api.entities.dto.TokenDTO;
 import com.sallu.api.services.jwt.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
