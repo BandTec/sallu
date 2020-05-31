@@ -48,7 +48,7 @@ public class FichaMedica implements Serializable {
     // Sexo
     @JsonProperty
     @Column(name = "nm_sexo", length = 1, nullable = false)
-    private String sexo;
+    private char sexo;
 
     // Alergia
     @JsonProperty
@@ -57,7 +57,7 @@ public class FichaMedica implements Serializable {
 
     // Data do Último Ciclo Menstrual
     @JsonProperty
-    @Column(name = "data_ult_ciclo", nullable = false)
+    @Column(name = "data_ult_ciclo")
     private String dataUltCiclo;
 
     // Data da ficha
@@ -66,7 +66,7 @@ public class FichaMedica implements Serializable {
     private String dataFicha;
 
     @JsonProperty
-    @Column(name = "gestante", nullable = false)
+    @Column(name = "gestante")
     private boolean gestante;
 
     @ManyToOne(cascade = CascadeType.ALL)
