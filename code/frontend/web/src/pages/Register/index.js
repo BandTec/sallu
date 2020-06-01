@@ -190,31 +190,6 @@ const Register = () => {
           </div>
           
 
-          <div className="radio">
-          <div>
-              {/* {name.length <= 1 && <h5>Nome</h5>} */}
-              <input
-                id={'sex'}
-                name={'sex'}
-                type={'radio'}
-                value="Feminino"
-                onChange={handleChange}
-              />Feminino
-            </div>
-
-            <div>
-              {/* {name.length <= 1 && <h5>Nome</h5>} */}
-              <input
-                id={'sex'}
-                name={'sex'}
-                type={'radio'}
-                value="Masculino"
-                onChange={handleChange}
-                className="input"
-              />Masculino
-            </div>
-          </div>
-
           <button type='submit'>Registrar</button>
         </Form>
       </LoginContent>

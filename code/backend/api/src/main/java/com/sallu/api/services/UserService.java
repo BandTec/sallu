@@ -33,7 +33,7 @@ public class UserService {
                 .telephone(user.getTelephone())
                 .admin(false)
                 .birthdayDate(user.getBirthdayDate())
-                .sex(user.getSex())
+//                .sex(user.getSex())
                 .build();
 
         if (this.repository.findByEmail(user.getEmail()).isPresent()) {
@@ -49,7 +49,7 @@ public class UserService {
                 .map(selectedUser -> {
                     selectedUser.setName(user.getName());
                     selectedUser.setBirthdayDate(user.getBirthdayDate());
-                    selectedUser.setSex(user.getSex());
+//                    selectedUser.setSex(user.getSex());
                     selectedUser.setTelephone(user.getTelephone());
                     selectedUser.setPassword(user.getPassword());
                     return this.repository.save(selectedUser);

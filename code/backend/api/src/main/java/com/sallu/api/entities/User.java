@@ -52,10 +52,10 @@ public class User implements Serializable {
     private Date birthdayDate;
 
     // Sexo
-    @NotBlank(message = "{user.user_sex}")
-    @JsonProperty
-    @Column(name = "user_sex", nullable = false)
-    private String sex;
+//    @NotBlank(message = "{user.user_sex}")
+//    @JsonProperty
+//    @Column(name = "user_sex", nullable = false)
+//    private String sex;
 
     @Email(message = "{email.valid}")
     @NotBlank(message = "{user.nm_email}")
