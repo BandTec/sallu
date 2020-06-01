@@ -17,7 +17,7 @@ public class UserService {
 
     @Autowired
     private UserRepository repository;
-//criptografia de senha,
+    //criptografia de senha,
     @Autowired
     private PasswordEncoder encoder;
 
@@ -27,21 +27,20 @@ public class UserService {
     public void insert(User user) {
 
         User newUser = User.builder()
-                .name(user.getEmail())
+                .name(user.getName())
                 .email(user.getEmail())
                 .password(user.getPassword())
+                .telephone(user.getTelephone())
                 .admin(false)
-                .birthdayDate(LocalDate.now())
-                .sex("M")
+                .birthdayDate(user.getBirthdayDate())
+                .sex(user.getSex())
                 .build();
 
         if (this.repository.findByEmail(user.getEmail()).isPresent()) {
             throw new DataIntegrityViolationException("E-mail já cadastrado");
         }
-
         newUser.setPassword(this.encoder.encode(newUser.getPassword()));
         this.repository.save(newUser);
-
     }
 
     @Transactional
@@ -51,6 +50,7 @@ public class UserService {
                     selectedUser.setName(user.getName());
                     selectedUser.setBirthdayDate(user.getBirthdayDate());
                     selectedUser.setSex(user.getSex());
+                    selectedUser.setTelephone(user.getTelephone());
                     selectedUser.setPassword(user.getPassword());
                     return this.repository.save(selectedUser);
                 })

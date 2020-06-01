@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -39,17 +40,21 @@ public class User implements Serializable {
     @Column(name = "nm_user", length = 128, nullable = false)
     private String name;
 
+    @JsonProperty
+    @Column(name = "nm_tel", length = 15, nullable = false)
+    private String telephone;
+
     // Data de Nascimento
     @NotNull(message = "{user.dt_birthday}")
     @JsonProperty
     @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "dt_birthday", nullable = false)
-    private LocalDate birthdayDate;
+    private Date birthdayDate;
 
     // Sexo
     @NotBlank(message = "{user.user_sex}")
     @JsonProperty
-    @Column(name = "user_sex", length = 1, nullable = false)
+    @Column(name = "user_sex", nullable = false)
     private String sex;
 
     @Email(message = "{email.valid}")

@@ -1,24 +1,30 @@
 import React, { useState, useContext } from 'react'
-import { Link } from 'react-router-dom'
-
+import { Link, useHistory } from 'react-router-dom'
 import { Container, LoginContent, Form } from './style'
 
 import { AppContext } from '../../providers/contextProvider'
 import { useApiService } from '../../services'
 
 import Medicine from '../../assets/medicine.png'
-import Avatar from '../../assets/avatar.png'
+import Avatar from '../../assets/avatar.png';
+
+// CommonJS
+import Swal from 'sweetalert2';
+const swal = require('sweetalert2');
+
 
 const Register = () => {
   const [error, setError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+  const history = useHistory
 
   const {
     state: {
       register: {
         name,
-        birthdayDate,
+        telephone,
         sex,
+        birthdayDate,
         admin,
         email,
         password,
@@ -29,29 +35,40 @@ const Register = () => {
   } = useContext(AppContext)
 
   const [api] = useApiService()
-
   const handleRegister = e => {
     try {
       e.preventDefault()
       setError(false)
-
+      
       if (password !== passwordConfirm) {
         setErrorMessage('Senhas não coecidem')
         setError(true)
+        Swal.fire(
+          'Ops...',
+          'Senhas não coincidem, verifique.',
+          'error'
+        )
         return
       }
 
       api.post('user', {
         name,
-        birthdayDate,
+        telephone,
         sex,
+        birthdayDate,        
         admin,
         email,
         password
       })
-    } catch (error) {
+    }
+     catch (error) {
       setErrorMessage('Erro ao tentar registrar usuário, Tente novamente mais tarde')
       setError(true)
+      Swal.fire(
+        'Ops...',
+        'Erro ao tentar registrar usuário, tente novamente mais tarde.',
+        'error'
+      )
     }
   }
 
@@ -82,13 +99,29 @@ const Register = () => {
                 value={name}
                 onChange={handleChange}
                 className="input"
+                required
               />
             </div>
           </div>
 
-          
+          <div className='input-div one'>
+            {/* <div className='divName'> */}
+            <div>
+              {/* {name.length <= 1 && <h5>Nome</h5>} */}
+              <input
+                id={'telephone'}
+                name={'telephone'}
+                type={'text'}
+                placeholder={'Telefone'}
+                value={telephone}
+                onChange={handleChange}
+                className="input"
+                required
+              />
+            </div>
+          </div>
 
-          <div className='input-div pass'>
+          <div className='input-div one'>
             {/* <div className='divEmail'> */}
             <div>
               {/* {email.length <= 1 && <h5>E-mail</h5>} */}
@@ -100,11 +133,12 @@ const Register = () => {
                 value={email}
                 onChange={handleChange}
                 className="input"
+                required
               />
             </div>
           </div>
 
-          <div className='input-div pass'>
+          <div className='input-div one'>
             {/* <div className='divSenha'> */}
             <div>
               {/* {password.length <= 1 && <h5>Senha</h5>} */}
@@ -116,11 +150,12 @@ const Register = () => {
                 value={password}
                 onChange={handleChange}
                 className="input"
+                required
               />
             </div>
           </div>
 
-          <div className='input-div pass'>
+          <div className='input-div one'>
             {/* <div className='divConfiSenha'> */}
             <div>
               {/* {passwordConfirm.length <= 1 && <h5>Confirmação de Senha</h5>} */}
@@ -132,7 +167,51 @@ const Register = () => {
                 value={passwordConfirm}
                 onChange={handleChange}
                 className="input"
+                required
               />
+            </div>
+          </div>
+
+          <div className='input-div one'>
+            {/* <div className='divName'> */}
+            <div>
+              {/* {name.length <= 1 && <h5>Nome</h5>} */}
+              <input
+                id={'birthdayDate'}
+                name={'birthdayDate'}
+                type={'Date'}
+                placeholder={'dd/mm/aaaa'}
+                value={birthdayDate}
+                onChange={handleChange}
+                className="input"
+                required
+              />
+            </div>
+          </div>
+          
+
+          <div className="radio">
+          <div>
+              {/* {name.length <= 1 && <h5>Nome</h5>} */}
+              <input
+                id={'sex'}
+                name={'sex'}
+                type={'radio'}
+                value="Feminino"
+                onChange={handleChange}
+              />Feminino
+            </div>
+
+            <div>
+              {/* {name.length <= 1 && <h5>Nome</h5>} */}
+              <input
+                id={'sex'}
+                name={'sex'}
+                type={'radio'}
+                value="Masculino"
+                onChange={handleChange}
+                className="input"
+              />Masculino
             </div>
           </div>
 

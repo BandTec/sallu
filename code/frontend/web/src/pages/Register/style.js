@@ -7,6 +7,7 @@ export const Container = styled.div`
     grid-template-columns: repeat(2, 1fr);
     grid-gap :7rem;
     padding: 0 2rem;
+    overflow:auto;
 
     div {
       width: 100%;
