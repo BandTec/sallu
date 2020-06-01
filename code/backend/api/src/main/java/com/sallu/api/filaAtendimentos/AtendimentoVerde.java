@@ -1,28 +1,28 @@
 package com.sallu.api.filaAtendimentos;
 
-public class AtendimentoObj <T>{
+public class AtendimentoVerde <T> {
 
-    private int tamanho;
-    private T fila[];
+    private int tamanhoVerde;
+    private T filaVerde[];
 
-    public AtendimentoObj(int tam) {
-        tamanho = 0;
-        fila = (T[]) new Object[tam];
+    public AtendimentoVerde(int tam) {
+        tamanhoVerde = 0;
+        filaVerde = (T[]) new Object[tam];
     }
 
     public boolean isEmpty() {
-        return tamanho == 0;
+        return tamanhoVerde == 0;
     }
 
     public boolean isFull() {
-        return (tamanho == fila.length);
+        return (tamanhoVerde == filaVerde.length);
     }
 
     public void insert(T info) {
         if (!isFull()) {
-            fila[++tamanho] = info;
-            tamanho++;
-            fila[tamanho] = info;
+            filaVerde[++tamanhoVerde] = info;
+            tamanhoVerde++;
+            filaVerde[tamanhoVerde] = info;
         } else {
             System.out.println("fila cheia!");
         }
@@ -33,7 +33,7 @@ public class AtendimentoObj <T>{
             System.out.println("A fila está vazia");
             return null;
         }
-        return fila[0];
+        return filaVerde[0];
     }
 
     public T poll() {
@@ -42,10 +42,10 @@ public class AtendimentoObj <T>{
             return null;
         }
         T primeiro = peek();
-        for (int i = 0; i < fila.length; i++) {
-            fila[i] = fila[i + 1];
+        for (int i = 0; i < filaVerde.length; i++) {
+            filaVerde[i] = filaVerde[i + 1];
         }
-        tamanho--;
+        tamanhoVerde--;
         return primeiro;
     }
 
@@ -53,8 +53,8 @@ public class AtendimentoObj <T>{
         if (isEmpty()) {
             System.out.println("Fila vazia");
         } else {
-            for (int i = 0; i < tamanho; i++) {
-                System.out.println(fila[i]);
+            for (int i = 0; i < tamanhoVerde; i++) {
+                System.out.println(filaVerde[i]);
             }
         }
     }
