@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-
+import {FiLogIn} from 'react-icons/fi'
 /**
  * Contexto da Aplicação
  */
@@ -97,6 +97,10 @@ const Login = () => {
             </div>
             <Link>Esqueceu a Senha?</Link>
             <input type="submit" className="btn" value="Login" />
+            <Link className="back-link" to="/register">
+                        <FiLogIn size={16} color="#E02041"/>
+                        Não tenho cadastro
+            </Link>
           </form>
         </div>
       </div>

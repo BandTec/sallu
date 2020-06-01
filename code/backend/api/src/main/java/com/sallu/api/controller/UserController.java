@@ -1,6 +1,6 @@
 package com.sallu.api.controller;
 
-import com.sallu.api.models.UserModel;
+import com.sallu.api.entities.User;
 import com.sallu.api.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +17,8 @@ public class UserController {
     private UserService service;
 
     @GetMapping
-    public ResponseEntity<List<UserModel>> getUsers() {
-        List<UserModel> users = service.selectAll();
+    public ResponseEntity<List<User>> getUsers() {
+        List<User> users = service.selectAll();
 
         return users.isEmpty()
                 ? ResponseEntity.noContent().build()
@@ -26,13 +26,13 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createUser(@RequestBody @Valid UserModel user) {
+    public ResponseEntity<Void> createUser(@RequestBody @Valid User user) {
         service.insert(user);
         return ResponseEntity.status(201).build();
     }
 
     @PutMapping
-    public ResponseEntity<Void> updateUser(@RequestBody @Valid UserModel user) {
+    public ResponseEntity<Void> updateUser(@RequestBody @Valid User user) {
         service.update(user);
         return ResponseEntity.ok().build();
     }

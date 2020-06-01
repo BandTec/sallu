@@ -1,6 +1,6 @@
 package com.sallu.api.services.jwt;
 
-import com.sallu.api.models.UserModel;
+import com.sallu.api.entities.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
@@ -22,7 +22,7 @@ public class JwtService {
     @Value("${jwt.expiration}")
     private String expiration;
 
-    public String token(UserModel userModel) {
+    public String token(User userModel) {
 
         long stringToLong = Long.parseLong(this.expiration);
 
