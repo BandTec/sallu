@@ -5,6 +5,7 @@
 const DASHBOARD = '/dashboard'
 const LOGIN = '/login'
 const REGISTER = '/register'
+const FICHA = '/ficha'
 
 // =============================================================================
 // Sub Routes
@@ -17,7 +18,8 @@ const REGISTER = '/register'
 const ROUTES_PATCH = {
   DASHBOARD,
   LOGIN,
-  REGISTER
+  REGISTER,
+  FICHA
 }
 
 export default ROUTES_PATCH
