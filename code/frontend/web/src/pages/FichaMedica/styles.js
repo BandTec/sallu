@@ -48,9 +48,35 @@ div {
 `;
 
 export const Right = styled.div`
-    width: 100%;
+  width: 100%;
+  max-height: 100%;
   padding: 25px 40px;
   max-width: 425px;
+  
+  .form {
+    overflow: auto;
+    max-height: 70vh;
+  }
+
+  .input-radio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    height: 20px;
+    margin-bottom: 5px;
+
+    input {
+      width: auto;
+      margin-right: 5px;
+      margin-bottom: 0;
+    }
+  }
+
+  .input-group {
+    display: flex;
+    justify-content: space-around;
+  }
 
   h2 {
     position: relative;
@@ -124,9 +150,11 @@ export const Button = styled.button`
     border: none;
     color: #FFF;
     transition: .3s;
+    margin-bottom: 20px;
   }
 
   &:hover {
     background-color: #27AE60;
   }
 `;
+
