@@ -173,6 +173,26 @@ export const Form = styled.form`
         align-self: flex-end;
       }
     }
+
+    
+.back-links {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  color: #41414d;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.back-links svg{
+  margin-right: 8px;
+}
+
+.back-links:hover{
+  opacity: 0.8;
+}
 `
 
 // export const Button = styled.button`

@@ -64,13 +64,13 @@ const Login = () => {
           <form onSubmit={handleSignIn}>
             <img src={Avatar} alt="Avatar" />
             {errorMessage && <p style={{ background: '#FFF', color: '#F00', borderRadius: '10px' }}>{errorMessage}</p>}
-            <h2 className="title">Welcome</h2>
+            <h2 className="title">BEM VINDO</h2>
             <div className="input-div one">
               <div className="i">
                 <i className="fas fa-user"></i>
               </div>
               <div className="div">
-                {email.length < 1 && <h5>Username</h5>}
+                {email.length < 1 && <h5>E-mail</h5>}
                 <input
                   id={'email'}
                   name={'email'}
@@ -85,7 +85,7 @@ const Login = () => {
                 <i className="fas fa-lock"></i>
               </div>
               <div classNames="div">
-                {password.length < 1 && <h5>Password</h5>}
+                {password.length < 1 && <h5>Senha</h5>}
                 <input
                   id={'password'}
                   name={'password'}
