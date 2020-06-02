@@ -10,8 +10,6 @@ import Avatar from '../../assets/avatar.png';
 
 // CommonJS
 import Swal from 'sweetalert2';
-const swal = require('sweetalert2');
-
 
 const Register = () => {
   const [error, setError] = useState(false)
