@@ -69,10 +69,13 @@ public class FichaMedica implements Serializable {
     @Column(name = "gestante")
     private boolean gestante;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "pk_hospital", referencedColumnName = "pk_hospital")
     private Hospital hospital;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "pk_paciente", referencedColumnName = "pk_paciente")
     private Paciente paciente;
 
 }
