@@ -189,7 +189,7 @@ public class TesteFichaGrava {
                     altura = leitor.nextDouble();
                     System.out.println("Digite sua pressão arterial do Paciente");
                     pressaoArterial = leitor.nextDouble();
-                    System.out.println("Digite sua pressão corporal do Paciente");
+                    System.out.println("Digite sua temperatura corporal do Paciente");
                     temperaturaCorporal = leitor.nextDouble();
                     System.out.println("Digite sexo do Paciente");
                     sexo = leitor.next();
