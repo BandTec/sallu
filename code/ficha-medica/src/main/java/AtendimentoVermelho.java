@@ -1,5 +1,4 @@
 public class AtendimentoVermelho <T>{
-
     private int tamanhoVermelho;
     private T filaVermelho[];
 
@@ -13,17 +12,15 @@ public class AtendimentoVermelho <T>{
     }
 
     public boolean isFull() {
-        return (tamanhoVermelho == filaVermelho.length);
+        return tamanhoVermelho == filaVermelho.length;
     }
 
     public void insert(T info) {
-        if (!isFull()) {
-            filaVermelho[++tamanhoVermelho] = info;
-            tamanhoVermelho++;
-            filaVermelho[tamanhoVermelho] = info;
-        } else {
-            System.out.println("fila cheia!");
+        if (isFull()) {
+            System.out.println("Fila cheia");
+            return;
         }
+        filaVermelho[tamanhoVermelho++]=info;
     }
 
     public T peek() {
@@ -35,15 +32,14 @@ public class AtendimentoVermelho <T>{
     }
 
     public T poll() {
-        if (isEmpty()) {
-            System.out.println("A fila está vazia");
-            return null;
-        }
         T primeiro = peek();
-        for (int i = 0; i < filaVermelho.length; i++) {
-            filaVermelho[i] = filaVermelho[i + 1];
+        if (!isEmpty()) {
+            for (int i =0; i< tamanhoVermelho-1; i++){
+                filaVermelho[i]=filaVermelho[i+1];
+            }
+            filaVermelho[tamanhoVermelho-1]=null;
+            tamanhoVermelho--;
         }
-        tamanhoVermelho--;
         return primeiro;
     }
 

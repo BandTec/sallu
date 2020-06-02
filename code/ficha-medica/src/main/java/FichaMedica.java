@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class FichaMedica {
 
   private Integer id;
@@ -8,27 +10,27 @@ public class FichaMedica {
   private String sexo;
   private String nome;
   private String dataCiclo;
-  private String dataFicha;
+  private LocalDate dataFicha;
   private boolean gestante;
 
-    public FichaMedica(int id, Double peso, Double altura, Double pressaoArterial, Double pressaoCorporal, String sexo, String nome, String dataCiclo, String dataUltFicha) {
+    public FichaMedica(Integer id, Double peso, Double altura, Double pressaoArterial, Double temperaturaCorporal, String sexo, String nome, String dataCiclo, LocalDate dataFicha, boolean gestante) {
         this.id = id;
         this.peso = peso;
         this.altura = altura;
         this.pressaoArterial = pressaoArterial;
-        this.temperaturaCorporal = pressaoCorporal;
+        this.temperaturaCorporal = temperaturaCorporal;
         this.sexo = sexo;
         this.nome = nome;
         this.dataCiclo = dataCiclo;
-        this.dataFicha = dataUltFicha;
+        this.dataFicha = dataFicha;
         this.gestante = gestante;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -56,12 +58,12 @@ public class FichaMedica {
         this.pressaoArterial = pressaoArterial;
     }
 
-    public Double getPressaoCorporal() {
+    public Double getTemperaturaCorporal() {
         return temperaturaCorporal;
     }
 
-    public void setPressaoCorporal(Double pressaoCorporal) {
-        this.temperaturaCorporal = pressaoCorporal;
+    public void setTemperaturaCorporal(Double temperaturaCorporal) {
+        this.temperaturaCorporal = temperaturaCorporal;
     }
 
     public String getSexo() {
@@ -72,12 +74,12 @@ public class FichaMedica {
         this.sexo = sexo;
     }
 
-    public String getAlergia() {
+    public String getNome() {
         return nome;
     }
 
-    public void setAlergia(String alergia) {
-        this.nome = alergia;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getDataCiclo() {
@@ -88,12 +90,12 @@ public class FichaMedica {
         this.dataCiclo = dataCiclo;
     }
 
-    public String getDataUltFicha() {
+    public LocalDate getDataFicha() {
         return dataFicha;
     }
 
-    public void setDataUltFicha(String dataUltFicha) {
-        this.dataFicha = dataUltFicha;
+    public void setDataFicha(LocalDate dataFicha) {
+        this.dataFicha = dataFicha;
     }
 
     public boolean isGestante() {
@@ -111,12 +113,12 @@ public class FichaMedica {
                 ", peso=" + peso +
                 ", altura=" + altura +
                 ", pressaoArterial=" + pressaoArterial +
-                ", pressaoCorporal=" + temperaturaCorporal +
+                ", temperaturaCorporal=" + temperaturaCorporal +
                 ", sexo='" + sexo + '\'' +
-                ", alergia='" + nome + '\'' +
+                ", nome='" + nome + '\'' +
                 ", dataCiclo='" + dataCiclo + '\'' +
-                ", dataUltFicha='" + dataFicha + '\'' +
-                ", gestante='" + gestante + '\''+
+                ", dataFicha=" + dataFicha +
+                ", gestante=" + gestante +
                 '}';
     }
 }

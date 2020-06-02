@@ -2,10 +2,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Formatter;
-import java.util.FormatterClosedException;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
+import java.time.LocalDate;
+import java.util.*;
 
 public class TesteFichaGrava {
 
@@ -40,11 +38,11 @@ public class TesteFichaGrava {
 
                 if (isCSV) {
                     saida.format("%d;%.2f;%.2f;%.2f;%.2f;%s;%s;%s;%s%n",a.getId(), a.getPeso(),a.getAltura(),a.getPressaoArterial(),
-                            a.getPressaoCorporal(),a.getSexo(),a.getAlergia(),a.getDataCiclo(), a.getDataUltFicha());
+                            a.getTemperaturaCorporal(),a.getSexo(),a.getDataCiclo(), a.getDataFicha(),a.getDataFicha());
                 }
                 else {
                     saida.format("%d %.2f %.2f %.2f %.2f %s %s %s %s%n",a.getId(), a.getPeso(),a.getAltura(),a.getPressaoArterial(),
-                            a.getPressaoCorporal(),a.getSexo(),a.getAlergia(),a.getDataCiclo(), a.getDataUltFicha());
+                            a.getTemperaturaCorporal(),a.getSexo(),a.getDataCiclo(), a.getDataFicha());
                 }
             }
         }
@@ -98,8 +96,8 @@ public class TesteFichaGrava {
 
         try {
 
-            System.out.printf("%-8s%-10s%-12s%-21s%-21s%-21s%-13s%-16s%16s\n","ID","PESO","ALTURA","PRESSAOARTERIAL","PRESSAOCORPORAL",
-                    "SEXO","ALERGIA","DATAULTCICLO","DATAULTFICHA");
+            System.out.printf("%-8s%-10s%-12s%-21s%-21s%-21s%-16s%16s\n","ID","PESO","ALTURA","PRESSAOARTERIAL","PRESSAOCORPORAL",
+                    "SEXO","DATAULTCICLO","DATAULTFICHA");
 
             while (entrada.hasNext()) {
 
@@ -109,11 +107,10 @@ public class TesteFichaGrava {
                 Double pressaoArterial = entrada.nextDouble();
                 Double pressaoCorporal = entrada.nextDouble();
                 String sexo = entrada.next();
-                String alergia = entrada.next();
                 String dataCiclo = entrada.next();
                 String dataUltFicha = entrada.next();
 
-                System.out.printf("%-8d%3.2f%11.2f%21.2f%21.2f%15s%18s%18s%22s\n",id, peso, altura, pressaoArterial, pressaoCorporal, sexo, alergia, dataCiclo, dataUltFicha);
+                System.out.printf("%-8d%3.2f%11.2f%21.2f%21.2f%15s%18s%18s%22s\n",id, peso, altura, pressaoArterial, pressaoCorporal, sexo, dataCiclo, dataUltFicha);
             }
         }
         catch (NoSuchElementException erro)
@@ -144,7 +141,7 @@ public class TesteFichaGrava {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
         boolean fim = false;
-        Integer id;
+        Integer idPaciente=1;
         Double peso;
         Double altura;
         Double pressaoArterial;
@@ -152,17 +149,18 @@ public class TesteFichaGrava {
         String sexo;
         String nome;
         String dataCiclo;
-        String dataUltFicha;
+        LocalDate dataUltFicha;
+        String gestantes;
+        Boolean gestante;
         int opcao;
-        int tamanhoAmarelo;
-        int tamanhoVermelho;
-        int tamanhoVerde;
+
+        String classifica;
 
         AtendimentoAmarelo amarelo = new AtendimentoAmarelo(50);
         AtendimentoVerde verde = new AtendimentoVerde(50);
         AtendimentoVermelho vermelho = new AtendimentoVermelho(50);
 
-        ListaObj<FichaMedica> lista = new ListaObj(10);
+        ListaObj<FichaMedica> lista = new ListaObj(150);
 
         while (!fim) {	// Fica num loop até que o usuário escolha Fim
             // Exibe o menu de opções para o usuário
@@ -179,10 +177,10 @@ public class TesteFichaGrava {
             opcao= leitor.nextInt();
 
             switch(opcao) {
-
                 case 1:
-                    System.out.println("Digite o id do paciente");
-                    id= leitor.nextInt();
+                    System.out.println("id do paciente");
+                    idPaciente=1;
+                    System.out.println(idPaciente);
                     System.out.println("Digite o nome do Paciente");
                     nome = leitor.next();
                     System.out.println("Digite o peso do Paciente");
@@ -193,33 +191,65 @@ public class TesteFichaGrava {
                     pressaoArterial = leitor.nextDouble();
                     System.out.println("Digite sua pressão corporal do Paciente");
                     temperaturaCorporal = leitor.nextDouble();
-                    System.out.println("Digite seu sexo do Paciente");
+                    System.out.println("Digite sexo do Paciente");
                     sexo = leitor.next();
 
                     if (sexo.equals("feminino")){
                         System.out.println("Digite a data do seu último ciclo");
                         dataCiclo= leitor.next();
-                        System.out.println("Digite a data da ultima ficha do Paciente");
-                        dataUltFicha= leitor.next();
+                        System.out.println("É gestante ?");
+                        gestantes = leitor.next();
+                        if (gestantes.equals("sim")){
+                            gestante=true;
+                        }else {
+                            gestante=false;
+                        }
+                        System.out.println("data da ficha do Paciente");
+                        dataUltFicha= LocalDate.now();
+                        System.out.println(dataUltFicha);
 
-                        FichaMedica ficha = new FichaMedica(id, peso, altura, pressaoArterial, temperaturaCorporal,
-                                sexo, nome, dataCiclo, dataUltFicha);
-
+                        FichaMedica ficha = new FichaMedica(idPaciente, peso, altura, pressaoArterial, temperaturaCorporal,
+                                sexo, nome, dataCiclo, dataUltFicha, gestante);
                         lista.adiciona(ficha);
+
+                        if(temperaturaCorporal <= 36.9){
+                            verde.insert(nome);
+                            System.out.println("Sua classificação é verde");
+                        }else if(temperaturaCorporal>36.9 && temperaturaCorporal <= 37.9){
+                            amarelo.insert(idPaciente);
+                            System.out.println("Sua classificação é amarelo");
+                        }else if(temperaturaCorporal >= 38.1 || gestante == true){
+                            vermelho.insert(nome);
+                            System.out.println("Sua classificação é vermelho");
+                        }
+
                     }else {
                         dataCiclo = null;
-                        System.out.println("Digite a data da ultima ficha do Paciente");
-                        dataUltFicha= leitor.next();
+                        gestante= false;
+                        System.out.println("data da ficha do Paciente");
+                        dataUltFicha= LocalDate.now();
+                        System.out.println(dataUltFicha);
 
-                        FichaMedica ficha = new FichaMedica(id, peso, altura, pressaoArterial, temperaturaCorporal,
-                                sexo, nome, dataCiclo, dataUltFicha);
+                        FichaMedica ficha = new FichaMedica(idPaciente, peso, altura, pressaoArterial, temperaturaCorporal,
+                                sexo, nome, dataCiclo, dataUltFicha,gestante);
 
                         lista.adiciona(ficha);
+
+                        if(temperaturaCorporal <= 36.9){
+                            verde.insert(nome);
+                            System.out.println("Sua classificação é verde");
+                        }else if(temperaturaCorporal>36.9 && temperaturaCorporal <= 37.9){
+                            amarelo.insert(idPaciente);
+                            System.out.println("Sua classificação é amarelo");
+                        }else if(temperaturaCorporal >= 38.0 ){
+                            vermelho.insert(nome);
+                            System.out.println("Sua classificação é vermelho");
+                        }
                     }
+                    idPaciente++;
                     break;
 
                 case 2:
-
                     if (lista.getTamanho() == 0)  {
                         System.out.println("Lista vazia");
                     }
@@ -257,27 +287,48 @@ public class TesteFichaGrava {
                     break;
 
                 case 7:
+                    String atendidov;
+                    String atendidoa;
+                    String atendidove;
+                    System.out.println("Qual sua classificação ?");
+                    classifica = leitor.next();
 
-                    if(temperaturaCorporal <= 36.9){
-                        verde.insert(nome);
-                        System.out.println(verde.poll());
-                        System.out.println("Primeiro: " + verde.peek());
-
-                    }else if(temperaturaCorporal <= 37.9){
-                       amarelo.insert(nome);
-                        System.out.println(verde.poll());
-                        System.out.println("Primeiro: " + vermelho.peek());
-
-                    }else if(temperaturaCorporal >= 38.1){
-                        vermelho.insert(nome);
-                        System.out.println(verde.poll());
-                        System.out.println("Primeiro: " + amarelo.peek());
+                    if (classifica.equals("verde")){
+                        verde.exibe();
+                        System.out.println("Já foi atendido ?");
+                        atendidov = leitor.next();
+                        if (atendidov.equals("sim")){
+                            verde.poll();
+                            verde.exibe();
+                        }if (atendidov.equals("não")){
+                            verde.exibe();
+                        }
                     }
 
+                    if (classifica.equals("amarelo")){
+                        amarelo.exibe();
+                        System.out.println("Já foi atendido?");
+                        atendidoa= leitor.next();
+                        if (atendidoa.equals("sim")){
+                            amarelo.poll();
+                            amarelo.exibe();
+                        }if (atendidoa.equals("não")){
+                            amarelo.exibe();
+                        }
+                    }
 
-                    verde.exibe();
-                    vermelho.exibe();
-                    amarelo.exibe();
+                    if (classifica.equals("vermelho")){
+                        vermelho.exibe();
+
+                        System.out.println("Já foi atendido ?");
+                        atendidove=leitor.next();
+                        if (atendidove.equals("sim")){
+                            vermelho.poll();
+                            vermelho.exibe();
+                        }if (atendidove.equals("não")){
+                            vermelho.exibe();
+                        }
+                    }
 
                 case 8:
                     fim = true;

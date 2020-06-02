@@ -1,11 +1,9 @@
 public class AtendimentoAmarelo <T> {
 
-
     private int tamanhoAmarelo;
     private T filaAmarelo[];
 
     public AtendimentoAmarelo(int tam){
-
         tamanhoAmarelo = 0;
         filaAmarelo = (T[]) new Object[tam];
     }
@@ -19,12 +17,11 @@ public class AtendimentoAmarelo <T> {
     }
 
     public void insert(T info) {
-        if (!isFull()) {
-            filaAmarelo[++tamanhoAmarelo] = info;
-            tamanhoAmarelo++;
-            filaAmarelo[tamanhoAmarelo] = info;
-        } else {
+        if (isFull()) {
             System.out.println("fila cheia!");
+
+        } else {
+            filaAmarelo[tamanhoAmarelo++]=info;
         }
     }
 
@@ -37,15 +34,14 @@ public class AtendimentoAmarelo <T> {
     }
 
     public T poll() {
-        if (isEmpty()) {
-            System.out.println("A fila está vazia");
-            return null;
-        }
         T primeiro = peek();
-        for (int i = 0; i < filaAmarelo.length; i++) {
-            filaAmarelo[i] = filaAmarelo[i + 1];
+        if (!isEmpty()) {
+            for (int i =0 ; i <tamanhoAmarelo-1; i++){
+                filaAmarelo[i]=filaAmarelo[i+1];
+            }
+            filaAmarelo[tamanhoAmarelo-1]=null;
+            tamanhoAmarelo--;
         }
-        tamanhoAmarelo--;
         return primeiro;
     }
 
