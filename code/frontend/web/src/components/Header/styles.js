@@ -10,7 +10,7 @@ export const Container = styled.div`
   align-items: center;
 
   img {
-    height: 100%;
-    width: 100%
+    max-width: 200px;
+    width: 100%;
   }
 `;

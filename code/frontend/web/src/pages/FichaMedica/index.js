@@ -97,20 +97,37 @@ function FichaMedica() {
                   <input 
                     id={'dataUlt'}
                     name={'dataUlt'}
-                    type={'text'}
+                    type={'Date'}
                     onChange={(event) => setDataUlt(event.target.value)}
                     value={dataUlt}
-                    placeholder={'Data Última Mestruação'}
+                    placeholder={'dd/mm/aaaa'}
+                    required
                   />
 
-                <input 
-                    id={'gestante'}
-                    name={'gestante'}
-                    type={'text'}
-                    onChange={(event) => setDataUlt(event.target.value)}
-                    value={dataUlt}
-                    placeholder={'Gestante'}
-                  />
+                  <p>É gestante?</p>
+                  <div className={'input-group'}>
+                    <div className={'gestant-radio'}>
+                      <input 
+                          id={'gestante'}
+                          name={'gestante-input'}
+                          type={'radio'}
+                          value={'s'}
+                          checked={gestante == 's'}
+                          onChange={(event) => setGestante(event.target.value)}
+                      /> <p>Sim</p>
+                    </div>
+
+                    <div className={'gestant-radio'}>
+                    <input 
+                      id={'gestante'}
+                      name={'gestante-input'}
+                      type={'radio'}
+                      value={'n'}
+                      checked={gestante == 'n'}
+                      onChange={(event) => setGestante(event.target.value)}
+                    /> <p>Não</p>
+                    </div>
+                  </div>
                 </>
               ) : null
             }

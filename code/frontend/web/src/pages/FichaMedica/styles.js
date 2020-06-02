@@ -28,6 +28,7 @@ img {
   max-width: 200px;
   width: 100%;
   height: auto;
+  justify-content: center;
 }
 
 h2 {
@@ -78,6 +79,21 @@ export const Right = styled.div`
     justify-content: space-around;
   }
 
+  .gestant-radio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    height: 20px;
+    margin-bottom: 5px;
+
+    input {
+      width: auto;
+      margin-right: 5px;
+      margin-bottom: 0;
+    }
+  }
+
   h2 {
     position: relative;
     padding-bottom: 10px;
@@ -93,7 +109,7 @@ export const Right = styled.div`
     height: 4px;
     width: 50px;
     border-radius: 20px;
-    background-color: #2ECC;
+    background-color: #fa183d;
   }
   input {
     width: 100%;
@@ -137,6 +153,20 @@ export const Right = styled.div`
   textarea {
     min-height: 150px;
   }
+
+  p {
+    font-size: 12px;
+  }
+
+  .gestant-group {
+    display: flexbox;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    height: 20px;
+    margin-bottom: 5px;
+    justify-content: space-around;
+  }
 `;
 
 export const Button = styled.button`
@@ -144,7 +174,7 @@ export const Button = styled.button`
     width: 100%;
     padding: 0.5rem 1rem;
     font-size: 1.1rem;
-    background-color: #3ECC;
+    background-color: #0065e1;
     cursor: pointer;
     outline: none;
     border: none;
@@ -154,7 +184,6 @@ export const Button = styled.button`
   }
 
   &:hover {
-    background-color: #27AE60;
+    background-color: #fa183d;
   }
 `;
-
