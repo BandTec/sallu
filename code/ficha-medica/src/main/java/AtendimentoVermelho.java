@@ -1,6 +1,4 @@
-package com.sallu.api.filaAtendimentos;
-
-public class AtendimentoVermelho<T>{
+public class AtendimentoVermelho <T>{
 
     private int tamanhoVermelho;
     private T filaVermelho[];
@@ -58,6 +56,5 @@ public class AtendimentoVermelho<T>{
             }
         }
     }
-
 
 }

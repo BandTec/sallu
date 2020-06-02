@@ -1,28 +1,28 @@
-package com.sallu.api.filaAtendimentos;
+public class AtendimentoAmarelo <T> {
 
-public class AtendimentoVerde <T> {
 
-    private int tamanhoVerde;
-    private T filaVerde[];
+    private int tamanhoAmarelo;
+    private T filaAmarelo[];
 
-    public AtendimentoVerde(int tam) {
-        tamanhoVerde = 0;
-        filaVerde = (T[]) new Object[tam];
+    public AtendimentoAmarelo(int tam){
+
+        tamanhoAmarelo = 0;
+        filaAmarelo = (T[]) new Object[tam];
     }
 
     public boolean isEmpty() {
-        return tamanhoVerde == 0;
+        return tamanhoAmarelo == 0;
     }
 
     public boolean isFull() {
-        return (tamanhoVerde == filaVerde.length);
+        return (tamanhoAmarelo == filaAmarelo.length);
     }
 
     public void insert(T info) {
         if (!isFull()) {
-            filaVerde[++tamanhoVerde] = info;
-            tamanhoVerde++;
-            filaVerde[tamanhoVerde] = info;
+            filaAmarelo[++tamanhoAmarelo] = info;
+            tamanhoAmarelo++;
+            filaAmarelo[tamanhoAmarelo] = info;
         } else {
             System.out.println("fila cheia!");
         }
@@ -33,7 +33,7 @@ public class AtendimentoVerde <T> {
             System.out.println("A fila está vazia");
             return null;
         }
-        return filaVerde[0];
+        return filaAmarelo[0];
     }
 
     public T poll() {
@@ -42,10 +42,10 @@ public class AtendimentoVerde <T> {
             return null;
         }
         T primeiro = peek();
-        for (int i = 0; i < filaVerde.length; i++) {
-            filaVerde[i] = filaVerde[i + 1];
+        for (int i = 0; i < filaAmarelo.length; i++) {
+            filaAmarelo[i] = filaAmarelo[i + 1];
         }
-        tamanhoVerde--;
+        tamanhoAmarelo--;
         return primeiro;
     }
 
@@ -53,8 +53,8 @@ public class AtendimentoVerde <T> {
         if (isEmpty()) {
             System.out.println("Fila vazia");
         } else {
-            for (int i = 0; i < tamanhoVerde; i++) {
-                System.out.println(filaVerde[i]);
+            for (int i = 0; i < tamanhoAmarelo; i++) {
+                System.out.println(filaAmarelo[i]);
             }
         }
     }
