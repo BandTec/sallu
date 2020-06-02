@@ -7,6 +7,7 @@ import { useApiService } from '../../services'
 
 import Medicine from '../../assets/medicine.png'
 import Avatar from '../../assets/avatar.png';
+import {FiArrowLeft} from 'react-icons/fi';
 
 // CommonJS
 import Swal from 'sweetalert2';
@@ -58,6 +59,13 @@ const Register = () => {
         email,
         password
       })
+      Swal.fire(
+        'Boa!!!',
+        'Cadastro feito com sucesso.',
+        'success'
+      )
+
+
     }
      catch (error) {
       setErrorMessage('Erro ao tentar registrar usuário, Tente novamente mais tarde')
@@ -189,6 +197,11 @@ const Register = () => {
           
 
           <button type='submit'>Registrar</button>
+
+          <Link className="back-links" to="/login">
+              <FiArrowLeft size={16} color="#E02041"/>
+                  Fazer login
+            </Link>
         </Form>
       </LoginContent>
     </Container>
