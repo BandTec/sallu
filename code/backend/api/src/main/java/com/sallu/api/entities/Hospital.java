@@ -22,7 +22,7 @@ public class Hospital implements Serializable {
     private Integer idHospital;
 
     @JsonProperty
-    @Column(name = "hospital_nome")
+    @Column(name = "hospital_nome", unique = true)
     private String nomeHospital;
 
     @JsonProperty

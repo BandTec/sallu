@@ -1,5 +1,6 @@
 package com.sallu.api.entities;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sallu.api.entities.dto.ClassificacaoDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,12 +20,14 @@ public class Classificacao implements Serializable {
     @Column(name = "pk_classificacoes")
     private Integer idClassificacoes;
 
-    @JsonProperty
     @Column(name = "cor_classificacao", length = 45, nullable = false)
     private String corClassificada;
 
-    @JsonProperty
     @Column(name = "n_atendimento", length = 45, nullable = false)
     private String nAtendimento;
 
+    public Classificacao(ClassificacaoDTO classificacaoDTO) {
+        this.corClassificada = classificacaoDTO.getCorClassificada();
+        this.nAtendimento = classificacaoDTO.getNumeroAtendimento();
+    }
 }

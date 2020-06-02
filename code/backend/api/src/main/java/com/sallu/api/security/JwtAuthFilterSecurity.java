@@ -2,6 +2,7 @@ package com.sallu.api.security;
 
 import com.sallu.api.services.jwt.JwtService;
 import com.sallu.api.services.jwt.TokenService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,7 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
+@Slf4j
 public class JwtAuthFilterSecurity extends OncePerRequestFilter {
 
     private JwtService jwtService;
@@ -50,7 +51,9 @@ public class JwtAuthFilterSecurity extends OncePerRequestFilter {
 
                 userAuthToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(req));
 
+
                 SecurityContextHolder.getContext().setAuthentication(userAuthToken);
+                log.info(SecurityContextHolder.getContext().getAuthentication().getName());
             }
         }
         filterChain.doFilter(req, res);

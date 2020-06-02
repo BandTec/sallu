@@ -1,4 +1,5 @@
 package com.sallu.api.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,6 +22,7 @@ public class FichaMedica implements Serializable {
     @Column(name = "pk_ficha_medica")
     private Integer idFichaMedica;
 
+    @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_user", referencedColumnName = "pk_user")
     private User user;
@@ -69,14 +71,13 @@ public class FichaMedica implements Serializable {
     @Column(name = "gestante")
     private boolean gestante;
 
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "pk_hospital", referencedColumnName = "pk_hospital")
+    @ManyToOne()
+    @JsonIgnore
     private Hospital hospital;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "pk_paciente", referencedColumnName = "pk_paciente")
-    private Paciente paciente;
+    @JoinColumn(name = "pk_classificacoes", referencedColumnName = "pk_classificacoes")
+    private Classificacao classificacao;
 
 }
 
