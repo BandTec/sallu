@@ -20,5 +20,6 @@ public class AuthController {
     @PostMapping
     public ResponseEntity<TokenDTO> authUser(@RequestBody LoginDTO loginDTO) {
         return ResponseEntity.accepted().body(this.service.authUser(loginDTO));
+
     }
 }

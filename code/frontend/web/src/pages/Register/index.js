@@ -15,7 +15,7 @@ import Swal from 'sweetalert2';
 const Register = () => {
   const [error, setError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
-  const history = useHistory
+  const history = useHistory()
 
   const {
     state: {
@@ -64,6 +64,7 @@ const Register = () => {
         'Cadastro feito com sucesso.',
         'success'
       )
+      history.push('/login')
 
 
     }

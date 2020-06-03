@@ -24,9 +24,9 @@ public class EmailController {
             MimeMessageHelper helper = new MimeMessageHelper(mail);
             helper.setTo("salut.bandtec@gmail.com");
             helper.setSubject("Interesse hospitalar para triagem virtual");
-            helper.setText("<h2>Dados do interessado</h2>" +
+            helper.setText("<h3>Dados do interessado</h3>" +
                     "Nome: "+nome+"<br>CNPJ: "+cnpj+"<br>Telefone: "+telefone+"<br>Email: "+email+
-                    "<h2>Dados de endereço</h2>CEP: "+cep+"<br>Bairro: "+bairro+"<br>Endereço: "+endereco+
+                    "<h3>Dados de endereço</h3>CEP: "+cep+"<br>Bairro: "+bairro+"<br>Endereço: "+endereco+
                     "<br>Logradouro: "+num, true);
             mailSender.send(mail);
             return ResponseEntity.ok().build();

@@ -29,7 +29,10 @@ const Routes = () => (
       <PrivateRoute exact path={ROUTES.DASHBOARD}><Dashboard /></PrivateRoute>
       <Route exact path={ROUTES.LOGIN} component={Login} />
       <Route exact path={ROUTES.REGISTER} component={Register} />
-      <Route exact path={ROUTES.FICHA} component={FichaMedica} />
+      <PrivateRoute>
+       <Route exact path={ROUTES.FICHA} component={FichaMedica} />
+      </PrivateRoute>
+      
       <Redirect to={ROUTES.LOGIN} />
 
     </Switch>

@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
- 
 import { Container, ContactBox, Left, Right, Button } from './styles';
 import pacientImg from '../../assets/pacient.jpg';
 import Header from '../../components/Header/index.js';
+
+import {useTokenService } from '../../services'
 
 function FichaMedica() {
   const [peso, setPeso] = useState('');
@@ -14,7 +15,9 @@ function FichaMedica() {
   const [desc, setDesc] = useState('');  
   const [dataUlt, setDataUlt] = useState('');
   const [gestante, setGestante] = useState('');
-  
+
+  const {}=useTokenService
+
   return (
     <div>
     <Header/>
