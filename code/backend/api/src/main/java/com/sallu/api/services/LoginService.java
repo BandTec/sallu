@@ -16,6 +16,7 @@ public class LoginService {
 
     public Optional<User> findByEmail(LoginDTO login) {
         return this.repository.findByEmail(login.getEmail());
+
     }
 
 }

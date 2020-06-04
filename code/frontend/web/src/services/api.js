@@ -29,7 +29,7 @@ const ApiService = (apiName = 'api') => {
       if (token) config.headers.Authorization = `Bearer ${token}`
 
       return config
-      
+
     })
 
   return [
@@ -37,7 +37,7 @@ const ApiService = (apiName = 'api') => {
     apis[apiName],
     /** @type {() => void} */
     handleSetAuthorization
-    
+
   ]
 }
 

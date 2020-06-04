@@ -9,8 +9,7 @@ import lombok.Data;
 import javax.persistence.*;
 @Data
 public class FichaMedicaDTO {
-
-
+    
     // Peso
     private Double peso;
 

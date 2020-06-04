@@ -7,7 +7,7 @@ import { useApiService } from '../../services'
 
 import Medicine from '../../assets/medicine.png'
 import Avatar from '../../assets/avatar.png';
-import {FiArrowLeft} from 'react-icons/fi';
+import { FiArrowLeft } from 'react-icons/fi';
 
 // CommonJS
 import Swal from 'sweetalert2';
@@ -38,7 +38,7 @@ const Register = () => {
     try {
       e.preventDefault()
       setError(false)
-      
+
       if (password !== passwordConfirm) {
         setErrorMessage('Senhas não coecidem')
         setError(true)
@@ -54,7 +54,7 @@ const Register = () => {
         name,
         telephone,
         sex,
-        birthdayDate,        
+        birthdayDate,
         admin,
         email,
         password
@@ -65,10 +65,8 @@ const Register = () => {
         'success'
       )
       history.push('/login')
-
-
     }
-     catch (error) {
+    catch (error) {
       setErrorMessage('Erro ao tentar registrar usuário, Tente novamente mais tarde')
       setError(true)
       Swal.fire(
@@ -195,12 +193,10 @@ const Register = () => {
               />
             </div>
           </div>
-          
 
           <button type='submit'>Registrar</button>
-
           <Link className="back-links" to="/login">
-              <FiArrowLeft size={16} color="#E02041"/>
+            <FiArrowLeft size={16} color="#E02041" />
                   Fazer login
             </Link>
         </Form>

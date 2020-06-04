@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import { Link, useHistory} from 'react-router-dom'
-import {FiLogIn} from 'react-icons/fi'
+import { Link, useHistory } from 'react-router-dom'
+import { FiLogIn } from 'react-icons/fi'
 /**
  * Contexto da Aplicação
  */
@@ -21,7 +21,7 @@ const Login = () => {
    * Actions e States Globais para Login
    * Sempre usa-se o AppContext com o Hook useContext do React
    */
-  const history =  useHistory();
+  const history = useHistory();
   const {
     state: { login: { email, password, errorMessage } },
     actions: { login: { setLogin } }
@@ -42,7 +42,7 @@ const Login = () => {
       setToken(data.token)
       handleSetAuthorization()
       history.push('/ficha')
-      return 
+      return
     } catch (error) {
       console.log(error)
       setLogin('errorMessage', 'Erro ao fazer login')
@@ -98,9 +98,9 @@ const Login = () => {
               </div>
             </div>
             <Link>Esqueceu a Senha?</Link>
-            <input type="submit" className="btn" value="Login" redirect="/ficha"/>
+            <input type="submit" className="btn" value="Login" redirect="/ficha" />
             <Link className="back-link" to="/register">
-                <FiLogIn size={16} color="#E02041"/>
+              <FiLogIn size={16} color="#E02041" />
                  Não tenho cadastro
             </Link>
           </form>

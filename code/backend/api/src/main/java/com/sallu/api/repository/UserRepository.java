@@ -10,6 +10,7 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Integer> {
     Optional<User> findByEmail(String email);
 
+
 //    @Query("select u from UserDomain u where u.email = :email and u.password = :password")
 //    List<User> findEmailAndSenha(String email, String password);
 
