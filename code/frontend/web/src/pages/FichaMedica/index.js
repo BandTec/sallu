@@ -5,8 +5,18 @@ import pacientImg from '../../assets/pacient.jpg';
 import Header from '../../components/Header/index.js';
 import { useApiService, useTokenService } from '../../services';
 import Swal from 'sweetalert2';
+import FilaVerde from './FilaVerde';
+import FilaAmarelo from './FilaAmarelo';
+import FilaVermelho from './FilaAmarelo';
+
+var verde = 1;
+var amarelo = 1;
+var vermelho = 1;
 
 function FichaMedica() {
+  const v = new FilaVerde(100);
+  const a = new FilaAmarelo(100);
+  const ver = new FilaVermelho(100);
   var classificacao;
   const [peso, setPeso] = useState('');
   const [altura, setAltura] = useState('');
@@ -18,27 +28,29 @@ function FichaMedica() {
   const [gestante, setGestante] = useState('');
   const [nomeHospital, setNomeHospital] = useState('');
   const [encaminhamento, setEncaminhamento] = useState('');
-  const [corClassificada, setCorClassificada] = useState('');
-  const [numeroAtendimento, setNumeroAtendimento] = useState('');
-
-  
-
+  var corClassificada='';
+  var numeroAtendimento = 0;
   const { getToken } = useTokenService();
   const [api] = useApiService()
   async function handleNewFicha(event) {
     event.preventDefault();
-
-    if (temperaturaCorporal <= 36.9) {
-      setCorClassificada('Verde')
+    if (temperaturaCorporal <= 36.9) {          
+      v.enqueue(verde);
+      numeroAtendimento = verde++;
+      console.log(numeroAtendimento);
+      corClassificada = 'Verde';
       classificacao = 'Sua classificação é verde';
     } else if (temperaturaCorporal > 36.9 && temperaturaCorporal <= 37.9) {
-      setCorClassificada('Amarelo')
+      a.enqueue(amarelo);
+      numeroAtendimento = amarelo++;
+      corClassificada = 'Amarelo'
       classificacao = 'Sua classificação é amarelo';
-    } else if (temperaturaCorporal >= 38.1 || gestante == true) {
-      setCorClassificada('Vermelho')
+    } else if (temperaturaCorporal >= 38.0 || gestante == true) {
+      ver.enqueue(vermelho);
+      numeroAtendimento = vermelho++;
+      corClassificada = 'Vermelho'
       classificacao = 'Sua classificação é vermelho';
     }
-    console.log(corClassificada);
     const data = {
       peso,
       altura,
@@ -54,8 +66,6 @@ function FichaMedica() {
         numeroAtendimento
       }
     };
-    
-
     try {
       await api.post('medical_records', data, {
         headers: {
@@ -63,11 +73,10 @@ function FichaMedica() {
         }
       });
       Swal.fire(
-        'Triagem virtual realizada com sucesso!',
+        'Triagem realizada com sucesso!',
         `${classificacao}`,
         'success'
       )
-
     } catch (error) {
       Swal.fire(
         'Erro',
@@ -117,7 +126,6 @@ function FichaMedica() {
                     /> <p>Feminino</p>
                   </div>
                 </div>
-
 
                 <input
                   id={'peso'}
