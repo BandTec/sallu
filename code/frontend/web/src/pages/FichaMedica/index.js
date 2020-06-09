@@ -1,4 +1,5 @@
 import React from 'react';
+import Combox from 'react-select'
 import { useState } from 'react';
 import { Container, ContactBox, Left, Right, Button } from './styles';
 import pacientImg from '../../assets/pacient.jpg';
@@ -8,6 +9,7 @@ import Swal from 'sweetalert2';
 import FilaVerde from './FilaVerde';
 import FilaAmarelo from './FilaAmarelo';
 import FilaVermelho from './FilaAmarelo';
+
 
 var verde = 1;
 var amarelo = 1;
@@ -28,13 +30,16 @@ function FichaMedica() {
   const [gestante, setGestante] = useState('');
   const [nomeHospital, setNomeHospital] = useState('');
   const [encaminhamento, setEncaminhamento] = useState('');
-  var corClassificada='';
+  const [dadosHospital, setDadosHospital] = useState([]);
+  var corClassificada = '';
   var numeroAtendimento = 0;
   const { getToken } = useTokenService();
-  const [api] = useApiService()
+  const [api] = useApiService();
+  api.get('hospital').then(response => {setDadosHospital(response.data)})
+
   async function handleNewFicha(event) {
     event.preventDefault();
-    if (temperaturaCorporal <= 36.9) {          
+    if (temperaturaCorporal <= 36.9) {
       v.enqueue(verde);
       numeroAtendimento = verde++;
       console.log(numeroAtendimento);
@@ -62,8 +67,8 @@ function FichaMedica() {
       gestante,
       nomeHospital,
       encaminhamento: {
-        corClassificada,
-        numeroAtendimento
+      corClassificada,
+      numeroAtendimento
       }
     };
     try {
@@ -203,6 +208,12 @@ function FichaMedica() {
                       </>
                     ) : null
                 }
+
+                <div className={'combox'}>
+                  <select value={nomeHospital} onchange={(e) => setNomeHospital(e.target.name)}>  
+                  {dadosHospital.map((item) => <option value={item.nome}>{item.nome}</option>)} 
+                  </select>
+                </div>
 
                 <textarea
                   id={'alergia'}

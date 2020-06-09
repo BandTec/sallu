@@ -167,6 +167,11 @@ export const Right = styled.div`
     margin-bottom: 5px;
     justify-content: space-around;
   }
+
+  select {
+    width: 100%;
+    height: 20px;
+  }
 `;
 
 export const Button = styled.button`
