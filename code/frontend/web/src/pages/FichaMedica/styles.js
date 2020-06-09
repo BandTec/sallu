@@ -168,9 +168,19 @@ export const Right = styled.div`
     justify-content: space-around;
   }
 
-  select {
+  .combox {
+
+    p {
+      text-align: left;
+    }
+
+    select {
+    margin: 0;
+    padding: 0;
     width: 100%;
     height: 20px;
+    margin-bottom: 1px;
+    }
   }
 `;
 

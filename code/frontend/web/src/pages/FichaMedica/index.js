@@ -213,7 +213,8 @@ function FichaMedica() {
                 }
 
                 <div className={'combox'}>
-                  <select value={nomeHospital} onChange={event => setNomeHospital(event.target.value)}>  
+                  <p>Selecione um Hospital:</p>
+                  <select  value={nomeHospital} onChange={event => setNomeHospital(event.target.value)}>  
                   {dadosHospital.map((item) => <option key={item.id} value={item.nome}> {item.nome} </option>)} 
                   </select>
                 </div>
