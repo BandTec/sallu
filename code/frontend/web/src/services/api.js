@@ -8,6 +8,11 @@ import tokenService from './token'
 
 const { getToken } = tokenService()
 
+/**
+ *
+ * @param {string} apiName
+ * @returns {[AxiosInstance, () => void]}
+ */
 const ApiService = (apiName = 'api') => {
   const apis = {
     api: axios.create({
@@ -29,7 +34,6 @@ const ApiService = (apiName = 'api') => {
       if (token) config.headers.Authorization = `Bearer ${token}`
 
       return config
-
     })
 
   return [

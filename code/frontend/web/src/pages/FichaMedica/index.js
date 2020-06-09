@@ -1,56 +1,69 @@
-import React from 'react';
-import { useState } from 'react';
-import { Container, ContactBox, Left, Right, Button } from './styles';
-import pacientImg from '../../assets/pacient.jpg';
-import Header from '../../components/Header/index.js';
-import { useApiService, useTokenService } from '../../services';
-import Swal from 'sweetalert2';
-import FilaVerde from './FilaVerde';
-import FilaAmarelo from './FilaAmarelo';
-import FilaVermelho from './FilaAmarelo';
+import React, { useState } from 'react'
 
-var verde = 1;
-var amarelo = 1;
-var vermelho = 1;
+import Swal from 'sweetalert2'
 
-function FichaMedica() {
-  const v = new FilaVerde(100);
-  const a = new FilaAmarelo(100);
-  const ver = new FilaVermelho(100);
-  var classificacao;
-  const [peso, setPeso] = useState('');
-  const [altura, setAltura] = useState('');
-  const [pressao, setPressao] = useState('');
-  const [temperaturaCorporal, setTemperaturaCorporal] = useState('');
-  const [sexo, setSexo] = useState('');
-  const [alergia, setAlergia] = useState('');
-  const [dataUltCiclo, setDataUltCiclo] = useState('');
-  const [gestante, setGestante] = useState('');
-  const [nomeHospital, setNomeHospital] = useState('');
-  const [encaminhamento, setEncaminhamento] = useState('');
-  var corClassificada='';
-  var numeroAtendimento = 0;
-  const { getToken } = useTokenService();
+import { Container, ContactBox, Left, Right, Button } from './styles'
+import { useApiService, useTokenService } from '../../services'
+
+import pacientImg from '../../assets/pacient.jpg'
+import Header from '../../components/Header'
+import Fila from './Fila'
+
+const FichaMedica = () => {
+  let verde = 1
+  let amarelo = 1
+  let vermelho = 1
+  const filaVerde = new Fila(100)
+  const filaAmarela = new Fila(100)
+  const filaVermelha = new Fila(100)
+
+  let classificacao
+  let corClassificada = ''
+  let numeroAtendimento = 0
+
+  const [peso, setPeso] = useState('')
+  const [altura, setAltura] = useState('')
+  const [pressao, setPressao] = useState('')
+  const [temperaturaCorporal, setTemperaturaCorporal] = useState('')
+  const [sexo, setSexo] = useState('')
+  const [alergia, setAlergia] = useState('')
+  const [dataUltCiclo, setDataUltCiclo] = useState('')
+  const [gestante, setGestante] = useState('')
+  const [nomeHospital, setNomeHospital] = useState('')
+  const [encaminhamento, setEncaminhamento] = useState('')
+
+  const { getToken } = useTokenService()
   const [api] = useApiService()
-  async function handleNewFicha(event) {
-    event.preventDefault();
-    if (temperaturaCorporal <= 36.9) {          
-      v.enqueue(verde);
-      numeroAtendimento = verde++;
-      console.log(numeroAtendimento);
-      corClassificada = 'Verde';
-      classificacao = 'Sua classificação é verde';
+
+  async function handleNewFicha (event) {
+    event.preventDefault()
+
+    if (temperaturaCorporal <= 36.9) {
+      filaVerde.enqueue(verde)
+
+      numeroAtendimento = verde++
+
+      corClassificada = 'Verde'
+
+      classificacao = 'Sua classificação é verde'
     } else if (temperaturaCorporal > 36.9 && temperaturaCorporal <= 37.9) {
-      a.enqueue(amarelo);
-      numeroAtendimento = amarelo++;
+      filaAmarela.enqueue(amarelo)
+
+      numeroAtendimento = amarelo++
+
       corClassificada = 'Amarelo'
-      classificacao = 'Sua classificação é amarelo';
+
+      classificacao = 'Sua classificação é amarelo'
     } else if (temperaturaCorporal >= 38.0 || gestante == true) {
-      ver.enqueue(vermelho);
-      numeroAtendimento = vermelho++;
+      filaVermelha.enqueue(vermelho)
+
+      numeroAtendimento = vermelho++
+
       corClassificada = 'Vermelho'
-      classificacao = 'Sua classificação é vermelho';
+
+      classificacao = 'Sua classificação é vermelho'
     }
+
     const data = {
       peso,
       altura,
@@ -65,13 +78,14 @@ function FichaMedica() {
         corClassificada,
         numeroAtendimento
       }
-    };
+    }
+
     try {
       await api.post('medical_records', data, {
         headers: {
-          'Authorization': `Bearer ${getToken()}`
+          Authorization: `Bearer ${getToken()}`
         }
-      });
+      })
       Swal.fire(
         'Triagem realizada com sucesso!',
         `${classificacao}`,
@@ -92,39 +106,54 @@ function FichaMedica() {
       <Container>
         <ContactBox>
           <Left>
+
             <div>
               <img src={pacientImg} alt="Logo Paciente" />
               <h2>Triagem Virtual Salut</h2>
               <p>Olá Chris</p>
             </div>
+
           </Left>
+
           <Right>
             <h2>Ficha Médica</h2>
+
             <form onSubmit={handleNewFicha}>
+
               <div className={'form'} >
 
                 <div className={'input-group'}>
+
                   <div className={'input-radio'}>
+
                     <input
                       id={'sexo'}
                       name={'input-sexo'}
                       type={'radio'}
                       value={'m'}
-                      checked={sexo == 'm'}
+                      checked={sexo === 'm'}
                       onChange={event => setSexo(event.target.value)}
-                    /> <p>Masculino</p>
+                    />
+
+                    <p>Masculino</p>
+
                   </div>
 
                   <div className={'input-radio'}>
+
                     <input
                       id={'sexo'}
                       name={'input-sexo'}
                       type={'radio'}
                       value={'f'}
-                      checked={sexo == 'f'}
+                      checked={sexo === 'f'}
                       onChange={event => setSexo(event.target.value)}
-                    /> <p>Feminino</p>
+                    />
+
+                    <p>Feminino</p>
+
                   </div>
+
                 </div>
 
                 <input
@@ -162,8 +191,9 @@ function FichaMedica() {
                   value={temperaturaCorporal}
                   placeholder={'Temperatura'}
                 />
+
                 {
-                  sexo == 'f'
+                  sexo === 'f'
                     ? (
                       <>
                         <input
@@ -177,29 +207,41 @@ function FichaMedica() {
                         />
 
                         <p>É gestante?</p>
+
                         <div className={'input-group'}>
+
                           <div className={'gestant-radio'}>
+
                             <input
                               id={'gestante'}
                               name={'gestante-input'}
                               type={'radio'}
                               value={'true'}
-                              checked={gestante == 'true'}
+                              checked={gestante === 'true'}
                               onChange={event => setGestante(event.target.value)}
-                            /> <p>Sim</p>
+                            />
+
+                            <p>Sim</p>
+
                           </div>
 
                           <div className={'gestant-radio'}>
+
                             <input
                               id={'gestante'}
                               name={'gestante-input'}
                               type={'radio'}
                               value={'false'}
-                              checked={gestante == 'false'}
+                              checked={gestante === 'false'}
                               onChange={event => setGestante(event.target.value)}
-                            /> <p>Não</p>
+                            />
+
+                            <p>Não</p>
+
                           </div>
+
                         </div>
+
                       </>
                     ) : null
                 }
@@ -213,13 +255,19 @@ function FichaMedica() {
                 />
 
                 <Button type='submit'>Enviar</Button>
+
               </div>
+
             </form>
+
           </Right>
+
         </ContactBox>
+
       </Container>
+
     </div>
-  );
+  )
 }
 
-export default FichaMedica;
+export default FichaMedica
