@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Swal from 'sweetalert2'
 
@@ -29,11 +29,19 @@ const FichaMedica = () => {
   const [alergia, setAlergia] = useState('')
   const [dataUltCiclo, setDataUltCiclo] = useState('')
   const [gestante, setGestante] = useState('')
-  const [nomeHospital, setNomeHospital] = useState('')
   const [encaminhamento, setEncaminhamento] = useState('')
+
+  const [nomeHospital, setNomeHospital] = useState('')
+  const [dadosHospital, setDadosHospital] = useState([])
 
   const { getToken } = useTokenService()
   const [api] = useApiService()
+
+  useEffect(() => {
+    api.get('hospital').then(response => {
+      setDadosHospital(response.data)
+    })
+  }, [])
 
   async function handleNewFicha (event) {
     event.preventDefault()
@@ -54,7 +62,7 @@ const FichaMedica = () => {
       corClassificada = 'Amarelo'
 
       classificacao = 'Sua classificação é amarelo'
-    } else if (temperaturaCorporal >= 38.0 || gestante == true) {
+    } else if (temperaturaCorporal >= 38.0 || gestante === true) {
       filaVermelha.enqueue(vermelho)
 
       numeroAtendimento = vermelho++
@@ -245,6 +253,17 @@ const FichaMedica = () => {
                       </>
                     ) : null
                 }
+
+                <div className={'combox'}>
+                  <p>Selecione um Hospital:</p>
+                  <select value={nomeHospital} onChange={event => setNomeHospital(event.target.value)}>
+                    {dadosHospital.length < 1 ? (
+                      <>
+                        {dadosHospital.map((item) => <option key={item.id} value={item.nome}> {item.nome} </option>)}
+                      </>
+                    ) : null}
+                  </select>
+                </div>
 
                 <textarea
                   id={'alergia'}
