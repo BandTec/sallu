@@ -72,7 +72,7 @@ public class FichaMedica implements Serializable {
     private boolean gestante;
 
     @ManyToOne()
-    @JsonIgnore
+    //@JsonIgnore
     private Hospital hospital;
 
     @OneToOne(cascade = CascadeType.ALL)

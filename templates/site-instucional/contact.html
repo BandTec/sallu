@@ -59,7 +59,7 @@
               </ul>
             </div>
             <div class="container_btn">
-              <a href="http://localhost:3000/logins"><button class="btn_initial btn1">Entrar</button></a>
+              <a href="http://localhost:3000/login"><button class="btn_initial btn1">Entrar</button></a>
           </div>  
           </nav>
         </div>
@@ -140,6 +140,12 @@
               <div class="col-sm-6">
                 <div class="form-group">
                   <input class="form-control" name="uf" id="uf" type="text" placeholder='Estado' maxlength='50'required>
+                </div>
+              </div>
+			  
+			  <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control" name="numero" id="numero" type="text" placeholder='Logradouro' maxlength='50'required>
                 </div>
               </div>
             </form>
@@ -239,7 +245,7 @@ $("#cnpj").mask("00.000.0000000-00")
 <script type="text/javascript">
 
 function preCadastrar(){
-        if (nome.value == '' || cnpj.value == '' || telefone.value == '' || email.value == '' || cep.value == '' || bairro.value == '' || endereco.value == '' || numero.value== ''){
+        if (nome.value == '' || cnpj.value == '' || telefone.value == '' || email.value == '' || cep.value == '' || bairro.value == '' || rua.value == '' || numero.value== ''){
             
 			swal( "Preenchimento incorreto" , "Por Favor, Preencha Todos os Campos Corretamente! " , "error" );
         }
@@ -250,7 +256,7 @@ function preCadastrar(){
 
 
   function contatoEmpresa(){
-    var urlFinal = "http://localhost:8080/email-interesse-hospitalar/"+nome.value+"/"+cnpj.value +"/"+telefone.value +"/"+email.value+"/"+cep.value+"/"+bairro.value+"/"+endereco.value+"/"+numero.value;
+    var urlFinal = "http://localhost:8080/email-interesse-hospitalar/"+nome.value+"/"+cnpj.value +"/"+telefone.value +"/"+email.value+"/"+cep.value+"/"+bairro.value+"/"+rua.value+"/"+numero.value;
         $.ajax({
             url: urlFinal,
             method:"GET",

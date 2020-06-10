@@ -59,7 +59,7 @@ function FichaMedica() {
       numeroAtendimento = amarelo++;
       corClassificada = 'Amarelo'
       classificacao = 'Sua classificação é amarelo';
-    } else if (temperaturaCorporal >= 38.0 || gestante == true) {
+    } else if (temperaturaCorporal >= 38.0 || gestante === true) {
       ver.enqueue(vermelho);
       numeroAtendimento = vermelho++;
       corClassificada = 'Vermelho'

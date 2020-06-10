@@ -41,7 +41,7 @@ const Login = () => {
 
       setToken(data.token)
       handleSetAuthorization()
-      history.push('/ficha')
+      history.push('/welcome')
       return
     } catch (error) {
       console.log(error)
