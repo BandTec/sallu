@@ -5,6 +5,8 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
   <title>Salut</title>
   <link rel="icon" href="img/logo_salut_normal.svg">
   <!-- Bootstrap CSS -->
@@ -113,27 +115,34 @@
 			  
 			  <div class="col-sm-6">
                 <div class="form-group">
-                  <input class="form-control" name="cep" id="cep" type="text" placeholder='CEP do hospital' required>
+                  <input class="form-control" name="cep" id="cep" type="text" placeholder='CEP do hospital' onblur="pesquisacep(this.value);" required >
+                </div>
+              </div>
+			  <form action="get" action=".">
+			  <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control" name="rua" id="rua" type="text" placeholder='Rua' size="60"required >
                 </div>
               </div>
 			  
 			  <div class="col-sm-6">
                 <div class="form-group">
-                  <input class="form-control" name="bairro" id="bairro" type="text" placeholder='Bairro do Hospital' maxlength='50'required>
+                  <input class="form-control" name="bairro" id="bairro" type="text" placeholder='Bairro' maxlength='50'required>
                 </div>
               </div>
-			  
-			  <div class="col-sm-6">
+
+              <div class="col-sm-6">
                 <div class="form-group">
-                  <input class="form-control" name="endereco" id="endereco" type="text" placeholder='Endereço do hospital' maxlength='50'required>
+                  <input class="form-control" name="cidade" id="cidade" type="text" placeholder='Cidade' maxlength='50'required>
                 </div>
               </div>
-			  
-			  <div class="col-sm-6">
+
+              <div class="col-sm-6">
                 <div class="form-group">
-                  <input class="form-control" name="numero" id="numero" type="text"  placeholder='Logradouro do hospital' maxlength='5' required>
+                  <input class="form-control" name="uf" id="uf" type="text" placeholder='Estado' maxlength='50'required>
                 </div>
               </div>
+            </form>
 			  
             </div>
             <div class="form-group mt-3">
@@ -221,13 +230,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> | Sal
 $(document).ready(function(){
 $("#telefone").mask("(00)00000-0000")
 $("#cnpj").mask("00.000.0000000-00")
-$("#cep").mask("00.000-000")
+// $("#cep").mask("00.000-000")
 })
 </script>
 </body>
 </html>
 
-<script>
+<script type="text/javascript">
 
 function preCadastrar(){
         if (nome.value == '' || cnpj.value == '' || telefone.value == '' || email.value == '' || cep.value == '' || bairro.value == '' || endereco.value == '' || numero.value== ''){
@@ -248,4 +257,51 @@ function preCadastrar(){
             })
                 swal('Email Enviado com sucesso!','Obrigado pelo Interrese, Aguarde Nosso Retorno!', 'success');
         }
+
+        function limpa_formulário_cep() {
+            document.getElementById('rua').value=("");
+            document.getElementById('bairro').value=("");
+            document.getElementById('cidade').value=("");
+            document.getElementById('uf').value=("");
+    }
+
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            document.getElementById('rua').value=(conteudo.logradouro);
+            document.getElementById('bairro').value=(conteudo.bairro);
+            document.getElementById('cidade').value=(conteudo.localidade);
+            document.getElementById('uf').value=(conteudo.uf);
+        } 
+        else {
+
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+        
+    function pesquisacep(valor) {
+
+        var cep = valor.replace(/\D/g, '');
+
+        if (cep != "") {
+
+            var validacep = /^[0-9]{8}$/;
+
+            if(validacep.test(cep)) {
+
+                var script = document.createElement('script');
+
+                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+                document.body.appendChild(script);
+            } 
+            else {
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } 
+        else {
+            limpa_formulário_cep();
+        }
+    };
 </script>
