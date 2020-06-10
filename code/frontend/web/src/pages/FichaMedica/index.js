@@ -7,19 +7,19 @@ import { useApiService, useTokenService } from '../../services'
 
 import pacientImg from '../../assets/pacient.jpg'
 import Header from '../../components/Header'
-import Fila from './Fila'
 
-const FichaMedica = () => {
-  let verde = 1
-  let amarelo = 1
-  let vermelho = 1
-  const filaVerde = new Fila(100)
-  const filaAmarela = new Fila(100)
-  const filaVermelha = new Fila(100)
+import FilaVerde from './FilaVerde';
+import FilaAmarelo from './FilaAmarelo';
+import FilaVermelho from './FilaAmarelo';
 
-  let classificacao
-  let corClassificada = ''
-  let numeroAtendimento = 0
+var verde = 1;
+var amarelo = 1;
+var vermelho = 1;
+
+function FichaMedica() {
+  const v = new FilaVerde(100);
+  const a = new FilaAmarelo(100);
+  const ver = new FilaVermelho(100);
 
   const [peso, setPeso] = useState('')
   const [altura, setAltura] = useState('')
@@ -30,10 +30,12 @@ const FichaMedica = () => {
   const [dataUltCiclo, setDataUltCiclo] = useState('')
   const [gestante, setGestante] = useState('')
   const [encaminhamento, setEncaminhamento] = useState('')
-
   const [nomeHospital, setNomeHospital] = useState('')
   const [dadosHospital, setDadosHospital] = useState([])
 
+  var corClassificada='';
+  var numeroAtendimento = 0;
+  var classificacao;
   const { getToken } = useTokenService()
   const [api] = useApiService()
 
@@ -43,33 +45,25 @@ const FichaMedica = () => {
     })
   }, [])
 
-  async function handleNewFicha (event) {
+  async function handleNewFicha(event) {
     event.preventDefault()
 
-    if (temperaturaCorporal <= 36.9) {
-      filaVerde.enqueue(verde)
-
-      numeroAtendimento = verde++
-
-      corClassificada = 'Verde'
-
-      classificacao = 'Sua classificação é verde'
+    if (temperaturaCorporal <= 36.9) {          
+      v.enqueue(verde);
+      numeroAtendimento = verde++;
+      console.log(numeroAtendimento);
+      corClassificada = 'Verde';
+      classificacao = 'Sua classificação é verde';
     } else if (temperaturaCorporal > 36.9 && temperaturaCorporal <= 37.9) {
-      filaAmarela.enqueue(amarelo)
-
-      numeroAtendimento = amarelo++
-
+      a.enqueue(amarelo);
+      numeroAtendimento = amarelo++;
       corClassificada = 'Amarelo'
-
-      classificacao = 'Sua classificação é amarelo'
-    } else if (temperaturaCorporal >= 38.0 || gestante === true) {
-      filaVermelha.enqueue(vermelho)
-
-      numeroAtendimento = vermelho++
-
+      classificacao = 'Sua classificação é amarelo';
+    } else if (temperaturaCorporal >= 38.0 || gestante == true) {
+      ver.enqueue(vermelho);
+      numeroAtendimento = vermelho++;
       corClassificada = 'Vermelho'
-
-      classificacao = 'Sua classificação é vermelho'
+      classificacao = 'Sua classificação é vermelho';
     }
 
     const data = {
@@ -129,6 +123,13 @@ const FichaMedica = () => {
             <form onSubmit={handleNewFicha}>
 
               <div className={'form'} >
+
+                <div className={'combox'}>
+                  <p> Selecione um Hospital:</p>
+                  <select value={nomeHospital} onChange={event => setNomeHospital(event.target.value)}>
+                    {dadosHospital.map((item) => <option key={item.id} value={item.nome}> {item.nome} </option>)}
+                  </select>
+                </div>
 
                 <div className={'input-group'}>
 
@@ -253,18 +254,6 @@ const FichaMedica = () => {
                       </>
                     ) : null
                 }
-
-                <div className={'combox'}>
-                  <p>Selecione um Hospital:</p>
-                  <select value={nomeHospital} onChange={event => setNomeHospital(event.target.value)}>
-                    {dadosHospital.length < 1 ? (
-                      <>
-                        {dadosHospital.map((item) => <option key={item.id} value={item.nome}> {item.nome} </option>)}
-                      </>
-                    ) : null}
-                  </select>
-                </div>
-
                 <textarea
                   id={'alergia'}
                   name={'alergia'}
