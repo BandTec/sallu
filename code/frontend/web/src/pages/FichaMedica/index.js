@@ -33,11 +33,12 @@ function FichaMedica() {
   const [nomeHospital, setNomeHospital] = useState('')
   const [dadosHospital, setDadosHospital] = useState([])
 
-  var corClassificada='';
+  var corClassificada = '';
   var numeroAtendimento = 0;
   var classificacao;
   const { getToken } = useTokenService()
   const [api] = useApiService()
+  const nome = localStorage.getItem('nome');
 
   useEffect(() => {
     api.get('hospital').then(response => {
@@ -48,7 +49,7 @@ function FichaMedica() {
   async function handleNewFicha(event) {
     event.preventDefault()
 
-    if (temperaturaCorporal <= 36.9) {          
+    if (temperaturaCorporal <= 36.9) {
       v.enqueue(verde);
       numeroAtendimento = verde++;
       console.log(numeroAtendimento);
@@ -112,7 +113,7 @@ function FichaMedica() {
             <div>
               <img src={pacientImg} alt="Logo Paciente" />
               <h2>Triagem Virtual Salut</h2>
-              <p>Olá Chris</p>
+              <p>Olá {nome}</p>
             </div>
 
           </Left>

@@ -7,12 +7,13 @@ import Config from '../../assets/config.png';
 import './styles.css';
 
 function Welcome() {
+    const nome = localStorage.getItem('nome');
 
     return (
         <div>
             <HeaderInicial />
             <div>
-                <h1>Bem vindo Chris</h1>
+               <h1>Bem vindo {nome}</h1>
             </div>
 
             <div className = "menu" >

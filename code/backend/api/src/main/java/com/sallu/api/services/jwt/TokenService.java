@@ -54,9 +54,11 @@ public class TokenService implements UserDetailsService {
                 .build();
 
         UserDetails userDetails = loadUserByUsername(loginDTO.getEmail());
+        User nome = this.userRepo.findByName(loginDTO.getEmail());
 
         isValidPassword(userModel, userDetails);
 
-        return new TokenDTO(loginDTO.getEmail(), this.jwtService.token(userModel));
+
+        return new TokenDTO(loginDTO.getEmail(), this.jwtService.token(userModel),nome.getName());
     }
 }
