@@ -7,19 +7,18 @@ import ROUTES from './patch'
 import Dashboard from '../../pages/Dashboard'
 import Login from '../../pages/Login'
 import Register from '../../pages/Register'
-import FichaMedica from '../../pages/FichaMedica';
-import Welcome from '../../pages/Inicial';
+import FichaMedica from '../../pages/FichaMedica'
+import ListaFichas from '../../pages/ListaFichas'
+import Welcome from '../../pages/Inicial'
 
 const PrivateRoute = ({ children, ...rest }) => {
   const { getToken } = useTokenService()
   return (
     <Route {...rest}
-      render={({ location }) =>
+      render={() =>
         getToken()
           ? (children)
-          : <Redirect
-            to={ROUTES.LOGIN}
-          />
+          : <Redirect to={ROUTES.LOGIN} />
       }/>
   )
 }
@@ -27,14 +26,16 @@ const PrivateRoute = ({ children, ...rest }) => {
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <PrivateRoute exact path={ROUTES.DASHBOARD}><Dashboard /></PrivateRoute>
       <Route exact path={ROUTES.LOGIN} component={Login} />
       <Route exact path={ROUTES.REGISTER} component={Register} />
-      <PrivateRoute>
-       <Route exact path={ROUTES.FICHA} component={FichaMedica} />
-       <Route exact path={ROUTES.WELCOME} component={Welcome} />
-      </PrivateRoute>
       
+      <PrivateRoute>
+        <Route exact path={ROUTES.DASHBOARD} component={Dashboard} />
+        <Route exact path={ROUTES.FICHA} component={FichaMedica} />
+        <Route exact path={ROUTES.WELCOME} component={Welcome} />
+        <Route exact path={ROUTES.FICHA_LISTA} component={ListaFichas} />
+      </PrivateRoute>
+
       <Redirect to={ROUTES.LOGIN} />
 
     </Switch>

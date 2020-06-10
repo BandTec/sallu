@@ -110,7 +110,6 @@ export const LoginContent = styled.div`
       padding: 0.5rem 0.7rem;
       font-size: 1.2rem;
       color: #555;
-      font-family: 'poppins', sans-serif;
     }
 
     .input-div.pass {
@@ -141,7 +140,6 @@ export const LoginContent = styled.div`
       background-size: 200%;
       font-size: 1.2rem;
       color: #fff;
-      font-family: 'Poppins', sans-serif;
       text-transform: uppercase;
       margin: 1rem 0;
       cursor: pointer;

@@ -1,14 +1,16 @@
-import React, {useEffect} from 'react';
-import { useState } from 'react';
-import { Container, ContactBox, Left, Right, Button } from './styles';
-import pacientImg from '../../assets/pacient.jpg';
-import Header from '../../components/Header/index.js';
-import { useApiService, useTokenService } from '../../services';
-import Swal from 'sweetalert2';
+import React, { useState, useEffect } from 'react'
+
+import Swal from 'sweetalert2'
+
+import { Container, ContactBox, Left, Right, Button } from './styles'
+import { useApiService, useTokenService } from '../../services'
+
+import pacientImg from '../../assets/pacient.jpg'
+import Header from '../../components/Header'
+
 import FilaVerde from './FilaVerde';
 import FilaAmarelo from './FilaAmarelo';
 import FilaVermelho from './FilaAmarelo';
-
 
 var verde = 1;
 var amarelo = 1;
@@ -18,33 +20,38 @@ function FichaMedica() {
   const v = new FilaVerde(100);
   const a = new FilaAmarelo(100);
   const ver = new FilaVermelho(100);
-  var classificacao;
-  const [peso, setPeso] = useState('');
-  const [altura, setAltura] = useState('');
-  const [pressao, setPressao] = useState('');
-  const [temperaturaCorporal, setTemperaturaCorporal] = useState('');
-  const [sexo, setSexo] = useState('');
-  const [alergia, setAlergia] = useState('');
-  const [dataUltCiclo, setDataUltCiclo] = useState('');
-  const [gestante, setGestante] = useState('');
-  const [nomeHospital, setNomeHospital] = useState('');
-  const [encaminhamento, setEncaminhamento] = useState('');
-  const [dadosHospital, setDadosHospital] = useState([]);
-  var corClassificada = '';
-  var numeroAtendimento = 0;
-  const { getToken } = useTokenService();
-  const [api] = useApiService();
 
-  useEffect(()=> {
+  const [peso, setPeso] = useState('')
+  const [altura, setAltura] = useState('')
+  const [pressao, setPressao] = useState('')
+  const [temperaturaCorporal, setTemperaturaCorporal] = useState('')
+  const [sexo, setSexo] = useState('')
+  const [alergia, setAlergia] = useState('')
+  const [dataUltCiclo, setDataUltCiclo] = useState('')
+  const [gestante, setGestante] = useState('')
+  const [encaminhamento, setEncaminhamento] = useState('')
+  const [nomeHospital, setNomeHospital] = useState('')
+  const [dadosHospital, setDadosHospital] = useState([])
+
+  var corClassificada='';
+  var numeroAtendimento = 0;
+  var classificacao;
+  const { getToken } = useTokenService()
+  const [api] = useApiService()
+
+  useEffect(() => {
     api.get('hospital').then(response => {
-        setDadosHospital(response.data);
-    } )}, []);
+      setDadosHospital(response.data)
+    })
+  }, [])
 
   async function handleNewFicha(event) {
-    event.preventDefault();
-    if (temperaturaCorporal <= 36.9) {
+    event.preventDefault()
+
+    if (temperaturaCorporal <= 36.9) {          
       v.enqueue(verde);
       numeroAtendimento = verde++;
+      console.log(numeroAtendimento);
       corClassificada = 'Verde';
       classificacao = 'Sua classificação é verde';
     } else if (temperaturaCorporal > 36.9 && temperaturaCorporal <= 37.9) {
@@ -58,7 +65,7 @@ function FichaMedica() {
       corClassificada = 'Vermelho'
       classificacao = 'Sua classificação é vermelho';
     }
-    
+
     const data = {
       peso,
       altura,
@@ -70,16 +77,17 @@ function FichaMedica() {
       gestante,
       nomeHospital,
       encaminhamento: {
-      corClassificada,
-      numeroAtendimento
+        corClassificada,
+        numeroAtendimento
       }
-    };
+    }
+
     try {
       await api.post('medical_records', data, {
         headers: {
-          'Authorization': `Bearer ${getToken()}`
+          Authorization: `Bearer ${getToken()}`
         }
-      });
+      })
       Swal.fire(
         'Triagem realizada com sucesso!',
         `${classificacao}`,
@@ -100,46 +108,61 @@ function FichaMedica() {
       <Container>
         <ContactBox>
           <Left>
+
             <div>
               <img src={pacientImg} alt="Logo Paciente" />
               <h2>Triagem Virtual Salut</h2>
               <p>Olá Chris</p>
             </div>
+
           </Left>
+
           <Right>
             <h2>Ficha Médica</h2>
+
             <form onSubmit={handleNewFicha}>
+
               <div className={'form'} >
 
-              <div className={'combox'}>
+                <div className={'combox'}>
                   <p> Selecione um Hospital:</p>
-                  <select  value={nomeHospital} onChange={event => setNomeHospital(event.target.value)}>  
-                  {dadosHospital.map((item) => <option key={item.id} value={item.nome}> {item.nome} </option>)} 
+                  <select value={nomeHospital} onChange={event => setNomeHospital(event.target.value)}>
+                    {dadosHospital.map((item) => <option key={item.id} value={item.nome}> {item.nome} </option>)}
                   </select>
                 </div>
 
                 <div className={'input-group'}>
+
                   <div className={'input-radio'}>
+
                     <input
                       id={'sexo'}
                       name={'input-sexo'}
                       type={'radio'}
                       value={'m'}
-                      checked={sexo == 'm'}
+                      checked={sexo === 'm'}
                       onChange={event => setSexo(event.target.value)}
-                    /> <p>Masculino</p>
+                    />
+
+                    <p>Masculino</p>
+
                   </div>
 
                   <div className={'input-radio'}>
+
                     <input
                       id={'sexo'}
                       name={'input-sexo'}
                       type={'radio'}
                       value={'f'}
-                      checked={sexo == 'f'}
+                      checked={sexo === 'f'}
                       onChange={event => setSexo(event.target.value)}
-                    /> <p>Feminino</p>
+                    />
+
+                    <p>Feminino</p>
+
                   </div>
+
                 </div>
 
                 <input
@@ -177,8 +200,9 @@ function FichaMedica() {
                   value={temperaturaCorporal}
                   placeholder={'Temperatura'}
                 />
+
                 {
-                  sexo == 'f'
+                  sexo === 'f'
                     ? (
                       <>
                         <input
@@ -192,33 +216,44 @@ function FichaMedica() {
                         />
 
                         <p>É gestante?</p>
+
                         <div className={'input-group'}>
+
                           <div className={'gestant-radio'}>
+
                             <input
                               id={'gestante'}
                               name={'gestante-input'}
                               type={'radio'}
                               value={'true'}
-                              checked={gestante == 'true'}
+                              checked={gestante === 'true'}
                               onChange={event => setGestante(event.target.value)}
-                            /> <p>Sim</p>
+                            />
+
+                            <p>Sim</p>
+
                           </div>
 
                           <div className={'gestant-radio'}>
+
                             <input
                               id={'gestante'}
                               name={'gestante-input'}
                               type={'radio'}
                               value={'false'}
-                              checked={gestante == 'false'}
+                              checked={gestante === 'false'}
                               onChange={event => setGestante(event.target.value)}
-                            /> <p>Não</p>
+                            />
+
+                            <p>Não</p>
+
                           </div>
+
                         </div>
+
                       </>
                     ) : null
                 }
-
                 <textarea
                   id={'alergia'}
                   name={'alergia'}
@@ -228,13 +263,19 @@ function FichaMedica() {
                 />
 
                 <Button type='submit'>Enviar</Button>
+
               </div>
+
             </form>
+
           </Right>
+
         </ContactBox>
+
       </Container>
+
     </div>
-  );
+  )
 }
 
-export default FichaMedica;
+export default FichaMedica

@@ -51,7 +51,8 @@ const themeDefaults = {
 
 const GlobalStyles = createGlobalStyle`
 
-  @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Roboto:400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
   * {
     box-sizing: border-box;
@@ -73,7 +74,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body, input, button {
-    font-family: Roboto, Arial, sans-serif;
+    font-family: 'Poppins', 'Roboto', Arial, sans-serif;
   }
 `
 GlobalStyles.defaultProps = {

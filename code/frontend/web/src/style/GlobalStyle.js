@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
   * {
@@ -8,7 +8,6 @@ export default createGlobalStyle`
   }
 
   body, html {
-    font-family: 'Poppins', sans-serif;
     overflow: hidden;
   }
 
@@ -30,5 +29,4 @@ export default createGlobalStyle`
   .back-link:hover{
     opacity: 0.8;
   }
-`;
-
+`

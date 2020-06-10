@@ -25,7 +25,7 @@ function Welcome() {
                 </div>
 
                 <div className = "botoes">
-                    <Link to=''>
+                    <Link to='/pacientes'>
                         <button type="button">
                             <img src={Historico} alt="Historico" />
                               <h2>Histórico</h2>

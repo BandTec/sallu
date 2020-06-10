@@ -2,11 +2,13 @@
 // Base Routes
 // =============================================================================
 
-const DASHBOARD = '/dashboard'
-const LOGIN = '/login'
-const REGISTER = '/register'
-const FICHA = '/ficha'
-const WELCOME = '/welcome'
+export const DASHBOARD = '/dashboard'
+export const LOGIN = '/login'
+export const REGISTER = '/register'
+export const FICHA = '/ficha'
+export const FICHA_LISTA = '/pacientes'
+export const WELCOME = '/welcome'
+
 
 // =============================================================================
 // Sub Routes
@@ -21,6 +23,7 @@ const ROUTES_PATCH = {
   LOGIN,
   REGISTER,
   FICHA,
+  FICHA_LISTA,
   WELCOME
 }
 

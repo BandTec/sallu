@@ -37,4 +37,4 @@ class FilaVermelho{
         }
     }
 }
-export default FilaVermelho;
+export default FilaVermelho; 
