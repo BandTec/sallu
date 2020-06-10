@@ -111,6 +111,13 @@ function FichaMedica() {
             <form onSubmit={handleNewFicha}>
               <div className={'form'} >
 
+              <div className={'combox'}>
+                  <p> Selecione um Hospital:</p>
+                  <select  value={nomeHospital} onChange={event => setNomeHospital(event.target.value)}>  
+                  {dadosHospital.map((item) => <option key={item.id} value={item.nome}> {item.nome} </option>)} 
+                  </select>
+                </div>
+
                 <div className={'input-group'}>
                   <div className={'input-radio'}>
                     <input
@@ -211,13 +218,6 @@ function FichaMedica() {
                       </>
                     ) : null
                 }
-
-                <div className={'combox'}>
-                  <p>Selecione um Hospital:</p>
-                  <select  value={nomeHospital} onChange={event => setNomeHospital(event.target.value)}>  
-                  {dadosHospital.map((item) => <option key={item.id} value={item.nome}> {item.nome} </option>)} 
-                  </select>
-                </div>
 
                 <textarea
                   id={'alergia'}

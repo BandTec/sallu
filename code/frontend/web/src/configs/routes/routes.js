@@ -8,6 +8,7 @@ import Dashboard from '../../pages/Dashboard'
 import Login from '../../pages/Login'
 import Register from '../../pages/Register'
 import FichaMedica from '../../pages/FichaMedica';
+import Welcome from '../../pages/Inicial';
 
 const PrivateRoute = ({ children, ...rest }) => {
   const { getToken } = useTokenService()
@@ -31,6 +32,7 @@ const Routes = () => (
       <Route exact path={ROUTES.REGISTER} component={Register} />
       <PrivateRoute>
        <Route exact path={ROUTES.FICHA} component={FichaMedica} />
+       <Route exact path={ROUTES.WELCOME} component={Welcome} />
       </PrivateRoute>
       
       <Redirect to={ROUTES.LOGIN} />
