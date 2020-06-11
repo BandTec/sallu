@@ -11,7 +11,8 @@ function Header() {
   const history = useHistory();
 
   function handleLogout() {
-    resetToken()
+    resetToken();
+    localStorage.clear();
     history.push('/login');
   }
 

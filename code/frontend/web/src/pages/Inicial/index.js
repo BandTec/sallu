@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useApiService, useTokenService } from '../../services';
 import HeaderInicial from '../../components/Header/index.js';
 import { Link } from 'react-router-dom';
 import Triagem from '../../assets/triagem.png';
@@ -7,15 +8,30 @@ import Config from '../../assets/config.png';
 import './styles.css';
 
 function Welcome() {
-    const nome = localStorage.getItem('nome');
+    
+    const { getToken } = useTokenService();
+    const [api] = useApiService();
+    const [ficha, setFicha] = useState([]);
+
+    useEffect(() => {
+        api.get(`user`, {
+            headers: {
+                Authorization: `Bearer ${getToken()}`,
+            }
+        }).then(response => {
+            setFicha(response.data);
+        })
+    }, []);
 
     return (
         <div>
             <HeaderInicial />
+            {ficha.map((ficha) => (
             <div>
-               <h1>Olá {nome},</h1>
+               <h1>Olá {ficha.name},</h1>
                <h1>Seja bem-vindo ao nosso aplicativo Salut!</h1>
             </div>
+            ))};
 
             <div className = "menu" >                
                 <div className = "botoes">

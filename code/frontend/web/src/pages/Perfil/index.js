@@ -12,10 +12,8 @@ function Profile() {
     const [password, setPassword] = useState();
     const [name, setName] = useState('');
     const [email, setEmail] = useState(localStorage.getItem('email'));
-    const [birthdayDate, setBirthdayDate] = useState('');
-    const [telephone, setTelephone] = useState('');
-
-    
+    const [birthdayDate, setBirthdayDate] = useState();
+    const [telephone, setTelephone] = useState('')
     
     async function handleRegisterPut(e){
         e.preventDefault();
@@ -34,7 +32,7 @@ function Profile() {
             'Alterações realizadas com sucesso.',
             'success'
           )
-        
+          
         //history.push('/');
         }catch(error){
             Swal.fire(
