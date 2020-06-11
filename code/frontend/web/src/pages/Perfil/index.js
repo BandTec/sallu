@@ -9,7 +9,7 @@ function Profile() {
     const [ficha, setFicha] = useState([]);
 
     var admin ="false";
-    const [password, setPassword] = useState();
+    const [password, setPassword] = useState(getToken());
     const [name, setName] = useState('');
     const [email, setEmail] = useState(localStorage.getItem('email'));
     const [birthdayDate, setBirthdayDate] = useState();
@@ -32,7 +32,7 @@ function Profile() {
             'Alterações realizadas com sucesso.',
             'success'
           )
-          
+          localStorage.setItem('nome',name);
         //history.push('/');
         }catch(error){
             Swal.fire(
@@ -59,7 +59,6 @@ function Profile() {
         document.getElementById("telephone").disabled = false;
         document.getElementById("senha").disabled = false;
     }
-
 
     return (
         <div>
@@ -92,7 +91,7 @@ function Profile() {
 
                             <fieldset>
                                 Senha:
-                                <input value={password} onChange={e=> setPassword(e.target.value)} id="senha" type="password" tabindex="3" disabled />
+                                <input   id="senha" type="password" tabindex="3" disabled />
                             </fieldset>
 
                             <fieldset>

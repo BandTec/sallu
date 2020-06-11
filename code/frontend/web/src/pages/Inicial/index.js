@@ -13,25 +13,16 @@ function Welcome() {
     const [api] = useApiService();
     const [ficha, setFicha] = useState([]);
 
-    useEffect(() => {
-        api.get(`user`, {
-            headers: {
-                Authorization: `Bearer ${getToken()}`,
-            }
-        }).then(response => {
-            setFicha(response.data);
-        })
-    }, []);
 
     return (
         <div>
             <HeaderInicial />
-            {ficha.map((ficha) => (
+            
             <div>
-               <h1>Olá {ficha.name},</h1>
+               <h1>Olá {localStorage.getItem('nome')},</h1>
                <h1>Seja bem-vindo ao nosso aplicativo Salut!</h1>
             </div>
-            ))};
+           
 
             <div className = "menu" >                
                 <div className = "botoes">
@@ -48,7 +39,7 @@ function Welcome() {
                     <Link to='/pacientes'>
                         <button type="button">
                             <img src={Historico} alt="Historico" /><br></br>
-                            -----------------------------------------
+                            -----------------------------------------------
                               <h2>Histórico de consultas</h2>
                  </button></Link>
                 </div>
