@@ -50,7 +50,7 @@ public class UserService {
         this.repository.findByEmail(user.getEmail())
                 .map(selectedUser -> {
                     selectedUser.setName(user.getName());
-                    selectedUser.setBirthdayDate(user.getBirthdayDate());
+                    //selectedUser.setBirthdayDate(user.getBirthdayDate());
 //                    selectedUser.setSex(user.getSex());
                     selectedUser.setTelephone(user.getTelephone());
                     selectedUser.setPassword(user.getPassword());

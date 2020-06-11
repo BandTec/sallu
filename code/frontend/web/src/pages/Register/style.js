@@ -136,7 +136,7 @@ export const LoginContent = styled.div`
       border-radius: 25px;
       outline: none;
       border: none;
-      background-image: linear-gradient(to right, #FF5050, #FF5050, #FF5050);
+      background-image:linear-gradient(to right, #32be8f, #38d39f, #32be8f);
       background-size: 200%;
       font-size: 1.2rem;
       color: #fff;

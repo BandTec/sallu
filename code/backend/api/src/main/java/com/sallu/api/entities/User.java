@@ -45,10 +45,9 @@ public class User implements Serializable {
     private String telephone;
 
     // Data de Nascimento
-    @NotNull(message = "{user.dt_birthday}")
-    @JsonProperty
+
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Column(name = "dt_birthday", nullable = false)
+    @Column(name = "dt_birthday")
     private Date birthdayDate;
 
     // Sexo
@@ -64,7 +63,6 @@ public class User implements Serializable {
     private String email;
 
     @Size(min = 8, message = "{password.length}")
-    @NotBlank(message = "{user.nm_password}")
     @JsonProperty
     @Column(name = "nm_password", nullable = false)
     private String password;

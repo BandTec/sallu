@@ -17,8 +17,7 @@ function Welcome() {
                <h1>Seja bem-vindo ao nosso aplicativo Salut!</h1>
             </div>
 
-            <div className = "menu" >
-                
+            <div className = "menu" >                
                 <div className = "botoes">
                     <Link  to='/ficha'>
                         <button type="button">
