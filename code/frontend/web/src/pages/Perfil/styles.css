@@ -32,6 +32,7 @@ body {
 #contact input[type="email"],
 #contact input[type="tel"],
 #contact input[type="url"],
+#contact input[type="Date"],
 #contact textarea,
 #contact button[type="submit"] {
   font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
@@ -75,6 +76,7 @@ fieldset {
 #contact input[type="text"],
 #contact input[type="text"],
 #contact input[type="password"],
+#contact input[type="Date"],
 #contact textarea {
   width: 100%;
   border: 1px solid #ccc;
@@ -89,6 +91,7 @@ fieldset {
 #contact input[type="text"],
 #contact input[type="text"],
 #contact input[type="password"],
+#contact input[type="Date"],
 #contact textarea:hover {
   -webkit-transition: border-color 0.3s ease-in-out;
   -moz-transition: border-color 0.3s ease-in-out;

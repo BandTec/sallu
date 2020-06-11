@@ -48,7 +48,7 @@ function Welcome() {
                     <Link to='/profile'>
                         <button type="button">
                             <img src={Config} alt="Historico" /><br></br>
-                            -----------------------------------------
+                            --------------------------------------------
                               <h2>Configurações de perfil</h2>
                  </button></Link>
                 </div>
