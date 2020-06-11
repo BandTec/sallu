@@ -18,27 +18,32 @@ function Welcome() {
             </div>
 
             <div className = "menu" >
+                
                 <div className = "botoes">
                     <Link  to='/ficha'>
                         <button type="button">
-                            <img src={Triagem} alt="Triagem" />
+                            <img src={Triagem} alt="Triagem" /> <br></br>
+                            -----------------------------------------
                               <h2>Triagem Virtual</h2>
                  </button></Link>
+                 
                 </div>
 
                 <div className = "botoes">
                     <Link to='/pacientes'>
                         <button type="button">
-                            <img src={Historico} alt="Historico" />
-                              <h2>Histórico</h2>
+                            <img src={Historico} alt="Historico" /><br></br>
+                            -----------------------------------------
+                              <h2>Histórico de consultas</h2>
                  </button></Link>
                 </div>
 
                 <div className = "botoes">
                     <Link to=''>
                         <button type="button">
-                            <img src={Config} alt="Historico" />
-                              <h2>Sua conta</h2>
+                            <img src={Config} alt="Historico" /><br></br>
+                            -----------------------------------------
+                              <h2>Configurações de perfil</h2>
                  </button></Link>
                 </div>
 
