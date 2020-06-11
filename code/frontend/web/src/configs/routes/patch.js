@@ -8,6 +8,7 @@ export const REGISTER = '/register'
 export const FICHA = '/ficha'
 export const FICHA_LISTA = '/pacientes'
 export const WELCOME = '/welcome'
+export const PROFILE = '/profile'
 
 
 // =============================================================================
@@ -24,7 +25,8 @@ const ROUTES_PATCH = {
   REGISTER,
   FICHA,
   FICHA_LISTA,
-  WELCOME
+  WELCOME,
+  PROFILE
 }
 
 export default ROUTES_PATCH

@@ -39,7 +39,7 @@ function Welcome() {
                 </div>
 
                 <div className = "botoes">
-                    <Link to=''>
+                    <Link to='/profile'>
                         <button type="button">
                             <img src={Config} alt="Historico" /><br></br>
                             -----------------------------------------
