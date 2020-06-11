@@ -39,6 +39,7 @@ const Login = () => {
       console.log('Tentativa Login')
       const { data } = await api.post('auth', { email, password })
       localStorage.setItem('nome',data.nome);
+      localStorage.setItem('id',data.id);
       setToken(data.token)
       handleSetAuthorization()
       history.push('/welcome')

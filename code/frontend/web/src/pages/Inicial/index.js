@@ -13,7 +13,8 @@ function Welcome() {
         <div>
             <HeaderInicial />
             <div>
-               <h1>Bem vindo {nome}</h1>
+               <h1>Olá {nome},</h1>
+               <h1>Seja bem-vindo ao nosso aplicativo Salut!</h1>
             </div>
 
             <div className = "menu" >
@@ -37,7 +38,7 @@ function Welcome() {
                     <Link to=''>
                         <button type="button">
                             <img src={Config} alt="Historico" />
-                              <h2>Configurações</h2>
+                              <h2>Sua conta</h2>
                  </button></Link>
                 </div>
 

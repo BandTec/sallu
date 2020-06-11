@@ -78,6 +78,5 @@ public class FichaMedica implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "pk_classificacoes", referencedColumnName = "pk_classificacoes")
     private Classificacao classificacao;
-
 }
 

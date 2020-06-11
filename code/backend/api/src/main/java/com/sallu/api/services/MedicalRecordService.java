@@ -3,6 +3,7 @@ package com.sallu.api.services;
 import com.sallu.api.entities.Classificacao;
 import com.sallu.api.entities.FichaMedica;
 import com.sallu.api.entities.Hospital;
+import com.sallu.api.entities.User;
 import com.sallu.api.entities.dto.FichaMedicaDTO;
 import com.sallu.api.repository.FichaMedicaRepository;
 import com.sallu.api.repository.HospitalRepository;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+
 @Slf4j
 @Service
 public class MedicalRecordService {
@@ -76,4 +78,6 @@ public class MedicalRecordService {
     public void delete(Integer id) {
         this.repository.deleteById(id);
     }
+
+
 }

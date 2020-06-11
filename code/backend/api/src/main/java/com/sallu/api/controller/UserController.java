@@ -1,5 +1,6 @@
 package com.sallu.api.controller;
 
+import com.sallu.api.entities.FichaMedica;
 import com.sallu.api.entities.User;
 import com.sallu.api.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("user")
@@ -41,5 +43,13 @@ public class UserController {
     public ResponseEntity<Void> deleteUser(@PathVariable("id") Integer id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("{idUser}")
+    public ResponseEntity <Optional<User>> getUserId(@PathVariable("idUser") Integer idUser) {
+        Optional<User> medicalRecords = service.getId(idUser);
+        return !medicalRecords.isPresent()
+                ? ResponseEntity.notFound().build()
+                : ResponseEntity.ok(medicalRecords);
     }
 }

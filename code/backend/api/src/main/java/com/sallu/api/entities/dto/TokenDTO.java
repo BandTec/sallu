@@ -11,5 +11,6 @@ public class TokenDTO implements Serializable {
     private String login;
     private String token;
     private String nome;
+    private Integer id;
 
 }

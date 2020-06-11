@@ -20,19 +20,16 @@ const ListaFichas = () => {
   const { getToken } = useTokenService()
   const [api] = useApiService()
   const [ficha, setFicha] = useState([])
-  
 
   useEffect(()=> {
-    api.get('medical_records', {
+    api.get(`user/${localStorage.getItem('id')}`, {
         headers:{
             Authorization : `Bearer ${getToken()}`,
         }
     }).then(response => {
-        setFicha(response.data);
+        setFicha(response.data.medicalRecords);
     } )
 }, []);
-
-
 
   return (
     <>

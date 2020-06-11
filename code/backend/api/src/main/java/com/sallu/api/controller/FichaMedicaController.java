@@ -20,7 +20,6 @@ public class FichaMedicaController {
     @GetMapping
     public ResponseEntity<List<FichaMedica>> getMedicalRecords() {
         List<FichaMedica> medicalRecords = service.selectAll();
-
         return medicalRecords.isEmpty()
                 ? ResponseEntity.noContent().build()
                 : ResponseEntity.ok(medicalRecords);
