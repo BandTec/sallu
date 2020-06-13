@@ -31,6 +31,8 @@ const ListaFichas = () => {
     } )
 }, []);
 
+
+
   return (
     <>
       <Header />
