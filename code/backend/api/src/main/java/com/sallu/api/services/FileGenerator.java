@@ -1,5 +1,4 @@
 package com.sallu.api.services;
-import com.sallu.api.entities.Classificacao;
 import com.sallu.api.entities.Encerramento;
 import com.sallu.api.entities.FichaMedica;
 import com.sallu.api.entities.User;
@@ -12,12 +11,14 @@ import java.util.Formatter;
 import java.util.FormatterClosedException;
 
 public class FileGenerator {
-    public void gravaLista(String opção, ListaObj lista, Integer index) {
+    public void gravaLista(String opção,User pacient, ListaObj lista, Integer index) {
         FileWriter arq = null;		// objeto FileWriter - representa o arquivo
         Formatter saida = null;		// objeto Formatter para executar saída formatada
         boolean deuRuim = false;	// indica se deu erro
         String nomeArquivo;			// nome do arquivo
         nomeArquivo= LocalDate.now()+".txt";	// nome do arquivo, se for TXT }
+       // nomeArquivo= pacient.getName().replace(" ","-")+"-"+LocalDate.now()+".txt";	// nome do arquivo, se for TXT }
+
         try {
             if(opção.equals("Header")) {
                 arq = new FileWriter(nomeArquivo, false);
@@ -39,19 +40,19 @@ public class FileGenerator {
                     saida.format("000|%s|1.0%n", LocalDateTime.now());
                     break;
                 case "A00":
-                    User usuario = (User)lista.getElemento(index);
                     String a00 = String.format("A00|%s|%s|%s%n",
-                            usuario.getName(), usuario.getBirthdayDate(), usuario.getTelephone());
+                            pacient.getName(), pacient.getBirthdayDate(), pacient.getTelephone());
                     saida.format("%s", a00.replaceAll("null", ""));
                     break;
                 case "C00":
                     for (int i=0; i < lista.getTamanho(); i++) {
                         FichaMedica ficha = (FichaMedica)lista.getElemento(i);
-                        String c00 = String.format("C00|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s%n",
+                        String c00 = String.format("C00|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s%n",
                                 ficha.getIdFichaMedica(), ficha.getPeso(), ficha.getAltura(), ficha.getPressao(),
                                 ficha.getTemperaturaCorporal(),
                                 ficha.getSexo(), ficha.getAlergia(), ficha.getDataUltCiclo(),
-                                ficha.isGestante(), ficha.getDataFicha());
+                                ficha.isGestante(), ficha.getDataFicha(),ficha.getClassificacao().getCorClassificada(),
+                                ficha.getHospital().getNomeHospital());
                         saida.format("%s", c00.replaceAll("null", ""));
                     }
                     break;

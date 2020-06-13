@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useApiService, useTokenService } from '../../services';
 import { FiDownload} from 'react-icons/fi';
+import Swal from 'sweetalert2';
 
 import {
   Container,
@@ -31,6 +32,21 @@ const ListaFichas = () => {
     } )
 }, []);
 
+function gerarTxt(){
+  api.get('geraTxt', {
+    headers:{
+        Authorization : `Bearer ${getToken()}`,
+    }
+}).then(response => {
+    console.log(response.data);
+    Swal.fire(
+      'Boa!!!',
+      'Exportação de dados realizada com sucesso.',
+      'success'
+  )
+} )
+}
+
 
 
   return (
@@ -38,7 +54,7 @@ const ListaFichas = () => {
       <Header />
       <Container>
         <Title>Histórico de fichas médicas</Title>
-        <button  ><FiDownload size={16} color="#526CC5" /> Exportar Dados </button>
+        <button onClick={gerarTxt}  ><FiDownload size={16} color="#526CC5" /> Exportar Dados </button>
         <TableContainer>
           <Table stickyHeader>
             <TableHead>

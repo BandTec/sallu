@@ -6,6 +6,8 @@ import com.sallu.api.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 @Service
 public class GeneratorService {
@@ -15,27 +17,26 @@ public class GeneratorService {
 
     private final FileGenerator geradorArquivo = new FileGenerator();
     public void gerarArquivo(){
-        geradorArquivo.gravaLista("Header", null, null);
+        User usuario = repository.findById(SecurityContextHolder.getContext().getAuthentication().getName());
+        geradorArquivo.gravaLista("Header", usuario,null, null);
 
         ListaObj<Encerramento> listaObjEncerramento = new ListaObj(3);
         Encerramento e = new  Encerramento("000", 1);
         listaObjEncerramento.adiciona(e);
-        User usuario = repository.findById(SecurityContextHolder.getContext().getAuthentication().getName());
 
-        List<FichaMedica> fichamedica = usuario.getMedicalRecords();
-        ListaObj<FichaMedica> listaObjFicha = new ListaObj(fichamedica.size());
-        e = new Encerramento("A00", fichamedica.size());
-        listaObjEncerramento.adiciona(e);
 
-        e = new Encerramento("C00", 0);
-        for (int i = 0; i < listaObjFicha.getTamanho(); i++){
-            geradorArquivo.gravaLista("A00", listaObjFicha, i);
-            for (FichaMedica fichaMedicas : fichamedica){
-                listaObjFicha.adiciona(fichaMedicas);
-            }
-            geradorArquivo.gravaLista("C00", listaObjFicha, null);
+        geradorArquivo.gravaLista("A00", usuario, null, null);
+
+        ListaObj<FichaMedica> listaObjFichaMedica = new ListaObj<>(usuario.getMedicalRecords().size());
+        e.setQtdRegistros(e.getQtdRegistros() + usuario.getMedicalRecords().size());
+        for (int i = 0; i < usuario.getMedicalRecords().size(); i++) {
+            listaObjFichaMedica.adiciona(usuario.getMedicalRecords().get(i));
         }
+
+
+        geradorArquivo.gravaLista("C00", null, listaObjFichaMedica, null);
         listaObjEncerramento.adiciona(e);
-        geradorArquivo.gravaLista("E00", listaObjEncerramento, null);
+
+        geradorArquivo.gravaLista("E00",null, listaObjEncerramento, null);
     }
 }

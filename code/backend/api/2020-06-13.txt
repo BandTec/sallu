@@ -1,1 +1,9 @@
-000|2020-06-13T01:36:54.009866400|1.0
+000|2020-06-13T03:41:25.395153300|1.0
+A00|ADRIANA ELVA HUAYHUA|2001-04-10 21:00:00.0|67868853
+C00|1|60.0|1.7|12.0|34.0|f|nenhuma|2020-02-19|false|2020-06-11|Verde|Hospital Cantareira
+C00|2|60.0|1.6|12.0|34.0|f|NENHUMA|2020-04-20|false|2020-06-12|Verde|Conjunto Hospitalar do Mandaqui
+C00|9|60.0|1.6|12.0|34.0|f|nenhuma|2020-06-15|false|2020-06-13|Verde|Hospital São Camilo SP - Unidade Santana (Internação)
+C00|10|60.0|1.6|3.0|34.0|f|nenhuma|2020-06-20|false|2020-06-13|Verde|pronto socorro
+C00|11|60.0|1.6|3.0|34.0|f|nenhuma|2020-11-19|true|2020-06-13|Verde|HOSPITAL PRESIDENTE
+E00|000|6
+E00|000|6
