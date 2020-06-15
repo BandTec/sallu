@@ -11,6 +11,7 @@ import FichaMedica from '../../pages/FichaMedica'
 import ListaFichas from '../../pages/ListaFichas'
 import Welcome from '../../pages/Inicial'
 import Profile from '../../pages/Perfil'
+import MapSearch from '../../pages/MapSearch'
 
 const PrivateRoute = ({ children, ...rest }) => {
   const { getToken } = useTokenService()
@@ -29,7 +30,7 @@ const Routes = () => (
     <Switch>
       <Route exact path={ROUTES.LOGIN} component={Login} />
       <Route exact path={ROUTES.REGISTER} component={Register} />
-      
+      <Route exact path={ROUTES.MAPSEARCH} component={MapSearch} />
       <PrivateRoute>
         <Route exact path={ROUTES.DASHBOARD} component={Dashboard} />
         <Route exact path={ROUTES.FICHA} component={FichaMedica} />
@@ -39,7 +40,6 @@ const Routes = () => (
       </PrivateRoute>
 
       <Redirect to={ROUTES.LOGIN} />
-
     </Switch>
   </BrowserRouter>
 )

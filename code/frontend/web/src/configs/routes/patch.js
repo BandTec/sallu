@@ -3,13 +3,13 @@
 // =============================================================================
 
 export const DASHBOARD = '/dashboard'
-export const LOGIN = '/login'
-export const REGISTER = '/register'
 export const FICHA = '/ficha'
 export const FICHA_LISTA = '/pacientes'
-export const WELCOME = '/welcome'
+export const LOGIN = '/login'
+export const MAPSEARCH = '/maps'
 export const PROFILE = '/profile'
-
+export const REGISTER = '/register'
+export const WELCOME = '/welcome'
 
 // =============================================================================
 // Sub Routes
@@ -21,12 +21,13 @@ export const PROFILE = '/profile'
 
 const ROUTES_PATCH = {
   DASHBOARD,
-  LOGIN,
-  REGISTER,
   FICHA,
   FICHA_LISTA,
-  WELCOME,
-  PROFILE
+  LOGIN,
+  MAPSEARCH,
+  REGISTER,
+  PROFILE,
+  WELCOME
 }
 
 export default ROUTES_PATCH
