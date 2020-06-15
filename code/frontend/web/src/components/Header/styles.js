@@ -18,11 +18,14 @@ export const Container = styled.div`
 #button{
   height: 60px;
   width: 60px;
-  border-radius: 4px;
+  border-radius: 50px;
   border: 1px solid #dcdce6;
   background: transparent;
   margin-left: 16px;
   transition: border-color 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
 }
 
 #button :hover{

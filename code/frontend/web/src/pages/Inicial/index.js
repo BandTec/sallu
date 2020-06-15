@@ -5,7 +5,13 @@ import { Link } from 'react-router-dom';
 import Triagem from '../../assets/triagem.png';
 import Historico from '../../assets/historico.png';
 import Config from '../../assets/config.png';
-import './styles.css';
+// import './styles.css';
+
+import walkDog from '../../assets/walk-dog.svg';
+import logoSalut from '../../assets/logo_salut_normal.svg';
+// import wave from '../../assets/wave.svg';
+
+import { Container ,Section, Header, Main } from './style';
 
 function Welcome() {
     
@@ -13,47 +19,36 @@ function Welcome() {
     const [api] = useApiService();
     const [ficha, setFicha] = useState([]);
 
-
     return (
         <div>
-            <HeaderInicial />
-            
-            <div>
-               <h1>Olá {localStorage.getItem('nome')},</h1>
-               <h1>Seja bem-vindo ao nosso aplicativo Salut!</h1>
-            </div>
-           
+         <Container>
+            <Section>
+                <Header>
+                    {/* <div className={'wave'}>
+                        <img src={wave} alt="Wave image"/>
+                    </div> */}
+                    <div className={'logo'}>
+                        <img src={logoSalut} alt="Imagem ilustrativa" width={'100'}/>
+                    </div>
+                </Header>
+            </Section>
 
-            <div className = "menu" >                
-                <div className = "botoes">
-                    <Link  to='/ficha'>
-                        <button type="button">
-                            <img src={Triagem} alt="Triagem" /> <br></br>
-                            -----------------------------------------
-                              <h2>Triagem Virtual</h2>
-                 </button></Link>
-                 
+            <Main>
+                <div className={'main-text'}>
+                   <span>Olá, {localStorage.getItem('nome')}</span> <br/>
+                    Seja bem-vindo ao aplicativo Salut.
                 </div>
-
-                <div className = "botoes">
-                    <Link to='/pacientes'>
-                        <button type="button">
-                            <img src={Historico} alt="Historico" /><br></br>
-                            -----------------------------------------------
-                              <h2>Histórico de consultas</h2>
-                 </button></Link>
+                
+                <div className={'walkDog'}>
+                    <img src={walkDog} alt="Imagem logo Salut" width={'520'}/>
                 </div>
-
-                <div className = "botoes">
-                    <Link to='/profile'>
-                        <button type="button">
-                            <img src={Config} alt="Historico" /><br></br>
-                            --------------------------------------------
-                              <h2>Configurações de perfil</h2>
-                 </button></Link>
+                <div id={'btns'}>
+                    <Link to={'/menu'}>
+                        <button id={"myButton"} className={'fat'}>Avançar</button>
+                    </Link>
                 </div>
-
-            </div>
+            </Main>
+         </Container>
         </div>
     );
 }

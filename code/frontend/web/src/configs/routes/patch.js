@@ -7,6 +7,7 @@ export const FICHA = '/ficha'
 export const FICHA_LISTA = '/pacientes'
 export const LOGIN = '/login'
 export const MAPSEARCH = '/maps'
+export const MENU = '/menu'
 export const PROFILE = '/profile'
 export const REGISTER = '/register'
 export const WELCOME = '/welcome'
@@ -25,6 +26,7 @@ const ROUTES_PATCH = {
   FICHA_LISTA,
   LOGIN,
   MAPSEARCH,
+  MENU,
   REGISTER,
   PROFILE,
   WELCOME

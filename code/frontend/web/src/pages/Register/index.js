@@ -1,11 +1,12 @@
 import React, { useState, useContext } from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import Recaptcha from 'react-recaptcha';
 import { Container, LoginContent, Form } from './style'
 
 import { AppContext } from '../../providers/contextProvider'
 import { useApiService } from '../../services'
 
-import Medicine from '../../assets/medicine.png'
+import doctors from '../../assets/doctors.svg';
 import Avatar from '../../assets/avatar.png';
 import { FiArrowLeft } from 'react-icons/fi';
 
@@ -81,10 +82,30 @@ const Register = () => {
     setRegister(e.target.name, e.target.value)
   }
 
+  const[isVerified, setVerified] = useState(false);
+
+  const handleSubscribe = () => {
+   if(isVerified){
+     alert("Aperte o botão para ser cadastrado!");
+   } else {
+     alert("Por favor verifique se você não é um robô!")
+   }
+ }
+
+ const recapchaLoad = () => {
+   console.log('Capcha succssfully loaded');
+ }
+
+ const verifyCallback =  (response) => {
+   if(response){
+     setVerified({ setVerified:true })
+   }
+ }
+
   return (
     <Container>
       <div>
-        <img src={Medicine} alt="Medics" />
+        <img src={doctors} alt="Medics" />
       </div>
       <LoginContent>
         <Form onSubmit={handleRegister}>
@@ -193,7 +214,15 @@ const Register = () => {
               />
             </div>
           </div>
-
+          <Recaptcha
+              sitekey='6LctXKMZAAAAALPDd7BpA9_Cl7yXUfRWEOvejW6s'
+              render='explicit'
+              onloadCallback={recapchaLoad}
+               // data-size={'invisible'}
+              // theme={"dark"}
+              hl={'PT-BR'}
+              verifyCallback={verifyCallback}
+            />
           <button type='submit'>Registrar</button>
           <Link className="back-links" to="/login">
             <FiArrowLeft size={16} color="#E02041" />

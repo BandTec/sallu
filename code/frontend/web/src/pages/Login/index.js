@@ -1,6 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { FiLogIn } from 'react-icons/fi'
+import Recaptcha from 'react-recaptcha';
 /**
  * Contexto da Aplicação
  */
@@ -12,7 +13,7 @@ import { useApiService, useTokenService } from '../../services'
 
 import './style.css'
 
-import Medicine from '../../assets/medicine.png'
+import medicine from '../../assets/medicine.png'
 import Avatar from '../../assets/avatar.png'
 // import Fundo from '../../assets/wave.png'
 
@@ -57,12 +58,31 @@ const Login = () => {
     console.log(email, password)
   }
 
+  const[isVerified, setVerified] = useState(false);
+
+  const handleSubscribe = () => {
+   if(isVerified){
+     alert("Aperte o botão para ser cadastrado!");
+   } else {
+     alert("Por favor verifique se você não é um robô!")
+   }
+ }
+
+ const recapchaLoad = () => {
+   console.log('Capcha succssfully loaded');
+ }
+
+ const verifyCallback =  (response) => {
+   if(response){
+     setVerified({ setVerified:true })
+   }
+ }
+
   return (
     <>
       <div className="container">
-        {/* <img className="wave" src={Fundo}/> */}
         <div className="img">
-          <img src={Medicine} alt="Medicine" />
+          <img src={medicine} alt="Medicine" />
         </div>
         <div className="login-content">
           <form onSubmit={handleSignIn}>
@@ -100,7 +120,17 @@ const Login = () => {
               </div>
             </div>
             <Link>Esqueceu a Senha?</Link>
+            <Recaptcha
+              sitekey='6LctXKMZAAAAALPDd7BpA9_Cl7yXUfRWEOvejW6s'
+              render='explicit'
+              onloadCallback={recapchaLoad}
+               // data-size={'invisible'}
+              // theme={"dark"}
+              hl={'PT-BR'}
+              verifyCallback={verifyCallback}
+            />
             <input type="submit" className="btn" value="Login" redirect="/ficha" />
+
             <Link className="back-link" to="/register">
               <FiLogIn size={16} color="#E02041" />
                  Não tenho cadastro
