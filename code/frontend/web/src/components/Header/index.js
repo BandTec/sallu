@@ -20,8 +20,8 @@ function Header() {
     <Container>
       <img src={salutLogo} alt="Logo equipe Salut" />
 
-      <button onClick={handleLogout} type="button">
-        <FiPower size={18} color="#e02041" />
+      <button onClick={handleLogout} id={'button'} type="button">
+        <FiPower size={20} color="#e02041" />
       </button>
     </Container>
   );

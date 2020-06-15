@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useApiService, useTokenService } from '../../services';
-import Header from '../../components/Header';
 import Swal from 'sweetalert2';
-import './styles.css';
+
+import { Container, Form } from './styles';
+import Header from '../../components/Header';
+
+import logo from '../../assets/logo_salut_normal.svg';
+
 function Profile() {
     const { getToken } = useTokenService();
     const [api] = useApiService();
@@ -72,44 +76,56 @@ function Profile() {
 
     return (
         <div>
-            <Header />
-            <body>
-                {fetch ? (
-                    <div className="container" keu={idUser}>
-                        <form id="contact" onSubmit={handleRegisterPut}>
-                            <center><h3>Configurações</h3></center>
-                            <center><h4>Altere seus dados abaixo</h4></center>
-                            <fieldset>
-                                Nome de usuario:
-                                <input placeholder={name} value={name} onChange={e => setName(e.target.value)} type="text" id="name" tabindex="1" disabled autoFocus />
-                            </fieldset>
+            <Header/>
+            <Container>
+                <Form>
+                    <img src={logo} alt=""/>
+                    <input 
+                    type={'text'} 
+                    id={"name"}
+                    placeholder={"Nome de Usuário"}
+                    value={name}
+                    onChange={e => setName(e.target.value)}
+                    disabled
+                    />
+                    
+                    <input 
+                    type={'text'} 
+                    id={"email"}
+                    placeholder={"Email"}
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    disabled
+                    />
+                    
+                    <input 
+                    type={'text'} 
+                    id={"telephone"}
+                    placeholder={"Telefone"}
+                    value={telephone}
+                    onChange={e => setTelephone(e.target.value)}
+                    disabled
+                    />
 
-                            <fieldset>
-                                E-mail:
-                                <input placeholder={email} value={email} onChange={e => setEmail(e.target.value)} id="email" type="text"  disabled />
-                            </fieldset>
+                    <input 
+                    type={'Date'} 
+                    id={"data"}
+                    placeholder={"Data de Nascimento"}
+                    value={birthdayDate}
+                    onChange={e => setTelephone(e.target.value)}
+                    disabled
+                    />
 
-                            <fieldset>
-                                Telefone:
-                                <input placeholder={telephone} value={telephone} onChange={e => setTelephone(e.target.value)} id="telephone" type="text"  disabled />
-                            </fieldset>
+                    <button name="Alterar" type="button" id="contact-submit" onClick={alterar} data-submit="...Sending">
+                    Alterar</button>
 
-                            <fieldset>
-                                Data de nascimento:
-                                <input placeholder={birthdayDate} value={birthdayDate} onChange={e => setBirthdayDate(e.target.value)} id="data" type="Date"  disabled />
-                            </fieldset>
+                    <hr/>
 
-                            <fieldset>
-                                <button  name="Alterar" type="button" id="contact-submit" onClick={alterar} data-submit="...Sending">Alterar</button>
-                            </fieldset>
+                    <button name="Salvar Alteração" type="submit" id="contact-submit" data-submit="...Sending">
+                    Salvar alteração</button>
 
-                            <fieldset>
-                                <button name="Salvar Alteração" type="submit" id="contact-submit" data-submit="...Sending">Salvar alteração</button>
-                            </fieldset>
-                        </form>
-                    </div>
-                ) : null}
-            </body>
+                </Form>
+            </Container>
         </div>
     );
 }
