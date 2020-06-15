@@ -1,17 +1,16 @@
 import React, { useState, useContext } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import Recaptcha from 'react-recaptcha';
 import { Container, LoginContent, Form } from './style'
 
 import { AppContext } from '../../providers/contextProvider'
 import { useApiService } from '../../services'
 
-import doctors from '../../assets/doctors.svg';
-import Avatar from '../../assets/avatar.png';
-import { FiArrowLeft } from 'react-icons/fi';
+import doctors from '../../assets/doctors.svg'
+import Avatar from '../../assets/avatar.png'
+import { FiArrowLeft } from 'react-icons/fi'
 
 // CommonJS
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2'
 
 const Register = () => {
   const [error, setError] = useState(false)
@@ -66,8 +65,7 @@ const Register = () => {
         'success'
       )
       history.push('/login')
-    }
-    catch (error) {
+    } catch (error) {
       setErrorMessage('Erro ao tentar registrar usuário, Tente novamente mais tarde')
       setError(true)
       Swal.fire(
@@ -82,25 +80,15 @@ const Register = () => {
     setRegister(e.target.name, e.target.value)
   }
 
-  const[isVerified, setVerified] = useState(false);
+  const [isVerified, setVerified] = useState(false)
 
   const handleSubscribe = () => {
-   if(isVerified){
-     alert("Aperte o botão para ser cadastrado!");
-   } else {
-     alert("Por favor verifique se você não é um robô!")
-   }
- }
-
- const recapchaLoad = () => {
-   console.log('Capcha succssfully loaded');
- }
-
- const verifyCallback =  (response) => {
-   if(response){
-     setVerified({ setVerified:true })
-   }
- }
+    if (isVerified) {
+      alert('Aperte o botão para ser cadastrado!')
+    } else {
+      alert('Por favor verifique se você não é um robô!')
+    }
+  }
 
   return (
     <Container>
@@ -214,20 +202,11 @@ const Register = () => {
               />
             </div>
           </div>
-          <Recaptcha
-              sitekey='6LctXKMZAAAAALPDd7BpA9_Cl7yXUfRWEOvejW6s'
-              render='explicit'
-              onloadCallback={recapchaLoad}
-               // data-size={'invisible'}
-              // theme={"dark"}
-              hl={'PT-BR'}
-              verifyCallback={verifyCallback}
-            />
           <button type='submit'>Registrar</button>
           <Link className="back-links" to="/login">
             <FiArrowLeft size={16} color="#E02041" />
                   Fazer login
-            </Link>
+          </Link>
         </Form>
       </LoginContent>
     </Container>

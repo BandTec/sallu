@@ -58,7 +58,7 @@ const MapSearch = () => {
         params: {
           location: `${latitude},${longitude}`,
           radius: 1500,
-          types: 'hospital',
+          types: 'health',
           key: process.env.REACT_APP_GOOGLE_API_KEY
         }
       })
@@ -83,7 +83,6 @@ const MapSearch = () => {
         <GoogleMap
           mapContainerStyle={{ width: '80%', height: '620px' }}
           center={currentPosition}
-          // center={{ lat: 37.774546, lng: -122.433523 }}
           zoom={10}
           onLoad={onLoad}
           onUnmount={onUmount}

@@ -1,14 +1,15 @@
 import React, { useContext, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { FiLogIn } from 'react-icons/fi'
-import Recaptcha from 'react-recaptcha';
+// import Recaptcha from 'react-recaptcha'
+
 /**
  * Contexto da Aplicação
  */
 import { AppContext } from '../../providers/contextProvider'
 import { useApiService, useTokenService } from '../../services'
 
-// import { Container, Form, LoginContent, Imagem } from './style'
+import { GoogleRecaptcha } from './styles'
 // import { ROUTES } from '../../configs/routes'
 
 import './style.css'
@@ -22,7 +23,7 @@ const Login = () => {
    * Actions e States Globais para Login
    * Sempre usa-se o AppContext com o Hook useContext do React
    */
-  const history = useHistory();
+  const history = useHistory()
   const {
     state: { login: { email, password, errorMessage } },
     actions: { login: { setLogin } }
@@ -39,9 +40,9 @@ const Login = () => {
       // const { data } = await api.post('login', { email, password })
       console.log('Tentativa Login')
       const { data } = await api.post('auth', { email, password })
-      localStorage.setItem('nome',data.nome);
-      localStorage.setItem('id',data.id);
-      localStorage.setItem('email',data.login);
+      localStorage.setItem('nome', data.nome)
+      localStorage.setItem('id', data.id)
+      localStorage.setItem('email', data.login)
       setToken(data.token)
       handleSetAuthorization()
       history.push('/welcome')
@@ -55,28 +56,28 @@ const Login = () => {
 
   const handleChange = e => {
     setLogin(e.target.name, e.target.value)
-    console.log(email, password)
+    console.log(email.length <= 1 || password.length <= 1 || isVerified)
   }
 
-  const[isVerified, setVerified] = useState(false);
+  const [isVerified, setVerified] = useState(false)
 
-  const handleSubscribe = () => {
-   if(isVerified){
-     alert("Aperte o botão para ser cadastrado!");
-   } else {
-     alert("Por favor verifique se você não é um robô!")
-   }
- }
+  // const handleSubscribe = () => {
+  //   if (isVerified) {
+  //     alert('Aperte o botão para ser cadastrado!')
+  //   } else {
+  //     alert('Por favor verifique se você não é um robô!')
+  //   }
+  // }
 
- const recapchaLoad = () => {
-   console.log('Capcha succssfully loaded');
- }
+  // const recapchaLoad = () => {
+  //   console.log('Capcha succssfully loaded')
+  // }
 
- const verifyCallback =  (response) => {
-   if(response){
-     setVerified({ setVerified:true })
-   }
- }
+  const verifyCallback = (response) => {
+    if (response) {
+      setVerified(!!response)
+    }
+  }
 
   return (
     <>
@@ -120,16 +121,30 @@ const Login = () => {
               </div>
             </div>
             <Link>Esqueceu a Senha?</Link>
-            <Recaptcha
-              sitekey='6LctXKMZAAAAALPDd7BpA9_Cl7yXUfRWEOvejW6s'
+            {/* <Recaptcha
+              sitekey={process.env.REACT_APP_RECAPTCHA_SITEKEY}
               render='explicit'
               onloadCallback={recapchaLoad}
-               // data-size={'invisible'}
+              // data-size={'invisible'}
               // theme={"dark"}
               hl={'PT-BR'}
               verifyCallback={verifyCallback}
+            /> */}
+            <GoogleRecaptcha
+              sitekey={process.env.REACT_APP_RECAPTCHA_SITEKEY}
+              onChange={verifyCallback}
+              hl={'pt-BR'}
             />
-            <input type="submit" className="btn" value="Login" redirect="/ficha" />
+
+            <button
+              type="submit"
+              className="btn"
+              value="Login"
+              redirect="/ficha"
+              disabled={(!email || !password || !isVerified)}
+            >
+              Login
+            </button>
 
             <Link className="back-link" to="/register">
               <FiLogIn size={16} color="#E02041" />

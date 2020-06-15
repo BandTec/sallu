@@ -1,4 +1,13 @@
-import styled, { GlobalStyleComponent } from 'styled-components'
+import styled from 'styled-components'
+import ReCAPTCHA from 'react-google-recaptcha'
+
+export const GoogleRecaptcha = styled(ReCAPTCHA)`
+  margin-top: 15px;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+`
 
 export const Container = styled.div`
   display: flex;

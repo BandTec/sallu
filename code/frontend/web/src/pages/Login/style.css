@@ -178,6 +178,11 @@ a:hover{
 	background-position: right;
 }
 
+.btn:disabled {
+	background-image: linear-gradient(to right, #404040, #414141, #424242);
+	opacity: 0.4;
+}
+
 
 @media screen and (max-width: 1050px){
 	.container{
