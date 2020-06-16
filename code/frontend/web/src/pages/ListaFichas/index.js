@@ -52,7 +52,7 @@ const ListaFichas = () => {
       <Header />
       <Container>
         <Title>Histórico de fichas médicas</Title>
-        <button onClick={gerarTxt} ><FiDownload size={16} color="#526CC5" /> Exportar Dados </button>
+        <button onClick={gerarTxt}><FiDownload size={16} color="#526CC5"/> Exportar Dados </button>
         <TableContainer>
           <Table stickyHeader>
             <TableHead>
@@ -78,7 +78,6 @@ const ListaFichas = () => {
                 </TableRow>
               ))}
             </TableBody>
-
           </Table>
         </TableContainer>
 

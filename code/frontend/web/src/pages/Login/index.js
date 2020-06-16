@@ -109,7 +109,7 @@ const Login = () => {
               <div className="i">
                 <i className="fas fa-lock"></i>
               </div>
-              <div classNames="div">
+              <div className="div">
                 {password.length < 1 && <h5>Senha</h5>}
                 <input
                   id={'password'}
@@ -120,7 +120,7 @@ const Login = () => {
                   className="input" />
               </div>
             </div>
-            <Link>Esqueceu a Senha?</Link>
+            {/* <Link>Esqueceu a Senha?</Link> */}
             {/* <Recaptcha
               sitekey={process.env.REACT_APP_RECAPTCHA_SITEKEY}
               render='explicit'
