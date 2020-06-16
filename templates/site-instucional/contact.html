@@ -87,7 +87,7 @@
           <h2 class="contact-title">Interesse hospitalar no serviço de triagem virtual</h2>
         </div>
         <div class="col-lg-8">
-          <form class="form-contact contact_form" action="" method="post" id="form_email">
+          <form class="form-contact contact_form" action="" method="POST" id="form_email">
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
@@ -250,10 +250,53 @@ function preCadastrar(){
 			swal( "Preenchimento incorreto" , "Por Favor, Preencha Todos os Campos Corretamente! " , "error" );
         }
         else{
-            contatoEmpresa() 
+		cadHospital();
+            contatoEmpresa();
         }  
     }
+	
+	function cadHospital(){
+	
+	var form = {
+"nomeHospital" : nome.value,
+"cnpjHospital" : cnpj.value,
+"telefoneHospital" : telefone.value,
+"emailHospital" : email.value,
+"endereco" : {
+"cep": cep.value,
+"endereco": rua.value, 
+"bairro" : bairro.value,
+"logradouro" : numero.value,
+"cidade" : cidade.value,
+"estado" : uf.value
+}
+};
 
+var jsonString = JSON.stringify(form);
+
+var myHeaders = new Headers();
+
+myHeaders.append('Content-Type', 'application/json');
+myHeaders.get('Content-Type');
+console.log(myHeaders.get('Content-Type'));
+
+	const request = new Request('http://localhost:8080/hospital/cad', {method: 'POST',headers:myHeaders, body: jsonString});
+
+	fetch(request)
+  .then(response => {
+    if (response.status === 200) {
+      return response.json();
+    } else {
+      throw new Error('Something went wrong on api server!');
+    }
+  })
+  .then(response => {
+    console.debug(response);
+    // ...
+  }).catch(error => {
+    console.error(error);
+  });	
+}
 
   function contatoEmpresa(){
     var urlFinal = "http://localhost:8080/email-interesse-hospitalar/"+nome.value+"/"+cnpj.value +"/"+telefone.value +"/"+email.value+"/"+cep.value+"/"+bairro.value+"/"+rua.value+"/"+numero.value;
@@ -262,8 +305,8 @@ function preCadastrar(){
             method:"GET",
             })
                 swal('Email Enviado com sucesso!','Obrigado pelo Interrese, Aguarde Nosso Retorno!', 'success');
-        }
-
+       }
+		
         function limpa_formulário_cep() {
             document.getElementById('rua').value=("");
             document.getElementById('bairro').value=("");

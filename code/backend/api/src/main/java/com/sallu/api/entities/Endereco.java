@@ -1,5 +1,6 @@
 package com.sallu.api.entities;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sallu.api.entities.dto.EnderecoDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -36,4 +37,20 @@ public class Endereco {
     @Column(name = "numero", length = 45)
     private String numero;
 
+    @JsonProperty
+    @Column(name = "cidade", length = 45)
+    private String cidade;
+
+    @JsonProperty
+    @Column(name = "estado", length = 45)
+    private String estado;
+
+    public Endereco(EnderecoDTO enderecoDTO) {
+        this.cep = enderecoDTO.getCep();
+        this.endereco = enderecoDTO.getEndereco();
+        this.bairro = enderecoDTO.getBairro();
+        this.numero = enderecoDTO.getLogradouro();
+        this.cidade = enderecoDTO.getCidade();
+        this.estado = enderecoDTO.getEstado();
+    }
 }
