@@ -4,6 +4,20 @@ import { Link } from 'react-router-dom'
 export const PageContainer = styled.div`
   height: 100%;
   padding-top: 10px;
+
+  .btn2{
+    position: absolute;
+    bottom: 94%;
+    left: 93%;
+
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+    border: 1px solid #dcdce6;
+    background: transparent;
+    margin-left: 16px;
+    transition: border-color 0.2s;
+  }
 `
 
 export const Container = styled.div`

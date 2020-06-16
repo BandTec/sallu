@@ -1,4 +1,7 @@
 import React from 'react'
+import { FiPower } from 'react-icons/fi';
+import { useHistory } from 'react-router-dom';
+import { useTokenService } from '../../services';
 
 import {
   Container,
@@ -11,11 +14,24 @@ import {
 import logo from '../../assets/logo_salut_normal.svg'
 
 function Menu () {
+  const history = useHistory();
+  const { resetToken } = useTokenService();
+
+  function handleLogout() {
+    resetToken();
+    localStorage.clear();
+    history.push('/login');
+  }
+
   return (
     <PageContainer>
       <div className={'logo'}>
         <img src={logo} alt="" width={'100'}/>
       </div>
+      <button onClick={handleLogout} className={'btn2'} type="button">
+        <FiPower size={20} color="#e02041"/>
+      </button>
+
       <Container>
         <MenuContainer>
           <Card to="/profile">
@@ -24,7 +40,6 @@ function Menu () {
             </CardIcon>
             <div>
               <h2>Perfil</h2>
-              <h3>Acesse e atualize o seu perfil</h3>
             </div>
           </Card>
 
