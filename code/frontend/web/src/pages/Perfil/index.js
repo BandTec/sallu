@@ -87,6 +87,7 @@ function Profile() {
                     value={name}
                     onChange={e => setName(e.target.value)}
                     disabled
+                    autoFocus
                     />
                     
                     <input 

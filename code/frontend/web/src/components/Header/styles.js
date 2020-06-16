@@ -14,6 +14,11 @@ export const Container = styled.div`
     width: 100%;
   }
 
+#button {
+  position: absolute;
+  bottom: 90%;
+  left: 90%;
+}
   
 #button{
   height: 60px;
@@ -23,12 +28,30 @@ export const Container = styled.div`
   background: transparent;
   margin-left: 16px;
   transition: border-color 0.2s;
-  display: flex;
-  justify-content: center;
-  align-items: center; 
+ 
 }
 
 #button :hover{
+  border-color: #999;
+}
+
+#btn2 {
+  position: absolute;
+  bottom: 90%;
+  left: 85%;
+}
+
+#btn2{
+  height: 60px;
+  width: 60px;
+  border-radius: 50px;
+  border: 1px solid #dcdce6;
+  background: transparent;
+  margin-left: 16px;
+  transition: border-color 0.2s;
+}
+
+#btn2 :hover{
   border-color: #999;
 }
 `;

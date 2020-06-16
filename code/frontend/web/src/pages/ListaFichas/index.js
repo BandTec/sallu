@@ -10,7 +10,7 @@ import {
   TableCell,
   TableContainer,
   // TableFooter,
-  TableHead,
+  TableHead,  
   TableRow,
   Title
 } from './styles'
@@ -46,15 +46,12 @@ function gerarTxt(){
   )
 } )
 }
-
-
-
   return (
     <>
       <Header />
       <Container>
         <Title>Histórico de fichas médicas</Title>
-        <button onClick={gerarTxt}  ><FiDownload size={16} color="#526CC5" /> Exportar Dados </button>
+        <button onClick={gerarTxt}><FiDownload size={16} color="#526CC5" /> Exportar Dados </button>
         <TableContainer>
           <Table stickyHeader>
             <TableHead>
@@ -80,7 +77,6 @@ function gerarTxt(){
                 </TableRow>
               ))}
             </TableBody>
-
           </Table>
         </TableContainer>
 

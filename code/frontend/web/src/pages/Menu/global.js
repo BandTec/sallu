@@ -1,7 +1,7 @@
-import { createGlobalStyle } from 'styled-components';
+// import { createGlobalStyle } from 'styled-components';
 
-export default createGlobalStyle`
-  body, html, #root {
-    margin: 10px;
-}
-`;
+// export default createGlobalStyle`
+//   body, html, #root {
+//     margin: 10px;
+// }
+// `;

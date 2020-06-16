@@ -2,21 +2,15 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
-  margin: 80px;
+  margin: 25px;
   display: flex;
-  align-items: center;
   justify-content: center;
-
-  .selectOpinion {
-    width: 60px;
-    height: 40px;
-  }
 `;
 export const Form = styled.form`
 
   .btn-circle {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   text-align: center;
   padding: 6px 0;
   font-size: 12px;
@@ -24,7 +18,8 @@ export const Form = styled.form`
   border-radius: 50%;
   margin: 0 100px;
   background: #FF5050;
-    
+
+
   img {
     width: 90px;
     height: 80px; 
@@ -36,8 +31,8 @@ export const Form = styled.form`
 }
 
 .btn-circle-1 {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   text-align: center;
   padding: 6px 0;
   font-size: 12px;
@@ -57,8 +52,8 @@ export const Form = styled.form`
 }
 
 .btn-circle-2 {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   text-align: center;
   padding: 6px 0;
   font-size: 12px;
@@ -78,8 +73,8 @@ export const Form = styled.form`
 }
 
 .btn-circle-3 {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   text-align: center;
   padding: 6px 0;
   font-size: 12px;
@@ -96,5 +91,11 @@ export const Form = styled.form`
     align-items: center;
     margin: 0;
   }
+}
+
+h1 {
+  margin: 0 14px;
+  text-align: center;
+  margin-bottom: 60px;
 }
 `;
