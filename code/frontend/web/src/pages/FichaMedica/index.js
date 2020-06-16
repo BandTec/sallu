@@ -8,18 +8,18 @@ import { useApiService, useTokenService } from '../../services'
 import pacientImg from '../../assets/pacient.jpg'
 import Header from '../../components/Header'
 
-import FilaVerde from './FilaVerde';
-import FilaAmarelo from './FilaAmarelo';
-import FilaVermelho from './FilaAmarelo';
+import FilaVerde from './FilaVerde'
+import FilaAmarelo from './FilaAmarelo'
+import FilaVermelho from './FilaAmarelo'
 
-var verde = 1;
-var amarelo = 1;
-var vermelho = 1;
+var verde = 1
+var amarelo = 1
+var vermelho = 1
 
-function FichaMedica() {
-  const v = new FilaVerde(100);
-  const a = new FilaAmarelo(100);
-  const ver = new FilaVermelho(100);
+function FichaMedica () {
+  const v = new FilaVerde(100)
+  const a = new FilaAmarelo(100)
+  const ver = new FilaVermelho(100)
 
   const [peso, setPeso] = useState('')
   const [altura, setAltura] = useState('')
@@ -29,16 +29,16 @@ function FichaMedica() {
   const [alergia, setAlergia] = useState('')
   const [dataUltCiclo, setDataUltCiclo] = useState('')
   const [gestante, setGestante] = useState('')
-  const [encaminhamento, setEncaminhamento] = useState('')
+  // const [encaminhamento, setEncaminhamento] = useState('')
   const [nomeHospital, setNomeHospital] = useState('')
   const [dadosHospital, setDadosHospital] = useState([])
 
-  var corClassificada = '';
-  var numeroAtendimento = 0;
-  var classificacao;
+  var corClassificada = ''
+  var numeroAtendimento = 0
+  var classificacao
   const { getToken } = useTokenService()
   const [api] = useApiService()
-  const nome = localStorage.getItem('nome');
+  const nome = localStorage.getItem('nome')
 
   useEffect(() => {
     api.get('hospital').then(response => {
@@ -46,25 +46,25 @@ function FichaMedica() {
     })
   }, [])
 
-  async function handleNewFicha(event) {
+  async function handleNewFicha (event) {
     event.preventDefault()
 
     if (temperaturaCorporal <= 36.9) {
-      v.enqueue(verde);
-      numeroAtendimento = verde++;
-      console.log(numeroAtendimento);
-      corClassificada = 'Verde';
-      classificacao = 'Sua classificação é verde';
+      v.enqueue(verde)
+      numeroAtendimento = verde++
+      console.log(numeroAtendimento)
+      corClassificada = 'Verde'
+      classificacao = 'Sua classificação é verde'
     } else if (temperaturaCorporal > 36.9 && temperaturaCorporal <= 37.9) {
-      a.enqueue(amarelo);
-      numeroAtendimento = amarelo++;
+      a.enqueue(amarelo)
+      numeroAtendimento = amarelo++
       corClassificada = 'Amarelo'
-      classificacao = 'Sua classificação é amarelo';
+      classificacao = 'Sua classificação é amarelo'
     } else if (temperaturaCorporal >= 38.0 || gestante === true) {
-      ver.enqueue(vermelho);
-      numeroAtendimento = vermelho++;
+      ver.enqueue(vermelho)
+      numeroAtendimento = vermelho++
       corClassificada = 'Vermelho'
-      classificacao = 'Sua classificação é vermelho';
+      classificacao = 'Sua classificação é vermelho'
     }
 
     const data = {

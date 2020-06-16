@@ -6,6 +6,7 @@ export const DASHBOARD = '/dashboard'
 export const FICHA = '/ficha'
 export const FICHA_LISTA = '/pacientes'
 export const LOGIN = '/login'
+export const LOGOUT = '/logout'
 export const MAPSEARCH = '/maps'
 export const MENU = '/menu'
 export const PROFILE = '/profile'
@@ -25,6 +26,7 @@ const ROUTES_PATCH = {
   FICHA,
   FICHA_LISTA,
   LOGIN,
+  LOGOUT,
   MAPSEARCH,
   MENU,
   REGISTER,

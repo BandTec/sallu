@@ -15,6 +15,7 @@ import Swal from 'sweetalert2'
 const Register = () => {
   const [error, setError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+  // const [isVerified, setVerified] = useState(false)
   const history = useHistory()
 
   const {
@@ -80,15 +81,13 @@ const Register = () => {
     setRegister(e.target.name, e.target.value)
   }
 
-  const [isVerified, setVerified] = useState(false)
-
-  const handleSubscribe = () => {
-    if (isVerified) {
-      alert('Aperte o botão para ser cadastrado!')
-    } else {
-      alert('Por favor verifique se você não é um robô!')
-    }
-  }
+  // const handleSubscribe = () => {
+  //   if (isVerified) {
+  //     alert('Aperte o botão para ser cadastrado!')
+  //   } else {
+  //     alert('Por favor verifique se você não é um robô!')
+  //   }
+  // }
 
   return (
     <Container>

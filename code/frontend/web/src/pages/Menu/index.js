@@ -1,48 +1,58 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; 
+import React from 'react'
 
-import { Container, Form } from './styles';
-import GlobalStyle from './global';
+import {
+  Container,
+  Card,
+  MenuContainer,
+  CardIcon,
+  PageContainer
+} from './styles'
 
-import logo from '../../assets/logo_salut_normal.svg';
+import logo from '../../assets/logo_salut_normal.svg'
 
-
-function Menu() {
-  return(
-    <div>
-      <GlobalStyle/>
-        <div className={'logo'}>
-            <img src={logo} alt="" width={'100'}/>
-        </div>
+function Menu () {
+  return (
+    <PageContainer>
+      <div className={'logo'}>
+        <img src={logo} alt="" width={'100'}/>
+      </div>
       <Container>
-        <Form>
-        <Link to="/profile">
-        <button className={'btn-circle'} >
-            <img src="https://image.flaticon.com/icons/svg/2922/2922506.svg" alt=""/>
-        </button>
-        </Link>
+        <MenuContainer>
+          <Card to="/profile">
+            <CardIcon color={'#FF5050'} >
+              <img src="https://image.flaticon.com/icons/svg/2922/2922506.svg" alt=""/>
+            </CardIcon>
+            <div>
+              <h2>Perfil</h2>
+              <h3>Acesse e atualize o seu perfil</h3>
+            </div>
+          </Card>
 
-        <Link to="/ficha">
-          <button className={'btn-circle-2'} >
+          <Card to="/ficha">
+            <CardIcon color={'#ffef9f'} >
               <img src="https://image.flaticon.com/icons/svg/3056/3056833.svg" alt=""/>
-          </button>
-        </Link>
+            </CardIcon>
+            <h2>Ficha médica</h2>
+          </Card>
 
-        <Link to="/pacientes">
-          <button className={'btn-circle-1'} >
+          <Card to="/pacientes">
+            <CardIcon color={'#06d6a0'} >
               <img src="https://image.flaticon.com/icons/svg/2865/2865164.svg" alt=""/>
-          </button>
-        </Link>
+            </CardIcon>
+            <h2>Histórico do Cliente</h2>
+          </Card>
 
-        <Link to="/login">
-          <button className={'btn-circle-3'} >
-              <img src="https://image.flaticon.com/icons/svg/594/594732.svg" alt=""/>
-          </button>
-        </Link>
-        </Form>
-      </Container>  
-    </div>
+          <Card to="/maps">
+            <CardIcon color={'#118ab2'} >
+              {/* <img src="https://image.flaticon.com/icons/svg/594/594732.svg" alt=""/> */}
+              <img src={'https://image.flaticon.com/icons/svg/3069/3069318.svg'} />
+            </CardIcon>
+            <h2>Hospitais próximos a sua localidade</h2>
+          </Card>
+        </MenuContainer>
+      </Container>
+    </PageContainer>
   )
 }
 
-export default Menu;
+export default Menu

@@ -8,7 +8,14 @@ import { GoogleMap, Marker } from '@react-google-maps/api'
 import { CircularProgress } from '@material-ui/core'
 import axios from 'axios'
 
-import { Container, Subtitle, Title } from './styles'
+import {
+  AddressContainers,
+  ActionContainer,
+  Container,
+  Subtitle,
+  Title,
+  Loading
+} from './styles'
 
 const MapSearch = () => {
   const mapsAPI = axios.create({
@@ -46,7 +53,7 @@ const MapSearch = () => {
 
   const onUnauthorizeGeolocation = useCallback(() => {
     setIsAuthorized(true)
-  })
+  }, [])
 
   const onAuthorizeGeolocation = useCallback(async ({ coords }) => {
     const { latitude, longitude } = coords
@@ -74,46 +81,51 @@ const MapSearch = () => {
     } catch (error) {
       console.log(error.message)
     }
-  })
+  }, [])
 
   return (
     <Container>
       <Title>Hospitais Próximos a sua localidade</Title>
-      {isFetched ? (
-        <GoogleMap
-          mapContainerStyle={{ width: '80%', height: '620px' }}
-          center={currentPosition}
-          zoom={10}
-          onLoad={onLoad}
-          onUnmount={onUmount}
-        >
-          {/* <></> */}
-          {hospitalLocations.length > 1 && hospitalLocations.map((loc, i) => (
-            <Marker
-              key={i}
-              position={loc}
-            />
-          ))}
-          <Marker
-            position={currentPosition}
-            onClick={() => console.log('Voce clicou em mim')}
-          />
-        </GoogleMap>
-      )
-        : isAuthorized ? (
-          <Subtitle>
-            Acesso negado, por favor, recarregue a página.
-          </Subtitle>
-        ) : (
+      <ActionContainer>
+        {isFetched ? (
           <>
-            <Subtitle>
-              Carregando mapa... Por favor,
-              permita acessarmos sua localização.
-            </Subtitle>
-            <CircularProgress color={'secondary'} />
+            <GoogleMap
+              mapContainerStyle={{ width: '80%', height: '620px' }}
+              center={currentPosition}
+              zoom={10}
+              onLoad={onLoad}
+              onUnmount={onUmount}
+            >
+              {/* <></> */}
+              {hospitalLocations.length > 1 && hospitalLocations.map((loc, i) => (
+                <Marker
+                  key={i}
+                  position={loc}
+                />
+              ))}
+              <Marker
+                position={currentPosition}
+                onClick={() => console.log('Voce clicou em mim')}
+              />
+            </GoogleMap>
+            <AddressContainers></AddressContainers>
           </>
         )
-      }
+          : isAuthorized ? (
+            <Subtitle>
+            Acesso negado, por favor, recarregue a página.
+            </Subtitle>
+          ) : (
+            <Loading>
+              <Subtitle>
+              Carregando mapa... Por favor,
+              permita acessarmos sua localização.
+              </Subtitle>
+              <CircularProgress color={'secondary'} />
+            </Loading>
+          )
+        }
+      </ActionContainer>
     </Container>
   )
 }

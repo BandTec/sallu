@@ -9,6 +9,7 @@ import Login from '../../pages/Login'
 import Register from '../../pages/Register'
 import FichaMedica from '../../pages/FichaMedica'
 import ListaFichas from '../../pages/ListaFichas'
+import Logout from '../../pages/Logout'
 import Welcome from '../../pages/Inicial'
 import Profile from '../../pages/Perfil'
 import MapSearch from '../../pages/MapSearch'
@@ -32,6 +33,7 @@ const Routes = () => (
       <Route exact path={ROUTES.LOGIN} component={Login} />
       <Route exact path={ROUTES.REGISTER} component={Register} />
       <Route exact path={ROUTES.MAPSEARCH} component={MapSearch} />
+      <Route exact path={ROUTES.LOGOUT} component={Logout} />
       <PrivateRoute>
         <Route exact path={ROUTES.DASHBOARD} component={Dashboard} />
         <Route exact path={ROUTES.FICHA} component={FichaMedica} />
@@ -40,8 +42,6 @@ const Routes = () => (
         <Route exact path={ROUTES.PROFILE} component={Profile} />
         <Route exact path={ROUTES.MENU} component={Menu} />
       </PrivateRoute>
-
-      <Redirect to={ROUTES.LOGIN} />
     </Switch>
   </BrowserRouter>
 )
