@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useApiService, useTokenService } from '../../services'
 import Swal from 'sweetalert2'
-
 import { Container, Form } from './styles'
 import Header from '../../components/Header'
 
@@ -61,14 +60,12 @@ function Profile () {
       setName(user.name)
       setTelephone(user.telephone)
       setBirthdayDate(user.birthdayDate)
-
       setFetch(true)
     })
   }, [])
 
   function alterar () {
     document.getElementById('name').disabled = false
-
     document.getElementById('telephone').disabled = false
     document.getElementById('data').disabled = false
   };
@@ -77,8 +74,10 @@ function Profile () {
     <div>
       <Header/>
       <Container>
-        <Form>
+      {fetch ? (
+        <Form key={idUser} onSubmit={handleRegisterPut}>
           <img src={logo} alt=""/>
+
           <input
             type={'text'}
             id={'name'}
@@ -124,6 +123,7 @@ function Profile () {
                     Salvar alteração</button>
 
         </Form>
+        ) : null}
       </Container>
     </div>
   )
