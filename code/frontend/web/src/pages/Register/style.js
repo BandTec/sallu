@@ -49,7 +49,6 @@ export const LoginContent = styled.div`
       margin: 25px 0;
       padding: 5px 0;
       border-bottom: 2px solid #d9d9d9;
-      
     }
 
     .input-div.one {
@@ -150,7 +149,6 @@ export const LoginContent = styled.div`
     button:hover {
       background-position: right;
     }
-
 `
 
 export const Form = styled.form`

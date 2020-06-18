@@ -94,7 +94,7 @@ function Profile () {
             value={email}
             onChange={e => setEmail(e.target.value)}
             disabled
-          />
+          />  
 
           <input
             type={'text'}

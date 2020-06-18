@@ -51,8 +51,8 @@ const ListaFichas = () => {
     <>
       <Header />
       <Container>
-        <Title>Histórico de fichas médicas</Title>
-        <button onClick={gerarTxt}><FiDownload size={16} color="#526CC5"/> Exportar Dados </button>
+        <Title>Histórico de Fichas Médicas</Title>
+        <button onClick={gerarTxt} className={'btnExport'}><FiDownload size={16} color="#526CC5" className={'btnFid'}/> Exportar Dados </button>
         <TableContainer>
           <Table stickyHeader>
             <TableHead>

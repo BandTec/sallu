@@ -20,10 +20,22 @@ export const Container = styled.div`
 
   align-items: center;
   margin-top: 25px;
+  
+  .btnExport {
+    border: none;
+    margin: 10px;
+    color: #ff3333; 
+  }
+
+  .btnFid {
+    background-color:#247ba0;
+  }
 `
 
 export const Title = styled.h1`
   display: flex;
+  font-weight: bold;
+  color: #e76f51;
 `
 
 /**

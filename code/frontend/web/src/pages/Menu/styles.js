@@ -7,7 +7,7 @@ export const PageContainer = styled.div`
 
   .btn2{
     position: absolute;
-    bottom: 94%;
+    bottom: 92%;
     left: 93%;
 
     height: 40px;
@@ -17,6 +17,30 @@ export const PageContainer = styled.div`
     background: transparent;
     margin-left: 16px;
     transition: border-color 0.2s;
+    background-color: #FC6963;
+  }
+
+  .btn3{
+    position: absolute;
+    bottom: 92%;
+    left: 89%;
+
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+    border: 1px solid #dcdce6;
+    background: transparent;
+    margin-left: 16px;
+    transition: border-color 0.2s;
+    background-color: #c0fdff;
+  }
+
+    h1 {
+    font-size: 24px;
+    position: relative;
+    text-align: center;
+    color: #526CC5;
+    margin: 50px;
   }
 `
 
@@ -34,7 +58,7 @@ export const MenuContainer = styled.div`
 
   display: grid;
   grid-template-columns: repeat(1, 2fr);
-  
+    
   @media screen and (min-width: 600px) {
     grid-template-columns: repeat(2, 2fr);
   }

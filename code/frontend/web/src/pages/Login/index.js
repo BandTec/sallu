@@ -37,7 +37,7 @@ const Login = () => {
     try {
       e.preventDefault()
       setLogin('errorMessage', null)
-      // const { data } = await api.post('login', { email, password })
+      // const { data } = await api.post('login', {{ email, password })
       console.log('Tentativa Login')
       const { data } = await api.post('auth', { email, password })
       localStorage.setItem('nome', data.nome)

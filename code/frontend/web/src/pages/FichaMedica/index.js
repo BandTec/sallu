@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { mask, unMask } from 'remask';
 
 import Swal from 'sweetalert2'
 
@@ -22,9 +23,41 @@ function FichaMedica () {
   const ver = new FilaVermelho(100)
 
   const [peso, setPeso] = useState('')
+  const onChangePeso = (event) => {
+    const orinalValue = unMask(event.target.value)
+    const maskValue = mask(orinalValue, [
+      '99.99'
+    ])
+    setPeso(maskValue)
+  }
+
   const [altura, setAltura] = useState('')
+  const onChangeAltura = (event) => {
+    const orinalValue = unMask(event.target.value)
+    const maskValue = mask(orinalValue, [
+      '9.99'
+    ])
+    setAltura(maskValue)
+  }
+  
   const [pressao, setPressao] = useState('')
+  const onChangePressao = (event) => {
+    const originalValue = unMask(event.target.value)
+    const maskValue = mask(originalValue, [
+      '99.99'
+    ])
+    setPressao(maskValue)
+  }
+
   const [temperaturaCorporal, setTemperaturaCorporal] = useState('')
+  const onChangeTemperatura = (event) => {
+    const originalValue = unMask(event.target.value)
+    const maskValue = mask(originalValue, [
+      '99.9'
+    ])
+    setTemperaturaCorporal(maskValue)
+  }
+
   const [sexo, setSexo] = useState('')
   const [alergia, setAlergia] = useState('')
   const [dataUltCiclo, setDataUltCiclo] = useState('')
@@ -170,7 +203,7 @@ function FichaMedica () {
                   id={'peso'}
                   name={'peso'}
                   type={'text'}
-                  onChange={event => setPeso(event.target.value)}
+                  onChange={onChangePeso}
                   value={peso}
                   placeholder={'Peso'}
                 />
@@ -179,7 +212,7 @@ function FichaMedica () {
                   id={'altura'}
                   name={'altura'}
                   type={'text'}
-                  onChange={event => setAltura(event.target.value)}
+                  onChange={onChangeAltura}
                   value={altura}
                   placeholder={'Altura'}
                 />
@@ -188,7 +221,7 @@ function FichaMedica () {
                   id={'pressao'}
                   name={'pressao'}
                   type={'text'}
-                  onChange={event => setPressao(event.target.value)}
+                  onChange={onChangePressao}
                   value={pressao}
                   placeholder={'Pressão'}
                 />
@@ -197,7 +230,7 @@ function FichaMedica () {
                   id={'temperaturaCorporal'}
                   name={'temperaturaCorporal'}
                   type={'text'}
-                  onChange={event => setTemperaturaCorporal(event.target.value)}
+                  onChange={onChangeTemperatura}
                   value={temperaturaCorporal}
                   placeholder={'Temperatura'}
                 />

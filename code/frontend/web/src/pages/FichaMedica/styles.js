@@ -156,6 +156,7 @@ export const Right = styled.div`
 
   p {
     font-size: 12px;
+    font-weight: bold;
   }
 
   .gestant-group {

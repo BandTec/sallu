@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   height: 80px;
   padding: 0 30px;
-  background: #526CC5;
+  background: #247ba0;
   color: #FFF;
 
   display: flex;
@@ -28,6 +28,8 @@ export const Container = styled.div`
   background: transparent;
   margin-left: 16px;
   transition: border-color 0.2s;
+  background-color: #FC6963;
+  border: none;
  
 }
 
@@ -49,6 +51,8 @@ export const Container = styled.div`
   background: transparent;
   margin-left: 16px;
   transition: border-color 0.2s;
+  border: none;
+  background-color: #c0fdff;
 }
 
 #btn2 :hover{

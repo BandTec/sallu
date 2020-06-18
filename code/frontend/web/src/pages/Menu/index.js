@@ -1,5 +1,5 @@
 import React from 'react'
-import { FiPower } from 'react-icons/fi';
+import { FiPower, FiArrowLeftCircle } from 'react-icons/fi';
 import { useHistory } from 'react-router-dom';
 import { useTokenService } from '../../services';
 
@@ -12,6 +12,7 @@ import {
 } from './styles'
 
 import logo from '../../assets/logo_salut_normal.svg'
+import HeaderInicial from '../../components/HeaderInicial';
 
 function Menu () {
   const history = useHistory();
@@ -23,15 +24,17 @@ function Menu () {
     history.push('/login');
   }
 
-  return (
-    <PageContainer>
-      <div className={'logo'}>
-        <img src={logo} alt="" width={'100'}/>
-      </div>
-      <button onClick={handleLogout} className={'btn2'} type="button">
-        <FiPower size={20} color="#e02041"/>
-      </button>
+  function handleMenu() {
+    history.push('/welcome');
+  }
 
+  return (
+    <div>
+    <HeaderInicial/>
+    <PageContainer>
+      {/* <div className={'logo'}> */}
+        {/* <img src={logo} alt="" width={'100'}/> */}
+      <h1>Menu Inicial:</h1>
       <Container>
         <MenuContainer>
           <Card to="/profile">
@@ -67,6 +70,7 @@ function Menu () {
         </MenuContainer>
       </Container>
     </PageContainer>
+    </div>
   )
 }
 
