@@ -23,6 +23,7 @@
     "react-recaptcha": "^2.3.10",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.1",
+    "remask": "^0.1.0-alpha.5",
     "styled-components": "^5.0.1",
     "sweetalert2": "^9.14.0",
     "sweetalert2-react-content": "^3.0.1"

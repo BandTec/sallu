@@ -251,7 +251,7 @@ function preCadastrar(){
 			swal( "Preenchimento incorreto" , "Por Favor, Preencha Todos os Campos Corretamente! " , "error" );
         }
         else{
-		//cadHospital();
+		cadHospital();
             contatoEmpresa();
         }  
     }
@@ -355,7 +355,7 @@ console.log(myHeaders.get('Content-Type'));
               myHeaders.append('Access-Control-Allow-Origin', '*')
               myHeaders.append('Content-Type', 'application/json');
               myHeaders.get('Content-Type');
-              const request = new Request('http://localhost:8282/consultas/cep/06363140', {method: 'GET',headers:myHeaders});
+              const request = new Request('http://localhost:8282/consultas/cep/'+cep, {method: 'GET',headers:myHeaders});
               fetch(request, {
                 mode: 'cors'
               })  
