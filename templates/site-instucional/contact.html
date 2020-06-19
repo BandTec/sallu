@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <title>Salut</title>
+  <link rel="icon" href="img/logo_salut_normal.svg">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- animate CSS -->
+  <link rel="stylesheet" href="css/animate.css">
+  <!-- owl carousel CSS -->
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <!-- themify CSS -->
+  <link rel="stylesheet" href="css/themify-icons.css">
+  <!-- flaticon CSS -->
+  <link rel="stylesheet" href="css/flaticon.css">
+  <!-- magnific popup CSS -->
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <!-- nice select CSS -->
+  <link rel="stylesheet" href="css/nice-select.css">
+  <!-- swiper CSS -->
+  <link rel="stylesheet" href="css/slick.css">
+  <!-- style CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <script type="text/javascript" src="js/sweetalert.min.js" ></script>
+  <link href="css/sweetalert.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <!--::header part start::-->
+  <header class="main_menu">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-12">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="index.html"> <img src="img/logo_salut_normal.svg" alt="logo"> </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse main-menu-item justify-content-center" id="navbarSupportedContent">
+              <ul class="navbar-nav align-items-center">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">Sobre Nós</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contato</a>
+                </li>
+              </ul>
+            </div>
+            <div class="container_btn">
+              <a href="http://localhost:3000/login"><button class="btn_initial btn1">Entrar</button></a>
+          </div>  
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Header part end-->
+
+  <!-- breadcrumb start-->
+
+                
+                    <div class="contato_img">
+                        <img src="img/contato.png" alt="contato" class="img_contato">
+                    </div>
+                
+  <!-- breadcrumb start-->
+
+  <!-- ================ contact section start ================= -->
+  <section class="contact-section section_padding">
+    <div class="container">
+      <div class="d-none d-sm-block mb-5 pb-4">
+        
+      <div class="row">
+        <div class="col-12">
+          <h2 class="contact-title">Interesse hospitalar no serviço de triagem virtual</h2>
+        </div>
+        <div class="col-lg-8">
+          <form class="form-contact contact_form" action="" method="POST" id="form_email">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control" name="nome" id="nome" type="text"  placeholder='Nome do hospital' maxlength='50' required>
+                </div>
+              </div>
+			  
+			  <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control" name="cnpj" id="cnpj" type="text" placeholder='CNPJ do hospital' maxlength='20' required>
+                </div>
+              </div>
+			  
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control" name="email" id="email" type="email"  placeholder='E-mail do hospital' maxlength='20' required>
+                </div>
+              </div>
+			  
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control" name="telefone" id="telefone" type="text"  placeholder='Insira seu telefone' maxlength='15' required>
+                </div>
+              </div>
+			  
+			  <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control" name="cep" id="cep" type="text" placeholder='CEP do hospital' onblur="pesquisacep(this.value);" required >
+                </div>
+              </div>
+			  <form action="get" action=".">
+			  <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control" name="logradouro" id="logradouro" type="text" placeholder='Logradouro' size="60"required >
+                </div>
+              </div>
+			  
+			  <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control" name="bairro" id="bairro" type="text" placeholder='Bairro' maxlength='50'required>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control" name="cidade" id="cidade" type="text" placeholder='Cidade' maxlength='50'required>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control" name="uf" id="uf" type="text" placeholder='Estado' maxlength='50'required>
+                </div>
+              </div>
+			  
+			  <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control" name="numero" id="numero" type="text" placeholder='Numero' maxlength='50'required>
+                </div>
+              </div>
+            </form>
+			  
+            </div>
+            <div class="form-group mt-3">
+              <button type="button" onclick= "preCadastrar()" class="button button-contactForm btn_1">Enviar</button>
+            </div>
+          </form>
+		  
+        </div>
+        <div class="col-lg-4">
+          <div class="media contact-info">
+            <span class="contact-info__icon"><i class="ti-home"></i></span>
+            <div class="media-body">
+              <h3>Rua Haddock Lobo, 595</h3>
+              <p>Cerqueira César, São Paulo</p>
+            </div>
+          </div>
+          <div class="media contact-info">
+            <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+            <div class="media-body">
+              <h3>(11) 2384-0732</h3>
+              <p>Seg á Sex 09:00 ás 18:00</p>
+            </div>
+          </div>
+          <div class="media contact-info">
+            <span class="contact-info__icon"><i class="ti-email"></i></span>
+            <div class="media-body">
+              <h3>support@salut.com</h3>
+              <p>Envie email sobre dúvidas</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ================ contact section end ================= -->
+
+  <!-- footer part start-->
+  <footer class="footer-area">
+  
+	<div class="copyright_part">
+            <div class="container">
+                <div class="row align-items-center">
+                    <p id="copy" class="footer-text m-0 col-lg-8 col-md-12">
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | Salut
+</p>
+                    <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                        <a href="#"><i class="ti-facebook"></i></a>
+                        <a href="#"> <i class="ti-twitter"></i> </a>
+                        <a href="#"><i class="ti-instagram"></i></a>
+                        <a href="#"><i class="ti-skype"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </footer> 
+
+
+  <!-- footer part end-->
+
+  <!-- jquery plugins here-->
+
+  <script src="js/jquery-1.12.1.min.js"></script>
+  <!-- popper js -->
+  <script src="js/popper.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- owl carousel js -->
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.nice-select.min.js"></script>
+  <!-- contact js -->
+  <script src="js/jquery.ajaxchimp.min.js"></script>
+  <script src="js/jquery.form.js"></script>
+  
+  <script src="js/mail-script.js"></script>
+  <script src="js/contact.js"></script>
+  <!-- custom js -->
+  <script src="js/custom.js"></script>
+  
+  <script src="js/jquery.appear.js"></script>
+
+
+  <script src="js/jquery.mask.js"></script>
+  <!-- máscara -->
+<script>
+$(document).ready(function(){
+$("#telefone").mask("(00)00000-0000")
+$("#cnpj").mask("00.000.0000000-00")
+// $("#cep").mask("00.000-000")
+})
+</script>
+</body>
+</html>
+
+<script type="text/javascript">
+
+function preCadastrar(){
+        if (nome.value == '' || cnpj.value == '' || telefone.value == '' || email.value == '' || cep.value == '' || bairro.value == '' || logradouro
+        .value == '' || numero.value== ''){
+            
+			swal( "Preenchimento incorreto" , "Por Favor, Preencha Todos os Campos Corretamente! " , "error" );
+        }
+        else{
+		cadHospital();
+            contatoEmpresa();
+        }  
+    }
+	
+	function cadHospital(){
+	
+	var form = {
+"nomeHospital" : nome.value,
+"cnpjHospital" : cnpj.value,
+"telefoneHospital" : telefone.value,
+"emailHospital" : email.value,
+"endereco" : {
+"cep": cep.value,
+"endereco": logradouro.value, 
+"bairro" : bairro.value,
+"logradouro" : numero.value,
+"cidade" : cidade.value,
+"estado" : uf.value
+}
+};
+
+var jsonString = JSON.stringify(form);
+
+var myHeaders = new Headers();
+
+myHeaders.append('Content-Type', 'application/json');
+myHeaders.get('Content-Type');
+console.log(myHeaders.get('Content-Type'));
+
+	const request = new Request('http://localhost:8080/hospital/cad', {method: 'POST',headers:myHeaders, body: jsonString});
+
+	fetch(request)
+  .then(response => {
+    if (response.status === 200) {
+      return response.json();
+    } else {
+      throw new Error('Something went wrong on api server!');
+    }
+  })
+  .then(response => {
+    console.debug(response);
+    // ...
+  }).catch(error => {
+    console.error(error);
+  });	
+}
+
+  function contatoEmpresa(){
+    var urlFinal = "http://localhost:8081/email-interesse-hospitalar/"+nome.value+"/"+cnpj.value +"/"+telefone.value +"/"+email.value+"/"+cep.value+"/"+bairro.value+"/"+logradouro.value+"/"+numero.value;
+        $.ajax({
+            url: urlFinal,
+            method:"GET",
+            })
+                swal('Email Enviado com sucesso!','Obrigado pelo Interrese, Aguarde Nosso Retorno!', 'success');
+       }
+		
+        function limpa_formulário_cep() {
+            document.getElementById('logradouro').value=("");
+            document.getElementById('bairro').value=("");
+            document.getElementById('cidade').value=("");
+            document.getElementById('uf').value=("");
+    }
+
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            document.getElementById('logradouro').value=(conteudo.logradouro);
+            document.getElementById('bairro').value=(conteudo.bairro);
+            document.getElementById('cidade').value=(conteudo.localidade);
+            document.getElementById('uf').value=(conteudo.uf);
+        } 
+        else {
+
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+        
+    function pesquisacep(valor) {
+
+        var cep = valor.replace(/\D/g, '');
+
+        if (cep != "") {
+
+            var validacep = /^[0-9]{8}$/;
+
+            if(validacep.test(cep)) {
+
+
+
+                // var script = document.createElement('script');
+
+                // script.src = 'http://localhost:8282/consultas/cep/06363140' + '/json/?callback=meu_callback'
+                // console.log(script);
+
+                // document.body.appendChild(script);
+              // const proxyurl = "http://127.0.0.1/";
+              // > Content-Type: application/json
+              //   > Accept: */*
+              
+              var myHeaders = new Headers();    
+              myHeaders.append('Access-Control-Allow-Origin', '*')
+              myHeaders.append('Content-Type', 'application/json');
+              myHeaders.get('Content-Type');
+              const request = new Request('http://localhost:8282/consultas/cep/'+cep, {method: 'GET',headers:myHeaders});
+              fetch(request, {
+                mode: 'cors'
+              })  
+              .then(function(response){
+                response.json().then(function(data){
+                  document.getElementById('logradouro').value=(data.logradouro);
+                  document.getElementById('bairro').value=(data.bairro);
+                  document.getElementById('cidade').value=(data.localidade);
+                  document.getElementById('uf').value=(data.uf); 
+                  });
+                })
+              .catch(function(err){ 
+                console.error('Failed retrieving information', err);
+              });
+            }else {
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+            }
+        }else {
+            limpa_formulário_cep();
+        }
+    };
+</script>
