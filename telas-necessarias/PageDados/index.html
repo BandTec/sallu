@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<title>Dados Pessoais</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="contact100-map" ></div>
+
+		<div class="wrap-contact100">
+			<div class="contact100-form-title" style="background-image: url(images/saude.png);">
+				<span class="contact100-form-title-1">
+					Dados Pessoais
+				</span>
+
+				<span class="contact100-form-title-2">
+					Informações para o processo de encaminhamento
+				</span>
+			</div>
+
+			<form class="contact100-form validate-form">
+				<div class="wrap-input100 validate-input" data-validate="Campo obrigatorio">
+					<span class="label-input100">Peso:</span>
+					<input class="input100" type="text" name="peso" placeholder="Digite seu peso" onkeypress="return onlynumber()" required>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Campo obrigatorio">
+					<span class="label-input100">Altura:</span>
+					<input class="input100" type="text" name="altura" placeholder="Digite sua altura" onkeypress="return onlynumber()" required>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Campo obrigatorio">
+					<span class="label-input100">Pressão arterial:</span>
+					<input class="input100" type="text" name="pressao" placeholder="Digite sua pressão arterial" onkeypress="return onlynumber()" required>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Campo obrigatorio">
+					<span class="label-input100">Temperatura Corporal:</span>
+					<input class="input100" type="text" name="temperatura" placeholder="Digite sua temperatura corporal" onkeypress="return onlynumber()" required>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Campo obrigatorio">
+					<span class="label-input100">Alergias:</span>
+					<textarea class="input100" name="message" placeholder="Descrever se possui alguma alergia " required></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input1000 validate-input" data-validate = "Campo obrigatorio">
+					<span class="label-input100">Sexo:</span>
+					<input class="" type="radio" name="f" id="f" value="f"/> Femininno
+					<input class="" type="radio" name="m" id="m" value="m"/> Masculino
+					<!--<textarea class="input100" name="message" placeholder="Descrever se possui alguma alergia "></textarea>-->
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						<span onclick="valida()">
+							Enviar
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"  ></i>
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div id="dropDownSelect1"></div>
+
+	<script>
+
+function onlynumber(evt) {
+   var theEvent = evt || window.event;
+   var key = theEvent.keyCode || theEvent.which;
+   key = String.fromCharCode( key );
+   //var regex = /^[0-9.,]+$/;
+   var regex = /^[0-9.]+$/;
+   if( !regex.test(key) ) {
+      theEvent.returnValue = false;
+      if(theEvent.preventDefault) theEvent.preventDefault();
+   }
+}
+
+	</script>
+
+	
+
+</body>
+</html>
