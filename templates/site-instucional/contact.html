@@ -250,7 +250,7 @@ function preCadastrar(){
 			swal( "Preenchimento incorreto" , "Por Favor, Preencha Todos os Campos Corretamente! " , "error" );
         }
         else{
-		cadHospital();
+		//cadHospital();
             contatoEmpresa();
         }  
     }
@@ -299,7 +299,7 @@ console.log(myHeaders.get('Content-Type'));
 }
 
   function contatoEmpresa(){
-    var urlFinal = "http://localhost:8080/email-interesse-hospitalar/"+nome.value+"/"+cnpj.value +"/"+telefone.value +"/"+email.value+"/"+cep.value+"/"+bairro.value+"/"+rua.value+"/"+numero.value;
+    var urlFinal = "http://localhost:8081/email-interesse-hospitalar/"+nome.value+"/"+cnpj.value +"/"+telefone.value +"/"+email.value+"/"+cep.value+"/"+bairro.value+"/"+rua.value+"/"+numero.value;
         $.ajax({
             url: urlFinal,
             method:"GET",
