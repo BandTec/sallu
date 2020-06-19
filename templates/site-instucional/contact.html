@@ -121,7 +121,7 @@
 			  <form action="get" action=".">
 			  <div class="col-sm-6">
                 <div class="form-group">
-                  <input class="form-control" name="rua" id="rua" type="text" placeholder='Rua' size="60"required >
+                  <input class="form-control" name="logradouro" id="logradouro" type="text" placeholder='Logradouro' size="60"required >
                 </div>
               </div>
 			  
@@ -145,7 +145,7 @@
 			  
 			  <div class="col-sm-6">
                 <div class="form-group">
-                  <input class="form-control" name="numero" id="numero" type="text" placeholder='Logradouro' maxlength='50'required>
+                  <input class="form-control" name="numero" id="numero" type="text" placeholder='Numero' maxlength='50'required>
                 </div>
               </div>
             </form>
@@ -245,7 +245,8 @@ $("#cnpj").mask("00.000.0000000-00")
 <script type="text/javascript">
 
 function preCadastrar(){
-        if (nome.value == '' || cnpj.value == '' || telefone.value == '' || email.value == '' || cep.value == '' || bairro.value == '' || rua.value == '' || numero.value== ''){
+        if (nome.value == '' || cnpj.value == '' || telefone.value == '' || email.value == '' || cep.value == '' || bairro.value == '' || logradouro
+        .value == '' || numero.value== ''){
             
 			swal( "Preenchimento incorreto" , "Por Favor, Preencha Todos os Campos Corretamente! " , "error" );
         }
@@ -264,7 +265,7 @@ function preCadastrar(){
 "emailHospital" : email.value,
 "endereco" : {
 "cep": cep.value,
-"endereco": rua.value, 
+"endereco": logradouro.value, 
 "bairro" : bairro.value,
 "logradouro" : numero.value,
 "cidade" : cidade.value,
@@ -299,7 +300,7 @@ console.log(myHeaders.get('Content-Type'));
 }
 
   function contatoEmpresa(){
-    var urlFinal = "http://localhost:8081/email-interesse-hospitalar/"+nome.value+"/"+cnpj.value +"/"+telefone.value +"/"+email.value+"/"+cep.value+"/"+bairro.value+"/"+rua.value+"/"+numero.value;
+    var urlFinal = "http://localhost:8081/email-interesse-hospitalar/"+nome.value+"/"+cnpj.value +"/"+telefone.value +"/"+email.value+"/"+cep.value+"/"+bairro.value+"/"+logradouro.value+"/"+numero.value;
         $.ajax({
             url: urlFinal,
             method:"GET",
@@ -308,7 +309,7 @@ console.log(myHeaders.get('Content-Type'));
        }
 		
         function limpa_formulário_cep() {
-            document.getElementById('rua').value=("");
+            document.getElementById('logradouro').value=("");
             document.getElementById('bairro').value=("");
             document.getElementById('cidade').value=("");
             document.getElementById('uf').value=("");
@@ -316,7 +317,7 @@ console.log(myHeaders.get('Content-Type'));
 
     function meu_callback(conteudo) {
         if (!("erro" in conteudo)) {
-            document.getElementById('rua').value=(conteudo.logradouro);
+            document.getElementById('logradouro').value=(conteudo.logradouro);
             document.getElementById('bairro').value=(conteudo.bairro);
             document.getElementById('cidade').value=(conteudo.localidade);
             document.getElementById('uf').value=(conteudo.uf);
@@ -338,18 +339,42 @@ console.log(myHeaders.get('Content-Type'));
 
             if(validacep.test(cep)) {
 
-                var script = document.createElement('script');
 
-                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
 
-                document.body.appendChild(script);
-            } 
-            else {
+                // var script = document.createElement('script');
+
+                // script.src = 'http://localhost:8282/consultas/cep/06363140' + '/json/?callback=meu_callback'
+                // console.log(script);
+
+                // document.body.appendChild(script);
+              // const proxyurl = "http://127.0.0.1/";
+              // > Content-Type: application/json
+              //   > Accept: */*
+              
+              var myHeaders = new Headers();    
+              myHeaders.append('Access-Control-Allow-Origin', '*')
+              myHeaders.append('Content-Type', 'application/json');
+              myHeaders.get('Content-Type');
+              const request = new Request('http://localhost:8282/consultas/cep/06363140', {method: 'GET',headers:myHeaders});
+              fetch(request, {
+                mode: 'cors'
+              })  
+              .then(function(response){
+                response.json().then(function(data){
+                  document.getElementById('logradouro').value=(data.logradouro);
+                  document.getElementById('bairro').value=(data.bairro);
+                  document.getElementById('cidade').value=(data.localidade);
+                  document.getElementById('uf').value=(data.uf); 
+                  });
+                })
+              .catch(function(err){ 
+                console.error('Failed retrieving information', err);
+              });
+            }else {
                 limpa_formulário_cep();
                 alert("Formato de CEP inválido.");
             }
-        } 
-        else {
+        }else {
             limpa_formulário_cep();
         }
     };
