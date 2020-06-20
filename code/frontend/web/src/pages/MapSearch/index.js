@@ -75,7 +75,7 @@ const MapSearch = () => {
         params: {
           location: `${latitude},${longitude}`,
           radius: 1500,
-          types: 'hostpital',
+          types: 'hospital',
           key: process.env.REACT_APP_GOOGLE_API_KEY
         }
       })
