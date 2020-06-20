@@ -16,7 +16,7 @@ const { getToken } = tokenService()
 const ApiService = (apiName = 'api') => {
   const apis = {
     api: axios.create({
-      baseURL: 'http://localhost:8080'
+      baseURL: 'https://sallut-api-core-dot-fragment-projects.appspot.com/'
     })
   }
 
