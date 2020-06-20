@@ -1,5 +1,5 @@
 package com.sallu.api.services;
-public class ListaObj <T> {
+public class ListaObj<T> {
         private final T[] vetor;
         private int nroElem;
 
@@ -7,6 +7,7 @@ public class ListaObj <T> {
             vetor= (T[]) new Object[tam];
             nroElem= 0;
         }
+
 
         public boolean adiciona(T valor) {
             if (nroElem >= vetor.length) {
@@ -71,4 +72,6 @@ public class ListaObj <T> {
         public void limpa() {
             nroElem = 0;
         }
+
+
 }

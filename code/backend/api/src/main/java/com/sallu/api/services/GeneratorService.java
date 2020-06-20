@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
 @Service
 public class GeneratorService {
 
@@ -16,16 +14,18 @@ public class GeneratorService {
     private UserRepository repository;
 
     private final FileGenerator geradorArquivo = new FileGenerator();
-    public void gerarArquivo(){
-        User usuario = repository.findById(SecurityContextHolder.getContext().getAuthentication().getName());
-        geradorArquivo.gravaLista("Header", usuario,null, null);
+    public void gerarArquivo(User usuario){
+
+        PilhaObj<User> pilhaUser = new PilhaObj<>(1);
+        pilhaUser.push(usuario);
+        geradorArquivo.gravaLista("Header", pilhaUser.peek(),null, null);
 
         ListaObj<Encerramento> listaObjEncerramento = new ListaObj(3);
         Encerramento e = new  Encerramento("000", 1);
         listaObjEncerramento.adiciona(e);
 
 
-        geradorArquivo.gravaLista("A00", usuario, null, null);
+        geradorArquivo.gravaLista("A00", pilhaUser.peek(), null, null);
 
         ListaObj<FichaMedica> listaObjFichaMedica = new ListaObj<>(usuario.getMedicalRecords().size());
         e.setQtdRegistros(e.getQtdRegistros() + usuario.getMedicalRecords().size());

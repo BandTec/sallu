@@ -11,7 +11,7 @@ import java.util.Formatter;
 import java.util.FormatterClosedException;
 
 public class FileGenerator {
-    public void gravaLista(String opção,User pacient, ListaObj lista, Integer index) {
+    public void gravaLista(String opção, User pacient, ListaObj lista, Integer index) {
         FileWriter arq = null;		// objeto FileWriter - representa o arquivo
         Formatter saida = null;		// objeto Formatter para executar saída formatada
         boolean deuRuim = false;	// indica se deu erro
@@ -37,17 +37,17 @@ public class FileGenerator {
         try {
             switch (opção){
                 case "Header":
-                    saida.format("000|%s|1.0%n", LocalDateTime.now());
+                    saida.format("000%s1.0%n", LocalDateTime.now());
                     break;
                 case "A00":
-                    String a00 = String.format("A00|%s|%s|%s%n",
+                    String a00 = String.format("A00%-50s%10s%15s%n",
                             pacient.getName(), pacient.getBirthdayDate(), pacient.getTelephone());
                     saida.format("%s", a00.replaceAll("null", ""));
                     break;
                 case "C00":
                     for (int i=0; i < lista.getTamanho(); i++) {
                         FichaMedica ficha = (FichaMedica)lista.getElemento(i);
-                        String c00 = String.format("C00|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s%n",
+                        String c00 = String.format("C00%02d%04.1f%04.1f%04.1f%04.1f%1s%-50s%-8s%-10s%-8s%-8s%-20s%n",
                                 ficha.getIdFichaMedica(), ficha.getPeso(), ficha.getAltura(), ficha.getPressao(),
                                 ficha.getTemperaturaCorporal(),
                                 ficha.getSexo(), ficha.getAlergia(), ficha.getDataUltCiclo(),
@@ -60,7 +60,7 @@ public class FileGenerator {
                     for(int i = 0; i < lista.getTamanho(); i++){
                         Encerramento e = (Encerramento)lista.getElemento(i);
 
-                        saida.format("E00|%s|%s%n", e.getRegistro(), e.getQtdRegistros());
+                        saida.format("E00%3s%011d%n", e.getRegistro(), e.getQtdRegistros());
                     }
                     break;
             }

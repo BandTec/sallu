@@ -4,17 +4,26 @@ import React, {
   useEffect,
   memo
 } from 'react'
-import { GoogleMap, Marker } from '@react-google-maps/api'
+import { Marker } from '@react-google-maps/api'
 import { CircularProgress } from '@material-ui/core'
 import axios from 'axios'
+
+import HeaderInicial from '../../components/Header/index.js'
 
 import {
   AddressContainers,
   ActionContainer,
   Container,
   Subtitle,
+  GoogleMaps,
   Title,
-  Loading
+  Loading,
+  MapContainer,
+  LocationContainer,
+  LocationIcon,
+  LocationLink,
+  LocationName,
+  LocationData
 } from './styles'
 
 const MapSearch = () => {
@@ -31,6 +40,7 @@ const MapSearch = () => {
   const [isFetched, setIsFetched] = useState(false)
   const [currentPosition, setCurrentPosition] = useState({ lat: 0, lng: 0 })
   const [hospitalLocations, setHospitalLocations] = useState([])
+  const [locationInfo, setLocationInfo] = useState([])
   const [map, setMap] = useState(null)
 
   useEffect(() => {
@@ -65,68 +75,86 @@ const MapSearch = () => {
         params: {
           location: `${latitude},${longitude}`,
           radius: 1500,
-          types: 'health',
+          types: 'hospital',
           key: process.env.REACT_APP_GOOGLE_API_KEY
         }
       })
 
-      const locations = data.results.map(item => {
+      const { results } = data
+
+      console.log(results)
+
+      const locations = results.map(item => {
         const location = item.geometry.location
 
         return location
       })
-
-      setIsFetched(true)
+      setLocationInfo([...locationInfo, ...results])
       setHospitalLocations([...hospitalLocations, ...locations])
+      setIsFetched(true)
     } catch (error) {
       console.log(error.message)
     }
   }, [])
 
   return (
-    <Container>
-      <Title>Hospitais Próximos a sua localidade</Title>
-      <ActionContainer>
-        {isFetched ? (
-          <>
-            <GoogleMap
-              mapContainerStyle={{ width: '80%', height: '620px' }}
-              center={currentPosition}
-              zoom={10}
-              onLoad={onLoad}
-              onUnmount={onUmount}
-            >
-              {/* <></> */}
-              {hospitalLocations.length > 1 && hospitalLocations.map((loc, i) => (
+    <>
+      <HeaderInicial/>
+      <Container>
+        <Title>Hospitais Próximos a sua localidade</Title>
+        <ActionContainer>
+          {isFetched ? (
+            <MapContainer>
+              <GoogleMaps
+                mapContainerStyle={{ width: '80%', height: '620px' }}
+                center={currentPosition}
+                zoom={10}
+                onLoad={onLoad}
+                onUnmount={onUmount}
+              >
+                {/* <></> */}
+                {hospitalLocations.length > 1 && hospitalLocations.map((loc, i) => (
+                  <Marker
+                    key={i}
+                    position={loc}
+                  />
+                ))}
                 <Marker
-                  key={i}
-                  position={loc}
+                  position={currentPosition}
                 />
-              ))}
-              <Marker
-                position={currentPosition}
-                onClick={() => console.log('Voce clicou em mim')}
-              />
-            </GoogleMap>
-            <AddressContainers></AddressContainers>
-          </>
-        )
-          : isAuthorized ? (
-            <Subtitle>
-            Acesso negado, por favor, recarregue a página.
-            </Subtitle>
-          ) : (
-            <Loading>
+              </GoogleMaps>
+              <AddressContainers>
+                {locationInfo.map(({ icon, name, geometry: { location } }, key) => (
+                  <LocationContainer key={key}>
+                    <LocationIcon src={icon} alt={'Location Icon'} />
+                    <LocationData>
+                      <LocationName>{name}</LocationName>
+                      <LocationLink
+                        href={`https://google.com/maps/?q=${location.lat},${location.lng}`}
+                      >Acessar no maps</LocationLink>
+                    </LocationData>
+                  </LocationContainer>
+                ))}
+              </AddressContainers>
+            </MapContainer>
+          )
+            : isAuthorized ? (
               <Subtitle>
+            Acesso negado, por favor, recarregue a página.
+              </Subtitle>
+            ) : (
+              <Loading>
+                <Subtitle>
               Carregando mapa... Por favor,
               permita acessarmos sua localização.
-              </Subtitle>
-              <CircularProgress color={'secondary'} />
-            </Loading>
-          )
-        }
-      </ActionContainer>
-    </Container>
+                </Subtitle>
+                <CircularProgress color={'secondary'} />
+              </Loading>
+            )
+          }
+        </ActionContainer>
+      </Container>
+    </>
   )
 }
 
