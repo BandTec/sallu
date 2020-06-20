@@ -23,28 +23,41 @@ const ListaFichas = () => {
   const [ficha, setFicha] = useState([])
 
   useEffect(() => {
-    api.get(`user/${localStorage.getItem('id')}`, {
-      headers: {
-        Authorization: `Bearer ${getToken()}`
-      }
-    }).then(response => {
-      setFicha(response.data.medicalRecords)
-    })
+    api
+      .get(`user/${localStorage.getItem('id')}`, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`
+        }
+      })
+      .then(response => {
+        setFicha(response.data.medicalRecords)
+      })
   }, [])
 
   function gerarTxt () {
-    api.get('geraTxt', {
-      headers: {
-        Authorization: `Bearer ${getToken()}`
-      }
-    }).then(response => {
-      console.log(response.data)
-      Swal.fire(
-        'Boa!!!',
-        'Exportação de dados realizada com sucesso.',
-        'success'
-      )
-    })
+    var txt=false;
+    api
+      .get('geraTxt', {
+        headers: {
+          Authorization: `Bearer ${getToken()}`
+        }
+      })
+      .then(response => {
+        const element = document.createElement('a')
+        const file = new Blob([response.data], { type: 'text/plain' })
+        element.href = URL.createObjectURL(file)
+        element.download = `export-${Date.now()}.txt`
+        document.body.appendChild(element) // Required for this to work in FireFox
+        element.click()
+        txt=true;
+        
+          Swal.fire(
+            'Boa!!!',
+            'Exportação de dados realizada com sucesso.',
+            'success'
+          )
+        
+      })
   }
 
   return (
@@ -52,7 +65,10 @@ const ListaFichas = () => {
       <Header />
       <Container>
         <Title>Histórico de Fichas Médicas</Title>
-        <button onClick={gerarTxt} className={'btnExport'}><FiDownload size={16} color="#526CC5" className={'btnFid'}/> Exportar Dados </button>
+        <button onClick={gerarTxt} className={'btnExport'} target="_blank">
+          <FiDownload size={16} color="#526CC5" className={'btnFid'} /> Exportar
+          Dados{' '}
+        </button>
         <TableContainer>
           <Table stickyHeader>
             <TableHead>
@@ -67,8 +83,13 @@ const ListaFichas = () => {
             </TableHead>
 
             <TableBody>
-              {ficha.map((ficha) => (
-                <TableRow hover role="checkbox" tabIndex={-1} key={ficha.idFichaMedica}>
+              {ficha.map(ficha => (
+                <TableRow
+                  hover
+                  role="checkbox"
+                  tabIndex={-1}
+                  key={ficha.idFichaMedica}
+                >
                   <TableCell>{ficha.dataFicha}</TableCell>
                   <TableCell>{ficha.alergia}</TableCell>
                   <TableCell>{ficha.peso}</TableCell>
@@ -80,7 +101,6 @@ const ListaFichas = () => {
             </TableBody>
           </Table>
         </TableContainer>
-
       </Container>
     </>
   )
