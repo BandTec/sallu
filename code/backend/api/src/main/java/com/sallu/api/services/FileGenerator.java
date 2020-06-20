@@ -3,6 +3,7 @@ import com.sallu.api.entities.Encerramento;
 import com.sallu.api.entities.FichaMedica;
 import com.sallu.api.entities.User;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -11,13 +12,14 @@ import java.util.Formatter;
 import java.util.FormatterClosedException;
 
 public class FileGenerator {
-    public void gravaLista(String opção, User pacient, ListaObj lista, Integer index) {
+    public void gravaLista(String opção, User pacient, ListaObj lista, Integer index, LocalDate today) {
         FileWriter arq = null;		// objeto FileWriter - representa o arquivo
         Formatter saida = null;		// objeto Formatter para executar saída formatada
         boolean deuRuim = false;	// indica se deu erro
         String nomeArquivo;			// nome do arquivo
-        nomeArquivo= LocalDate.now()+".txt";	// nome do arquivo, se for TXT }
-       // nomeArquivo= pacient.getName().replace(" ","-")+"-"+LocalDate.now()+".txt";	// nome do arquivo, se for TXT }
+        nomeArquivo=today+".txt";
+        // nomeArquivo= pacient.getName().replace(" ","-")+"-"+LocalDate.now()+".txt";	// nome do arquivo, se for TXT }
+
 
         try {
             if(opção.equals("Header")) {

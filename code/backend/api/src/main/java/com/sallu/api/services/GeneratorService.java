@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+
 @Service
 public class GeneratorService {
 
@@ -14,18 +16,18 @@ public class GeneratorService {
     private UserRepository repository;
 
     private final FileGenerator geradorArquivo = new FileGenerator();
-    public void gerarArquivo(User usuario){
+    public void gerarArquivo(User usuario, LocalDate today){
 
         PilhaObj<User> pilhaUser = new PilhaObj<>(1);
         pilhaUser.push(usuario);
-        geradorArquivo.gravaLista("Header", pilhaUser.peek(),null, null);
+        geradorArquivo.gravaLista("Header", pilhaUser.peek(),null, null, today);
 
         ListaObj<Encerramento> listaObjEncerramento = new ListaObj(3);
         Encerramento e = new  Encerramento("000", 1);
         listaObjEncerramento.adiciona(e);
 
 
-        geradorArquivo.gravaLista("A00", pilhaUser.peek(), null, null);
+        geradorArquivo.gravaLista("A00", pilhaUser.peek(), null, null, today);
 
         ListaObj<FichaMedica> listaObjFichaMedica = new ListaObj<>(usuario.getMedicalRecords().size());
         e.setQtdRegistros(e.getQtdRegistros() + usuario.getMedicalRecords().size());
@@ -34,9 +36,9 @@ public class GeneratorService {
         }
 
 
-        geradorArquivo.gravaLista("C00", null, listaObjFichaMedica, null);
+        geradorArquivo.gravaLista("C00", null, listaObjFichaMedica, null, today);
         listaObjEncerramento.adiciona(e);
 
-        geradorArquivo.gravaLista("E00",null, listaObjEncerramento, null);
+        geradorArquivo.gravaLista("E00",null, listaObjEncerramento, null, today);
     }
 }
