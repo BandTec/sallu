@@ -20,6 +20,7 @@ export const GoogleMaps = styled(GoogleMap)`
 
 export const ActionContainer = styled.div`
   width: 100%;
+  height: 80%;
 
   display: flex;
   justify-content: center;

@@ -101,7 +101,7 @@ const MapSearch = () => {
     <>
       <HeaderInicial/>
       <Container>
-        {/* <Title>Hospitais Próximos a sua localidade</Title> */}
+         <Title>Hospitais Próximos a sua localidade</Title> 
         <ActionContainer>
           {isFetched ? (
             <MapContainer>
