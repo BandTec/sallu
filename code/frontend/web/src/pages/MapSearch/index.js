@@ -101,12 +101,12 @@ const MapSearch = () => {
     <>
       <HeaderInicial/>
       <Container>
-        <Title>Hospitais Próximos a sua localidade</Title>
+        {/* <Title>Hospitais Próximos a sua localidade</Title> */}
         <ActionContainer>
           {isFetched ? (
             <MapContainer>
               <GoogleMaps
-                mapContainerStyle={{ width: '80%', height: '620px' }}
+                mapContainerStyle={{ width: '80%', height: '90%' }}
                 center={currentPosition}
                 zoom={10}
                 onLoad={onLoad}
