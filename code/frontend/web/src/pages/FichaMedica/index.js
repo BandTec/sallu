@@ -85,7 +85,6 @@ function FichaMedica () {
     if (temperaturaCorporal <= 36.9) {
       v.enqueue(verde)
       numeroAtendimento = verde++
-      console.log(numeroAtendimento)
       corClassificada = 'Verde'
       classificacao = 'Sua classificação é verde'
     } else if (temperaturaCorporal > 36.9 && temperaturaCorporal <= 37.9) {

@@ -32,7 +32,6 @@ export const LinkButton = styled(Link)`
 
 export const DoctorImage = styled.img`
   width: 50%;
-  object-fit: contain;
 `
 
 export const LoginContent = styled.div`
@@ -46,7 +45,6 @@ export const LoginContent = styled.div`
 
 export const AvatarImage = styled.img`
   height: 128px;
-  object-fit: contain;
 `
 
 export const RegisterTitle = styled.h2`

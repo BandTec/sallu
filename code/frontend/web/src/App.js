@@ -6,6 +6,7 @@ import { ContextProvider } from './providers/contextProvider'
 import { Routes } from './configs/routes'
 
 import GlobalStyle from './style/GlobalStyle'
+import './style/global.css'
 
 const App = () => (
   <LoadScript
