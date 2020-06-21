@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
   width: 100%;
+  height: 100%;
 
   display: flex;
   align-items: center;
-  justify-content: center;
 
   padding: 20px 20px;
 `
@@ -37,9 +37,11 @@ export const DoctorImage = styled.img`
 
 export const LoginContent = styled.div`
   width: 100%;
-    display: flex;
-    align-items: center;
-    text-align: center;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
 `
 
 export const AvatarImage = styled.img`
@@ -77,28 +79,23 @@ export const Input = styled.input`
 `
 
 export const Form = styled.form`
-    width: 100%;
+  width: 100%;
+  height: 100%;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  @media screen and (min-height: 1024px) {
+    height: 80%;
 
-    .link {
-      width: 100%;
-      max-width: 360px;
-      display: flex;
+  }
 
-      a {
-        width: 100%;
-        align-self: flex-end;
-      }
-    }
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 export const Button = styled.button`
   width: 360px;
-  height: 50px;
+  min-height: 50px;
 
   margin: 15px auto;
     
@@ -113,7 +110,3 @@ export const Button = styled.button`
   background-image:linear-gradient(to right, #32be8f, #38d39f, #32be8f);
   transition: 0.2s;
 `
-
-// export const Button = styled.button`
-
-// `;
