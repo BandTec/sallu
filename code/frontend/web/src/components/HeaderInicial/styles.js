@@ -1,7 +1,19 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+import { darken } from 'polished'
 
 export const Container = styled.div`
   height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0px 20px;
+  background: #247ba0;
+
+  
+  /* height: 80px;
   padding: 0 30px;
   background: #247ba0;
   color: #FFF;
@@ -57,5 +69,34 @@ export const Container = styled.div`
 
 #btn2 :hover{
   border-color: #999;
-}
-`;
+} */
+`
+
+export const Logo = styled.img`
+  max-width: 200px;
+
+  object-fit: contain;
+`
+
+export const Actions = styled.div`
+  display: flex;
+`
+
+export const Button = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 60px;
+  width: 60px;
+
+  border-radius: 100%;
+  margin-left: 16px;
+
+  transition: 0.2s;
+  background-color: ${props => props.color};
+
+  &:hover {
+    background-color: ${props => darken(0.4, props.color)}
+  }
+`

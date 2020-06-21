@@ -2,6 +2,7 @@ import React from 'react'
 import { FiPower, FiArrowLeftCircle } from 'react-icons/fi'
 import { useHistory } from 'react-router-dom'
 import { useTokenService } from '../../services'
+import HeaderInicial from '../../components/HeaderInicial'
 
 import {
   Container,
@@ -10,9 +11,6 @@ import {
   CardIcon,
   PageContainer
 } from './styles'
-
-import logo from '../../assets/logo_salut_normal.svg'
-import HeaderInicial from '../../components/HeaderInicial'
 
 function Menu () {
   const history = useHistory()
@@ -32,8 +30,6 @@ function Menu () {
     <div>
       <HeaderInicial/>
       <PageContainer>
-        {/* <div className={'logo'}> */}
-        {/* <img src={logo} alt="" width={'100'}/> */}
         <h1>Menu Inicial:</h1>
         <Container>
           <MenuContainer>

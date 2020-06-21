@@ -1,21 +1,31 @@
 import React, { useState, useContext } from 'react'
-import { Link, useHistory } from 'react-router-dom'
-import { Container, LoginContent, Form } from './style'
+import { useHistory } from 'react-router-dom'
 
 import { AppContext } from '../../providers/contextProvider'
 import { useApiService } from '../../services'
+
+import {
+  AvatarImage,
+  Button,
+  DoctorImage,
+  Container,
+  Form,
+  Input,
+  InputContainer,
+  LinkButton,
+  LoginContent,
+  RegisterTitle
+} from './style'
 
 import doctors from '../../assets/doctors.svg'
 import Avatar from '../../assets/avatar.png'
 import { FiArrowLeft } from 'react-icons/fi'
 
-// CommonJS
 import Swal from 'sweetalert2'
 
 const Register = () => {
-  const [error, setError] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('')
-  // const [isVerified, setVerified] = useState(false)
+  const [, setError] = useState(false)
+  const [, setErrorMessage] = useState('')
   const history = useHistory()
 
   const {
@@ -81,131 +91,98 @@ const Register = () => {
     setRegister(e.target.name, e.target.value)
   }
 
-  // const handleSubscribe = () => {
-  //   if (isVerified) {
-  //     alert('Aperte o botão para ser cadastrado!')
-  //   } else {
-  //     alert('Por favor verifique se você não é um robô!')
-  //   }
-  // }
-
   return (
     <Container>
-      <div>
-        <img src={doctors} alt="Medics" />
-      </div>
+      <DoctorImage src={doctors} alt="Medics" />
       <LoginContent>
         <Form onSubmit={handleRegister}>
-          <div className="avatar">
-            <img src={Avatar} alt="Generic Avatar" />
-          </div>
-          <h2>CADASTRE-SE</h2>
-          <div className='input-div one'>
-            {/* <div className='divName'> */}
-            <div>
-              {/* {name.length <= 1 && <h5>Nome</h5>} */}
-              <input
-                id={'name'}
-                name={'name'}
-                type={'text'}
-                placeholder={'Nome'}
-                value={name}
-                onChange={handleChange}
-                className="input"
-                required
-              />
-            </div>
-          </div>
+          <AvatarImage src={Avatar} alt="Generic Avatar" />
 
-          <div className='input-div one'>
-            {/* <div className='divName'> */}
-            <div>
-              {/* {name.length <= 1 && <h5>Nome</h5>} */}
-              <input
-                id={'telephone'}
-                name={'telephone'}
-                type={'text'}
-                placeholder={'Telefone'}
-                value={telephone}
-                onChange={handleChange}
-                className="input"
-                required
-              />
-            </div>
-          </div>
+          <RegisterTitle>Cadastre-se!</RegisterTitle>
 
-          <div className='input-div one'>
-            {/* <div className='divEmail'> */}
-            <div>
-              {/* {email.length <= 1 && <h5>E-mail</h5>} */}
-              <input
-                id={'email'}
-                name={'email'}
-                type={'text'}
-                placeholder={'E-mail'}
-                value={email}
-                onChange={handleChange}
-                className="input"
-                required
-              />
-            </div>
-          </div>
+          <InputContainer>
+            <Input
+              id={'name'}
+              name={'name'}
+              type={'text'}
+              placeholder={'Nome'}
+              value={name}
+              onChange={handleChange}
+              className="input"
+              required
+            />
+          </InputContainer>
 
-          <div className='input-div one'>
-            {/* <div className='divSenha'> */}
-            <div>
-              {/* {password.length <= 1 && <h5>Senha</h5>} */}
-              <input
-                id={'password'}
-                name={'password'}
-                type={'password'}
-                placeholder={'Senha'}
-                value={password}
-                onChange={handleChange}
-                className="input"
-                required
-              />
-            </div>
-          </div>
+          <InputContainer>
+            <Input
+              id={'birthdayDate'}
+              name={'birthdayDate'}
+              type={'Date'}
+              placeholder={'dd/mm/aaaa'}
+              value={birthdayDate}
+              onChange={handleChange}
+              className="input"
+              required
+            />
+          </InputContainer>
 
-          <div className='input-div one'>
-            {/* <div className='divConfiSenha'> */}
-            <div>
-              {/* {passwordConfirm.length <= 1 && <h5>Confirmação de Senha</h5>} */}
-              <input
-                id={'passwordConfirm'}
-                name={'passwordConfirm'}
-                type={'password'}
-                placeholder={'Confirme a Senha'}
-                value={passwordConfirm}
-                onChange={handleChange}
-                className="input"
-                required
-              />
-            </div>
-          </div>
+          <InputContainer>
+            <Input
+              id={'telephone'}
+              name={'telephone'}
+              type={'text'}
+              placeholder={'Telefone'}
+              value={telephone}
+              onChange={handleChange}
+              className="input"
+              required
+            />
+          </InputContainer>
 
-          <div className='input-div one'>
-            {/* <div className='divName'> */}
-            <div>
-              {/* {name.length <= 1 && <h5>Nome</h5>} */}
-              <input
-                id={'birthdayDate'}
-                name={'birthdayDate'}
-                type={'Date'}
-                placeholder={'dd/mm/aaaa'}
-                value={birthdayDate}
-                onChange={handleChange}
-                className="input"
-                required
-              />
-            </div>
-          </div>
-          <button type='submit'>Registrar</button>
-          <Link className="back-links" to="/login">
-            <FiArrowLeft size={16} color="#E02041" />
+          <InputContainer>
+            <Input
+              id={'email'}
+              name={'email'}
+              type={'text'}
+              placeholder={'E-mail'}
+              value={email}
+              onChange={handleChange}
+              className="input"
+              required
+            />
+          </InputContainer>
+
+          <InputContainer>
+            <Input
+              id={'password'}
+              name={'password'}
+              type={'password'}
+              placeholder={'Senha'}
+              value={password}
+              onChange={handleChange}
+              className="input"
+              required
+            />
+          </InputContainer>
+
+          <InputContainer>
+            <Input
+              id={'passwordConfirm'}
+              name={'passwordConfirm'}
+              type={'password'}
+              placeholder={'Confirme a Senha'}
+              value={passwordConfirm}
+              onChange={handleChange}
+              className="input"
+              required
+            />
+          </InputContainer>
+
+          <Button type='submit'>Registrar</Button>
+          <LinkButton to="/login">
+            <FiArrowLeft size={16} />
                   Fazer login
-          </Link>
+          </LinkButton>
         </Form>
       </LoginContent>
     </Container>

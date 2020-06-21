@@ -1,7 +1,7 @@
 const registerState = {
   // Personal Info
   name: '',
-  birthdayDate: '2001-04-11',
+  birthdayDate: '2000-01-01',
   sex: 'M',
   // Login Info
   admin: false,
