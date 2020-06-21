@@ -17,31 +17,44 @@ import Menu from '../../pages/Menu'
 
 const PrivateRoute = ({ children, ...rest }) => {
   const { getToken } = useTokenService()
+
   return (
-    <Route {...rest}
-      render={() =>
-        getToken()
-          ? (children)
-          : <Redirect to={ROUTES.LOGIN} />
-      }/>
+    <>
+      {getToken()
+        ? <Route {...rest} />
+        : <Redirect to={ROUTES.LOGIN} />
+      }
+    </>
+  )
+}
+
+const CommonRoute = ({ children, ...rest }) => {
+  const { getToken } = useTokenService()
+
+  return (
+    <>
+      {getToken()
+        ? <Redirect to={ROUTES.WELCOME} />
+        : <Route {...rest} />
+      }
+    </>
   )
 }
 
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path={ROUTES.LOGIN} component={Login} />
-      <Route exact path={ROUTES.REGISTER} component={Register} />
-      <Route exact path={ROUTES.MAPSEARCH} component={MapSearch} />
+      <PrivateRoute exact path={ROUTES.WELCOME} component={Welcome} />
+      <PrivateRoute exact path={ROUTES.MENU} component={Menu} />
+      <PrivateRoute exact path={ROUTES.PROFILE} component={Profile} />
+      <PrivateRoute exact path={ROUTES.FICHA} component={FichaMedica} />
+      <PrivateRoute exact path={ROUTES.DASHBOARD} component={Dashboard} />
+      <PrivateRoute exact path={ROUTES.MAPSEARCH} component={MapSearch} />
+      <PrivateRoute exact path={ROUTES.FICHA_LISTA} component={ListaFichas} />
       <Route exact path={ROUTES.LOGOUT} component={Logout} />
-      <PrivateRoute>
-        <Route exact path={ROUTES.DASHBOARD} component={Dashboard} />
-        <Route exact path={ROUTES.FICHA} component={FichaMedica} />
-        <Route exact path={ROUTES.WELCOME} component={Welcome} />
-        <Route exact path={ROUTES.FICHA_LISTA} component={ListaFichas} />
-        <Route exact path={ROUTES.PROFILE} component={Profile} />
-        <Route exact path={ROUTES.MENU} component={Menu} />
-      </PrivateRoute>
+      <CommonRoute exact path={ROUTES.LOGIN} component={Login} />
+      <CommonRoute exact path={ROUTES.REGISTER} component={Register} />
+      <Redirect path={ROUTES.BASE} to={ROUTES.LOGIN} />
     </Switch>
   </BrowserRouter>
 )

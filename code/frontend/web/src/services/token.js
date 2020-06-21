@@ -10,8 +10,7 @@ const TokenService = () => ({
    * Get Authentication Token
    * @returns {String}
    */
-  getToken: () => localStorage.getItem('access_token') , 
-  
+  getToken: () => localStorage.getItem('access_token'),
 
   /**
    * Set Authentication Token

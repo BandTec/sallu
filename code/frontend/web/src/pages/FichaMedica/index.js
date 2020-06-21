@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { mask, unMask } from 'remask';
+import { mask, unMask } from 'remask'
 
 import Swal from 'sweetalert2'
 
@@ -7,11 +7,11 @@ import { Container, ContactBox, Left, Right, Button } from './styles'
 import { useApiService, useTokenService } from '../../services'
 
 import pacientImg from '../../assets/pacient.jpg'
-import Header from '../../components/Header'
+import HeaderInicial from '../../components/HeaderInicial'
 
 import FilaVerde from './FilaVerde'
 import FilaAmarelo from './FilaAmarelo'
-import FilaVermelho from './FilaAmarelo'
+import FilaVermelho from './FilaVermelho'
 
 var verde = 1
 var amarelo = 1
@@ -39,7 +39,7 @@ function FichaMedica () {
     ])
     setAltura(maskValue)
   }
-  
+
   const [pressao, setPressao] = useState('')
   const onChangePressao = (event) => {
     const originalValue = unMask(event.target.value)
@@ -138,7 +138,7 @@ function FichaMedica () {
 
   return (
     <div>
-      <Header />
+      <HeaderInicial redirectBack={true} />
       <Container>
         <ContactBox>
           <Left>

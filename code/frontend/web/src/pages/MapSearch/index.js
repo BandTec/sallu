@@ -8,7 +8,7 @@ import { Marker } from '@react-google-maps/api'
 import { CircularProgress } from '@material-ui/core'
 import axios from 'axios'
 
-import HeaderInicial from '../../components/Header/index.js'
+import HeaderInicial from '../../components/HeaderInicial'
 
 import {
   AddressContainers,
@@ -99,9 +99,9 @@ const MapSearch = () => {
 
   return (
     <>
-      <HeaderInicial/>
+      <HeaderInicial redirectBack={true} />
       <Container>
-        {/* <Title>Hospitais Próximos a sua localidade</Title> */}
+        <Title>Hospitais Próximos a sua localidade</Title>
         <ActionContainer>
           {isFetched ? (
             <MapContainer>
@@ -112,7 +112,6 @@ const MapSearch = () => {
                 onLoad={onLoad}
                 onUnmount={onUmount}
               >
-                {/* <></> */}
                 {hospitalLocations.length > 1 && hospitalLocations.map((loc, i) => (
                   <Marker
                     key={i}
