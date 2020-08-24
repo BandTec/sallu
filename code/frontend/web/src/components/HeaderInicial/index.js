@@ -1,33 +1,39 @@
-import React from 'react'
-import salutLogo from '../../assets/logo_salut_normal.svg'
-import { useHistory } from 'react-router-dom'
-import { FiArrowLeftCircle, FiPower } from 'react-icons/fi'
-import { useTokenService } from '../../services'
+import React from 'react';
+import { Container } from './styles';
+import salutLogo from '../../assets/logo_salut_normal.svg';
+import { useHistory } from 'react-router-dom';
+import { FiArrowLeftCircle, FiPower } from 'react-icons/fi';
+import { useTokenService } from '../../services';
 
-import { Actions, Button, Container, Logo } from './styles'
+function HeaderInicial() {
+  const { resetToken } = useTokenService();
+  const history = useHistory();
 
-const HeaderInicial = ({ redirectBack = false }) => (
-  <Container>
-    <Logo src={salutLogo} alt="Logo equipe Salut" />
+  function handleLogout() {
+    resetToken();
+    localStorage.clear();
+    history.push('/login');
+  }
 
-    <Actions>
-      <Button
-        to={redirectBack ? '/menu' : '/welcome'}
-        color={'#c0fdff'}
-      >
-        <FiArrowLeftCircle size={20} />
-      </Button>
+  function handleMenu() {
+    history.push('/welcome');
+  }
 
-      <Button
-        to={'/logout'}
-        color={'#FC6963'}
-      >
-        <FiPower size={20} />
-      </Button>
+  return (
+    <Container>
+      <img src={salutLogo} alt="Logo equipe Salut" />
+      <span/>
 
-    </Actions>
+      <button onClick={handleLogout} id={'button'} type="button">
+        <FiPower size={20} color="#e02041"/>
+      </button>
 
-  </Container>
-)
+      <button onClick={handleMenu} id={'btn2'} type="button">
+        <FiArrowLeftCircle size={20} color="#e02041"/>
+      </button>
 
-export default HeaderInicial
+    </Container>
+  );
+}
+
+export default HeaderInicial;

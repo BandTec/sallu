@@ -11,7 +11,6 @@ const Logout = () => {
     resetToken()
     history.push('/login')
   }, [])
-
   return <></>
 }
 

@@ -15,7 +15,7 @@ import {
   Title
 } from './styles'
 
-import HeaderInicial from '../../components/HeaderInicial'
+import Header from '../../components/Header'
 
 const ListaFichas = () => {
   const { getToken } = useTokenService()
@@ -35,7 +35,7 @@ const ListaFichas = () => {
   }, [])
 
   function gerarTxt () {
-    var txt = false
+    var txt=false;
     api
       .get('geraTxt', {
         headers: {
@@ -49,19 +49,20 @@ const ListaFichas = () => {
         element.download = `export-${Date.now()}.txt`
         document.body.appendChild(element) // Required for this to work in FireFox
         element.click()
-        txt = true
-
-        Swal.fire(
-          'Boa!!!',
-          'Exportação de dados realizada com sucesso.',
-          'success'
-        )
+        txt=true;
+        
+          Swal.fire(
+            'Boa!!!',
+            'Exportação de dados realizada com sucesso.',
+            'success'
+          )
+        
       })
   }
 
   return (
     <>
-      <HeaderInicial redirectBack={true} />
+      <Header />
       <Container>
         <Title>Histórico de Fichas Médicas</Title>
         <button onClick={gerarTxt} className={'btnExport'} target="_blank">
