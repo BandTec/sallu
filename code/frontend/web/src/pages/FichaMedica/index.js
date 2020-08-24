@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { mask, unMask } from 'remask'
+import { mask, unMask } from 'remask';
 
 import Swal from 'sweetalert2'
 
@@ -7,11 +7,11 @@ import { Container, ContactBox, Left, Right, Button } from './styles'
 import { useApiService, useTokenService } from '../../services'
 
 import pacientImg from '../../assets/pacient.jpg'
-import HeaderInicial from '../../components/HeaderInicial'
+import Header from '../../components/Header'
 
 import FilaVerde from './FilaVerde'
 import FilaAmarelo from './FilaAmarelo'
-import FilaVermelho from './FilaVermelho'
+import FilaVermelho from './FilaAmarelo'
 
 var verde = 1
 var amarelo = 1
@@ -39,7 +39,7 @@ function FichaMedica () {
     ])
     setAltura(maskValue)
   }
-
+  
   const [pressao, setPressao] = useState('')
   const onChangePressao = (event) => {
     const originalValue = unMask(event.target.value)
@@ -85,6 +85,7 @@ function FichaMedica () {
     if (temperaturaCorporal <= 36.9) {
       v.enqueue(verde)
       numeroAtendimento = verde++
+      console.log(numeroAtendimento)
       corClassificada = 'Verde'
       classificacao = 'Sua classificação é verde'
     } else if (temperaturaCorporal > 36.9 && temperaturaCorporal <= 37.9) {
@@ -137,7 +138,7 @@ function FichaMedica () {
 
   return (
     <div>
-      <HeaderInicial redirectBack={true} />
+      <Header />
       <Container>
         <ContactBox>
           <Left>

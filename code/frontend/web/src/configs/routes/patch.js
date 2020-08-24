@@ -12,7 +12,6 @@ export const MENU = '/menu'
 export const PROFILE = '/profile'
 export const REGISTER = '/register'
 export const WELCOME = '/welcome'
-export const BASE = '**'
 
 // =============================================================================
 // Sub Routes
@@ -23,7 +22,6 @@ export const BASE = '**'
 // =============================================================================
 
 const ROUTES_PATCH = {
-  BASE,
   DASHBOARD,
   FICHA,
   FICHA_LISTA,

@@ -4,23 +4,22 @@ import { GoogleMap } from '@react-google-maps/api'
 
 export const AddressContainers = styled.div`
   width: 50%;
-  height: 90%;
+  max-height: 80vh;
 
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: center;
 
   overflow: auto;
 `
 
 export const GoogleMaps = styled(GoogleMap)`
   width: 100%;
-  height: 100%;
+  height: 80vh;
 `
 
 export const ActionContainer = styled.div`
   width: 100%;
-  height: 80%;
 
   display: flex;
   justify-content: center;
@@ -46,9 +45,8 @@ export const Loading = styled.div`
 `
 
 export const MapContainer = styled.div`
-  margin: 0px 15px;
-  width: 90%;
-  height: 90%;
+  margin: 15px;
+  width: 100%;
 
   display: flex;
   align-items: center;

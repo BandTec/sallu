@@ -8,7 +8,7 @@ import { Marker } from '@react-google-maps/api'
 import { CircularProgress } from '@material-ui/core'
 import axios from 'axios'
 
-import HeaderInicial from '../../components/HeaderInicial'
+import HeaderInicial from '../../components/Header/index.js'
 
 import {
   AddressContainers,
@@ -67,6 +67,7 @@ const MapSearch = () => {
 
   const onAuthorizeGeolocation = useCallback(async ({ coords }) => {
     const { latitude, longitude } = coords
+    console.log(coords)
 
     try {
       setCurrentPosition({ lat: latitude, lng: longitude })
@@ -81,6 +82,8 @@ const MapSearch = () => {
 
       const { results } = data
 
+      console.log(results)
+
       const locations = results.map(item => {
         const location = item.geometry.location
 
@@ -90,25 +93,26 @@ const MapSearch = () => {
       setHospitalLocations([...hospitalLocations, ...locations])
       setIsFetched(true)
     } catch (error) {
-      console.error(error.message)
+      console.log(error.message)
     }
   }, [])
 
   return (
     <>
-      <HeaderInicial redirectBack={true} />
+      <HeaderInicial/>
       <Container>
         <Title>Hospitais Próximos a sua localidade</Title>
         <ActionContainer>
           {isFetched ? (
             <MapContainer>
               <GoogleMaps
-                mapContainerStyle={{ width: '80%', height: '90%' }}
+                mapContainerStyle={{ width: '80%', height: '620px' }}
                 center={currentPosition}
                 zoom={10}
                 onLoad={onLoad}
                 onUnmount={onUmount}
               >
+                {/* <></> */}
                 {hospitalLocations.length > 1 && hospitalLocations.map((loc, i) => (
                   <Marker
                     key={i}

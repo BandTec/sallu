@@ -1,5 +1,3 @@
-import 'dotenv/config'
-
 import React, { useContext, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { FiLogIn } from 'react-icons/fi'
@@ -39,6 +37,8 @@ const Login = () => {
     try {
       e.preventDefault()
       setLogin('errorMessage', null)
+      // const { data } = await api.post('login', {{ email, password })
+      console.log('Tentativa Login')
       const { data } = await api.post('auth', { email, password })
       localStorage.setItem('nome', data.nome)
       localStorage.setItem('id', data.id)
@@ -48,15 +48,30 @@ const Login = () => {
       history.push('/welcome')
       return
     } catch (error) {
+      console.log(error)
       setLogin('errorMessage', 'Erro ao fazer login')
+      console.log(errorMessage)
     }
   }
 
   const handleChange = e => {
     setLogin(e.target.name, e.target.value)
+    console.log(email.length <= 1 || password.length <= 1 || isVerified)
   }
 
   const [isVerified, setVerified] = useState(false)
+
+  // const handleSubscribe = () => {
+  //   if (isVerified) {
+  //     alert('Aperte o botão para ser cadastrado!')
+  //   } else {
+  //     alert('Por favor verifique se você não é um robô!')
+  //   }
+  // }
+
+  // const recapchaLoad = () => {
+  //   console.log('Capcha succssfully loaded')
+  // }
 
   const verifyCallback = (response) => {
     if (response) {
@@ -105,6 +120,16 @@ const Login = () => {
                   className="input" />
               </div>
             </div>
+            {/* <Link>Esqueceu a Senha?</Link> */}
+            {/* <Recaptcha
+              sitekey={process.env.REACT_APP_RECAPTCHA_SITEKEY}
+              render='explicit'
+              onloadCallback={recapchaLoad}
+              // data-size={'invisible'}
+              // theme={"dark"}
+              hl={'PT-BR'}
+              verifyCallback={verifyCallback}
+            /> */}
             <GoogleRecaptcha
               sitekey={process.env.REACT_APP_RECAPTCHA_SITEKEY}
               onChange={verifyCallback}
@@ -122,7 +147,7 @@ const Login = () => {
             </button>
 
             <Link className="back-link" to="/register">
-              <FiLogIn size={16} />
+              <FiLogIn size={16} color="#E02041" />
                  Não tenho cadastro
             </Link>
           </form>

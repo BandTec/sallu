@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useApiService, useTokenService } from '../../services'
 import Swal from 'sweetalert2'
 import { Container, Form } from './styles'
-import HeaderInicial from '../../components/HeaderInicial'
+import Header from '../../components/Header'
 
 import logo from '../../assets/logo_salut_normal.svg'
 
@@ -72,57 +72,57 @@ function Profile () {
 
   return (
     <div>
-      <HeaderInicial redirectBack={true} />
+      <Header/>
       <Container>
-        {fetch ? (
-          <Form key={idUser} onSubmit={handleRegisterPut}>
-            <img src={logo} alt=""/>
+      {fetch ? (
+        <Form key={idUser} onSubmit={handleRegisterPut}>
+          <img src={logo} alt=""/>
 
-            <input
-              type={'text'}
-              id={'name'}
-              placeholder={'Nome de Usuário'}
-              value={name}
-              onChange={e => setName(e.target.value)}
-              disabled
-            />
+          <input
+            type={'text'}
+            id={'name'}
+            placeholder={'Nome de Usuário'}
+            value={name}
+            onChange={e => setName(e.target.value)}
+            disabled
+          />
 
-            <input
-              type={'text'}
-              id={'email'}
-              placeholder={'Email'}
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              disabled
-            />
+          <input
+            type={'text'}
+            id={'email'}
+            placeholder={'Email'}
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            disabled
+          />  
 
-            <input
-              type={'text'}
-              id={'telephone'}
-              placeholder={'Telefone'}
-              value={telephone}
-              onChange={e => setTelephone(e.target.value)}
-              disabled
-            />
+          <input
+            type={'text'}
+            id={'telephone'}
+            placeholder={'Telefone'}
+            value={telephone}
+            onChange={e => setTelephone(e.target.value)}
+            disabled
+          />
 
-            <input
-              type={'Date'}
-              id={'data'}
-              placeholder={'Data de Nascimento'}
-              value={birthdayDate}
-              onChange={e => setTelephone(e.target.value)}
-              disabled
-            />
+          <input
+            type={'Date'}
+            id={'data'}
+            placeholder={'Data de Nascimento'}
+            value={birthdayDate}
+            onChange={e => setTelephone(e.target.value)}
+            disabled
+          />
 
-            <button name="Alterar" type="button" id="contact-submit" onClick={alterar} data-submit="...Sending">
+          <button name="Alterar" type="button" id="contact-submit" onClick={alterar} data-submit="...Sending">
                     Alterar</button>
 
-            <hr/>
+          <hr/>
 
-            <button name="Salvar Alteração" type="submit" id="contact-submit" data-submit="...Sending">
+          <button name="Salvar Alteração" type="submit" id="contact-submit" data-submit="...Sending">
                     Salvar alteração</button>
 
-          </Form>
+        </Form>
         ) : null}
       </Container>
     </div>
