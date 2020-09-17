@@ -98,6 +98,8 @@ const SignUp: React.FC = () => {
           return
         }
 
+        console.log(err.response)
+
         addToast({
           type: 'error',
           title: 'Erro no cadastro',
