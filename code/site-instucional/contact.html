@@ -299,7 +299,7 @@ console.log(myHeaders.get('Content-Type'));
 }
 
   function contatoEmpresa(){
-    var urlFinal = "https://sallut-api-mail-sender-dot-fragment-projects.appspot.com/email-interesse-hospitalar/"+nome.value+"/"+cnpj.value +"/"+telefone.value +"/"+email.value+"/"+cep.value+"/"+bairro.value+"/"+logradouro.value+"/"+numero.value;
+    var urlFinal = "http://localhost:8080/email-interesse-hospitalar/"+nome.value+"/"+cnpj.value +"/"+telefone.value +"/"+email.value+"/"+cep.value+"/"+bairro.value+"/"+logradouro.value+"/"+numero.value;
         $.ajax({
             url: urlFinal,
             method:"GET",
