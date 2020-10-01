@@ -22,7 +22,7 @@ public class EmailController {
             MimeMessage mail = mailSender.createMimeMessage();
 
             MimeMessageHelper helper = new MimeMessageHelper(mail);
-            helper.setTo("salut.bandtec@gmail.com");
+            helper.setTo("salut.corporation@gmail.com");
             helper.setSubject("Interesse hospitalar para triagem virtual");
             helper.setText("<h3>Dados do interessado</h3>" +
                     "Nome: "+nome+"<br>CNPJ: "+cnpj+"<br>Telefone: "+telefone+"<br>Email: "+email+
