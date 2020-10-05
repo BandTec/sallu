@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FC6963"
+    tools:context=".RegisterActivity">
+
+    <ImageView
+        android:id="@+id/ivRegister"
+        android:layout_width="310dp"
+        android:layout_height="310dp"
+        android:src="@drawable/register_screen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Nova Conta:"
+        android:textColor="#312E38"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/ivRegister"/>
+
+    <EditText
+        android:id="@+id/etBgEmail"
+        android:layout_width="910px"
+        android:layout_height="72dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_txt_username"
+        android:hint="Nome Completo"
+        android:paddingLeft="54dp"
+        android:textColor="#A6A6A4"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivRegister"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/etBgEmailRegister"
+        android:layout_width="910px"
+        android:layout_height="72dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:textSize="20sp"
+        android:paddingLeft="54dp"
+        android:hint="Email"
+        android:textColor="#A6A6A4"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/bg_txt_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etBgEmail"/>
+
+    <EditText
+        android:id="@+id/etBgPasswordRegister"
+        android:layout_width="910px"
+        android:layout_height="72dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:textSize="20sp"
+        android:paddingLeft="54dp"
+        android:hint="Senha"
+        android:textColor="#A6A6A4"
+        android:inputType="textPassword"
+        android:background="@drawable/bg_txt_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etBgEmailRegister"/>
+
+    <EditText
+        android:id="@+id/etBgConfirmPassword"
+        android:layout_width="910px"
+        android:layout_height="72dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:textSize="20sp"
+        android:paddingLeft="54dp"
+        android:hint="Confirmar Senha"
+        android:textColor="#A6A6A4"
+        android:inputType="textPassword"
+        android:background="@drawable/bg_txt_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etBgPasswordRegister" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="280dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Cadastrar"
+        android:textAllCaps="false"
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        android:background="@drawable/shape_login_buttom_custom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

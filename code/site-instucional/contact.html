@@ -299,7 +299,7 @@ console.log(myHeaders.get('Content-Type'));
 }
 
   function contatoEmpresa(){
-    var urlFinal = "http://localhost:8081/email-interesse-hospitalar/"+nome.value+"/"+cnpj.value +"/"+telefone.value +"/"+email.value+"/"+cep.value+"/"+bairro.value+"/"+logradouro.value+"/"+numero.value;
+    var urlFinal = "http://localhost:8080/email-interesse-hospitalar/"+nome.value+"/"+cnpj.value +"/"+telefone.value +"/"+email.value+"/"+cep.value+"/"+bairro.value+"/"+logradouro.value+"/"+numero.value;
         $.ajax({
             url: urlFinal,
             method:"GET",
@@ -366,7 +366,7 @@ console.log(myHeaders.get('Content-Type'));
                   document.getElementById('uf').value=(data.uf); 
                   });
                 })
-              .catch(function(err){ 
+              .catch(function(err){  
                 console.error('Failed retrieving information', err);
               });
             }else {
