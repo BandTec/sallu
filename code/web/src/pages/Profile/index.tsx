@@ -25,8 +25,8 @@ import { useAuth } from '../../hooks/auth'
 
 interface IProfileFormData {
   name: string
-  birthdayDate: string
-  sex: string
+//  birthdayDate: string
+//  sex: string
   email: string
   password: string
   newPassword: string
@@ -58,7 +58,7 @@ const Profile: React.FC = () => {
         const schema = Yup.object().shape({
           name: Yup.string().required('Nome obrigatório'),
 
-          birthdayDate: Yup.string().min(8, 'Data de nascimento obrigatória'),
+         // birthdayDate: Yup.string().min(8, 'Data de nascimento obrigatória'),
 
           telephone: Yup.string().required('Telefone obrigatório'),
 

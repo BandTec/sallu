@@ -47,8 +47,8 @@ public class UsersService {
         this.repository.findByEmail(user.getEmail())
                 .map(selectedUser -> {
                     selectedUser.setName(user.getName());
-                    selectedUser.setBirthday(user.getBirthday());
-                    selectedUser.setSex(user.getSex());
+                    //selectedUser.setBirthday(user.getBirthday());
+                    //selectedUser.setSex(user.getSex());
                     selectedUser.setCellphone(user.getCellphone());
                     //selectedUser.setPassword(user.getPassword());
                     return this.repository.save(selectedUser);

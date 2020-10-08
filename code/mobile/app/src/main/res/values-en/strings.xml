@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SalutApp</string>
+    <string name="txt_titulo">WELCOME</string>
+    <string name="txt_btn_login">Login</string>
+    <string name="txt_nao_tem_conta">Don´t have account?</string>
+    <string name="txt_cadastro">Register</string>
+    <string name="txt_titulo_login">Your future, our challenge</string>
+    <string name="txt_senha_login">Password</string>
+    <string name="txt_esqueceu_senha_login">Forgot password?</string>
+    <string name="txt_não_conta_login">Don\'t have an account?</string>
+    <string name="txt_cadastro_register">New account:</string>
+    <string name="txt_nome_register">Full name</string>
+    <string name="txt_confirma_senha_register">Confirm password</string>
+    <string name="txt_btn_cadastro_register">Register</string>
+    <string name="txt_nasc_register">Date of Birth</string>
+    <string name="txt_sexo_register">Sex</string>
+</resources>

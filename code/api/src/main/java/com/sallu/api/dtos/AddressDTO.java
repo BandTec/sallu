@@ -1,6 +1,5 @@
 package com.sallu.api.dtos;
 import lombok.Data;
-
 @Data
 public class AddressDTO {
     private String cep;

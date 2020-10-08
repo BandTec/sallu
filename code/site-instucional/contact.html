@@ -280,7 +280,7 @@ myHeaders.append('Content-Type', 'application/json');
 myHeaders.get('Content-Type');
 console.log(myHeaders.get('Content-Type'));
 
-	const request = new Request('https://sallut-api-core-dot-fragment-projects.appspot.com/hospital/cad', {method: 'POST',headers:myHeaders, body: jsonString});
+	const request = new Request('http://localhost:8080/hospital/cad', {method: 'POST',headers:myHeaders, body: jsonString});
 
 	fetch(request)
   .then(response => {

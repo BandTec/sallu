@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">SalutApp</string>
+    <string name="txt_titulo">BEM VINDO</string>
+    <string name="txt_btn_login">Entrar</string>
+    <string name="txt_nao_tem_conta">Não tem conta?</string>
+    <string name="txt_cadastro">Cadastre-se</string>
+
+    <string name="txt_titulo_login">Seu futuro, nosso desafio</string>
+    <string name="txt_email_login">Email</string>
+    <string name="txt_senha_login">Senha</string>
+    <string name="txt_esqueceu_senha_login">Esqueceu a senha?</string>
+    <string name="txt_não_conta_login">Não tem uma conta?</string>
+
+    <string name="txt_cadastro_register">Nova Conta:</string>
+    <string name="txt_nome_register">Nome Completo</string>
+    <string name="txt_nasc_register">Data de Nascimento</string>
+    <string name="txt_sexo_register">Sexo</string>
+    <string name="txt_confirma_senha_register">Confirmar Senha</string>
+    <string name="txt_btn_cadastro_register">Cadastrar</string>
+
+
+
 </resources>

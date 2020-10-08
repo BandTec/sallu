@@ -41,14 +41,14 @@ public class User implements Serializable {
     @Column(name = "cellphone", length = 15, nullable = false)
     private String cellphone;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    //@JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "birthday")
     private Date birthday;
 
     @NotBlank(message = "{user.sex}")
     @JsonProperty
-    @Column(name = "sex", length = 1, nullable = false)
-    private Character sex;
+    //@Column(name = "sex", length = 1, nullable = false)
+    private String sex;
 
     @Email(message = "{email.valid}")
     @NotBlank(message = "{user.email}")
@@ -63,6 +63,6 @@ public class User implements Serializable {
 
     @NotNull(message = "{user.bl_admin}")
     @JsonProperty
-    @Column(name = "is_admin", nullable = false)
+    @Column(name = "is_admin")
     private Boolean isAdmin;
 }

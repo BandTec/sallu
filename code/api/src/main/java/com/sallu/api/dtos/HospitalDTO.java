@@ -10,5 +10,5 @@ public class HospitalDTO {
     private String number;
 
     //Relacionamento
-    private AddressDTO address;
+    private AddressDTO address1;
 }

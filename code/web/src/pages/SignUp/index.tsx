@@ -33,6 +33,7 @@ interface ISignUpFormData {
   email: string
   password: string
   passwordConfirmation: string
+  isAdmin: boolean
 }
 
 interface IHandleSubmitCallback {
@@ -78,6 +79,7 @@ const SignUp: React.FC = () => {
 
         data.cellphone = data.cellphone.replace(/\D+/g, '')
         delete data.passwordConfirmation
+        data.isAdmin= false
 
         await api.post('user', {
           ...data,
