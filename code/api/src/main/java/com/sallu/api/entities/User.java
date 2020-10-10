@@ -43,7 +43,7 @@ public class User implements Serializable {
 
     //@JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "birthday")
-    private Date birthday;
+    private String birthday;
 
     @NotBlank(message = "{user.sex}")
     @JsonProperty

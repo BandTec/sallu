@@ -8,5 +8,5 @@ public class AddressDTO {
     private String logradouro;
     private String cidade;
     private String estado;
-    private String numero;
+    //private String numero;
 }

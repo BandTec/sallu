@@ -50,12 +50,12 @@ public class MedicalRecord implements Serializable {
     private Double bodyTemperature;
 
     @JsonProperty
-    @Column(name = "allergy", nullable = false)
+    @Column(name = "allergy")
     private String allergy;
 
     @JsonProperty
     @Column(name = "last_cycle")
-    private Date lastCycle;
+    private String lastCycle;
 
     @JsonProperty
     @Column(name = "is_pregnant")

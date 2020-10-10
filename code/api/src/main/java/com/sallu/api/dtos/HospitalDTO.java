@@ -7,8 +7,8 @@ public class HospitalDTO {
     private String cnpj;
     private String telephone;
     private String email;
-    private String number;
+    //private String number;
 
     //Relacionamento
-    private AddressDTO address1;
+    private AddressDTO address;
 }

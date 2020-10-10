@@ -1,5 +1,6 @@
 package com.sallu.api.entities;
 
+import com.sallu.api.dtos.ReferralDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,4 +27,9 @@ public class Referral implements Serializable {
 
     @Column(name = "call", length = 45, nullable = false)
     private String call;
+
+    public Referral(ReferralDTO referralDTO) {
+        this.color = referralDTO.getColor();
+        this.call = referralDTO.getCall();
+    }
 }

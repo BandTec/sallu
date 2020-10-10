@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,14 +37,9 @@ public class MedicalRecordService {
     }
 
     public void insert(MedicalRecordDTO medicalRecord) {
-        ReferralDTO medicalRecordReferral = medicalRecord.getReferral();
 
-        Referral referral = Referral.builder()
-                .color(medicalRecordReferral.getColor())
-                .call(medicalRecordReferral.getCall())
-                .build();
-
-        Optional<Hospital> medicalRecordHospital = hospitalsRepository.findById(medicalRecord.getHospitalId());
+        Referral referral = new Referral(medicalRecord.getReferral());
+        //Optional<Hospital> medicalRecordHospital = hospitalsRepository.findById(medicalRecord.getHospitalId());
 
         MedicalRecord newMedicalRecord = MedicalRecord.builder()
                 .weight(medicalRecord.getWeight())
@@ -53,9 +49,9 @@ public class MedicalRecordService {
                 .allergy(medicalRecord.getAllergy())
                 .lastCycle(medicalRecord.getLastCycle())
                 .isPregnant(medicalRecord.isPregnant())
-//                .createdAt(LocalDate.now().toString())
+                .createdAt(LocalDate.now().toString())
                 .user(usersRepository.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get())
-//                .hospital(medicalRecordHospital)
+                .hospital(hospitalsRepository.findByName(medicalRecord.getNome()))
                 .referral(referral)
                 .build();
 
@@ -82,6 +78,4 @@ public class MedicalRecordService {
     public void delete(Integer id) {
         this.repository.deleteById(id);
     }
-
-
 }

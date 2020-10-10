@@ -9,6 +9,8 @@ import java.util.List;
 
 public interface HospitalsRepository extends JpaRepository<Hospital, Integer> {
 
+    Hospital findByName(String name);
+
     @Query("select new com.sallu.api.models.HospitalSimples(h) from Hospital h")
     List<HospitalSimples> findAllSimples();
 }

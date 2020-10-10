@@ -1,7 +1,7 @@
 package com.sallu.api.dtos;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
@@ -17,13 +17,13 @@ public class MedicalRecordDTO {
 
     private String allergy;
 
-    private Date lastCycle;
+    private String lastCycle;
 
-    private Date createdAt;
+    private String createdAt;
 
     private boolean isPregnant;
 
-    private Integer hospitalId;
+    private String nome;
 
     private ReferralDTO referral;
 }

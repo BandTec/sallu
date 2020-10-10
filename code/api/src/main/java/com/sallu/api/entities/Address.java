@@ -1,5 +1,6 @@
 package com.sallu.api.entities;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sallu.api.dtos.AddressDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -43,4 +44,14 @@ public class Address {
     @JsonProperty
     @Column(name = "state")
     private String state;
+
+
+    public Address(AddressDTO addressDTO) {
+        this.cep = addressDTO.getCep();
+        this.address = addressDTO.getEndereco();
+        this.district = addressDTO.getBairro();
+        this.number = addressDTO.getLogradouro();
+        this.city = addressDTO.getCidade();
+        this.state = addressDTO.getEstado();
+    }
 }

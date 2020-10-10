@@ -14,5 +14,14 @@
     <string name="txt_confirma_senha_register">Confirm password</string>
     <string name="txt_btn_cadastro_register">Register</string>
     <string name="txt_nasc_register">Date of Birth</string>
-    <string name="txt_sexo_register">Sex</string>
+    <string name="txt_sexo_register">Gender</string>
+    <string name="txt_titulo_configuration">Configuration</string>
+    <string name="txt_altera_nome_config">Change your name</string>
+    <string name="txt_altera_email_config">Change your email</string>
+    <string name="txt_altera_telefone_config">Change your phone</string>
+    <string name="txt_senha_atual_config">Enter your current password</string>
+    <string name="txt_altera_senha_config">Enter your new password</string>
+    <string name="txt_confirma_senha_config">Confirm your password</string>
+    <string name="txt_btn_altera_config">Change</string>
+    <string name="txt_altera_finaliza_config">Finished Change</string>
 </resources>

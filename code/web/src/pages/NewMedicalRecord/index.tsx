@@ -29,7 +29,7 @@ import Button from '../../components/Button'
 
 interface IHospitals {
   id: number
-  name: string
+  nome: string
 }
 
 interface IMedicalRecordFormData {
@@ -232,8 +232,8 @@ const NewMedicalRecord: React.FC = () => {
             icon={FaHospitalAlt}
             placeholder="Hospitais"
             options={hospitals.map(hospital => ({
-              label: hospital.name,
-              value: hospital.id,
+              label: hospital.nome,
+              value: hospital.nome,
             }))}
           />
 
