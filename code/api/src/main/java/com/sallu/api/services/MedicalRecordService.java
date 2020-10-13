@@ -50,7 +50,7 @@ public class MedicalRecordService {
                 .lastCycle(medicalRecord.getLastCycle())
                 .isPregnant(medicalRecord.isPregnant())
                 .createdAt(LocalDate.now().toString())
-                .user(usersRepository.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get())
+               .user(usersRepository.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get())
                 .hospital(hospitalsRepository.findByName(medicalRecord.getNome()))
                 .referral(referral)
                 .build();

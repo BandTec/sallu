@@ -30,7 +30,8 @@ public class MedicalRecord implements Serializable {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    @ManyToOne(optional = true)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "hospital_id", referencedColumnName = "id")
     private Hospital hospital;
 
     @JsonProperty

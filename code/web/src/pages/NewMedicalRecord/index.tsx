@@ -60,7 +60,7 @@ const NewMedicalRecord: React.FC = () => {
 
   const [hospitals, setHospitals] = useState<IHospitals[]>([])
 
-  const { user } = useAuth()
+  const { user, token } = useAuth()
   const { addToast } = useToast()
 
   const handleHospitals = useCallback(async () => {
@@ -144,7 +144,11 @@ const NewMedicalRecord: React.FC = () => {
           abortEarly: false,
         })
 
-        await api.post('medical_records', formData)
+        await api.post('medical_records', formData, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
 
         addToast({
           title: 'Ficha cadastrada com sucesso',
@@ -169,7 +173,7 @@ const NewMedicalRecord: React.FC = () => {
         })
       }
     },
-    [addToast, handleFormValues],
+    [addToast, handleFormValues, token],
   )
 
   useEffect(() => {
