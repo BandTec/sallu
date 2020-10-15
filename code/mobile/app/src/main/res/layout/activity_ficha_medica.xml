@@ -4,7 +4,181 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FichaMedica">
+    tools:context=".FichaMedica"
+    android:background="#D9D9D9">
 
+    <EditText
+        android:layout_width="415dp"
+        android:layout_height="200dp"
+        android:background="#FC6963"
+        android:id="@+id/et_cor"
+        app:layout_constraintHorizontal_bias="0.495"
+        android:layout_marginBottom="15dp"
+        android:radius="200dp"
+        app:layout_constraintVertical_bias="0.0"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Ficha Médica"
+        android:textColor="#D9D9D9"
+        android:textSize="35sp"
+        android:layout_marginTop="100dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="180dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/tv_configuracao"
+        app:layout_constraintTop_toBottomOf="@+id/tv_usuario"/>
+
+
+    <ImageView
+        android:id="@+id/iv_foto"
+        android:layout_width="270dp"
+        android:layout_height="240dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/dotor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.113"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="25dp" />
+
+    <EditText
+        android:id="@+id/et_peso"
+        android:layout_width="495px"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_txt_password"
+        android:hint="Peso"
+        android:paddingLeft="60dp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_foto"
+        app:layout_constraintVertical_bias="0.019" />
+
+    <!--
+   Pensei em colocar um listView para fazer a listagem dos hospitais
+   porém não consegui, quem puder me auxiliar. Agradeço =)
+   <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Nome Hospital"
+        android:id="@+id/lv_listaHospital"
+        app:layout_constraintTop_toBottomOf="@id/et_altura"
+        />
+    -->
+
+    <EditText
+        android:id="@+id/et_altura"
+        android:layout_width="495px"
+        android:layout_height="60dp"
+        android:layout_marginBottom="388dp"
+        android:background="@drawable/bg_txt_password"
+        android:hint="Altura"
+        android:paddingLeft="60dp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.927"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/et_nomeHospital"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginBottom="336dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_txt_password"
+        android:hint="Nome Hospital"
+        android:paddingLeft="70dp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_altura"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/et_febre"
+        android:layout_width="300dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="336dp"
+        android:background="@drawable/bg_txt_password"
+        android:hint="febre"
+        android:paddingLeft="70dp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_nomeHospital"
+        app:layout_constraintVertical_bias="0.097" />
+
+    <ImageView
+        android:id="@+id/iv_feminino"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/feminino"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_febre" />
+
+    <ImageView
+        android:id="@+id/iv_masculino"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/masculino5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.839"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_febre" />
+
+    <EditText
+        android:id="@+id/et_maisInformacoes"
+        android:layout_width="325dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="336dp"
+        android:background="@drawable/bg_txt_password"
+        android:hint="Mais informações..."
+        android:paddingLeft="70dp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_masculino"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/bt_enviar"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="25dp"
+        android:background="@drawable/shape_login_buttom_custom"
+        android:text="Enviar"
+        android:textAllCaps="false"
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_maisInformacoes"
+        app:layout_constraintVertical_bias="0.641" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
