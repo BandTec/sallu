@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FichaMedica"></activity>
+        <activity android:name=".marca_consulta"></activity>
+        <activity android:name=".FichaMedica" />
         <activity android:name=".HistoricoMedico" />
         <activity android:name=".Activity_configuracao" />
         <activity android:name=".RegisterActivity" />
