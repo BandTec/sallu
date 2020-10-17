@@ -34,6 +34,7 @@
         android:background="@drawable/bg_txt_username"
         android:hint="@string/txt_nome_register"
         android:paddingLeft="54dp"
+        android:inputType="text"
         android:textColor="#A6A6A4"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
