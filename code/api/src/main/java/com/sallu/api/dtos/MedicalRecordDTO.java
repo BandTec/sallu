@@ -23,7 +23,7 @@ public class MedicalRecordDTO {
 
     private boolean isPregnant;
 
-    private String nome;
+    private Integer hospitalId;
 
     private ReferralDTO referral;
 }

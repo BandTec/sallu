@@ -39,7 +39,7 @@ public class MedicalRecordService {
     public void insert(MedicalRecordDTO medicalRecord) {
 
         Referral referral = new Referral(medicalRecord.getReferral());
-        //Optional<Hospital> medicalRecordHospital = hospitalsRepository.findById(medicalRecord.getHospitalId());
+        Optional <Hospital> medicalRecordHospital = hospitalsRepository.findById(medicalRecord.getHospitalId());
 
         MedicalRecord newMedicalRecord = MedicalRecord.builder()
                 .weight(medicalRecord.getWeight())
@@ -50,8 +50,8 @@ public class MedicalRecordService {
                 .lastCycle(medicalRecord.getLastCycle())
                 .isPregnant(medicalRecord.isPregnant())
                 .createdAt(LocalDate.now().toString())
-               .user(usersRepository.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get())
-                .hospital(hospitalsRepository.findByName(medicalRecord.getNome()))
+                .user(usersRepository.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get())
+                //.hospital(medicalRecordHospital)
                 .referral(referral)
                 .build();
 
