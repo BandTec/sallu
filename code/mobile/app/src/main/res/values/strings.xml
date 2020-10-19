@@ -38,5 +38,7 @@
     <string name="txt_horario_marcar">12:00</string>
     <string name="txt_especialidade_marcar">Cardiologista Doutror Fernando Av. Paulista</string>
 
+    <string name="txt_ficha_medica">Ficha médica</string>
+
 
 </resources>
