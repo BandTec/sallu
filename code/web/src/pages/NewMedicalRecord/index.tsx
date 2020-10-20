@@ -79,6 +79,7 @@ const NewMedicalRecord: React.FC = () => {
         ? 'amarelo'
         : 'vermelho'
 
+        
     return {
       ...data,
       referral: {
@@ -237,7 +238,7 @@ const NewMedicalRecord: React.FC = () => {
             placeholder="Hospitais"
             options={hospitals.map(hospital => ({
               label: hospital.nome,
-              value: hospital.nome,
+              value: hospital.id,
             }))}
           />
 
