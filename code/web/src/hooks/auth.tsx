@@ -2,16 +2,27 @@ import React, { createContext, useCallback, useState, useContext } from 'react'
 
 import api from '../services/api'
 
+interface MedicalRecordAddress {
+  id: number
+  cep: string
+  address: string
+  district: string
+  number: string
+  city: string
+  state: string
+}
+
 interface MedicalRecord {
-  hospital: {
+  hospital?: {
     id: number
     name: string
     cnpj: string
     telehpone: string
     email: string
-    number: string
+    address: MedicalRecordAddress
   }
   referral: {
+    id: string
     color: string
     call: string
   }
@@ -33,6 +44,7 @@ export interface IUser {
   birthday: string
   sex: string
   email: string
+  /** @deprecated */
   avatarUrl?: string
 }
 

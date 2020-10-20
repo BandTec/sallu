@@ -15,10 +15,14 @@ const MedicalRecords: React.FC = () => {
   const { addToast } = useToast()
 
   const fetchMedicalRecords = useCallback(async () => {
-    const response = await api.get<IUser>(`user/${user.id}`)
+    const response = await api.get<IUser>(`user/${user.id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
 
     updateUser(response.data)
-  }, [updateUser, user.id])
+  }, [updateUser, user.id, token])
 
   const fetchMedicalRecordsFile = useCallback(async () => {
     try {
@@ -97,7 +101,9 @@ const MedicalRecords: React.FC = () => {
           <tbody>
             {user.medicalRecords.map((medicalRecord, index) => (
               <tr key={index}>
-                <td>{medicalRecord.hospital.name}</td>
+                {medicalRecord.hospital && (
+                  <td>{medicalRecord.hospital.name}</td>
+                )}
                 <td>{medicalRecord.referral.color}</td>
                 <td>{medicalRecord.weight}</td>
                 <td>{medicalRecord.height}</td>
