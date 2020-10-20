@@ -22,6 +22,13 @@
     <string name="txt_senha_atual_config">Enter your current password</string>
     <string name="txt_altera_senha_config">Enter your new password</string>
     <string name="txt_confirma_senha_config">Confirm your password</string>
-    <string name="txt_btn_altera_config">Change</string>
-    <string name="txt_altera_finaliza_config">Finished Change</string>
+    <string name="txt_btn_altera_config">Finished Change</string>
+    <string name="txt_titulo_historico">Medical history</string>
+    <string name="txt_btn_visualizar">View Previous</string>
+    <string name="txt_data_marcar">2020/10/16</string>
+    <string name="txt_btn_marcar">Today</string>
+    <string name="txt_titulo_marcar">Queries</string>
+    <string name="txt_hora_marcar">Hour</string>
+    <string name="txt_especialidade_marcar">Cardiologist Doctor Fernando Av. Paulista</string>
+    <string name="txt_altera_finaliza_config">Change</string>
 </resources>
