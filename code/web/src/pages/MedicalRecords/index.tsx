@@ -101,8 +101,10 @@ const MedicalRecords: React.FC = () => {
           <tbody>
             {user.medicalRecords.map((medicalRecord, index) => (
               <tr key={index}>
-                {medicalRecord.hospital && (
+                {medicalRecord.hospital ? (
                   <td>{medicalRecord.hospital.name}</td>
+                ) : (
+                  <td>Não registrado</td>
                 )}
                 <td>{medicalRecord.referral.color}</td>
                 <td>{medicalRecord.weight}</td>
