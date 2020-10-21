@@ -31,4 +31,14 @@
     <string name="txt_hora_marcar">Hour</string>
     <string name="txt_especialidade_marcar">Cardiologist Doctor Fernando Av. Paulista</string>
     <string name="txt_altera_finaliza_config">Change</string>
+    <string name="txt_titulo_ficha">" Medical record"</string>
+    <string name="txt_peso_ficha">" Weight"</string>
+    <string name="txt_altura_ficha">" Height"</string>
+    <string name="txt_nome_hosp_ficha">" Name Hospital"</string>
+    <string name="txt_temp_ficha">" Temperature"</string>
+    <string name="txt_pressao_art_ficha">" Blood pressure"</string>
+    <string name="txt_gestante_ficha">" Are you pregnant?"</string>
+    <string name="txt_ultimo_ciclo_ficha">" Last Cycle"</string>
+    <string name="txt_outros_sintomas_ficha">" Other Symptoms"</string>
+    <string name="txt_btn_ficha">" Submit"</string>
 </resources>

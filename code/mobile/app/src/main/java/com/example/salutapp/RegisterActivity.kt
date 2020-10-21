@@ -13,12 +13,12 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
     }
 
-    fun cadastro(componente:View){
+   /* fun cadastro(componente:View){
         Registro registro = new Registro()
         val name = etBgEmail.text.toString()
         val password = etBgPasswordRegister.text.toString()
         val confirmaSenha = etBgConfirmPassword
         val call = RetrofitConfig().requestRegistro().postUser()
 
-    }
+    }*/
 }
