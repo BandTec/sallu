@@ -10,6 +10,9 @@ import java.util.Optional;
 
 public interface HospitalsRepository extends JpaRepository<Hospital, Integer> {
 
+    //Optional <Hospital> medicalRecordHospital = hospitalsRepository.findById(medicalRecord.getHospitalId());
+    Optional <Hospital> findById(Integer id);
+
 
     @Query("select new com.sallu.api.models.HospitalSimples(h) from Hospital h")
     List<HospitalSimples> findAllSimples();
