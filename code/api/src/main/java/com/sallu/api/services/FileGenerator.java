@@ -12,15 +12,16 @@ import java.util.FormatterClosedException;
 
 public class FileGenerator {
     public void gravaLista(String opção, User pacient, ListaObj lista, Integer index, LocalDate today) {
-        FileWriter arq = null;		// objeto FileWriter - representa o arquivo
-        Formatter saida = null;		// objeto Formatter para executar saída formatada
+        		// objeto FileWriter - representa o arquivo
+        Formatter saida = new Formatter();		// objeto Formatter para executar saída formatada
         boolean deuRuim = false;	// indica se deu erro
-        String nomeArquivo;			// nome do arquivo
+        String nomeArquivo= "";			// nome do arquivo
         nomeArquivo=today+".txt";
         // nomeArquivo= pacient.getName().replace(" ","-")+"-"+LocalDate.now()+".txt";	// nome do arquivo, se for TXT }
 
 
         try {
+            FileWriter arq = null;
             if(opção.equals("Header")) {
                 arq = new FileWriter(nomeArquivo, false);
             }
@@ -59,7 +60,7 @@ public class FileGenerator {
                                 ficha.isPregnant(),
                                 ficha.getCreatedAt(),
                                 ficha.getReferral().getColor(),
-                                ficha.getHospital().getName());
+                        ficha.getHospital() == null ? "" : ficha.getHospital().getName());
                         saida.format("%s", c00.replaceAll("null", ""));
                     }
                     break;
@@ -69,6 +70,7 @@ public class FileGenerator {
 
                         saida.format("E00%3s%011d%n", e.getRegistro(), e.getQtdRegistros());
                     }
+
                     break;
             }
         }
@@ -77,11 +79,12 @@ public class FileGenerator {
             deuRuim= true;
         }
         finally {
-            saida.close();
+
             try {
-                arq.close();
+                saida.close();
+
             }
-            catch (IOException erro) {
+            catch (Exception erro) {
                 System.err.println("Erro ao fechar arquivo.");
                 deuRuim = true;
             }

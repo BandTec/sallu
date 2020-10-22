@@ -1,14 +1,11 @@
 package com.sallu.api.entities;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sallu.api.dtos.AddressDTO;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
-
-@Data
+@Getter
+@Setter
 @Entity
 @Builder
 @NoArgsConstructor
@@ -53,5 +50,18 @@ public class Address {
         this.number = addressDTO.getLogradouro();
         this.city = addressDTO.getCidade();
         this.state = addressDTO.getEstado();
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id=" + id +
+                ", cep='" + cep + '\'' +
+                ", address='" + address + '\'' +
+                ", district='" + district + '\'' +
+                ", number='" + number + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                '}';
     }
 }

@@ -34,8 +34,7 @@ public class GeneratorService {
             listaObjFichaMedica.adiciona(usuario.getMedicalRecords().get(i));
         }
 
-
-        geradorArquivo.gravaLista("C00", null, listaObjFichaMedica, null, today);
+//        geradorArquivo.gravaLista("C00", null, listaObjFichaMedica, null, today);
         listaObjEncerramento.adiciona(e);
 
         geradorArquivo.gravaLista("E00",null, listaObjEncerramento, null, today);

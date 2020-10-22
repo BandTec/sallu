@@ -1,10 +1,7 @@
 package com.sallu.api.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
@@ -12,7 +9,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Optional;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Builder
 @NoArgsConstructor
@@ -71,5 +69,23 @@ public class MedicalRecord implements Serializable {
     @CreatedDate
     @Column(name = "created_at", nullable = false)
     private String createdAt;
+
+    @Override
+    public String toString() {
+        return "MedicalRecord{" +
+                "id=" + id +
+                ", user=" + user +
+                ", hospital=" + hospital +
+                ", weight=" + weight +
+                ", height=" + height +
+                ", bloodPressure=" + bloodPressure +
+                ", bodyTemperature=" + bodyTemperature +
+                ", allergy='" + allergy + '\'' +
+                ", lastCycle='" + lastCycle + '\'' +
+                ", isPregnant=" + isPregnant +
+                ", referral=" + referral +
+                ", createdAt='" + createdAt + '\'' +
+                '}';
+    }
 }
 

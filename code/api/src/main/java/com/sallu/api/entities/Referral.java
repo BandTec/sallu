@@ -1,15 +1,13 @@
 package com.sallu.api.entities;
 
 import com.sallu.api.dtos.ReferralDTO;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Builder
 @NoArgsConstructor
@@ -31,5 +29,14 @@ public class Referral implements Serializable {
     public Referral(ReferralDTO referralDTO) {
         this.color = referralDTO.getColor();
         this.call = referralDTO.getCall();
+    }
+
+    @Override
+    public String toString() {
+        return "Referral{" +
+                "id=" + id +
+                ", color='" + color + '\'' +
+                ", call='" + call + '\'' +
+                '}';
     }
 }
