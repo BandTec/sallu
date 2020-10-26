@@ -1,11 +1,16 @@
 package com.example.salutapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.example.salutapp.api.Registro
 import com.example.salutapp.api.RetrofitConfig
 import kotlinx.android.synthetic.main.activity_register.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,12 +18,35 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
     }
 
-   /* fun cadastro(componente:View){
-        Registro registro = new Registro()
-        val name = etBgEmail.text.toString()
-        val password = etBgPasswordRegister.text.toString()
-        val confirmaSenha = etBgConfirmPassword
-        val call = RetrofitConfig().requestRegistro().postUser()
+    fun cadastroPaciente(v: View) {
 
-    }*/
+        val api = RetrofitConfig().requestRegistro()
+        val name = etBgEmail.text.toString()
+        val birthday = etBgAniversarioRegister.text.toString()
+        val sex = etBgSexoRegister.text.toString()
+        val email = etBgEmail.text.toString()
+        val password = etBgPasswordRegister.text.toString()
+        val confirmPassword = etBgConfirmPassword.text.toString()
+
+        if (password == confirmPassword) {
+            val usuario = Registro(name,email,password,
+                null,birthday,sex)
+            val call = api.postUser(usuario)
+
+            call.enqueue(object: Callback<Void> {
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    Toast.makeText(applicationContext, "Cadastro realizado", Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                    Toast.makeText(applicationContext, "Erro no cadastro $t", Toast.LENGTH_SHORT).show()
+                }
+            })
+
+            val telaLogin = Intent(this, LoginActivity::class.java)
+            startActivity(telaLogin)
+        }else {
+            Toast.makeText(this, "Senhas não coicidem", Toast.LENGTH_SHORT).show()
+        }
+    }
 }
