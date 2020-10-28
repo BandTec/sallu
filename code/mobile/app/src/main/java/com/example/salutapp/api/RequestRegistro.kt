@@ -10,5 +10,5 @@ interface RequestRegistro {
     fun getUsers(): Call<List<Registro>>
 
     @POST("user")
-    fun postUser(@Body registro: Registro):Call<Registro>
+    fun postUser(@Body registro: Registro):Call<Void>
 }

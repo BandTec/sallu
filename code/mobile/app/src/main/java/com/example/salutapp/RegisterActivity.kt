@@ -6,9 +6,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import com.example.salutapp.api.Registro
 import com.example.salutapp.api.RetrofitConfig
 import kotlinx.android.synthetic.main.activity_register.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,13 +31,35 @@ class RegisterActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    fun cadastroPaciente(v: View) {
 
-   /* fun cadastro(componente:View){
-        Registro registro = new Registro()
+        val api = RetrofitConfig().requestRegistro()
         val name = etBgEmail.text.toString()
+        val birthday = etBgAniversarioRegister.text.toString()
+        val sex = etBgSexoRegister.text.toString()
+        val email = etBgEmail.text.toString()
         val password = etBgPasswordRegister.text.toString()
-        val confirmaSenha = etBgConfirmPassword
-        val call = RetrofitConfig().requestRegistro().postUser()
+        val confirmPassword = etBgConfirmPassword.text.toString()
 
-    }*/
+        if (password == confirmPassword) {
+            val usuario = Registro(name,email,password,
+                null,birthday,sex)
+            val call = api.postUser(usuario)
+
+            call.enqueue(object: Callback<Void> {
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    Toast.makeText(applicationContext, "Cadastro realizado", Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                    Toast.makeText(applicationContext, "Erro no cadastro $t", Toast.LENGTH_SHORT).show()
+                }
+            })
+
+            val telaLogin = Intent(this, LoginActivity::class.java)
+            startActivity(telaLogin)
+        }else {
+            Toast.makeText(this, "Senhas não coicidem", Toast.LENGTH_SHORT).show()
+        }
+    }
 }
