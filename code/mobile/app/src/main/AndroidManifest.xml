@@ -12,12 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AngendarConsultaActivity"></activity>
+        <activity android:name=".MenuActivity2"></activity>
+        <activity android:name=".InteractiveDollActivity" />
+        <activity android:name=".AngendarConsultaActivity" />
         <activity android:name=".MenuActivity" />
-        <activity android:name=".marca_consulta" />
+        <activity android:name=".MarcaConsultaActivity" />
         <activity android:name=".FichaMedica" />
         <activity android:name=".HistoricoMedico" />
-        <activity android:name=".Activity_configuracao" />
+        <activity android:name=".ConfiguracaoActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">

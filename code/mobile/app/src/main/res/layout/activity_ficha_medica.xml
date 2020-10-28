@@ -59,18 +59,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_foto"
         app:layout_constraintVertical_bias="0.019" />
-
-    <!--
-   Pensei em colocar um listView para fazer a listagem dos hospitais
-   porém não consegui, quem puder me auxiliar. Agradeço =)
-   <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Nome Hospital"
-        android:id="@+id/lv_listaHospital"
-        app:layout_constraintTop_toBottomOf="@id/et_altura"
-        />
-    -->
+    
 
     <EditText
     android:id="@+id/et_altura"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".marca_consulta"
+    tools:context=".MarcaConsultaActivity"
     android:background="#2FB186">
 
     <ImageView
