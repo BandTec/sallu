@@ -3,9 +3,9 @@ package com.example.salutapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class marca_consulta : AppCompatActivity() {
+class MenuActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_marca_consulta)
+        setContentView(R.layout.activity_menu2)
     }
 }

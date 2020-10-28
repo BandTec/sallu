@@ -45,10 +45,10 @@
 
     <EditText
         android:id="@+id/et_peso"
-        android:layout_width="495px"
+        android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/bg_txt_password"
+        android:background="@drawable/bg_txt_height"
         android:hint="@string/txt_peso_ficha"
         android:paddingLeft="60dp"
         android:textSize="18sp"
@@ -60,33 +60,21 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_foto"
         app:layout_constraintVertical_bias="0.019" />
 
-    <!--
-   Pensei em colocar um listView para fazer a listagem dos hospitais
-   porém não consegui, quem puder me auxiliar. Agradeço =)
-   <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Nome Hospital"
-        android:id="@+id/lv_listaHospital"
-        app:layout_constraintTop_toBottomOf="@id/et_altura"
-        />
-    -->
 
     <EditText
-    android:id="@+id/et_altura"
-    android:layout_width="495px"
-    android:layout_height="61dp"
-    android:layout_marginBottom="388dp"
-    android:background="@drawable/bg_txt_password"
-    android:hint="@string/txt_altura_ficha"
-    android:inputType="numberDecimal"
-    android:paddingLeft="60dp"
-    android:textSize="18sp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.927"
-    app:layout_constraintStart_toStartOf="parent" />
-
+        android:id="@+id/et_altura"
+        android:layout_width="495px"
+        android:layout_height="61dp"
+        android:layout_marginBottom="404dp"
+        android:background="@drawable/bg_txt_password"
+        android:hint="@string/txt_altura_ficha"
+        android:inputType="numberDecimal"
+        android:paddingLeft="60dp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/et_nomeHospital"

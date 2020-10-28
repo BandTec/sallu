@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import com.example.salutapp.api.Registro
 import com.example.salutapp.api.RetrofitConfig
@@ -16,6 +18,17 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+
+        var btnRegister: Button = findViewById(R.id.btnRegister);
+
+        btnRegister.setOnClickListener {
+            openMenu()
+        }
+    }
+
+    private fun openMenu() {
+        val intent = Intent(this, MenuActivity::class.java)
+        startActivity(intent)
     }
 
     fun cadastroPaciente(v: View) {
