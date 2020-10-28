@@ -29,8 +29,8 @@ class RegisterActivity : AppCompatActivity() {
         val confirmPassword = etBgConfirmPassword.text.toString()
 
         if (password == confirmPassword) {
-            val usuario = Registro(name,email,password,
-                null,birthday,sex)
+            val usuario = Registro("Giovanna Souza","2000-01-01",false,
+                "F","5511912345678","giovanna.souza@gmail.com","bandtec@sallu")
             val call = api.postUser(usuario)
 
             call.enqueue(object: Callback<Void> {
