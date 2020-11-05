@@ -38,7 +38,7 @@
     <string name="txt_horario_marcar">12:00</string>
     <string name="txt_especialidade_marcar">Cardiologista Doutror Fernando Av. Paulista</string>
 
-    <string name="txt_titulo_ficha">Ficha médica</string>
+    <string name="txt_titulo_ficha">Agendar Consultas</string>
     <string name="txt_peso_ficha">Peso</string>
     <string name="txt_altura_ficha">Altura</string>
     <string name="txt_nome_hosp_ficha">Nome Hospital</string>
