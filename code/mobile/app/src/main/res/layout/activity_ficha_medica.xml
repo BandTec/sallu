@@ -7,195 +7,74 @@
     tools:context=".FichaMedica"
     android:background="#D9D9D9">
 
-    <EditText
-        android:layout_width="415dp"
-        android:layout_height="200dp"
-        android:background="#FC6963"
-        android:id="@+id/et_cor"
-        app:layout_constraintHorizontal_bias="0.495"
-        android:layout_marginBottom="15dp"
-        android:radius="200dp"
-        app:layout_constraintVertical_bias="0.0"
-        />
-
-    <TextView
+    <View
+        android:id="@+id/view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/txt_titulo_ficha"
-        android:textColor="#D9D9D9"
-        android:textSize="35sp"
-        android:layout_marginTop="100dp"
-        android:textStyle="bold"
-        android:layout_marginLeft="140dp"
-        app:layout_constraintStart_toStartOf="parent"
-        android:id="@+id/tv_configuracao"
-        app:layout_constraintTop_toBottomOf="@+id/tv_usuario"/>
-
-
-    <ImageView
-        android:id="@+id/iv_foto"
-        android:layout_width="270dp"
-        android:layout_height="240dp"
-        android:layout_marginRight="20dp"
-        android:src="@drawable/doctors"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.113"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="25dp" />
-
-    <EditText
-        android:id="@+id/et_peso"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/bg_txt_height"
-        android:hint="@string/txt_peso_ficha"
-        android:paddingLeft="60dp"
-        android:textSize="18sp"
-        android:inputType="numberDecimal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.072"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_foto"
-        app:layout_constraintVertical_bias="0.019" />
-
-
-    <EditText
-        android:id="@+id/et_altura"
-        android:layout_width="495px"
-        android:layout_height="61dp"
-        android:layout_marginBottom="404dp"
-        android:background="@drawable/bg_txt_password"
-        android:hint="@string/txt_altura_ficha"
-        android:inputType="numberDecimal"
-        android:paddingLeft="60dp"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.923"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/et_nomeHospital"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_marginBottom="336dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/bg_txt_password"
-        android:hint="@string/txt_nome_hosp_ficha"
-        android:paddingLeft="70dp"
-        android:textSize="18sp"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.076"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_altura"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/et_temperatura"
-        android:layout_width="495px"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/bg_txt_password"
-        android:hint="@string/txt_temp_ficha"
-        android:paddingLeft="60dp"
-        android:textSize="18sp"
-        android:inputType="numberDecimal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.072"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_nomeHospital"
-        app:layout_constraintVertical_bias="0.019" />
-
-
-    <EditText
-    android:id="@+id/et_pressao"
-    android:layout_width="495px"
-    android:layout_height="60dp"
-    android:layout_marginTop="10dp"
-    android:background="@drawable/bg_txt_password"
-    android:hint="@string/txt_pressao_art_ficha"
-    android:inputType="numberDecimal"
-    android:paddingLeft="45dp"
-    android:textSize="18sp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.927"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/et_nomeHospital"
-    app:layout_constraintVertical_bias="0.02" />
-
-
-    <Switch
-        android:id="@+id/swAlteracaoFinalizada"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:checked="true"
-        android:paddingLeft="75dp"
-        android:text="@string/txt_gestante_ficha"
-        android:textColor="#000"
-        android:textSize="18dp"
-        app:layout_constraintTop_toBottomOf="@+id/et_temperatura"
-        tools:layout_editor_absoluteX="-9dp"
-        />
-
-    <EditText
-        android:id="@+id/et_ultCiclo"
-        android:layout_width="495px"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/bg_txt_password"
-        android:hint="@string/txt_ultimo_ciclo_ficha"
-        android:inputType="date"
-        android:paddingLeft="45dp"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.927"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_pressao"
-        app:layout_constraintVertical_bias="0.02" />
-
-    <EditText
-        android:id="@+id/et_maisInformacoes"
-        android:layout_width="325dp"
-        android:layout_height="65dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="336dp"
-        android:background="@drawable/bg_txt_password"
-        android:hint="@string/txt_outros_sintomas_ficha"
-        android:paddingLeft="70dp"
-        android:textSize="18sp"
-        android:inputType="text"
+        android:layout_height="236dp"
+        android:background="@drawable/header"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_pressao"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/bt_enviar"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="2dp"
-        android:layout_marginLeft="25dp"
-        android:background="@drawable/shape_login_buttom_custom"
-        android:text="@string/txt_btn_ficha"
-        android:textAllCaps="false"
-        android:textColor="#FFF"
-        android:textSize="20sp"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="84dp"
+        android:layout_marginRight="84dp"
+        android:layout_marginBottom="92dp"
+        android:text="Ficha "
+        android:textColor="#D9D9D9"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="64dp"
+        android:text="Médica"
+        android:textColor="#D9D9D9"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="190dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="412dp"
+        android:background="@drawable/bg_txt_height"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_maisInformacoes"
-        app:layout_constraintVertical_bias="0.641" />
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <EditText
+        android:layout_width="190dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="412dp"
+        android:background="@drawable/bg_txt_weigth"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.932"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_text_hospital"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintVertical_bias="0.079" />
 </androidx.constraintlayout.widget.ConstraintLayout>
