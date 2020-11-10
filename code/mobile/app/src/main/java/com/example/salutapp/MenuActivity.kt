@@ -1,34 +1,44 @@
 package com.example.salutapp
-
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import kotlinx.android.synthetic.main.activity_menu.*
 
 class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
-        var iv_power: ImageView = findViewById(R.id.iv_power);
-        var iv_settings:ImageView = findViewById(R.id.iv_settings)
-        var cd_emergence: androidx.cardview.widget.CardView = findViewById(R.id.cd_emergence);
-        var cd_historico: androidx.cardview.widget.CardView = findViewById(R.id.cd_historico);
+        var logout: ImageView = findViewById(R.id.iv_power);
+        var telaPerfil:ImageView = findViewById(R.id.iv_settings)
+        var telaEmergencia: androidx.cardview.widget.CardView = findViewById(R.id.cd_emergence);
+        var telaFichaMedica: androidx.cardview.widget.CardView = findViewById(R.id.cd_fichaMedica);
+        var telaAgendarConsulta: androidx.cardview.widget.CardView = findViewById(R.id.cd_agendar_consulta);
+        var telaHistorico: androidx.cardview.widget.CardView = findViewById(R.id.cd_historico);
 
-        iv_power.setOnClickListener {
+        logout.setOnClickListener {
             turnOff()
         }
 
-        cd_emergence.setOnClickListener {
-            enterEmergence()
+        telaPerfil.setOnClickListener {
+            irTelaPerfil()
         }
 
-        cd_historico.setOnClickListener {
-            enterHistorico()
+        telaEmergencia.setOnClickListener {
+            irTelaEmergencia()
         }
 
-        iv_settings.setOnClickListener {
-            enterSettings()
+        telaFichaMedica.setOnClickListener{
+            irTelaFichaMedica()
+        }
+
+        telaAgendarConsulta.setOnClickListener{
+            irTelaAgendarConsulta()
+        }
+
+        telaHistorico.setOnClickListener {
+            irTelaHistorico()
         }
     }
 
@@ -36,18 +46,28 @@ class MenuActivity : AppCompatActivity() {
         finishAffinity()
     }
 
-    private fun enterEmergence() {
+    private fun irTelaPerfil() {
+        val intent = Intent(this, ConfiguracaoActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun irTelaEmergencia() {
         val intent = Intent(this, InteractiveDollActivity::class.java)
         startActivity(intent)
     }
 
-    private fun enterHistorico() {
-        val intent = Intent(this, HistoricoMedico::class.java)
+    fun irTelaFichaMedica(){
+        val intent = Intent(this, FichaMedica::class.java)
         startActivity(intent)
     }
 
-    private fun enterSettings() {
-        val intent = Intent(this, ConfiguracaoActivity::class.java)
+    fun irTelaAgendarConsulta(){
+        val intent = Intent(this, MarcaConsultaActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun irTelaHistorico() {
+        val intent = Intent(this, HistoricoMedico::class.java)
         startActivity(intent)
     }
 }

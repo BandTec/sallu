@@ -1,4 +1,4 @@
-package com.example.salutapp.api
+package com.example.salutapp.api.model
 
 data class Registro(
     val name: String,

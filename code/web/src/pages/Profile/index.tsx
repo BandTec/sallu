@@ -4,16 +4,13 @@ import {
   FiUser,
   FiPhone,
   FiMail,
-  FiLock,
   FiCamera,
   FiArrowLeft,
 } from 'react-icons/fi'
 import { Form } from '@unform/web'
 import { FormHandles } from '@unform/core'
 import * as Yup from 'yup'
-
 import api from '../../services/api'
-
 import { useToast } from '../../hooks/toast'
 import getValidationErrors from '../../utils/getValidationErrors'
 
@@ -25,12 +22,10 @@ import { useAuth } from '../../hooks/auth'
 
 interface IProfileFormData {
   name: string
-//  birthdayDate: string
-//  sex: string
-  email: string
-  password: string
-  newPassword: string
-  passwordConfirmation: string
+  sex: string
+ // birthdayDate: string
+  cellphone: string
+ // email: string
 }
 
 interface IHandleSubmit {
@@ -46,69 +41,44 @@ const Profile: React.FC = () => {
 
   const { addToast } = useToast()
   const { user, updateUser } = useAuth()
-  const history = useHistory()
+  //const history = useHistory()
 
   const handleSubmit = useCallback<IHandleSubmit>(
     async data => {
       formRef.current?.setErrors({})
-
       console.log(data)
 
       try {
         const schema = Yup.object().shape({
           name: Yup.string().required('Nome obrigatório'),
-
-         // birthdayDate: Yup.string().min(8, 'Data de nascimento obrigatória'),
-
+          birthdayDate: Yup.string().min(8, 'Data de nascimento obrigatória'),
           telephone: Yup.string().required('Telefone obrigatório'),
-
           email: Yup.string()
             .required('E-mail obrigatório')
             .email('Digite um e-mail válido'),
-
-          password: Yup.string().when('password', {
-            is: val => !!val.length,
-            then: Yup.string().required('Senha obrigatória'),
-            otherwise: Yup.string(),
-          }),
-
-          newPassword: Yup.string().required('Nova senha obrigatória'),
-
-          passwordConfirmation: Yup.string()
-            .when('newPassword', {
-              is: val => !!val.length,
-              then: Yup.string().required('Senha obrigatória'),
-              otherwise: Yup.string(),
-            })
-            .oneOf([Yup.ref('newPassword'), undefined], 'Senhas não coincidem')
-            .required('Confirmação de nova senha obrigatória'),
         })
 
         await schema.validate(data, {
           abortEarly: false,
         })
-
+        
         const formData = {
           name: data.name,
-          email: data.email,
-          ...(data.password
-            ? {
-                password: data.password,
-                newPassword: data.newPassword,
-                passwordConfirmation: data.passwordConfirmation,
-              }
-            : {}),
+          sex: data.sex,
+         // birthdayDate: data.birthdayDate,
+          cellphone: data.cellphone
+         // email: data.email
         }
+        console.log(formData)
 
         await api.put('user', formData)
 
         addToast({
           type: 'success',
-          title: 'Cadastro realizado!',
+          title: 'Alterações realizadas!',
           description: 'Você já pode fazer o seu logon no Sallut!',
         })
-
-        history.push('/')
+      //  history.push('/')
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err)
@@ -124,7 +94,7 @@ const Profile: React.FC = () => {
         })
       }
     },
-    [addToast, history],
+    [addToast],
   )
 
   const handleAvatarChange = useCallback<IHandleAvatarChange>(
@@ -159,6 +129,7 @@ const Profile: React.FC = () => {
 
       <Content>
         <Form
+        key={user.id}
           ref={formRef}
           initialData={{
             ...user,
@@ -187,36 +158,28 @@ const Profile: React.FC = () => {
             type="text"
           />
 
+         <Input
+            name="sex"
+            icon={FiUser}
+            placeholder="Genero"
+            type="text"
+          />
+
           <Input
             name="cellphone"
             icon={FiPhone}
             placeholder="Celular"
             type="tel"
           />
+          
+          <Input
+            name="birthday"
+            icon={FiUser}
+            placeholder="Data de nascimento"
+            type="tel"
+          />
 
           <Input name="email" icon={FiMail} placeholder="E-mail" type="email" />
-
-          <Input
-            containerStyle={{ marginTop: 24 }}
-            name="password"
-            icon={FiLock}
-            placeholder="Senha Atual"
-            type="password"
-          />
-
-          <Input
-            name="newPassword"
-            icon={FiLock}
-            placeholder="Nova Senha"
-            type="password"
-          />
-
-          <Input
-            name="passwordConfirmation"
-            icon={FiLock}
-            placeholder="Confirmar Senha"
-            type="password"
-          />
 
           <Button type="submit">Confirmar Mudanças</Button>
         </Form>
@@ -224,5 +187,4 @@ const Profile: React.FC = () => {
     </Container>
   )
 }
-
 export default Profile
