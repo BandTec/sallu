@@ -69,4 +69,5 @@
     <string name="sucesso_autentificacao">Autenticação feita com sucesso</string>
     <string name="cadastro_feito">Cadastro Realizado</string>
     <string name="erro_campo">Senhas não coicidem</string>
+    <string name="erro_autentificacao_dados">login ou senha inválidos</string>
 </resources>

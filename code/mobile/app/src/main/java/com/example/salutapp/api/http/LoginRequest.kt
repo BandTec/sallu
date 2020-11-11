@@ -3,9 +3,11 @@ import com.example.salutapp.api.model.Login
 import com.example.salutapp.api.model.Token
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.Headers
 import retrofit2.http.POST
 
 interface LoginRequest {
+    @Headers("Content-Type: application/json")
     @POST("/auth")
     fun postLogin(@Body login: Login): Call<Void>
 

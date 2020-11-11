@@ -38,8 +38,12 @@ class RegisterActivity : AppCompatActivity() {
 
             call.enqueue(object: Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                    Toast.makeText(applicationContext,getString(R.string.cadastro_feito), Toast.LENGTH_SHORT).show()
-                    irTelaLogin()
+                    if(response.code() == 201) {
+                        Toast.makeText(this@RegisterActivity, getString(R.string.cadastro_feito), Toast.LENGTH_SHORT).show()
+                        irTelaLogin()
+                    }else{
+                        Toast.makeText(this@RegisterActivity, "Erro no cadastro, tente novamente!", Toast.LENGTH_SHORT).show()
+                    }
                 }
 
                 override fun onFailure(call: Call<Void>, t: Throwable) {
