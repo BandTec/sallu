@@ -46,13 +46,14 @@ class LoginActivity : AppCompatActivity() {
 
         val LoginRequest = api.postLogin(login)
         LoginRequest.enqueue(object : Callback<Void> {
+
             override fun onFailure(call: Call<Void>, t: Throwable) {
                 Toast.makeText(baseContext, getString(R.string.erro_autentificacao), Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 Toast.makeText(applicationContext,getString(R.string.sucesso_autentificacao), Toast.LENGTH_SHORT).show()
-                irTelaPrincipal()
+                //irTelaPrincipal()
             }
         })
     }

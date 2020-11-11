@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 
@@ -13,18 +14,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         var fromtobtoom: Animation;
-        //var ivWelcome: ImageView = findViewById(R.id.ivWellcome);
-        //var tvTitle: TextView = findViewById(R.id.tvTitle);
+        var ivWelcome: ImageView = findViewById(R.id.iv_logo);
+        var tvTitle: TextView = findViewById(R.id.tv_titulo);
         var btnLogin: Button = findViewById(R.id.btnLogin);
         var llSingup: LinearLayout = findViewById(R.id.llSingup);
         var tvRegister: TextView = findViewById(R.id.tvRegister);
 
         fromtobtoom = AnimationUtils.loadAnimation(this, R.anim.from_top_to_buttom_wellcome_screen);
 
-        //ivWelcome.startAnimation(fromtobtoom);
-        //tvTitle.startAnimation(fromtobtoom);
+        ivWelcome.startAnimation(fromtobtoom);
+        tvTitle.startAnimation(fromtobtoom);
         btnLogin.startAnimation(fromtobtoom);
         llSingup.startAnimation(fromtobtoom)
 

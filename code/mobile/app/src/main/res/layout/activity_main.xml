@@ -9,14 +9,16 @@
 
 
     <TextView
+        android:id="@+id/tv_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="BEM VINDO"
         android:textColor="#ffffff"
         android:textSize="50dp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="75dp"
-        tools:layout_editor_absoluteY="58dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
 
     <ImageView
         android:id="@+id/iv_logo"
