@@ -7,30 +7,32 @@
     tools:context=".FichaMedica"
     android:background="#D9D9D9">
 
-    <EditText
-        android:layout_width="415dp"
-        android:layout_height="200dp"
-        android:background="#FC6963"
-        android:id="@+id/et_cor"
-        app:layout_constraintHorizontal_bias="0.495"
-        android:layout_marginBottom="15dp"
-        android:radius="200dp"
-        app:layout_constraintVertical_bias="0.0"
-        />
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="236dp"
+        android:background="@drawable/header"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/txt_titulo_ficha"
+        android:layout_marginEnd="84dp"
+        android:layout_marginRight="84dp"
+        android:layout_marginBottom="92dp"
+        android:text="Ficha "
         android:textColor="#D9D9D9"
         android:textSize="30sp"
         android:layout_marginTop="100dp"
         android:textStyle="bold"
-        android:layout_marginLeft="140dp"
-        app:layout_constraintStart_toStartOf="parent"
-        android:id="@+id/tv_configuracao"
-        app:layout_constraintTop_toBottomOf="@+id/tv_usuario"/>
-
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/iv_foto"
@@ -47,12 +49,8 @@
         android:id="@+id/et_peso"
         android:layout_width="198dp"
         android:layout_height="60dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginBottom="412dp"
         android:background="@drawable/bg_txt_height"
-        android:hint="@string/txt_peso_ficha"
-        android:paddingLeft="60dp"
-        android:textSize="18sp"
-        android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.072"
@@ -166,18 +164,11 @@
         android:id="@+id/bt_enviar"
         android:layout_width="280dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="2dp"
-        android:layout_marginLeft="25dp"
-        android:background="@drawable/shape_login_buttom_custom"
-        android:text="@string/txt_btn_ficha"
-        android:textAllCaps="false"
-        android:textColor="#FFF"
-        android:textSize="20sp"
+        android:background="@drawable/bg_text_hospital"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_maisInformacoes"
-        app:layout_constraintVertical_bias="0.641" />
-
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintVertical_bias="0.079" />
 </androidx.constraintlayout.widget.ConstraintLayout>

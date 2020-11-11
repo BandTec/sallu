@@ -3,71 +3,71 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
-import kotlinx.android.synthetic.main.activity_menu.*
+import kotlinx.android.synthetic.main.activity_marca_consulta.*
 
 class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
-        var logout: ImageView = findViewById(R.id.iv_power);
-        var telaPerfil:ImageView = findViewById(R.id.iv_settings)
-        var telaEmergencia: androidx.cardview.widget.CardView = findViewById(R.id.cd_emergence);
-        var telaFichaMedica: androidx.cardview.widget.CardView = findViewById(R.id.cd_fichaMedica);
-        var telaAgendarConsulta: androidx.cardview.widget.CardView = findViewById(R.id.cd_agendar_consulta);
-        var telaHistorico: androidx.cardview.widget.CardView = findViewById(R.id.cd_historico);
+        var cd_emergence: androidx.cardview.widget.CardView = findViewById(R.id.cd_emergence);
+        var cd_ficha_medica: androidx.cardview.widget.CardView = findViewById(R.id.cd_ficha_medica_menu);
+        var cd_marca_consulta: androidx.cardview.widget.CardView = findViewById(R.id.cd_marca_consulta);
+        var cd_historico: androidx.cardview.widget.CardView = findViewById(R.id.cd_historico);
 
-        logout.setOnClickListener {
-            turnOff()
+        var iv_power: ImageView = findViewById(R.id.iv_power);
+        var iv_settings: ImageView = findViewById(R.id.iv_settings);
+
+        cd_emergence.setOnClickListener {
+            nextEmergence();
         }
 
-        telaPerfil.setOnClickListener {
-            irTelaPerfil()
+        cd_ficha_medica.setOnClickListener {
+            nextMarca();
         }
 
-        telaEmergencia.setOnClickListener {
-            irTelaEmergencia()
+        cd_marca_consulta.setOnClickListener {
+            nextFicha();
         }
 
-        telaFichaMedica.setOnClickListener{
-            irTelaFichaMedica()
+        cd_historico.setOnClickListener {
+            nextHistorico();
         }
 
-        telaAgendarConsulta.setOnClickListener{
-            irTelaAgendarConsulta()
+        iv_power.setOnClickListener {
+            turnOff();
         }
 
-        telaHistorico.setOnClickListener {
-            irTelaHistorico()
+        iv_settings.setOnClickListener {
+            nextSettings();
         }
+    }
+    private fun nextEmergence() {
+        val intent = Intent(this,InteractiveDollActivity::class.java)
+        startActivity(intent);
+    }
+
+    private fun nextFicha() {
+        val intent = Intent(this, FichaMedica::class.java)
+        startActivity(intent);
+    }
+
+    private fun nextMarca() {
+        val intent = Intent(this, MarcaConsultaActivity::class.java)
+        startActivity(intent);
+    }
+
+    private fun nextHistorico() {
+        val intent = Intent(this, HistoricoMedico::class.java)
+        startActivity(intent);
     }
 
     private fun turnOff() {
-        finishAffinity()
+        finishAffinity();
     }
 
-    private fun irTelaPerfil() {
+    private fun nextSettings() {
         val intent = Intent(this, ConfiguracaoActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun irTelaEmergencia() {
-        val intent = Intent(this, InteractiveDollActivity::class.java)
-        startActivity(intent)
-    }
-
-    fun irTelaFichaMedica(){
-        val intent = Intent(this, FichaMedica::class.java)
-        startActivity(intent)
-    }
-
-    fun irTelaAgendarConsulta(){
-        val intent = Intent(this, MarcaConsultaActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun irTelaHistorico() {
-        val intent = Intent(this, HistoricoMedico::class.java)
-        startActivity(intent)
+        startActivity(intent);
     }
 }
