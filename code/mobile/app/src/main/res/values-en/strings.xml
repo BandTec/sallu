@@ -31,7 +31,7 @@
     <string name="txt_hora_marcar">Hour</string>
     <string name="txt_especialidade_marcar">Cardiologist Doctor Fernando Av. Paulista</string>
     <string name="txt_altera_finaliza_config">Change</string>
-    <string name="txt_titulo_ficha">" Medical record"</string>
+    <string name="txt_titulo_ficha">Schedule Appointments</string>
     <string name="txt_peso_ficha">" Weight"</string>
     <string name="txt_altura_ficha">" Height"</string>
     <string name="txt_nome_hosp_ficha">" Name Hospital"</string>
@@ -41,4 +41,14 @@
     <string name="txt_ultimo_ciclo_ficha">" Last Cycle"</string>
     <string name="txt_outros_sintomas_ficha">" Other Symptoms"</string>
     <string name="txt_btn_ficha">" Submit"</string>
+    <string name="login_error_campo">Fill field</string>
+    <string name="erro_autentificacao">Authentication failed</string>
+    <string name="sucesso_autentificacao">Authentication successful</string>
+    <string name="cadastro_feito">Registration performed</string>
+    <string name="erro_campo">Passwords do not match</string>
+    <string name="txt_emergencia_menu">Emergency</string>
+    <string name="txt_ficha_menu">Medical Record</string>
+    <string name="txt_agendar_menu">Schedule Consultation</string>
+    <string name="txt_historico_menu">Medical history</string>
+    <string name="txt_mapa_menu">Nearby Hospitals</string>
 </resources>

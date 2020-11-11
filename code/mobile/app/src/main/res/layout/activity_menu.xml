@@ -29,7 +29,6 @@
         android:id="@+id/iv_power"
         android:layout_width="25dp"
         android:layout_height="25dp"
-
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="13dp"
@@ -42,7 +41,7 @@
         android:id="@+id/user_photo"
         android:layout_width="71dp"
         android:layout_height="71dp"
-        android:layout_marginStart="26dp"
+        android:layout_marginLeft="26dp"
         android:layout_marginTop="24dp"
         android:src="@drawable/user"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,11 +49,11 @@
 
     <TextView
         android:textSize="20sp"
-        android:text="Fernando Maia"
+        android:text="Giovanna Souza"
         android:id="@+id/user_name"
         android:textColor="#ffffff"
         android:layout_marginTop="32dp"
-        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/user_photo"
@@ -102,19 +101,17 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center_horizontal"
-
                     android:background="@drawable/emergence_icon" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Emergência"
+                    android:text="@string/txt_emergencia_menu"
                     android:textColor="@color/textcardColor"
                     android:textSize="14sp"
                     android:textStyle="bold" />
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -147,13 +144,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ficha Médica"
+                    android:text="@string/txt_ficha_menu"
                     android:textColor="@color/textcardColor"
                     android:textSize="14sp"
                     android:layout_marginTop="8dp"
                     android:textStyle="bold"/>
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -186,13 +182,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Agendar Consulta"
+                    android:text="@string/txt_agendar_menu"
                     android:textColor="@color/textcardColor"
                     android:textSize="14sp"
                     android:layout_marginTop="8dp"
                     android:textStyle="bold"/>
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -225,13 +220,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Histórico Médico"
+                    android:text="@string/txt_historico_menu"
                     android:textColor="@color/textcardColor"
                     android:textSize="14sp"
                     android:layout_marginTop="8dp"
                     android:textStyle="bold"/>
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -263,15 +257,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hospitais Próximos"
+                    android:text="@string/txt_mapa_menu"
                     android:layout_marginTop="8dp"
                     android:textColor="@color/textcardColor"
                     android:textSize="14sp"
                     android:textStyle="bold"/>
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
 
     </GridLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

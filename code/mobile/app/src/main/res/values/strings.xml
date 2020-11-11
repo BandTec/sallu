@@ -1,16 +1,19 @@
 <resources>
+    <!--Tela Menu-->
     <string name="app_name">SalutApp</string>
     <string name="txt_titulo">BEM VINDO</string>
     <string name="txt_btn_login">Entrar</string>
     <string name="txt_nao_tem_conta">Não tem conta?</string>
     <string name="txt_cadastro">Cadastre-se</string>
 
+    <!--Tela Login-->
     <string name="txt_titulo_login">Seu futuro, nosso desafio</string>
     <string name="txt_email_login">Email</string>
     <string name="txt_senha_login">Senha</string>
     <string name="txt_esqueceu_senha_login">Esqueceu a senha?</string>
     <string name="txt_não_conta_login">Não tem uma conta?</string>
 
+    <!--Tela Cadastro-->
     <string name="txt_cadastro_register">Nova Conta:</string>
     <string name="txt_nome_register">Nome Completo</string>
     <string name="txt_nasc_register">Data de Nascimento</string>
@@ -18,6 +21,7 @@
     <string name="txt_confirma_senha_register">Confirmar Senha</string>
     <string name="txt_btn_cadastro_register">Cadastrar</string>
 
+    <!--Tela Perfil-->
     <string name="txt_titulo_configuration">Configuração</string>
     <string name="txt_altera_nome_config">Altere seu nome</string>
     <string name="txt_altera_email_config">Altere seu e-mail</string>
@@ -28,9 +32,11 @@
     <string name="txt_btn_altera_config">Alteração Finalizada</string>
     <string name="txt_altera_finaliza_config">Alterar</string>
 
+    <!--Tela Historico-->
     <string name="txt_titulo_historico">Histórico Médico</string>
     <string name="txt_btn_visualizar">Visualizar Anteriores</string>
 
+    <!--Tela Agendamento-->
     <string name="txt_data_marcar">16/10/2020</string>
     <string name="txt_btn_marcar">Hoje</string>
     <string name="txt_hora_marcar">Hora</string>
@@ -38,7 +44,8 @@
     <string name="txt_horario_marcar">12:00</string>
     <string name="txt_especialidade_marcar">Cardiologista Doutror Fernando Av. Paulista</string>
 
-    <string name="txt_titulo_ficha">Ficha médica</string>
+    <!--Tela ficha medica-->
+    <string name="txt_titulo_ficha">Agendar Consultas</string>
     <string name="txt_peso_ficha">Peso</string>
     <string name="txt_altura_ficha">Altura</string>
     <string name="txt_nome_hosp_ficha">Nome Hospital</string>
@@ -49,4 +56,17 @@
     <string name="txt_outros_sintomas_ficha">Outros Sintomas</string>
     <string name="txt_btn_ficha">Enviar</string>
 
+    <!--Tela Menu-->
+    <string name="txt_emergencia_menu">Emergência</string>
+    <string name="txt_ficha_menu">Ficha Médica</string>
+    <string name="txt_agendar_menu">Agendar Consulta</string>
+    <string name="txt_historico_menu">Histórico Médico</string>
+    <string name="txt_mapa_menu">Hospitais Próximos</string>
+
+    <!--Mensagens Toast-->
+    <string name="login_error_campo">Preencher campo</string>
+    <string name="erro_autentificacao">Falha na autenticação</string>
+    <string name="sucesso_autentificacao">Autenticação feita com sucesso</string>
+    <string name="cadastro_feito">Cadastro Realizado</string>
+    <string name="erro_campo">Senhas não coicidem</string>
 </resources>

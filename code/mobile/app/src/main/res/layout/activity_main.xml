@@ -4,38 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FC6963"
+    android:background="#2FB186"
     tools:context=".MainActivity">
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BEM VINDO"
+        android:textColor="#ffffff"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="75dp"
+        tools:layout_editor_absoluteY="58dp" />
+
     <ImageView
-        android:id="@+id/ivWellcome"
-        android:layout_width="310dp"
-        android:layout_height="310dp"
+        android:id="@+id/iv_logo"
+        android:layout_width="350dp"
+        android:layout_height="330dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="200dp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/custom_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
-        android:src="@drawable/wellcome_screen"
-        />
-
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:lineSpacingExtra="12dp"
-        android:text="@string/txt_titulo"
-        android:textColor="@color/white"
-        android:textSize="45sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivWellcome"
+        android:src="@drawable/imagem1"
         />
 
 
@@ -43,19 +38,18 @@
         android:id="@+id/btnLogin"
         android:layout_width="260dp"
         android:layout_height="55dp"
-        android:text="@string/txt_btn_login"
-        android:textSize="18sp"
-        android:textColor="@color/white"
-        android:layout_marginBottom="70dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="76dp"
+        android:background="@drawable/shape_login_buttom_custom"
+        android:text="@string/txt_btn_login"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
-        android:background="@drawable/shape_login_buttom_custom"
-        />
-    
+        app:layout_constraintStart_toStartOf="parent" />
+
     <LinearLayout
         android:id="@+id/llSingup"
         android:layout_width="match_parent"
