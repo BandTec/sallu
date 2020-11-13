@@ -82,7 +82,7 @@
         android:hint="@string/txt_altera_telefone_config"
         app:layout_constraintTop_toBottomOf="@+id/et_gmail"
         android:paddingLeft="54dp"
-        android:background="@drawable/bg_txt_username"
+        android:background="@drawable/bg_txt_telephone"
         android:layout_marginTop="1dp"
         android:textSize="18sp"
         android:inputType="phone"

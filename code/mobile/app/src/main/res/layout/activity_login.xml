@@ -57,7 +57,7 @@
         android:hint="@string/txt_email_login"
         android:textColor="#A6A6A4"
         android:inputType="textEmailAddress"
-        android:background="@drawable/bg_txt_username"
+        android:background="@drawable/bg_txt_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivLogin"
