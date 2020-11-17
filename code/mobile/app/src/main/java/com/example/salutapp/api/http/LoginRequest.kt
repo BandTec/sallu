@@ -10,7 +10,7 @@ import retrofit2.http.POST
 interface LoginRequest {
     @Headers("Content-Type: application/json")
     @POST("/auth")
-    fun postLogin(@Body login: Login): Call<Void>
+    fun postLogin(@Body login: Login): Call<User>
 
     // DADOS DA CONTA
     //@GET("/logado")

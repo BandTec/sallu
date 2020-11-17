@@ -31,6 +31,8 @@
     <string name="txt_confirma_senha_config">Confirme sua senha</string>
     <string name="txt_btn_altera_config">Alteração Finalizada</string>
     <string name="txt_altera_finaliza_config">Alterar</string>
+    <string name="txt_data_nascimento_config">Data de nascimento</string>
+    <string name="txt_genero_config">Gênero</string>
 
     <!--Tela Historico-->
     <string name="txt_titulo_historico">Histórico Médico</string>

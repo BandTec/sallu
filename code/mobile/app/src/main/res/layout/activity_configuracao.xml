@@ -20,11 +20,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Fernandola Maia"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="25sp"
         android:textStyle="bold"
-        android:layout_marginLeft="138dp"
+        android:layout_marginLeft="120dp"
         app:layout_constraintStart_toStartOf="parent"
         android:id="@+id/tv_usuario"
         app:layout_constraintTop_toBottomOf="@+id/iv_fotoPerfil"/>
@@ -34,9 +33,9 @@
         android:layout_height="wrap_content"
         android:hint="@string/txt_titulo_configuration"
         android:textColor="#312E38"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textStyle="bold"
-        android:layout_marginLeft="145dp"
+        android:layout_marginLeft="100dp"
         app:layout_constraintStart_toStartOf="parent"
         android:id="@+id/tv_configuracao"
         app:layout_constraintTop_toBottomOf="@+id/tv_usuario"/>
@@ -95,14 +94,14 @@
     <EditText
         android:layout_width="905px"
         android:layout_height="55dp"
-        android:id="@+id/et_senhaAtual"
-        android:hint="@string/txt_senha_atual_config"
+        android:id="@+id/et_nascimento"
+        android:hint="@string/txt_data_nascimento_config"
         app:layout_constraintTop_toBottomOf="@+id/et_telefone"
         android:paddingLeft="54dp"
         android:background="@drawable/bg_txt_password"
         android:layout_marginTop="1dp"
         android:textSize="18sp"
-        android:inputType="textPassword"
+        android:inputType="date"
         app:layout_constraintVertical_bias="0.0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -112,35 +111,19 @@
     <EditText
         android:layout_width="905px"
         android:layout_height="55dp"
-        android:id="@+id/et_senhaNova"
-        android:hint="@string/txt_altera_senha_config"
-        app:layout_constraintTop_toBottomOf="@+id/et_senhaAtual"
+        android:id="@+id/et_genero"
+        android:hint="@string/txt_genero_config"
+        app:layout_constraintTop_toBottomOf="@+id/et_nascimento"
         android:paddingLeft="54dp"
         android:background="@drawable/bg_txt_password"
         android:layout_marginTop="1dp"
         android:textSize="18sp"
-        android:inputType="textPassword"
+        android:inputType="text"
         app:layout_constraintVertical_bias="0.0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        />
 
-    <EditText
-        android:layout_width="905px"
-        android:layout_height="55dp"
-        android:id="@+id/et_confirmaSenha"
-        android:hint="@string/txt_confirma_senha_config"
-        app:layout_constraintTop_toBottomOf="@+id/et_senhaNova"
-        android:paddingLeft="54dp"
-        android:background="@drawable/bg_txt_password"
-        android:layout_marginTop="1dp"
-        android:textSize="18sp"
-        android:inputType="textPassword"
-        app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         />
 
     <Switch
@@ -156,7 +139,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.393"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_confirmaSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/et_genero" />
 
     <Button
         android:id="@+id/bt_configurar"
@@ -164,8 +147,8 @@
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_marginBottom="2dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="8dp"
         android:text="@string/txt_btn_altera_config"
         android:textAllCaps="false"
         android:textColor="#FFF"

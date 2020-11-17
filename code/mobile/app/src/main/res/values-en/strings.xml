@@ -52,4 +52,6 @@
     <string name="txt_historico_menu">Medical history</string>
     <string name="txt_mapa_menu">Nearby Hospitals</string>
     <string name="erro_autentificacao_dados">Login or password invalid</string>
+    <string name="txt_data_nascimento_config">Date of birth</string>
+    <string name="txt_genero_config">Genre</string>
 </resources>
