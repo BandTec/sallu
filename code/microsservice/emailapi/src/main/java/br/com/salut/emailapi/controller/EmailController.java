@@ -13,6 +13,30 @@ public class EmailController {
     @Autowired
     private JavaMailSender mailSender;
 
+    @GetMapping("/agendamento/{peso}/{altura}/{pressao}/{temperatura}/{alergia}/{dataUltCiclo}/{gravida}/{nomePaciente}/{emailMedico}")
+    public ResponseEntity sendMail(@PathVariable("peso")String peso, @PathVariable("altura")String altura,
+                                   @PathVariable("pressao")String pressao,@PathVariable("temperatura")String temperatura,
+                                   @PathVariable("alergia")String alergia, @PathVariable("dataUltCiclo")String dataUltCiclo,
+                                   @PathVariable("gravida")String gravida, @PathVariable("nomePaciente")String nomePaciente,@PathVariable("emailMedico")String emailMedico){
+        try {
+            MimeMessage mail = mailSender.createMimeMessage();
+
+            MimeMessageHelper helper = new MimeMessageHelper(mail);
+            helper.setTo(emailMedico);
+            helper.setSubject("Agendamento consulta médica");
+            helper.setText("<h3>Ficha Médica do paciente</h3>" +
+                    "Nome: "+nomePaciente+"<br>Peso: "+peso+"<br>Altura: "+altura+"<br>Pressão arterial: "+pressao+
+                    "<br>Temperatura: "+temperatura+"<br>Alergia: "+alergia+"<br>Data ultimo ciclo: "+dataUltCiclo+
+                    "<br>Gravida: "+gravida, true);
+            mailSender.send(mail);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).build();
+        }
+    }
+
+
     @GetMapping("/email-interesse-hospitalar/{nome}/{cnpj}/{telefone}/{email}/{cep}/{bairro}/{end}/{num}")
     public ResponseEntity sendMail(@PathVariable("nome")String nome, @PathVariable("cnpj")String cnpj,
                                    @PathVariable("telefone")String telefone,@PathVariable("email")String email,
