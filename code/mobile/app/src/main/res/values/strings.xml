@@ -31,6 +31,8 @@
     <string name="txt_confirma_senha_config">Confirme sua senha</string>
     <string name="txt_btn_altera_config">Alteração Finalizada</string>
     <string name="txt_altera_finaliza_config">Alterar</string>
+    <string name="txt_data_nascimento_config">Data de nascimento</string>
+    <string name="txt_genero_config">Gênero</string>
 
     <!--Tela Historico-->
     <string name="txt_titulo_historico">Histórico Médico</string>
@@ -45,7 +47,7 @@
     <string name="txt_especialidade_marcar">Cardiologista Doutror Fernando Av. Paulista</string>
 
     <!--Tela ficha medica-->
-    <string name="txt_titulo_ficha">Agendar Consultas</string>
+    <string name="txt_titulo_ficha">Agendamento</string>
     <string name="txt_peso_ficha">Peso</string>
     <string name="txt_altura_ficha">Altura</string>
     <string name="txt_nome_hosp_ficha">Nome Hospital</string>
@@ -53,8 +55,9 @@
     <string name="txt_pressao_art_ficha">Pressão Arterial</string>
     <string name="txt_gestante_ficha">É gestante?</string>
     <string name="txt_ultimo_ciclo_ficha">Último Ciclo</string>
-    <string name="txt_outros_sintomas_ficha">Outros Sintomas</string>
+    <string name="txt_outros_sintomas_ficha">Alergias</string>
     <string name="txt_btn_ficha">Enviar</string>
+    <string name="txt_mome_hospital">Hospital</string>
 
     <!--Tela Menu-->
     <string name="txt_emergencia_menu">Emergência</string>
@@ -71,4 +74,10 @@
     <string name="erro_campo">Senhas não coicidem</string>
     <string name="erro_autentificacao_dados">login ou senha inválidos</string>
     <string name="title_activity_find_location_maps">Map</string>
+
+    <string name="msg_alterar_sucesso_config">Alteração feita com sucesso</string>
+    <string name="msg_alterar_erro_config">Alteração falhou</string>
+
+    <string name="msg_sucesso_ficha">Ficha enviada com sucesso</string>
+    <string name="msg_erro_ficha">Erro ao enviar ficha</string>
 </resources>

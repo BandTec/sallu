@@ -49,7 +49,6 @@
 
     <TextView
         android:textSize="20sp"
-        android:text="Giovanna Souza"
         android:id="@+id/user_name"
         android:textColor="#ffffff"
         android:layout_marginTop="32dp"

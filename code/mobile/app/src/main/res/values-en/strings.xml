@@ -31,7 +31,7 @@
     <string name="txt_hora_marcar">Hour</string>
     <string name="txt_especialidade_marcar">Cardiologist Doctor Fernando Av. Paulista</string>
     <string name="txt_altera_finaliza_config">Change</string>
-    <string name="txt_titulo_ficha">Schedule Appointments</string>
+    <string name="txt_titulo_ficha">scheduling</string>
     <string name="txt_peso_ficha">" Weight"</string>
     <string name="txt_altura_ficha">" Height"</string>
     <string name="txt_nome_hosp_ficha">" Name Hospital"</string>
@@ -39,7 +39,7 @@
     <string name="txt_pressao_art_ficha">" Blood pressure"</string>
     <string name="txt_gestante_ficha">" Are you pregnant?"</string>
     <string name="txt_ultimo_ciclo_ficha">" Last Cycle"</string>
-    <string name="txt_outros_sintomas_ficha">" Other Symptoms"</string>
+    <string name="txt_outros_sintomas_ficha">Allergies</string>
     <string name="txt_btn_ficha">" Submit"</string>
     <string name="login_error_campo">Fill field</string>
     <string name="erro_autentificacao">Authentication failed</string>
@@ -52,4 +52,10 @@
     <string name="txt_historico_menu">Medical history</string>
     <string name="txt_mapa_menu">Nearby Hospitals</string>
     <string name="erro_autentificacao_dados">Login or password invalid</string>
+    <string name="txt_data_nascimento_config">Date of birth</string>
+    <string name="txt_genero_config">Genre</string>
+    <string name="msg_alterar_sucesso_config">Change made successfully</string>
+    <string name="msg_alterar_erro_config">Change failed</string>
+    <string name="msg_sucesso_ficha">Card sent successfully</string>
+    <string name="msg_erro_ficha">Error sending file</string>
 </resources>

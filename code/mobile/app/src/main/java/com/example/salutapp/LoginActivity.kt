@@ -1,6 +1,7 @@
 package com.example.salutapp
-
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -9,6 +10,7 @@ import android.widget.Toast
 import com.example.salutapp.api.RetrofitConfig
 import com.example.salutapp.api.model.Login
 import com.example.salutapp.api.model.Token
+import com.example.salutapp.api.model.User
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 import retrofit2.Call
@@ -16,21 +18,31 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
+    var preferencias: SharedPreferences? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        preferencias = getSharedPreferences("Autenticacao",Context.MODE_PRIVATE)
+
+        val id = preferencias?.getString("id",null)
+        val nome = preferencias?.getString("nome",null)
+        val genero = preferencias?.getString("genero",null)
+
+        if (nome != null  && id != null && genero != null ){
+            irTelaPrincipal()
+        }
     }
 
-    fun verificarDados(view: View) {
+    fun verificarDados(v: View) {
         //validations
-        val email = etBgUsername.text.toString().trim()
-        val senha = etBgPassword.text.toString().trim()
+        val email = etBgEmail?.text.toString().trim()
+        val senha = etBgPassword?.text.toString().trim()
 
         if (email.isBlank()) {
             etBgEmail.error = getString(R.string.login_error_campo)
             etBgEmail.requestFocus()
-        } else if (senha.isBlank()) {
-            etBgPassword.error = getString(R.string.login_error_campo);
+        }else if (senha.isBlank()) {
+            etBgPassword.error = getString(R.string.login_error_campo)
             etBgPassword.requestFocus()
         }else {
             logar()
@@ -45,15 +57,36 @@ class LoginActivity : AppCompatActivity() {
         )
 
         val LoginRequest = api.postLogin(login)
-        LoginRequest.enqueue(object : Callback<Void> {
-            override fun onFailure(call: Call<Void>, t: Throwable) {
-                Toast.makeText(baseContext, getString(R.string.erro_autentificacao), Toast.LENGTH_SHORT).show()
+        LoginRequest.enqueue(object : Callback<User> {
+            override fun onFailure(call: Call<User>, t: Throwable) {
+                Toast.makeText(baseContext, "falhou $t", Toast.LENGTH_SHORT).show()
             }
 
-            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+            override fun onResponse(call: Call<User>, response: Response<User>) {
                 if(response.code() == 202) {
                     Toast.makeText(this@LoginActivity,getString(R.string.sucesso_autentificacao), Toast.LENGTH_SHORT).show()
-                    irTelaPrincipal()
+                    val telaHome = Intent(this@LoginActivity, MenuActivity::class.java)
+                    var id : Int = 0
+                    var nome: String = ""
+                    var genero: String =""
+                    response?.body()?.let {
+                        //it é o corpo de retorno da requisição
+                        id= it.user.id
+                        nome = it.user.name
+                        genero= it.user.sex
+                        println(nome);
+                        println(id)
+                        println(genero)
+                    }
+                    telaHome.putExtra("id",id.toString())
+                    telaHome.putExtra("nome",nome)
+                    telaHome.putExtra("genero",genero)
+                    val editor = preferencias?.edit()
+                    editor?.putString("nome",nome)
+                    editor?.putString("genero",genero)
+                    editor?.putString("id",id.toString())
+                    editor?.commit()
+                    startActivity(telaHome)
                 }else{
                     Toast.makeText(this@LoginActivity, getString(R.string.erro_autentificacao_dados), Toast.LENGTH_SHORT).show()
                 }
@@ -66,7 +99,7 @@ class LoginActivity : AppCompatActivity() {
         startActivity(telaPrincipal)
     }
 
-    fun irTelaCadastro(v:View){
+    fun irTelaCadastro(v: View){
         val telaCadastro = Intent(this, RegisterActivity::class.java)
         startActivity(telaCadastro)
     }

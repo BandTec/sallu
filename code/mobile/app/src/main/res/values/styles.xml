@@ -17,4 +17,12 @@
         </item>
     </style>
 
+    <style name="campo_alergia">
+        <item name="android:layout_marginBottom">320dp</item>
+    </style>
+
+    <style name="campo_hospital">
+        <item name="android:layout_marginBottom">200dp</item>
+    </style>
+
 </resources>

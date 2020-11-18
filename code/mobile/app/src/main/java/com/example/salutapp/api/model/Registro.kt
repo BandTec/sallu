@@ -7,5 +7,5 @@ data class Registro(
     val sex: String,
     val cellphone: String?,
     val email: String,
-    val password: String,
+    val password: String
 )
