@@ -76,4 +76,7 @@
 
     <string name="msg_alterar_sucesso_config">Alteração feita com sucesso</string>
     <string name="msg_alterar_erro_config">Alteração falhou</string>
+
+    <string name="msg_sucesso_ficha">Ficha enviada com sucesso</string>
+    <string name="msg_erro_ficha">Erro ao enviar ficha</string>
 </resources>

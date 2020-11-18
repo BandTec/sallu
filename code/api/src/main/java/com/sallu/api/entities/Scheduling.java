@@ -15,13 +15,52 @@ public class Scheduling {
 
     private String consultation_time;
 
-    private String medical_name;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "doctor_id", referencedColumnName = "id")
+    private Doctors doctors;
 
-    private String specialty;
-
-    @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getConsultation_date() {
+        return consultation_date;
+    }
+
+    public void setConsultation_date(String consultation_date) {
+        this.consultation_date = consultation_date;
+    }
+
+    public String getConsultation_time() {
+        return consultation_time;
+    }
+
+    public void setConsultation_time(String consultation_time) {
+        this.consultation_time = consultation_time;
+    }
+
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Doctors getDoctors() {
+        return doctors;
+    }
+
+    public void setDoctors(Doctors doctors) {
+        this.doctors = doctors;
+    }
 }

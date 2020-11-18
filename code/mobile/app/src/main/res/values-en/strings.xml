@@ -56,4 +56,6 @@
     <string name="txt_genero_config">Genre</string>
     <string name="msg_alterar_sucesso_config">Change made successfully</string>
     <string name="msg_alterar_erro_config">Change failed</string>
+    <string name="msg_sucesso_ficha">Card sent successfully</string>
+    <string name="msg_erro_ficha">Error sending file</string>
 </resources>
