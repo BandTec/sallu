@@ -1,5 +1,4 @@
 package com.example.salutapp
-
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -23,28 +22,27 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        preferencias = getPreferences(Context.MODE_PRIVATE)
+        preferencias = getSharedPreferences("Autenticacao",Context.MODE_PRIVATE)
 
         val id = preferencias?.getString("id",null)
         val nome = preferencias?.getString("nome",null)
         val genero = preferencias?.getString("genero",null)
-        val senha = preferencias?.getString("senha",null)
 
-        if (nome != null  && id != null && genero != null){
+        if (nome != null  && id != null && genero != null ){
             irTelaPrincipal()
         }
     }
 
-    fun verificarDados(view: View) {
+    fun verificarDados(v: View) {
         //validations
-        val email = etBgUsername.text.toString().trim()
-        val senha = etBgPassword.text.toString().trim()
+        val email = etBgEmail?.text.toString().trim()
+        val senha = etBgPassword?.text.toString().trim()
 
         if (email.isBlank()) {
             etBgEmail.error = getString(R.string.login_error_campo)
             etBgEmail.requestFocus()
-        } else if (senha.isBlank()) {
-            etBgPassword.error = getString(R.string.login_error_campo);
+        }else if (senha.isBlank()) {
+            etBgPassword.error = getString(R.string.login_error_campo)
             etBgPassword.requestFocus()
         }else {
             logar()

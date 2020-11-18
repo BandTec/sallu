@@ -83,7 +83,7 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private fun turnOff() {
-        var preferencias = getPreferences(Context.MODE_PRIVATE)
+        var preferencias = getSharedPreferences("Autenticacao",Context.MODE_PRIVATE)
         preferencias.edit().remove("nome").commit()
         preferencias.edit().remove("id").commit()
         val telaLogin = Intent(this@MenuActivity, LoginActivity::class.java)

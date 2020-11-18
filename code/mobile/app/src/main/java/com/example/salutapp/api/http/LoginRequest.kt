@@ -11,10 +11,4 @@ interface LoginRequest {
     @Headers("Content-Type: application/json")
     @POST("/auth")
     fun postLogin(@Body login: Login): Call<User>
-
-    // DADOS DA CONTA
-    //@GET("/logado")
-    //fun getDadosConta(
-      //  @Header("authorization") auth: String
-    //): Call<UserZenite>
 }
