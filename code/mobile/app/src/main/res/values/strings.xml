@@ -73,4 +73,7 @@
     <string name="cadastro_feito">Cadastro Realizado</string>
     <string name="erro_campo">Senhas não coicidem</string>
     <string name="erro_autentificacao_dados">login ou senha inválidos</string>
+
+    <string name="msg_alterar_sucesso_config">Alteração feita com sucesso</string>
+    <string name="msg_alterar_erro_config">Alteração falhou</string>
 </resources>
