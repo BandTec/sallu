@@ -79,12 +79,11 @@ const NewMedicalRecord: React.FC = () => {
         ? 'amarelo'
         : 'vermelho'
 
-        
     return {
       ...data,
       referral: {
         color,
-        call: crypto.randomBytes(8).toString(),
+        call: crypto.randomBytes(8).toString('hex'),
       },
     }
   }, [])
@@ -219,7 +218,7 @@ const NewMedicalRecord: React.FC = () => {
             placeholder="Alergia"
           />
 
-          {user.sex === 'F' && (
+          {(user.sex === 'F' || user.sex === 'f') && (
             <>
               <Input
                 name="lastCycle"
