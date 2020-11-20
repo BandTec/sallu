@@ -47,7 +47,7 @@ class FindLocationMapsActivity : AppCompatActivity(), OnMapReadyCallback {
             ) != PackageManager.PERMISSION_GRANTED
         ) {
             val permissionsToRequest = mutableListOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
-            ActivityCompat.requestPermissions(this, permissionsToRequest)
+            //ActivityCompat.requestPermissions(this, permissionsToRequest)
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
