@@ -41,7 +41,7 @@
         android:layout_height="60dp"
         android:layout_marginBottom="430dp"
         android:background="@drawable/bg_txt_height"
-        android:text="@string/txt_altura_ficha"
+        android:hint="@string/txt_altura_ficha"
         android:layout_marginLeft="5dp"
         android:paddingLeft="45dp"
         android:textSize="18sp"

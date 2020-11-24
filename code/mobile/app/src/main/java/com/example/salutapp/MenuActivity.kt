@@ -65,8 +65,10 @@ class MenuActivity : AppCompatActivity() {
 
     private fun nextFicha() {
         var genero = intent.extras?.getString("genero")
+        var token = intent.extras?.getString("token")
         val telaFicha = Intent(this@MenuActivity, FichaMedica::class.java)
         telaFicha.putExtra("genero", genero)
+        telaFicha.putExtra("token", token)
         startActivity(telaFicha)
     }
 

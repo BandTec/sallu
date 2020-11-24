@@ -3,14 +3,13 @@ package com.example.salutapp.api.dto
 import java.math.BigDecimal
 
 data class FichaMedicaDto (
-        val weight: BigDecimal,
-        val height: BigDecimal,
-        val bloodPressure: BigDecimal,
-        val bodyTemperature: BigDecimal,
         val allergy: String,
-        val lastCycle: String?,
-        //val createdAt: String?,
+        val bloodPressure: String,
+        val bodyTemperature: String,
+        val height: String,
+        val hospitalId: String?,
         val isPregnant: Boolean?,
-        val hospitalId: Int?,
-        val referral: ClassificacaoDto
+        val lastCycle: String?,
+        val referral: ClassificacaoDto,
+        val weight: String
 )
