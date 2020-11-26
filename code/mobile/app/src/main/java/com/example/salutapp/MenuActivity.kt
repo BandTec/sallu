@@ -59,7 +59,7 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private fun nextEmergence() {
-        val intent = Intent(this,InteractiveDollActivity::class.java)
+        val intent = Intent(this, InteractiveDollActivity::class.java)
         startActivity(intent);
     }
 

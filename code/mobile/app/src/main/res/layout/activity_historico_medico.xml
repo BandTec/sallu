@@ -277,18 +277,18 @@
         app:layout_constraintTop_toTopOf="@+id/tv_resposta8"
         tools:layout_editor_absoluteX="244dp" />
 
-    <Button
-        android:id="@+id/bt_configurar"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="348dp"
-        android:background="@drawable/shape_login_buttom_custom"
-        android:text="@string/txt_btn_visualizar"
-        android:textAllCaps="false"
-        android:textColor="#FFF"
-        android:textSize="20sp"
-        app:layout_constraintTop_toTopOf="@+id/tv_1"
-        tools:layout_editor_absoluteX="76dp" />
+<!--    <Button-->
+<!--        android:id="@+id/bt_configurar"-->
+<!--        android:layout_width="280dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginTop="348dp"-->
+<!--        android:background="@drawable/shape_login_buttom_custom"-->
+<!--        android:text="@string/txt_btn_visualizar"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textColor="#FFF"-->
+<!--        android:textSize="20sp"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/tv_1"-->
+<!--        tools:layout_editor_absoluteX="76dp" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
