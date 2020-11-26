@@ -2,7 +2,7 @@ package com.example.salutapp.api.model
 
 data class Usuario (
         val id: Int,
-        val medicalRecords: ArrayList<FichaMedica>,
+        val medicalRecords: List<FichaMedica>,
         val name: String,
         val cellphone: String,
         val birthday: String,

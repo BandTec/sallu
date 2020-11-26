@@ -41,7 +41,6 @@ class FichaMedica : AppCompatActivity() {
                 hospitais.clear()
                 hospitais.addAll(lista)
                 val nomes = lista.map { it.nome }
-
                 val ad = ArrayAdapter(baseContext, android.R.layout.simple_spinner_item, nomes)
                 ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 lv_hospitais.setAdapter(ad)
@@ -61,10 +60,16 @@ class FichaMedica : AppCompatActivity() {
     }
 
     fun enviar (v : View){
+
+        var token= intent.extras?.getString("token")
         val selecionado = lv_hospitais.selectedItem.toString()
         val id = hospitais.find { it.nome == selecionado }?.id
-        val idHospital = id
         println(id)
+        println(token)
+
+        if(token == null){
+            return
+        }
 
         val gravida: Boolean
         if(swAlteracaoFinalizada.isChecked){
@@ -80,25 +85,30 @@ class FichaMedica : AppCompatActivity() {
         )
 
         val fichaMedica = FichaMedicaDto(
-                et_peso.text.toString().toBigDecimal(),
-                et_altura.text.toString().toBigDecimal(),
-                et_pressao.text.toString().toBigDecimal(),
-                et_temperatura.text.toString().toBigDecimal(),
                 et_maisInformacoes.text.toString(),
-                et_ultCiclo.text.toString(),
+                et_pressao.text.toString(),
+                et_temperatura.text.toString(),
+                et_altura.text.toString(),
+                id.toString(),
                 gravida,
-                id,
-                classificacao
+                et_ultCiclo.text.toString(),
+                classificacao,
+                et_peso.text.toString()
         )
-        val callFichaMedica = api.postFichaMedica(fichaMedica)
 
+        val tokenUser = "Bearer ${token}"
+        val callFichaMedica = api.postFichaMedica(fichaMedica,tokenUser)
         callFichaMedica.enqueue(object: Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if(response.code() == 201) {
                     Toast.makeText(this@FichaMedica, getString(R.string.msg_sucesso_ficha), Toast.LENGTH_SHORT).show()
-
+                    println("status code = ${response.code()}")
+                    println("resposta = ${response}")
                 }else{
+                    println(response.code())
                     Toast.makeText(this@FichaMedica,getString(R.string.msg_erro_ficha) , Toast.LENGTH_SHORT).show()
+                    println("status code = ${response.code()}")
+                    println("resposta = ${response}")
                 }
             }
 

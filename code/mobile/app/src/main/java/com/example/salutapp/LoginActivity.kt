@@ -27,8 +27,9 @@ class LoginActivity : AppCompatActivity() {
         val id = preferencias?.getString("id",null)
         val nome = preferencias?.getString("nome",null)
         val genero = preferencias?.getString("genero",null)
+        val token = preferencias?.getString("token",null)
 
-        if (nome != null  && id != null && genero != null ){
+        if (nome != null  && id != null && genero != null && token != null){
             irTelaPrincipal()
         }
     }
@@ -69,22 +70,27 @@ class LoginActivity : AppCompatActivity() {
                     var id : Int = 0
                     var nome: String = ""
                     var genero: String =""
+                    var token: String = ""
                     response?.body()?.let {
                         //it é o corpo de retorno da requisição
                         id= it.user.id
                         nome = it.user.name
                         genero= it.user.sex
+                        token = it.token
                         println(nome);
                         println(id)
                         println(genero)
+                        println(token)
                     }
                     telaHome.putExtra("id",id.toString())
                     telaHome.putExtra("nome",nome)
                     telaHome.putExtra("genero",genero)
+                    telaHome.putExtra("token",token)
                     val editor = preferencias?.edit()
                     editor?.putString("nome",nome)
                     editor?.putString("genero",genero)
                     editor?.putString("id",id.toString())
+                    editor?.putString("token",token)
                     editor?.commit()
                     startActivity(telaHome)
                 }else{
