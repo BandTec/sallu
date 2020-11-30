@@ -20,14 +20,8 @@ interface GeolocationResults {
   geometry: {
     location: GeolocationGeometryLocation
     viewport: {
-      northeast: {
-        lat: number
-        lng: number
-      }
-      southwest: {
-        lat: number
-        lng: number
-      }
+      northeast: GeolocationGeometryLocation
+      southwest: GeolocationGeometryLocation
     }
   }
   name: string

@@ -59,7 +59,7 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private fun nextEmergence() {
-        val intent = Intent(this,InteractiveDollActivity::class.java)
+        val intent = Intent(this, InteractiveDollActivity::class.java)
         startActivity(intent);
     }
 
@@ -90,5 +90,11 @@ class MenuActivity : AppCompatActivity() {
         preferencias.edit().remove("id").commit()
         val telaLogin = Intent(this@MenuActivity, LoginActivity::class.java)
         startActivity(telaLogin)
+    }
+
+    fun goToMaps() {
+        val telaMaps = Intent(this, FindLocationMapsActivity::class.java)
+
+        startActivity(telaMaps)
     }
 }

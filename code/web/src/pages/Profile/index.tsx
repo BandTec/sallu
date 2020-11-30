@@ -1,12 +1,6 @@
 import React, { useCallback, useRef, ChangeEvent } from 'react'
-import { useHistory, Link } from 'react-router-dom'
-import {
-  FiUser,
-  FiPhone,
-  FiMail,
-  FiCamera,
-  FiArrowLeft,
-} from 'react-icons/fi'
+import { Link } from 'react-router-dom'
+import { FiUser, FiPhone, FiMail, FiCamera, FiArrowLeft } from 'react-icons/fi'
 import { Form } from '@unform/web'
 import { FormHandles } from '@unform/core'
 import * as Yup from 'yup'
@@ -23,9 +17,9 @@ import { useAuth } from '../../hooks/auth'
 interface IProfileFormData {
   name: string
   sex: string
- // birthdayDate: string
+  // birthdayDate: string
   cellphone: string
- // email: string
+  // email: string
 }
 
 interface IHandleSubmit {
@@ -41,7 +35,7 @@ const Profile: React.FC = () => {
 
   const { addToast } = useToast()
   const { user, updateUser } = useAuth()
-  //const history = useHistory()
+  // const history = useHistory()
 
   const handleSubmit = useCallback<IHandleSubmit>(
     async data => {
@@ -61,13 +55,13 @@ const Profile: React.FC = () => {
         await schema.validate(data, {
           abortEarly: false,
         })
-        
+
         const formData = {
           name: data.name,
           sex: data.sex,
-         // birthdayDate: data.birthdayDate,
-          cellphone: data.cellphone
-         // email: data.email
+          // birthdayDate: data.birthdayDate,
+          cellphone: data.cellphone,
+          // email: data.email
         }
         console.log(formData)
 
@@ -78,7 +72,7 @@ const Profile: React.FC = () => {
           title: 'Alterações realizadas!',
           description: 'Você já pode fazer o seu logon no Sallut!',
         })
-      //  history.push('/')
+        //  history.push('/')
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err)
@@ -129,7 +123,7 @@ const Profile: React.FC = () => {
 
       <Content>
         <Form
-        key={user.id}
+          key={user.id}
           ref={formRef}
           initialData={{
             ...user,
@@ -158,12 +152,7 @@ const Profile: React.FC = () => {
             type="text"
           />
 
-         <Input
-            name="sex"
-            icon={FiUser}
-            placeholder="Genero"
-            type="text"
-          />
+          <Input name="sex" icon={FiUser} placeholder="Genero" type="text" />
 
           <Input
             name="cellphone"
@@ -171,7 +160,7 @@ const Profile: React.FC = () => {
             placeholder="Celular"
             type="tel"
           />
-          
+
           <Input
             name="birthday"
             icon={FiUser}

@@ -14,6 +14,7 @@
         android:fillViewport="true">
 
         <LinearLayout
+            android:id="@+id/llFirst"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:alignmentMode="alignMargins"
@@ -35,7 +36,7 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cd_emergence1"
+                    android:id="@+id/cd_head"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="8dp"
@@ -72,7 +73,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cd_ficha_medica1"
+                    android:id="@+id/cd_eye"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
@@ -118,7 +119,7 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cd_emergence2"
+                    android:id="@+id/cd_kindey"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="8dp"
@@ -155,7 +156,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cd_ficha_medica2"
+                    android:id="@+id/cd_liver"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
@@ -201,7 +202,7 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cd_emergence3"
+                    android:id="@+id/cd_lung"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="8dp"
@@ -238,7 +239,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cd_ficha_medica3"
+                    android:id="@+id/cd_heart"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
@@ -285,7 +286,7 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cd_emergence4"
+                    android:id="@+id/cd_bones"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="8dp"
@@ -322,7 +323,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cd_ficha_medica4"
+                    android:id="@+id/cd_veins"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"

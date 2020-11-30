@@ -173,5 +173,4 @@
         app:layout_constraintTop_toTopOf="@+id/tv_1"
         tools:layout_editor_absoluteX="76dp" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
