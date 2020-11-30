@@ -91,4 +91,10 @@ class MenuActivity : AppCompatActivity() {
         val telaLogin = Intent(this@MenuActivity, LoginActivity::class.java)
         startActivity(telaLogin)
     }
+
+    fun goToMaps() {
+        val telaMaps = Intent(this, FindLocationMapsActivity::class.java)
+
+        startActivity(telaMaps)
+    }
 }

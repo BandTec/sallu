@@ -35,10 +35,10 @@
 
         <activity
             android:name=".FindLocationMapsActivity"
-            android:label="@string/title_activity_find_location_maps" />
+            android:label="@string/title_activity_find_location_maps">
+        </activity>
         <activity android:name=".MenuActivity2" />
         <activity android:name=".InteractiveDollActivity" />
-        <activity android:name=".AngendarConsultaActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".MarcaConsultaActivity" />
         <activity android:name=".FichaMedica" />
