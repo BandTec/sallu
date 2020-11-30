@@ -102,8 +102,6 @@ class FichaMedica : AppCompatActivity() {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if(response.code() == 201) {
                     Toast.makeText(this@FichaMedica, getString(R.string.msg_sucesso_ficha), Toast.LENGTH_SHORT).show()
-                    println("status code = ${response.code()}")
-                    println("resposta = ${response}")
                 }else{
                     println(response.code())
                     Toast.makeText(this@FichaMedica,getString(R.string.msg_erro_ficha) , Toast.LENGTH_SHORT).show()
@@ -111,7 +109,6 @@ class FichaMedica : AppCompatActivity() {
                     println("resposta = ${response}")
                 }
             }
-
             override fun onFailure(call: Call<Void>, t: Throwable) {
                 Toast.makeText(applicationContext, "Erro no envio $t", Toast.LENGTH_SHORT).show()
             }
