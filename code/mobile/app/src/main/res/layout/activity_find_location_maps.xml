@@ -26,8 +26,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
         android:layout_width="86dp"
@@ -38,6 +37,5 @@
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btn_uber"
-        />
+        app:layout_constraintBottom_toTopOf="@id/btn_uber" />
 </androidx.constraintlayout.widget.ConstraintLayout>
