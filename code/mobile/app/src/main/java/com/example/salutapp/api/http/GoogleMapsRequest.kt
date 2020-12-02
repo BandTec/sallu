@@ -9,7 +9,7 @@ import retrofit2.http.QueryMap
 
 interface GoogleMapsRequest {
 
-    @GET("json?radius=1500&types=hospital&key=KEY_HERE")
+    @GET("json?radius=1500&types=hospital&key=AIzaSyBHXPgb8iyewT7jcM9lQKOXmI8dwRZakYc")
     fun getHospitalsNearby(
         @Query("location") location: String
     ): Call<GoogleGeolocationAPIResponse>
