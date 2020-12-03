@@ -24,7 +24,7 @@
     <string name="txt_confirma_senha_config">Confirm your password</string>
     <string name="txt_btn_altera_config">Finished Change</string>
     <string name="txt_titulo_historico">Medical history</string>
-    <string name="txt_btn_visualizar">View Previous</string>
+    <string name="txt_btn_visualizar">Queries</string>
     <string name="txt_data_marcar">2020/10/16</string>
     <string name="txt_btn_marcar">Schedules</string>
     <string name="txt_titulo_marcar">Queries</string>
@@ -59,4 +59,5 @@
     <string name="msg_sucesso_ficha">Card sent successfully</string>
     <string name="msg_erro_ficha">Error sending file</string>
     <string name="cadastro_falhou">Error in registration, try again!</string>
+    <string name="msg_ativar_Checkout">Activate the change button</string>
 </resources>

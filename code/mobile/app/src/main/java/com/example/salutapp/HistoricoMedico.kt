@@ -1,4 +1,6 @@
 package com.example.salutapp
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -13,6 +15,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class HistoricoMedico : AppCompatActivity() {
+    var preferencias: SharedPreferences? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_historico_medico)
@@ -20,17 +23,16 @@ class HistoricoMedico : AppCompatActivity() {
     }
 
     fun listarFichas(){
-        var idUsuario= intent.extras?.getString("id")
+        preferencias = getSharedPreferences("Autenticacao", Context.MODE_PRIVATE)
+        val id = preferencias?.getString("id",null)
         val api = RetrofitConfig().requestUsuario()
-        val callUsuario = api.getUsuarioDados(Integer(idUsuario))
+        val callUsuario = api.getUsuarioDados(Integer(id))
 
         callUsuario.enqueue(object: Callback<Usuario>{
             override fun onFailure(call: Call<Usuario>, t: Throwable) {
                 Toast.makeText(applicationContext, "Deu ruim $t", Toast.LENGTH_SHORT).show()
             }
             override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
-                    val resposta = response.body()
-                    println(response.body())
 
                 val fichas = response.body()?.medicalRecords
                 val dadosFicha = ArrayList<DadosFicha>()
@@ -52,7 +54,6 @@ class HistoricoMedico : AppCompatActivity() {
                         val pressao = TextView(baseContext)
                         val temperatura = TextView(baseContext)
                         val textoRespostaTxt = TextView(baseContext)
-                        //val tvMusica = TextView(ContextThemeWrapper(baseContext, R.style.Tv_Item))
                         nomeHospital.text = ficha.hospital.name.toString()
                         telefone.text = ficha.hospital.telephone.toString()
                         pressao.text = ficha.bloodPressure.toString()
