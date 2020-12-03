@@ -71,6 +71,7 @@ class ConfiguracaoActivity : AppCompatActivity() {
                 }
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if(response.code() == 200) {
+
                         Toast.makeText(this@ConfiguracaoActivity,getString(R.string.msg_alterar_sucesso_config), Toast.LENGTH_SHORT).show()
                     }else{
                         Toast.makeText(this@ConfiguracaoActivity, getString(R.string.msg_alterar_erro_config), Toast.LENGTH_SHORT).show()

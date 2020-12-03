@@ -40,7 +40,7 @@
 
     <!--Tela Agendamento-->
     <string name="txt_data_marcar">16/10/2020</string>
-    <string name="txt_btn_marcar">Hoje</string>
+    <string name="txt_btn_marcar">Agendamentos</string>
     <string name="txt_hora_marcar">Hora</string>
     <string name="txt_titulo_marcar">Consultas</string>
     <string name="txt_horario_marcar">12:00</string>
@@ -71,6 +71,7 @@
     <string name="erro_autentificacao">Falha na autenticação</string>
     <string name="sucesso_autentificacao">Autenticação feita com sucesso</string>
     <string name="cadastro_feito">Cadastro Realizado</string>
+    <string name="cadastro_falhou">Erro no cadastro, tente novamente!</string>
     <string name="erro_campo">Senhas não coicidem</string>
     <string name="erro_autentificacao_dados">login ou senha inválidos</string>
     <string name="title_activity_find_location_maps">Map</string>

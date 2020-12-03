@@ -26,7 +26,7 @@
     <string name="txt_titulo_historico">Medical history</string>
     <string name="txt_btn_visualizar">View Previous</string>
     <string name="txt_data_marcar">2020/10/16</string>
-    <string name="txt_btn_marcar">Today</string>
+    <string name="txt_btn_marcar">Schedules</string>
     <string name="txt_titulo_marcar">Queries</string>
     <string name="txt_hora_marcar">Hour</string>
     <string name="txt_especialidade_marcar">Cardiologist Doctor Fernando Av. Paulista</string>
@@ -58,4 +58,5 @@
     <string name="msg_alterar_erro_config">Change failed</string>
     <string name="msg_sucesso_ficha">Card sent successfully</string>
     <string name="msg_erro_ficha">Error sending file</string>
+    <string name="cadastro_falhou">Error in registration, try again!</string>
 </resources>

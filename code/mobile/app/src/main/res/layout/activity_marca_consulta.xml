@@ -19,51 +19,15 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:text="09"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/et_ficha1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.117"
-        app:layout_constraintStart_toEndOf="@+id/iv_fotoConsulta" />
-
-    <TextView
-        android:layout_width="40dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="4dp"
-        android:text="Seg"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/et_ficha1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.796" />
-
-    <TextView
-        android:layout_width="65dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:text="Nov 2020"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/et_ficha1"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
         android:id="@+id/et_ficha1"
-        android:layout_width="90dp"
+        android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_marginBottom="128dp"
         android:background="@drawable/custom_today_box"
-        android:paddingLeft="30dp"
+        android:paddingLeft="10dp"
         android:text="@string/txt_btn_marcar"
-        android:textAlignment="textStart"
         android:textColor="#FC6963"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/cv_calendario"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +55,7 @@
     <EditText
         android:id="@+id/et_coluna"
         android:layout_width="110dp"
-        android:layout_height="390dp"
+        android:layout_height="450dp"
         android:background="#D9D9D9"
         app:layout_constraintTop_toBottomOf="@+id/cv_calendario"
         tools:layout_editor_absoluteX="0dp" />
@@ -130,7 +94,7 @@
         android:layout_width="80dp"
         android:layout_height="20dp"
         android:layout_marginTop="28dp"
-        android:text="@string/txt_horario_marcar"
+        android:text="14:00"
         android:textColor="#ffff"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -143,7 +107,7 @@
         android:layout_width="80dp"
         android:layout_height="20dp"
         android:layout_marginTop="8dp"
-        android:text="14:00"
+        android:text="13:00"
         android:textColor="#000000"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -156,7 +120,7 @@
         android:layout_width="80dp"
         android:layout_height="35dp"
         android:layout_marginTop="8dp"
-        android:text="03 set"
+        android:text="01 Jan"
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -177,24 +141,24 @@
         android:id="@+id/bt_dtHenrique"
         android:layout_width="280dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="272dp"
+        android:layout_marginBottom="250dp"
         android:background="@drawable/shape_login_buttom_custom"
-        android:text="Cliínico Doutror Henrique
-            AV. Paulista"
+        android:text="Dr Fernando - Cardiologista \n Hospital Mandaqui"
         android:textAllCaps="false"
         android:textColor="#FFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.877"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.977"
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
     <TextView
         android:id="@+id/tv_5"
         android:layout_width="80dp"
         android:layout_height="20dp"
-        android:layout_marginTop="45dp"
-        android:text="15:00"
+        android:layout_marginTop="30dp"
+        android:text="15:30"
         android:textColor="#ffff"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -220,7 +184,7 @@
         android:layout_width="80dp"
         android:layout_height="35dp"
         android:layout_marginTop="8dp"
-        android:text="14 set"
+        android:text="25 Jan"
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -244,16 +208,16 @@
         android:layout_marginBottom="272dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/shape_login_buttom_custom"
-        android:text="Pediatra Doutror Afonso
-               Osasco"
+        android:text="Dr Afonso - Clinico Geral\n Hospital Mandaqui"
         android:textAllCaps="false"
         android:textColor="#FFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.877"
+        app:layout_constraintHorizontal_bias="0.977"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_texto2"
+        app:layout_constraintVertical_bias="0.500"
         />
 
     <TextView
@@ -287,7 +251,7 @@
         android:layout_width="80dp"
         android:layout_height="35dp"
         android:layout_marginTop="8dp"
-        android:text="14 set"
+        android:text="14 Fev"
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -302,17 +266,16 @@
         android:layout_marginTop="30dp"
         android:layout_marginBottom="272dp"
         android:background="@drawable/shape_login_buttom_custom"
-        android:text="Cardiologista doutor Fernando
-    Av. Paulista"
+        android:text="Dr Beatriz - Terapeuta\n Clinica Fares"
         android:textAllCaps="false"
         android:textColor="#FFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.877"
+        app:layout_constraintHorizontal_bias="0.977"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_8"
-        app:layout_constraintVertical_bias="0.177" />
+        app:layout_constraintVertical_bias="0.190" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
