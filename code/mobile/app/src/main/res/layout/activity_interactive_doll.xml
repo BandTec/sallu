@@ -269,7 +269,7 @@
                             android:layout_marginTop="8dp"
                             android:text="Problemas Cardíacos"
                             android:textColor="@color/textcardColor"
-                            android:textSize="14sp"
+                            android:textSize="12sp"
                             android:textStyle="bold"
                             android:gravity="center_horizontal" />
                     </LinearLayout>
@@ -314,7 +314,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Qubra de Ossos"
+                            android:text="Quebra de Ossos"
                             android:textColor="@color/textcardColor"
                             android:textSize="14sp"
                             android:textStyle="bold" />
