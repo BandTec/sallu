@@ -61,7 +61,7 @@
 
     <!--Tela Menu-->
     <string name="txt_emergencia_menu">Emergência</string>
-    <string name="txt_ficha_menu">Ficha Médica</string>
+    <string name="txt_ficha_menu">Consultas</string>
     <string name="txt_agendar_menu">Agendar Consulta</string>
     <string name="txt_historico_menu">Histórico Médico</string>
     <string name="txt_mapa_menu">Hospitais Próximos</string>
@@ -75,6 +75,7 @@
     <string name="erro_campo">Senhas não coicidem</string>
     <string name="erro_autentificacao_dados">login ou senha inválidos</string>
     <string name="title_activity_find_location_maps">Map</string>
+    <string name="msg_ativar_Checkout">Ativar o botão de alterar</string>
 
     <string name="msg_alterar_sucesso_config">Alteração feita com sucesso</string>
     <string name="msg_alterar_erro_config">Alteração falhou</string>

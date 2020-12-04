@@ -11,19 +11,18 @@ import kotlinx.android.synthetic.main.activity_marca_consulta.*
 import kotlinx.android.synthetic.main.activity_menu.*
 
 class MenuActivity : AppCompatActivity() {
+    var preferencias: SharedPreferences? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
-
-        var nomeUsuario= intent.extras?.getString("nome")
-        user_name.text=nomeUsuario
-        println(nomeUsuario)
+        trazerNome()
 
         var cd_emergence: androidx.cardview.widget.CardView = findViewById(R.id.cd_emergence);
         var cd_ficha_medica: androidx.cardview.widget.CardView = findViewById(R.id.cd_ficha_medica_menu);
         var cd_marca_consulta: androidx.cardview.widget.CardView = findViewById(R.id.cd_marca_consulta);
-        var cd_historico: androidx.cardview.widget.CardView = findViewById(R.id.cd_historico);
+        var cd_historico: androidx.cardview.widget.CardView = findViewById(R.id.cd_historico)
+        var cd_maps: androidx.cardview.widget.CardView = findViewById(R.id.cd_maps)
 
         var iv_power: ImageView = findViewById(R.id.iv_power);
         var iv_settings: ImageView = findViewById(R.id.iv_settings);
@@ -44,16 +43,16 @@ class MenuActivity : AppCompatActivity() {
             nextHistorico();
         }
 
+        cd_maps.setOnClickListener {
+            goToMaps();
+        }
+
         iv_power.setOnClickListener {
             turnOff();
         }
 
         iv_settings.setOnClickListener {
-            var id = intent.extras?.getString("id")
-            var usuario = intent.extras?.getString("nome")
             val telaConfig = Intent(this@MenuActivity, ConfiguracaoActivity::class.java)
-            telaConfig.putExtra("id",id)
-            telaConfig.putExtra("nome",usuario)
             startActivity(telaConfig)
         }
     }
@@ -64,11 +63,7 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private fun nextFicha() {
-        var genero = intent.extras?.getString("genero")
-        var token = intent.extras?.getString("token")
         val telaFicha = Intent(this@MenuActivity, FichaMedica::class.java)
-        telaFicha.putExtra("genero", genero)
-        telaFicha.putExtra("token", token)
         startActivity(telaFicha)
     }
 
@@ -78,15 +73,15 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private fun nextHistorico() {
-        var id = intent.extras?.getString("id")
         val telaHistorico = Intent(this@MenuActivity, HistoricoMedico::class.java)
-        telaHistorico.putExtra("id", id)
         startActivity(telaHistorico)
     }
 
     private fun turnOff() {
         var preferencias = getSharedPreferences("Autenticacao",Context.MODE_PRIVATE)
         preferencias.edit().remove("nome").commit()
+        preferencias.edit().remove("genero").commit()
+        preferencias.edit().remove("token").commit()
         preferencias.edit().remove("id").commit()
         val telaLogin = Intent(this@MenuActivity, LoginActivity::class.java)
         startActivity(telaLogin)
@@ -94,7 +89,12 @@ class MenuActivity : AppCompatActivity() {
 
     fun goToMaps() {
         val telaMaps = Intent(this, FindLocationMapsActivity::class.java)
-
         startActivity(telaMaps)
+    }
+
+    fun trazerNome(){
+        preferencias = getSharedPreferences("Autenticacao",Context.MODE_PRIVATE)
+        val nome = preferencias?.getString("nome",null)
+        user_name.text=nome
     }
 }

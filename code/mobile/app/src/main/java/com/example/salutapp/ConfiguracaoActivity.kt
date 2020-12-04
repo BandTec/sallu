@@ -18,18 +18,19 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ConfiguracaoActivity : AppCompatActivity() {
+    var preferencias: SharedPreferences? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_configuracao)
-        var nomeUsuario= intent.extras?.getString("nome")
-        tv_usuario.text=nomeUsuario
+        trazerNome()
         dadosUsuario()
     }
 
     fun dadosUsuario(){
-        var idUsuario= intent.extras?.getString("id")
+        preferencias = getSharedPreferences("Autenticacao",Context.MODE_PRIVATE)
+        val id = preferencias?.getString("id",null)
         val api = RetrofitConfig().requestUsuario()
-        val callUsuario = api.getUsuarioDados(Integer(idUsuario))
+        val callUsuario = api.getUsuarioDados(Integer(id))
 
         callUsuario.enqueue(object: Callback<Usuario> {
             override fun onFailure(call: Call<Usuario>, t: Throwable) {
@@ -71,13 +72,30 @@ class ConfiguracaoActivity : AppCompatActivity() {
                 }
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if(response.code() == 200) {
-
+                        val editor = preferencias?.edit()
+                        editor?.putString("nome", et_nome.text.toString())
+                        editor?.putString("genero",et_genero.text.toString())
+                        editor?.commit()
                         Toast.makeText(this@ConfiguracaoActivity,getString(R.string.msg_alterar_sucesso_config), Toast.LENGTH_SHORT).show()
+                        irTelaPrincipal()
                     }else{
                         Toast.makeText(this@ConfiguracaoActivity, getString(R.string.msg_alterar_erro_config), Toast.LENGTH_SHORT).show()
                     }
                 }
             })
+        }else{
+            Toast.makeText(applicationContext, getString(R.string.msg_ativar_Checkout), Toast.LENGTH_SHORT).show()
         }
+    }
+
+    fun trazerNome(){
+        preferencias = getSharedPreferences("Autenticacao",Context.MODE_PRIVATE)
+        val nome = preferencias?.getString("nome",null)
+        tv_usuario.text=nome
+    }
+
+    fun irTelaPrincipal(){
+        val telaPrincipal = Intent(this, MenuActivity::class.java)
+        startActivity(telaPrincipal)
     }
 }
