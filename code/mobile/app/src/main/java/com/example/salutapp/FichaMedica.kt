@@ -1,9 +1,14 @@
 package com.example.salutapp
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.ContextThemeWrapper
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.EditText
 import android.widget.Toast
 import androidx.core.view.marginBottom
 import com.example.salutapp.api.RetrofitConfig
@@ -20,7 +25,7 @@ import retrofit2.Response
 
 class FichaMedica : AppCompatActivity() {
     val hospitais= mutableListOf<HospitalAdapter>()
-
+    var preferencias: SharedPreferences? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ficha_medica)
@@ -49,9 +54,11 @@ class FichaMedica : AppCompatActivity() {
     }
 
     fun camposFemininos(){
-        var generoUsuario= intent.extras?.getString("genero")
-
-        if (generoUsuario.equals("F") || generoUsuario.equals("f")){
+        //val tvMusica = TextView(ContextThemeWrapper(baseContext, R.style.Tv_Item))
+        preferencias = getSharedPreferences("Autenticacao", Context.MODE_PRIVATE)
+        val generoUsuario = preferencias?.getString("genero",null)
+        if (generoUsuario.equals("F") || generoUsuario.equals("f") || generoUsuario.equals("Feminino")
+                || generoUsuario.equals("feminino")){
             et_ultCiclo.visibility = View.VISIBLE
             swAlteracaoFinalizada.visibility = View.VISIBLE
         }else{
@@ -60,8 +67,8 @@ class FichaMedica : AppCompatActivity() {
     }
 
     fun enviar (v : View){
-
-        var token= intent.extras?.getString("token")
+        preferencias = getSharedPreferences("Autenticacao", Context.MODE_PRIVATE)
+        val token = preferencias?.getString("token",null)
         val selecionado = lv_hospitais.selectedItem.toString()
         val id = hospitais.find { it.nome == selecionado }?.id
         println(id)
@@ -102,11 +109,10 @@ class FichaMedica : AppCompatActivity() {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if(response.code() == 201) {
                     Toast.makeText(this@FichaMedica, getString(R.string.msg_sucesso_ficha), Toast.LENGTH_SHORT).show()
+                    irTelaPrincipal()
                 }else{
                     println(response.code())
                     Toast.makeText(this@FichaMedica,getString(R.string.msg_erro_ficha) , Toast.LENGTH_SHORT).show()
-                    println("status code = ${response.code()}")
-                    println("resposta = ${response}")
                 }
             }
             override fun onFailure(call: Call<Void>, t: Throwable) {
@@ -117,5 +123,10 @@ class FichaMedica : AppCompatActivity() {
 
     fun enviarEmailMedico(){
 
+    }
+
+    fun irTelaPrincipal(){
+        val telaPrincipal = Intent(this, MenuActivity::class.java)
+        startActivity(telaPrincipal)
     }
 }

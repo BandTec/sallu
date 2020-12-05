@@ -1,5 +1,4 @@
 package com.example.salutapp.api.model
-
 import java.math.BigDecimal
 
 data class FichaMedica(

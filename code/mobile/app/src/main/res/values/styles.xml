@@ -25,4 +25,8 @@
         <item name="android:layout_marginBottom">200dp</item>
     </style>
 
+    <style name="campo_alergias">
+        <item name="android:layout_marginTop">80dp</item>
+    </style>
+
 </resources>

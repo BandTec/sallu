@@ -42,7 +42,7 @@ class RegisterActivity : AppCompatActivity() {
                         Toast.makeText(this@RegisterActivity, getString(R.string.cadastro_feito), Toast.LENGTH_SHORT).show()
                         irTelaLogin()
                     }else{
-                        Toast.makeText(this@RegisterActivity, "Erro no cadastro, tente novamente!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@RegisterActivity, getString(R.string.cadastro_falhou) , Toast.LENGTH_SHORT).show()
                     }
                 }
 

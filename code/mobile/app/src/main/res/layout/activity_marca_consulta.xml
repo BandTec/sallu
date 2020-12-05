@@ -19,51 +19,15 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:text="09"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/et_ficha1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.117"
-        app:layout_constraintStart_toEndOf="@+id/iv_fotoConsulta" />
-
-    <TextView
-        android:layout_width="40dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="4dp"
-        android:text="Seg"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/et_ficha1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.796" />
-
-    <TextView
-        android:layout_width="65dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:text="Nov 2020"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/et_ficha1"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
         android:id="@+id/et_ficha1"
-        android:layout_width="90dp"
+        android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_marginBottom="128dp"
         android:background="@drawable/custom_today_box"
-        android:paddingLeft="30dp"
+        android:paddingLeft="10dp"
         android:text="@string/txt_btn_marcar"
-        android:textAlignment="textStart"
         android:textColor="#FC6963"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/cv_calendario"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +55,7 @@
     <EditText
         android:id="@+id/et_coluna"
         android:layout_width="110dp"
-        android:layout_height="390dp"
+        android:layout_height="450dp"
         android:background="#D9D9D9"
         app:layout_constraintTop_toBottomOf="@+id/cv_calendario"
         tools:layout_editor_absoluteX="0dp" />
@@ -114,14 +78,14 @@
         android:id="@+id/tv_2"
         android:layout_width="100dp"
         android:layout_height="35dp"
+        android:layout_marginLeft="130dp"
         android:layout_marginTop="12dp"
         android:text="@string/txt_titulo_marcar"
         android:textColor="#000000"
-        android:layout_marginLeft="130dp"
-        android:textStyle="bold"
         android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cv_calendario" />
 
@@ -129,12 +93,12 @@
         android:id="@+id/tv_3"
         android:layout_width="80dp"
         android:layout_height="20dp"
-        android:layout_marginTop="28dp"
-        android:text="@string/txt_horario_marcar"
+        android:layout_marginTop="60dp"
+        android:text="14:00"
         android:textColor="#ffff"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_1" />
 
@@ -142,63 +106,50 @@
         android:id="@+id/tv_4"
         android:layout_width="80dp"
         android:layout_height="20dp"
-        android:layout_marginTop="8dp"
-        android:text="14:00"
+        android:layout_marginTop="28dp"
+        android:text="13:00"
         android:textColor="#000000"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_2" />
 
-    <TextView
-        android:id="@+id/tv_texto"
-        android:layout_width="80dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="8dp"
-        android:text="03 set"
-        android:textColor="#000000"
-        android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_3" />
-
     <View
+        android:id="@+id/v_linha2"
         android:layout_width="fill_parent"
         android:layout_height="1dp"
         android:background="#000000"
         android:focusable="false"
-        android:id="@+id/v_linha2"
-        app:layout_constraintTop_toBottomOf="@id/tv_texto"
-        />
+        tools:layout_editor_absoluteX="-5dp"
+        tools:layout_editor_absoluteY="513dp" />
 
     <Button
         android:id="@+id/bt_dtHenrique"
         android:layout_width="280dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="272dp"
+        android:layout_marginBottom="276dp"
         android:background="@drawable/shape_login_buttom_custom"
-        android:text="Cliínico Doutror Henrique
-            AV. Paulista"
+        android:text="Dr Fernando - Cardiologista \n Hospital Mandaqui"
         android:textAllCaps="false"
         android:textColor="#FFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.877"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
+
 
     <TextView
         android:id="@+id/tv_5"
         android:layout_width="80dp"
         android:layout_height="20dp"
-        android:layout_marginTop="45dp"
-        android:text="15:00"
+        android:layout_marginTop="112dp"
+        android:text="15:30"
         android:textColor="#ffff"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bt_dtHenrique" />
 
@@ -211,108 +162,38 @@
         android:textColor="#000000"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_5" />
-
-    <TextView
-        android:id="@+id/tv_texto2"
-        android:layout_width="80dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="8dp"
-        android:text="14 set"
-        android:textColor="#000000"
-        android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_6" />
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:background="#000000"
-        android:focusable="false"
-        android:id="@+id/v_linha3"
-        app:layout_constraintTop_toBottomOf="@id/tv_texto2"
-        />
 
     <Button
         android:id="@+id/bt_dtAfonso"
         android:layout_width="280dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="272dp"
         android:layout_marginTop="30dp"
+        android:layout_marginBottom="92dp"
         android:background="@drawable/shape_login_buttom_custom"
-        android:text="Pediatra Doutror Afonso
-               Osasco"
+        android:text="Dr Afonso - Clinico Geral\n Hospital Mandaqui"
         android:textAllCaps="false"
         android:textColor="#FFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.877"
+        app:layout_constraintHorizontal_bias="0.961"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_texto2"
-        />
-
-    <TextView
-        android:id="@+id/tv_7"
-        android:layout_width="80dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="45dp"
-        android:text="15:00"
-        android:textColor="#ffff"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bt_dtAfonso" />
-
-    <TextView
-        android:id="@+id/tv_8"
-        android:layout_width="80dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="8dp"
-        android:text="16:30"
-        android:textColor="#000000"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_7" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/tv_texto3"
         android:layout_width="80dp"
         android:layout_height="35dp"
-        android:layout_marginTop="8dp"
-        android:text="14 set"
+        android:text="14 Fev"
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_8" />
-
-    <Button
-        android:id="@+id/bt_dtFernando"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="272dp"
-        android:background="@drawable/shape_login_buttom_custom"
-        android:text="Cardiologista doutor Fernando
-    Av. Paulista"
-        android:textAllCaps="false"
-        android:textColor="#FFF"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.877"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_8"
-        app:layout_constraintVertical_bias="0.177" />
+        tools:layout_editor_absoluteY="740dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
