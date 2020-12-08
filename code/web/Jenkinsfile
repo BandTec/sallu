@@ -4,16 +4,16 @@ pipeline {
         stage("Cache Cleaning") {
             steps {
                 sh "sudo docker system prune"
-                sh "yarn cache clean"
+                sh "sudo yarn cache clean"
                 sh "sudo find /tmp -type f -atime +10 -delete"
             }
         }
 
         stage("Build") {
             steps {
-                sh "cd ./code/web"
+                sh "sudo cd ./code/web"
                 sh "sudo yarn install"
-                sh "cp ./prod.env ./.env"
+                sh "sudo cp ./prod.env ./.env"
                 sh "sudo yarn build"
             }
         }
