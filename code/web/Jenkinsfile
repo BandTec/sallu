@@ -1,0 +1,27 @@
+pipeline {
+     agent any
+     stages {
+        stage("Cache Cleaning") {
+            steps {
+                sh "sudo docker system prune"
+                sh "yarn cache clean"
+                sh "sudo find /tmp -type f -atime +10 -delete"
+            }
+        }
+
+        stage("Build") {
+            steps {
+                sh "cd ./code/web"
+                sh "sudo yarn install"
+                sh "cp ./prod.env ./.env"
+                sh "sudo yarn build"
+            }
+        }
+        stage("Deploy") {
+            steps {
+                sh "sudo rm -rf /usr/share/nginx/html/*"
+                sh "sudo cp -r ./build/* /usr/share/nginx/html"
+            }
+        }
+    }
+}
