@@ -3,27 +3,28 @@ pipeline {
      stages {
         stage("Cache Cleaning") {
             steps {
-                sh "sudo docker system prune"
-                sh "sudo yarn cache clean"
-                sh "sudo find /tmp -type f -atime +10 -delete"
-                sh "sudo pwd"
+              sh "sudo docker system prune"
+              sh "sudo yarn cache clean"
+              sh "sudo find /tmp -type f -atime +10 -delete"
+              sh "sudo pwd"
             }
         }
-
-        dir('./code/web') {
-            stage("Build") {
-                steps {
-                    sh "sudo yarn install"
-                    sh "sudo yarn build"
-                    sh "sudo cp ./prod.env ./.env"
-                }
+        stage("Build") {
+          dir('./code/web') {
+            steps {
+              sh "sudo yarn install"
+              sh "sudo yarn build"
+              sh "sudo cp ./prod.env ./.env"
             }
-            stage("Deploy") {
-                steps {
-                    sh "sudo rm -rf /usr/share/nginx/html/*"
-                    sh "sudo cp -r ./build/* /usr/share/nginx/html"
-                }
+          }
+        }
+        stage("Deploy") {
+          dir('./code/web') {
+            steps {
+              sh "sudo rm -rf /usr/share/nginx/html/*"
+              sh "sudo cp -r ./build/* /usr/share/nginx/html"
             }
+          }
         }
     }
 }
