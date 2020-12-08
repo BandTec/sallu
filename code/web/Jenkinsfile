@@ -10,8 +10,8 @@ pipeline {
             }
         }
         stage("Build") {
-          dir('./code/web') {
-            steps {
+          steps {
+            dir('./code/web') {
               sh "sudo yarn install"
               sh "sudo yarn build"
               sh "sudo cp ./prod.env ./.env"
@@ -19,8 +19,8 @@ pipeline {
           }
         }
         stage("Deploy") {
-          dir('./code/web') {
-            steps {
+          steps {
+            dir('./code/web') {
               sh "sudo rm -rf /usr/share/nginx/html/*"
               sh "sudo cp -r ./build/* /usr/share/nginx/html"
             }
