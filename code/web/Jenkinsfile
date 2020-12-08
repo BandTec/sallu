@@ -6,16 +6,17 @@ pipeline {
                 sh "sudo docker system prune"
                 sh "sudo yarn cache clean"
                 sh "sudo find /tmp -type f -atime +10 -delete"
-                sh "cd ./code/web"
                 sh "sudo pwd"
             }
         }
 
         stage("Build") {
             steps {
-                sh "sudo yarn install"
-                sh "sudo cp ./prod.env ./.env"
-                sh "sudo yarn build"
+                dir('./code/web') {
+                    sh "sudo yarn build"
+                    sh "sudo yarn install"
+                    sh "sudo cp ./prod.env ./.env"
+                }
             }
         }
         stage("Deploy") {
