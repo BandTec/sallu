@@ -13,8 +13,8 @@ pipeline {
         stage("Build") {
             steps {
                 dir('./code/web') {
-                    sh "sudo yarn build"
                     sh "sudo yarn install"
+                    sh "sudo yarn build"
                     sh "sudo cp ./prod.env ./.env"
                 }
             }
