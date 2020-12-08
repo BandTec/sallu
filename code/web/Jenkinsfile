@@ -11,7 +11,7 @@ pipeline {
 
         stage("Build") {
             steps {
-                sh "sudo cd ./code/web"
+                sh "cd ./code/web"
                 sh "sudo yarn install"
                 sh "sudo cp ./prod.env ./.env"
                 sh "sudo yarn build"
