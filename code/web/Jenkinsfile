@@ -10,19 +10,19 @@ pipeline {
             }
         }
 
-        stage("Build") {
-            steps {
-                dir('./code/web') {
+        dir('./code/web') {
+            stage("Build") {
+                steps {
                     sh "sudo yarn install"
                     sh "sudo yarn build"
                     sh "sudo cp ./prod.env ./.env"
                 }
             }
-        }
-        stage("Deploy") {
-            steps {
-                sh "sudo rm -rf /usr/share/nginx/html/*"
-                sh "sudo cp -r ./build/* /usr/share/nginx/html"
+            stage("Deploy") {
+                steps {
+                    sh "sudo rm -rf /usr/share/nginx/html/*"
+                    sh "sudo cp -r ./build/* /usr/share/nginx/html"
+                }
             }
         }
     }
