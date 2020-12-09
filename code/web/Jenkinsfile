@@ -19,7 +19,7 @@ pipeline {
         stage("Deploy") {
           steps {
             dir('./code/web') {
-              sh "sudo docker run -p 80:80 sallu-web"
+              sh "sudo docker run -p 80:80 sallu-web & exit 0"
             }
           }
         }
