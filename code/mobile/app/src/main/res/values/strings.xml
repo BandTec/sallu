@@ -37,6 +37,10 @@
     <!--Tela Historico-->
     <string name="txt_titulo_historico">Histórico Médico</string>
     <string name="txt_btn_visualizar">Visualizar Anteriores</string>
+    <string name="txt_nome_hospital">Nome Hospital</string>
+    <string name="txt_telefone_historico">Telefone</string>
+    <string name="txt_pressao_historico">Pressão</string>
+    <string name="txt_temperatura_historico">Temperatura</string>
 
     <!--Tela Agendamento-->
     <string name="txt_data_marcar">16/10/2020</string>
@@ -45,6 +49,17 @@
     <string name="txt_titulo_marcar">Consultas</string>
     <string name="txt_horario_marcar">12:00</string>
     <string name="txt_especialidade_marcar">Cardiologista Doutror Fernando Av. Paulista</string>
+
+    <!--Tela Emergencia-->
+    <string name="txt_dor_cabeça">Dores de Cabeça</string>
+    <string name="txt_dor_ocular">Dores Oculares</string>
+    <string name="txt_dor_renais">Dores Renais</string>
+    <string name="txt_dor_figado">Dores no Fígado</string>
+    <string name="txt_dor_pulmao">Dores Pulmonares</string>
+    <string name="txt_dor_cardiaca">Problemas Cardíacos</string>
+    <string name="txt_dor_ossos">Quebra de Ossos</string>
+    <string name="txt_dor_veia">Problemas nas Veias</string>
+    <string name="btn_enviar_emergencia">Enviar</string>
 
     <!--Tela ficha medica-->
     <string name="txt_titulo_ficha">Agendamento</string>
@@ -76,10 +91,14 @@
     <string name="erro_autentificacao_dados">login ou senha inválidos</string>
     <string name="title_activity_find_location_maps">Map</string>
     <string name="msg_ativar_Checkout">Ativar o botão de alterar</string>
+    <string name="msg_voltar_erro">Para voltar a tela de login por favor efetuar logout</string>
 
     <string name="msg_alterar_sucesso_config">Alteração feita com sucesso</string>
     <string name="msg_alterar_erro_config">Alteração falhou</string>
 
     <string name="msg_sucesso_ficha">Ficha enviada com sucesso</string>
     <string name="msg_erro_ficha">Erro ao enviar ficha</string>
+    <string name="msg_email_emergencia_sucesso">Formulario enviado para o médico com sucesso</string>
+    <string name="msg_email_emergencia_erro">Erro no envio do formulario</string>
+    <string name="msg_sintoma_emergencia">Sintoma registrado no formulario</string>
 </resources>

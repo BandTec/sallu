@@ -46,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
-        android:text="Nome Hospital"
+        android:text="@string/txt_nome_hospital"
         android:textColor="#000000"
         android:textSize="15dp"
         android:textStyle="bold"
@@ -59,7 +59,7 @@
         android:id="@+id/tv_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Telefone"
+        android:text="@string/txt_telefone_historico"
         android:textColor="#000000"
         android:textSize="15dp"
         android:textStyle="bold"
@@ -74,7 +74,7 @@
         android:id="@+id/tv_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pressão"
+        android:text="@string/txt_pressao_historico"
         android:textColor="#000000"
         android:textSize="15dp"
         android:textStyle="bold"
@@ -89,7 +89,7 @@
         android:id="@+id/tv_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Temperatura"
+        android:text="@string/txt_temperatura_historico"
         android:textColor="#000000"
         android:textSize="15dp"
         android:textStyle="bold"
@@ -112,8 +112,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@+id/tv_1"
             android:id="@+id/ll_conteudo"
-            android:paddingLeft="15dp"
-            android:layout_marginLeft="12dp"
+
             android:orientation="vertical">
         </LinearLayout>
 

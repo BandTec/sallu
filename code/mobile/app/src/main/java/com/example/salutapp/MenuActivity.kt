@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import com.example.salutapp.api.model.Login
 import kotlinx.android.synthetic.main.activity_marca_consulta.*
 import kotlinx.android.synthetic.main.activity_menu.*
@@ -83,6 +84,7 @@ class MenuActivity : AppCompatActivity() {
         preferencias.edit().remove("genero").commit()
         preferencias.edit().remove("token").commit()
         preferencias.edit().remove("id").commit()
+        preferencias.edit().remove("email").commit()
         val telaLogin = Intent(this@MenuActivity, LoginActivity::class.java)
         startActivity(telaLogin)
     }
@@ -96,5 +98,9 @@ class MenuActivity : AppCompatActivity() {
         preferencias = getSharedPreferences("Autenticacao",Context.MODE_PRIVATE)
         val nome = preferencias?.getString("nome",null)
         user_name.text=nome
+    }
+
+    override fun onBackPressed() {
+        Toast.makeText(this, getString(R.string.msg_voltar_erro), Toast.LENGTH_SHORT).show()
     }
 }

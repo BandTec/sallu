@@ -60,4 +60,21 @@
     <string name="msg_erro_ficha">Error sending file</string>
     <string name="cadastro_falhou">Error in registration, try again!</string>
     <string name="msg_ativar_Checkout">Activate the change button</string>
+    <string name="msg_voltar_erro">To return to the login screen please log out</string>
+    <string name="txt_nome_hospital">Name Hospital</string>
+    <string name="txt_telefone_historico">telephone</string>
+    <string name="txt_pressao_historico">Pressure</string>
+    <string name="txt_temperatura_historico">Temperature</string>
+    <string name="txt_dor_cabeça">Headaches</string>
+    <string name="txt_dor_ocular">Eye Pains</string>
+    <string name="txt_dor_renais">Kidney Pain</string>
+    <string name="txt_dor_figado">Liver Pain</string>
+    <string name="txt_dor_pulmao">Lung Pain</string>
+    <string name="txt_dor_cardiaca">Heart problems</string>
+    <string name="txt_dor_ossos">Bone Breaking</string>
+    <string name="txt_dor_veia">Vein Problems</string>
+    <string name="btn_enviar_emergencia">Submit</string>
+    <string name="msg_email_emergencia_sucesso">Form sent to the doctor successfully</string>
+    <string name="msg_email_emergencia_erro">Error sending the form</string>
+    <string name="msg_sintoma_emergencia">Symptom recorded on the form</string>
 </resources>

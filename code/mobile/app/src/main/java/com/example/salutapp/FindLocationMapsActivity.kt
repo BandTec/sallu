@@ -224,8 +224,8 @@ class FindLocationMapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         when (button.id) {
             R.id.btn_uber -> openUberApp()
-            R.id.btn_noventa_e_nove -> {
-            }
+            //R.id.btn_noventa_e_nove -> {
+            //}
         }
     }
 }

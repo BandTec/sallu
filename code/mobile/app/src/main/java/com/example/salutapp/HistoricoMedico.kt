@@ -58,8 +58,8 @@ class HistoricoMedico : AppCompatActivity() {
                         telefone.text = ficha.hospital.telephone.toString()
                         pressao.text = ficha.bloodPressure.toString()
                         temperatura.text = ficha.bodyTemperature.toString()
-                        var textoResposta = "  ${ficha.hospital.name.toString()}    ${ficha.hospital.telephone.toString()}  " +
-                                " ${ficha.bloodPressure.toString()}               ${ficha.bodyTemperature.toString()}\n"
+                        var textoResposta = "${ficha.hospital.name.toString()}     ${ficha.hospital.telephone.toString()}  " +
+                                "      ${ficha.bloodPressure.toString()}              ${ficha.bodyTemperature.toString()}\n"
                         textoRespostaTxt.text = textoResposta.toString()
                         ll_conteudo.addView(textoRespostaTxt)
                         //ll_conteudo.addView(telefone)

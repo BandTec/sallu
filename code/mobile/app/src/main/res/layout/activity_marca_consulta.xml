@@ -183,17 +183,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
-        android:id="@+id/tv_texto3"
-        android:layout_width="80dp"
-        android:layout_height="35dp"
-        android:text="14 Fev"
-        android:textColor="#000000"
-        android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="740dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

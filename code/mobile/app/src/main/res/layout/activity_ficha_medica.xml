@@ -45,6 +45,7 @@
         android:layout_marginLeft="5dp"
         android:paddingLeft="45dp"
         android:textSize="18sp"
+        android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />

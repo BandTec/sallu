@@ -28,8 +28,9 @@ class LoginActivity : AppCompatActivity() {
         val nome = preferencias?.getString("nome",null)
         val genero = preferencias?.getString("genero",null)
         val token = preferencias?.getString("token",null)
+        val email = preferencias?.getString("email",null)
 
-        if (nome != null  && id != null && genero != null && token != null){
+        if (nome != null  && id != null && genero != null && token != null && email != null){
             irTelaPrincipal()
         }
     }
@@ -71,12 +72,14 @@ class LoginActivity : AppCompatActivity() {
                     var nome: String = ""
                     var genero: String =""
                     var token: String = ""
+                    var email : String = ""
                     response?.body()?.let {
                         //it é o corpo de retorno da requisição
                         id= it.user.id
                         nome = it.user.name
                         genero= it.user.sex
                         token = it.token
+                        email = it.user.email
                         println(nome);
                         println(id)
                         println(genero)
@@ -91,6 +94,7 @@ class LoginActivity : AppCompatActivity() {
                     editor?.putString("genero",genero)
                     editor?.putString("id",id.toString())
                     editor?.putString("token",token)
+                    editor?.putString("email",email)
                     editor?.commit()
                     startActivity(telaHome)
                 }else{

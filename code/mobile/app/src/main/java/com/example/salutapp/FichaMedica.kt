@@ -122,7 +122,7 @@ class FichaMedica : AppCompatActivity() {
     }
 
     fun enviarEmailMedico(){
-
+       
     }
 
     fun irTelaPrincipal(){

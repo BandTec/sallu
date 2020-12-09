@@ -64,7 +64,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Dores de Cabeça"
+                            android:text="@string/txt_dor_cabeça"
                             android:textColor="@color/textcardColor"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -101,7 +101,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Dores Oculares"
+                            android:text="@string/txt_dor_ocular"
                             android:textColor="@color/textcardColor"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -147,7 +147,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Dores Renais"
+                            android:text="@string/txt_dor_renais"
                             android:textColor="@color/textcardColor"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -184,7 +184,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Dores no Fígado"
+                            android:text="@string/txt_dor_figado"
                             android:textColor="@color/textcardColor"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -230,7 +230,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Dores Pulmonares"
+                            android:text="@string/txt_dor_pulmao"
                             android:textColor="@color/textcardColor"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -267,7 +267,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Problemas Cardíacos"
+                            android:text="@string/txt_dor_cardiaca"
                             android:textColor="@color/textcardColor"
                             android:textSize="12sp"
                             android:textStyle="bold"
@@ -314,7 +314,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Quebra de Ossos"
+                            android:text="@string/txt_dor_ossos"
                             android:textColor="@color/textcardColor"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -351,7 +351,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Problemas nas Veias"
+                            android:text="@string/txt_dor_veia"
                             android:textColor="@color/textcardColor"
                             android:textSize="12sp"
                             android:textStyle="bold" />
@@ -371,8 +371,9 @@
         android:layout_height="55dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/shape_login_buttom_custom"
-        android:text="Enviar"
+        android:text="@string/btn_enviar_emergencia"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/nestedScrollView"
