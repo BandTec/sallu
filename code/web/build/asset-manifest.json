@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.js": "/static/js/main.01860912.chunk.js",
+    "main.js.map": "/static/js/main.01860912.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.bfca2edd.js",
+    "runtime-main.js.map": "/static/js/runtime-main.bfca2edd.js.map",
+    "static/js/2.0d0d268c.chunk.js": "/static/js/2.0d0d268c.chunk.js",
+    "static/js/2.0d0d268c.chunk.js.map": "/static/js/2.0d0d268c.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.e5db254257ecdb8f13c0884309b6684d.js": "/precache-manifest.e5db254257ecdb8f13c0884309b6684d.js",
+    "service-worker.js": "/service-worker.js",
+    "static/js/2.0d0d268c.chunk.js.LICENSE.txt": "/static/js/2.0d0d268c.chunk.js.LICENSE.txt",
+    "static/media/doctors.svg": "/static/media/doctors.367a4d8d.svg",
+    "static/media/logo-alt-transparent.svg": "/static/media/logo-alt-transparent.0f307e9d.svg",
+    "static/media/logo-alt.svg": "/static/media/logo-alt.b5a91c95.svg",
+    "static/media/logo-transparent.svg": "/static/media/logo-transparent.08274b7a.svg",
+    "static/media/logo.svg": "/static/media/logo.6a296b41.svg",
+    "static/media/medicine.svg": "/static/media/medicine.cb3b456c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bfca2edd.js",
+    "static/js/2.0d0d268c.chunk.js",
+    "static/js/main.01860912.chunk.js"
+  ]
+}
