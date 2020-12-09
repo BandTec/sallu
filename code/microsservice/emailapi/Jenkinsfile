@@ -4,23 +4,21 @@ pipeline {
         stage("Cache Cleaning") {
             steps {
               sh "sudo docker system prune"
-              sh "sudo yarn cache clean"
               sh "sudo find /tmp -type f -atime +10 -delete"
               sh "sudo pwd"
             }
         }
         stage("Build") {
           steps {
-            dir('./code/web') {
-              sh "sudo cp ./prod.env ./.env"
-              sh "sudo docker build -t sallu-web ."
+            dir('./code/microsservice/emailapi') {
+              sh "sudo docker build -t sallu-emailapi ."
             }
           }
         }
         stage("Deploy") {
           steps {
-            dir('./code/web') {
-              sh "sudo docker run -p 80:80 sallu-web"
+            dir('./code/microsservice/emailapi') {
+              sh "sudo docker run -p 80:8080 sallu-emailapi"
             }
           }
         }
