@@ -8,7 +8,7 @@ COPY pom.xml /build/
 
 RUN mvn clean install
 
-FROM openjdk:8-jdk-alpine
+FROM openjdk:11-jre-slim
 
 COPY --from=build /build/target/api-0.0.1-SNAPSHOT.jar ./app.jar
 
