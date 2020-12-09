@@ -12,7 +12,6 @@ pipeline {
         stage("Build") {
           steps {
             dir('./code/web') {
-              sh "sudo cp ./prod.env ./.env"
               sh "sudo docker build -t sallu-web ."
             }
           }
