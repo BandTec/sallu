@@ -3,7 +3,7 @@ pipeline {
      stages {
         stage("Cache Cleaning") {
             steps {
-              sh "sudo docker system prune"
+              sh "sudo docker system prune --force --all --volumes"
               sh "sudo find /tmp -type f -atime +10 -delete"
               sh "sudo pwd"
             }
@@ -18,7 +18,7 @@ pipeline {
         stage("Deploy") {
           steps {
             dir('./code/api') {
-              sh "sudo docker run -p 80:8080 sallu-api"
+              sh "sudo docker run -p 80:8080 sallu-api & exit 0"
             }
           }
         }
